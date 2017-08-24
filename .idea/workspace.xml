@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="682c7aba-68e9-4177-8679-bfb82ce106fe" name="Default" comment="" />
+    <list default="true" id="682c7aba-68e9-4177-8679-bfb82ce106fe" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArtGallery/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArtGallery/admin.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArtGallery/apps.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArtGallery/migrations/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArtGallery/models.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArtGallery/tests.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArtGallery/views.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ELEC9609/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ELEC9609/settings.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ELEC9609/urls.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ELEC9609/wsgi.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/manage.py" afterPath="" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -10,28 +24,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ELEC9609/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ELEC9609/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -63,7 +56,22 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="ELEC9609" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ELEC9609" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ELEC9609" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ELEC9609" type="462c0819:PsiDirectoryNode" />
+              <item name="ELEC9609" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
