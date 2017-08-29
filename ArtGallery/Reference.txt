@@ -1,0 +1,7 @@
+Images reference:
+templates/account/images/bg_login.jpg
+http://image.17sucai.com/upload/55/2013-05-20/f94150c64a97258cb8a3f667eb9e9052.jpg
+
+Code reference:
+Login page:
+https://www.bootply.com/lc6BzaVtnN
