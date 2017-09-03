@@ -8,4 +8,4 @@ Completed the analysis of Entity Diagram
 
 Completed the models(tables)
 
-
+Completed read the artworks
