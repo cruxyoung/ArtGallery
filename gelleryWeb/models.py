@@ -20,6 +20,7 @@ class ArtWork(models.Model):
     artist_id = models.ForeignKey(Users)
 
     aw_name = models.CharField(null=True, max_length=64)
+    aw_img = models.ImageField(default="/static/img/img-default.png")
     aw_description = models.CharField(null=True, max_length=256)
     aw_location = models.CharField(null=True, max_length=32)
     aw_time = models.DateTimeField()
