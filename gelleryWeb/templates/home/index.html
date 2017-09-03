@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+</head>
+<body>
+    {% for artwork in artworks %}
+        Artwork Name: <b>{{ artwork.aw_name }}</b><br/>
+        Artwork Description: {{ artwork.aw_description }}<br/>
+        Artwork Location: {{ artwork.aw_location }}<br/>
+        Artwork Type: {{ artwork.aw_type }}<br/>
+        Artwork Genre: {{ artwork.aw_genre }}<br/>
+        Artwork Image: <br/>
+        <img src="{{ artwork.aw_img }}" alt="">
+    {% endfor %}
+</body>
+</html>
