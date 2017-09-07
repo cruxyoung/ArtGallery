@@ -17,6 +17,8 @@ from django.conf import settings
 from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.contrib import admin
+from ArtGallery import view
+
 
 
 from . import view
@@ -25,6 +27,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', view.hello),
     url('^accounts/', include('django.contrib.auth.urls')),
+    url('^accounts/signup/$', view.signup),
 
 ]
 
