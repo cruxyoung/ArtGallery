@@ -21,7 +21,6 @@ from ArtGallery import view
 from ArtGallery.controllers import personal_controller
 
 
-
 from . import view
 
 urlpatterns = [
@@ -30,10 +29,10 @@ urlpatterns = [
 
     url('^accounts/', include('django.contrib.auth.urls')),
     url('^accounts/signup/$', view.signup),
-    # url('^index/$', view.index, name='index'),
+    url('^index/$', view.index_ignore, name='index'),
 
     # personal page url, including customers' and artists'
-    url('^personal_world/$', personal_controller.personal_art_world)
+    url('^personal_world/(?P<customer_id>[0-9]+)/$', personal_controller.personal_art_world, name='personal_world')
 
 ]
 

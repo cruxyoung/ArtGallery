@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 # User profile, represent table "user" in design
 # Inherit THE DJANGO EMBEDDED AUTHENICATION SYSTEM
 # THE EMBEDDED SYSTEM ALREADY INCLUDE NAME AND EMAIL
+
+
 class UserProfile(models.Model):
     user_id = models.ForeignKey(User)
 
@@ -48,7 +50,6 @@ class AuctionHistory(models.Model):
 
     ah_amount = models.FloatField(default=0.0)
     ah_aucTime = models.DateTimeField()
-
 
 
 # Reward

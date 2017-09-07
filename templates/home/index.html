@@ -5,6 +5,9 @@
     <title>Art Gallery</title>
 </head>
 <body>
-
+    {% for customer in art_customers %}
+        <a href="{% url 'personal_world' customer.id %}">{{ customer.username}}</a>
+        <hr/>
+    {% endfor %}
 </body>
 </html>

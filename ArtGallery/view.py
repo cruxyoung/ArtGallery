@@ -23,5 +23,8 @@ def signup(request):
     return render(request, 'registration/signup.html', {'form': form})
 
 
+def index_ignore(request):
+    art_customers = models.User.objects.all()
 
+    return render(request, 'home/index.html', {'art_customers': art_customers})
 
