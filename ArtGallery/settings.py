@@ -124,3 +124,11 @@ STATICFILES_DIRS = (
 )
 STATIC_URL = '/static/'
 
+# Email configuration
+# Do not use this in real world project
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'czxbnb@gmail.com'
+EMAIL_HOST_PASSWORD = 'Cheng2277980.'
+EMAIL_PORT = 587

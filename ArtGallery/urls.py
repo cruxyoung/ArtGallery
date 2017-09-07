@@ -17,18 +17,19 @@ from django.conf import settings
 from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.contrib import admin
-from ArtGallery import view
+from ArtGallery import views
 
 
 
-from . import view
+from . import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', view.hello),
+    url(r'^$', views.hello),
     url('^accounts/', include('django.contrib.auth.urls')),
-    url('^accounts/signup/$', view.signup),
-
+    url('^accounts/signup/$', views.signup),
+    url('^accounts/activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
+        views.activate, name='activate'),
 ]
 
 if settings.DEBUG:
