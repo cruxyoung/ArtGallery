@@ -18,6 +18,7 @@ from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.contrib import admin
 from ArtGallery import view
+from ArtGallery.controllers import personal_controller
 
 
 
@@ -26,8 +27,13 @@ from . import view
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', view.hello),
+
     url('^accounts/', include('django.contrib.auth.urls')),
     url('^accounts/signup/$', view.signup),
+    # url('^index/$', view.index, name='index'),
+
+    # personal page url, including customers' and artists'
+    url('^personal_world/$', personal_controller.personal_art_world)
 
 ]
 
