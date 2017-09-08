@@ -23,6 +23,7 @@ class ArtWork(models.Model):
     artist_id = models.ForeignKey(User)
 
     aw_name = models.CharField(null=True, max_length=64)
+
     aw_img = models.ImageField(default="/static/images/profile-default.png")
     aw_description = models.CharField(null=True, max_length=256)
     aw_location = models.CharField(null=True, max_length=32)
@@ -66,7 +67,7 @@ class Reward(models.Model):
 # Favorite Record
 class FavoriteRecord(models.Model):
     # Foreign Key
-    artist_id = models.ForeignKey(User)
+    customer_id = models.ForeignKey(User)
     aw_id = models.ForeignKey(ArtWork)
 
     fav_time = models.DateTimeField()

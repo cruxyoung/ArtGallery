@@ -4,7 +4,6 @@
 {% block body %}
 
     <div id="portfolio" class="color white">
-
         <!--start: Container -->
         <div class="container">
             <!--start: Wrapper -->
@@ -16,28 +15,9 @@
                     </div>
                 </div>
                 <!-- end: Page Title -->
-
-                <!-- start: Flexslider -->
-                <!--
-			<div class="slider">
-				<div id="flex1" class="flexslider">
-					<ul class="slides">
-
-						<li><div class="picture"><img src="img/slider/slider1.jpg" alt="" /></div></li>
-
-						<li><div class="picture"><img src="img/slider/slider2.jpg" alt="" /></div></li>
-
-						<li><div class="picture"><img src="img/slider/slider3.jpg" alt="" /></div></li>
-
-					</ul>
-				</div>
-			</div>
--->
-                <!-- end: Flexslider -->
-
                 <div id="filters">
                     <ul class="option-set" data-option-key="filter">
-                        <li><a href="#filter" class="selected" data-option-value="*">FAVORITE</a></li>
+                        <li><a href="#filter">FAVORITE</a></li>
                         <li>/</li>
                         <li><a href="#filter">AUCTIONS</a></li>
                         <li>/</li>
@@ -54,24 +34,38 @@
 
                 <!-- start: Portfolio -->
                 <div id="portfolio-wrapper" class="row-fluid">
-                    <div class="span4 portfolio-item website html5 css3 responsive">
-                        <div class="picture">
-                            <a href="" title="Smart Responsive Template"><img src="" alt="" />
-                                <div class="image-overlay-link"></div>
-                            </a>
-                            <div class="item-description alt">
-                                <h5><a href="">Smart Responsive Bootstrap Template</a></h5>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-                                </p>
-                            </div>
-                        </div>
+                    <div class="span3 portfolio-item website html5 css3 responsive" style="text-align: right">
+                        <ul>
+                            <li><a href="#">DateTime</a></li>
+                            <li><a href="#">Artist</a></li>
+                            <li><a href="#">Genre</a></li>
+                        </ul>
                     </div>
 
+                    <!-- Display Area -->
+                    <div class="span8">
+                        {% for fav_aw in fav_artworks %}
+
+                            <div class="span4 portfolio-item website html5 css3 responsive">
+                            <div class="picture">
+                                <a href="" title="fav_aw"><img src="{{ fav_aw.aw_img }}" alt="" />
+                                    <div class="image-overlay-link"></div>
+                                </a>
+
+                                <div class="item-description alt">
+                                    <h5><a href="">{{ fav_aw.aw_name }}</a></h5>
+                                    <p>
+                                        {{ fav_aw.aw_description }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
                 </div>
+                <!-- end: Portfolio -->
             </div>
             <!-- end: Wrapper -->
-
         </div>
         <!--end: Container -->
 

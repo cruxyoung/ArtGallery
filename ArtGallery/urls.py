@@ -36,7 +36,7 @@ urlpatterns = [
 
 
     # personal page url, including customers' and artists'
-    url('^personal_world/(?P<customer_id>[0-9]+)/$', personal_controller.personal_art_world, name='personal_world')
+    url('^personal_world/(?P<user_id>[0-9]+)/$', personal_controller.personal_art_world, name='personal_world')
 
 ]
 
