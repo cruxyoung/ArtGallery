@@ -1,124 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'master.html' %}
+{% block title %}Personal Page: {{ customer.username }}{% endblock %}
 
-<head>
-
-    <!-- start: Meta -->
-    <meta charset="utf-8">
-    <title>Essentia Responsive Bootstrap Theme by Bootstrap Master</title>
-    <meta name="description" content="Personal Center" />
-    <meta name="keywords" content="Template, Theme, web, html5, css3, Bootstrap" />
-    <meta name="author" content="ELEC9609" />
-    <!-- end: Meta -->
-
-    <!-- start: Mobile Specific -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <!-- end: Mobile Specific -->
-
-    <!-- start: Facebook Open Graph -->
-    <meta property="og:title" content="" />
-    <meta property="og:description" content="" />
-    <meta property="og:type" content="" />
-    <meta property="og:url" content="" />
-    <meta property="og:image" content="" />
-    <!-- end: Facebook Open Graph -->
-
-    <!-- start: CSS -->
-    <link href="../../static/ArtGallery/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../../static/ArtGallery/css/bootstrap-responsive.min.css" rel="stylesheet">
-    <link href="../../static/ArtGallery/css/style.css" rel="stylesheet">
-    <link href="../../static/ArtGallery/css/slider1.css" rel="stylesheet">
-    <link href="../../static/ArtGallery/css/slider2.css" rel="stylesheet">
-    <link href="../../static/ArtGallery/css/slider3.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700">
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Serif">
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Boogaloo">
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Economica:700,400italic">
-    <!-- end: CSS -->
-
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-</head>
-
-<body>
-
-    <!--start: Header -->
-    <header>
-
-        <!--start: Container -->
-        <div class="container">
-
-            <!--start: Row -->
-            <div class="row-fluid">
-                <!--start: Navigation -->
-                <div class="navigation">
-
-                    <div class="navbar navbar-fixed-top">
-                        <div class="navbar-inner">
-                            <a class="btn btn-navbar btnOverlay" data-toggle="collapse" data-target=".nav-collapse">
-			            		menu
-			          		</a>
-                            <div class="nav-collapse collapse">
-
-                                <ul class="nav" style="text-align: left">
-
-
-                                    <li><a href="#"><b>ART GALLERY</b></a></li>
-                                    <li><a href="#">Artists</a></li>
-                                    <li><a href="#">Artworks</a></li>
-                                    <li><a href="#">Auction</a></li>
-                                </ul>
-
-
-                                <ul class="nav" style="text-align: right; padding-left:300px;">
-                                    <li>
-                                        <a>
-                                            <input type="text" class="form-control" placeholder="Search for..." aria-label="Search for...">
-                                            <button class="btn-default" type="button"><span class=""></span></button>
-                                        </a>
-                                    </li>
-                                    <li><a href="#">LOG IN</a></li>
-                                    <li><a href="#">SIGN UP</a></li>
-                                </ul>
-
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-                <!--end: Navigation -->
-
-            </div>
-            <!--end: Row -->
-
-        </div>
-        <!--end: Container-->
-
-    </header>
-    <!--end: Header-->
-
+{% block body %}
 
     <div id="portfolio" class="color white">
 
         <!--start: Container -->
         <div class="container">
-
             <!--start: Wrapper -->
             <div class="wrapper span12">
-
                 <!-- start: Page Title -->
                 <div id="page-title">
-
                     <div id="page-title-inner">
-
                         <h2><span>{{ customer.username }}</span></h2>
-
                     </div>
-
                 </div>
                 <!-- end: Page Title -->
 
@@ -159,14 +54,11 @@
 
                 <!-- start: Portfolio -->
                 <div id="portfolio-wrapper" class="row-fluid">
-
                     <div class="span4 portfolio-item website html5 css3 responsive">
-
                         <div class="picture">
                             <a href="" title="Smart Responsive Template"><img src="" alt="" />
                                 <div class="image-overlay-link"></div>
                             </a>
-
                             <div class="item-description alt">
                                 <h5><a href="">Smart Responsive Bootstrap Template</a></h5>
                                 <p>
@@ -176,10 +68,7 @@
                         </div>
                     </div>
 
-
-
                 </div>
-                <!-- end: Portfolio -->
             </div>
             <!-- end: Wrapper -->
 
@@ -188,91 +77,4 @@
 
     </div>
 
-
-    <footer>
-
-        <div id="copyright">
-            ELEC9609 &copy; 2017 Hummer the World. Designed by Hummer in USYD
-        </div>
-        <div id="social">
-            <a href="http://facebook.com/BootstrapMaster" rel="tooltip" title="Facebook" class="facebook">Facebook</a>
-            <a href="http://facebook.com/BootstrapMaster" rel="tooltip" title="Twitter" class="twitter">Twitter</a>
-            <a href="http://BootstrapMaster.com/feed/" rel="tooltip" title="RSS" class="rss">RSS</a>
-            <a href="#" rel="tooltip" title="Github" class="github">Github</a>
-            <a href="#" rel="tooltip" title="LinkedIn" class="linkedin">LinkedIn</a>
-            <a href="#" rel="tooltip" title="Pintrest" class="pintrest">Pintrest</a>
-            <a href="#" rel="tooltip" title="Vimeo" class="vimeo">Vimeo</a>
-            <a href="#" rel="tooltip" title="YouTube" class="youtube">YouTube</a>
-        </div>
-
-    </footer>
-
-    <!-- start: Java Script -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    <script type="text/javascript" src="../../static/ArtGallery/js/isotope.js"></script>
-    <script type="text/javascript" src="../../static/ArtGallery/js/jquery.imagesloaded.js"></script>
-    <script type="text/javascript" src="../../static/ArtGallery/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../../static/ArtGallery/js/flexslider.js"></script>
-    <script type="text/javascript" src="../../static/ArtGallery/js/carousel.js"></script>
-    <script type="text/javascript" src="../../static/ArtGallery/js/fancybox.js"></script>
-    <script type="text/javascript" src="../../static/ArtGallery/js/twitter.js"></script>
-    <script type="text/javascript" src="../../static/ArtGallery/js/modernizr.custom.79639.js"></script>
-    <script type="text/javascript" src="../../static/ArtGallery/js/jquery.ba-cond.min.js"></script>
-    <script type="text/javascript" src="../../static/ArtGallery/js/jquery.slitslider.js"></script>
-
-    <script type="text/javascript" src="../../static/ArtGallery/js/excanvas.js"></script>
-    <script type="text/javascript" src="../../static/ArtGallery/js/jquery.flot.min.js"></script>
-    <script type="text/javascript" src="../../static/ArtGallery/js/jquery.flot.pie.min.js"></script>
-    <script type="text/javascript" src="../../static/ArtGallery/js/jquery.flot.stack.js"></script>
-    <script type="text/javascript" src="../../static/ArtGallery/js/jquery.flot.resize.min.js"></script>
-
-    <script defer="defer" src="js/custom.js"></script>
-    <script type="text/javascript">
-        $(function () {
-            var Page = (function () {
-                var $navArrows = $('#nav-arrows'),
-                    $nav = $('#nav-dots > span'),
-                    slitslider = $('#slider').slitslider({
-                        onBeforeChange: function (slide, pos) {
-                            $nav.removeClass('nav-dot-current');
-                            $nav.eq(pos).addClass('nav-dot-current');
-                        }
-                    }),
-                    init = function () {
-                        initEvents();
-                    },
-                    initEvents = function () {
-                        // add navigation events
-                        $navArrows.children(':last').on('click', function () {
-                            slitslider.next();
-                            return false;
-                        });
-                        $navArrows.children(':first').on('click', function () {
-                            slitslider.previous();
-                            return false;
-                        });
-                        $nav.each(function (i) {
-                            $(this).on('click', function (event) {
-                                var $dot = $(this);
-                                if (!slitslider.isActive()) {
-                                    $nav.removeClass('nav-dot-current');
-                                    $dot.addClass('nav-dot-current');
-                                }
-                                slitslider.jump(i + 1);
-                                return false;
-                            });
-                        });
-                    };
-                return {
-                    init: init
-                };
-            })();
-            Page.init();
-        });
-    </script>
-    <!-- end: Java Script -->
-
-</body>
-
-</html>
+{% endblock %}

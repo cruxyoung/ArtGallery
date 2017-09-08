@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Art Gallery</title>
-</head>
-<body>
-    {% for customer in art_customers %}
-        <a href="{% url 'personal_world' customer.id %}">{{ customer.username}}</a>
-        <hr/>
-    {% endfor %}
-</body>
-</html>
+{% extends 'master.html' %}
+{% block title %}Art Gallery Home{% endblock %}
+
+{% block body %}
+
+
+{% endblock %}

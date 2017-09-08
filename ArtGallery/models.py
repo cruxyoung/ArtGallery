@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 # User profile, represent table "user" in design
 # Inherit THE DJANGO EMBEDDED AUTHENICATION SYSTEM
 # THE EMBEDDED SYSTEM ALREADY INCLUDE NAME AND EMAIL
