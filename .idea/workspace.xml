@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="682c7aba-68e9-4177-8679-bfb82ce106fe" name="Default" comment="Modified model">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploaded_arts/download.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/admin.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/views/home_page.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/home_page/home_page.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/ELEC9609.iml" afterPath="$PROJECT_DIR$/.idea/ELEC9609.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtGallery/models.py" afterPath="$PROJECT_DIR$/ArtGallery/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtGallery/settings.py" afterPath="$PROJECT_DIR$/ArtGallery/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtGallery/urls.py" afterPath="$PROJECT_DIR$/ArtGallery/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/home_page/home_page.html" afterPath="$PROJECT_DIR$/templates/home_page/home_page.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -48,8 +38,8 @@
           <file leaf-file-name="home_page.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/templates/home_page/home_page.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="144">
-                  <caret line="8" column="29" lean-forward="true" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
+                <state relative-caret-position="252">
+                  <caret line="14" column="7" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
                   <folding />
                 </state>
               </provider>
@@ -95,7 +85,7 @@
             <entry file="file://$PROJECT_DIR$/ArtGallery/models.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="266">
-                  <caret line="22" column="42" lean-forward="true" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="42" />
+                  <caret line="22" column="42" lean-forward="false" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="42" />
                   <folding>
                     <element signature="e#0#28#0" expanded="true" />
                   </folding>
@@ -612,7 +602,7 @@
     <entry file="file://$PROJECT_DIR$/ArtGallery/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
-          <caret line="22" column="42" lean-forward="true" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="42" />
+          <caret line="22" column="42" lean-forward="false" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="42" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
@@ -672,8 +662,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/home_page/home_page.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="29" lean-forward="true" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
+        <state relative-caret-position="252">
+          <caret line="14" column="7" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
           <folding />
         </state>
       </provider>
