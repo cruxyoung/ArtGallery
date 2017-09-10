@@ -77,7 +77,7 @@
                                     </li>
                                     <!-- Judge the status whether logged or not -->
                                     {% if customer.username %}
-                                        <li><a href="{% url 'personal_world' customer.id %}">{{ customer.username|upper }}</a></li>
+                                        <li><a href="{% url 'pCenter' %}">{{ customer.username|upper }}</a></li>
                                     {% else %}
                                         <li><a href="{% url 'login' %}">LOG IN</a></li>
                                         <li><a href="">SIGN UP</a></li>
@@ -178,7 +178,7 @@
     </script>
     <!-- end: Java Script -->
 
-    <!-- customised JavaScript -->
+    <!-- customised JavaScript, using AJAX in this part, depends on page functions -->
     {% block js %}{% endblock %}
 </body>
 </html>

@@ -22,24 +22,22 @@ from ArtGallery import view
 from ArtGallery.controllers import personal_controller
 from django.contrib.auth import views as auth_views
 
-
 from . import view
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', view.hello),
 
-    url('^accounts/', include('django.contrib.auth.urls')),
-    # url('^accounts/login/$', auth_views.login, name='login'),
-    url('^accounts/signup/$', view.signup),
-    url('^index/$', view.index_ignore, name='index'),
-
+    url(r'^accounts/', include('django.contrib.auth.urls')),
+    url(r'^accounts/signup/$', view.signup),
+    url(r'^index/$', view.index_ignore, name='index'),
 
     # personal page url, including customers' and artists'
-    url('^personal_world/(?P<user_id>[0-9]+)/$', personal_controller.personal_art_world, name='personal_world')
+    url(r'^customer/$', personal_controller.personal_favorite_default, name='pCenter'),
+    # url(r'^customer/favorite/$', personal_controller.personal_favorite, name='favorite'),
+    url(r'^customer/settings/$', personal_controller.personal_settings_default, name='setting'),
 
 ]
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-

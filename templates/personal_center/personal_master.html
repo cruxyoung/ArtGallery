@@ -1,0 +1,52 @@
+{% extends 'master.html' %}
+
+{% block css %}
+    <style type="text/css">
+        a:hover {
+            cursor: pointer;
+        }
+
+        label:hover {
+            cursor: default;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    {% csrf_token %}
+    <div id="portfolio" class="color white">
+        <!--start: Container -->
+        <div class="container">
+            <!--start: Wrapper -->
+            <div class="wrapper span12">
+                <!-- start: Page Title -->
+                <div id="page-title">
+                    <div id="page-title-inner">
+                        <h2><span>Personal Center</span></h2>
+                    </div>
+                </div>
+                <!-- end: Page Title -->
+                <div id="filters">
+                    <ul class="option-set" data-option-key="filter">
+                        <li><a href="{% url 'pCenter' %}">FAVORITE</a></li>
+                        <li>/</li>
+                        <li><a>AUCTIONS</a></li>
+                        <li>/</li>
+                        <li><a>REWARDS</a></li>
+                        <li>/</li>
+                        <li><a>COMMENTS</a></li>
+                        <li>/</li>
+                        <li><a href="{% url 'setting' %}">SETTINGS</a></li>
+                        <li>/</li>
+                        <li><a>COMPLAINTS</a></li>
+
+                    </ul>
+                </div>
+                {% block content %}{% endblock %}
+
+            </div>
+
+        </div>
+
+    </div>
+{% endblock %}

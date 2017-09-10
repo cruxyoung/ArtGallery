@@ -27,17 +27,7 @@ def signup(request):
     return render(request, 'registration/signup.html', {'form': form})
 
 
-# Log in test session
-# def login(request):
-#     if request.method == "POST":
-#         username = request.POST.get('username')
-#         pwd = request.POST.get('pws')
-#         user = auth.authenticate(username=username, password=pwd)
-#         if user is not None and user.is_active:
-#             request.session['IS_LOGIN'] = True
-#             return request(request, 'home/index.html')
-
-
+# simulate the index behaviour
 def index_ignore(request):
     # get Session
     # username = request.session['username']
