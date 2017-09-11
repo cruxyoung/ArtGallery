@@ -1,0 +1,9 @@
+<h1>Artwork</h1>
+Picture: <img src = "{{CONSTANT_NAME}}/{{ aw.aw_img.url }}" height="420px" /> <br />
+Artwork title: {{ aw.aw_name }} <br />
+Artist: <a href = "{{CONSTANT_NAME}}/artist/{{aw.artist_id.id}}/detail">{{ aw.artist_id.first_name }} {{ aw.artist_id.last_name }}</a> <br />
+Description: {{ aw.aw_description }} <br />
+Publish time: {{ aw.aw_time }} <br />
+Genre: {{ aw.aw_genre }} <br />
+Total award: {{ aw.aw_totalAward }} <br />
+Auction status: {{ aw.aw_auctionStat }}

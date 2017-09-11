@@ -124,6 +124,9 @@ STATICFILES_DIRS = (
 )
 STATIC_URL = '/static/'
 
+ARTWORK_ROOT =  os.path.join(BASE_DIR, "artwork")
+ARTWORK_URL = "/artwork/"
+
 # Email configuration
 # Do not use this in real world project
 

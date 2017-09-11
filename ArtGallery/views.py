@@ -1,7 +1,7 @@
 from django.http import HttpResponse
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login
 from ArtGallery.forms import UserCreateForm
-from django.shortcuts import render, redirect
+from django.shortcuts import render, get_object_or_404
 from django.contrib.sites.shortcuts import get_current_site
 from django.template.loader import render_to_string
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
@@ -9,11 +9,12 @@ from django.utils.encoding import force_bytes, force_text
 from ArtGallery.tokens import account_activation_token
 from django.core.mail import EmailMessage
 from django.contrib.auth.models import User
+from ArtGallery.models import ArtWork, UserProfile
+from django.template import RequestContext
 
 
 def hello(request):
     return HttpResponse("Hello world!")
-
 
 # Sign up page
 def signup(request):
@@ -42,6 +43,7 @@ def signup(request):
     return render(request, 'registration/signup.html', {'form': form})
 
 
+# Activation page logic
 def activate(request, uidb64, token):
     try:
         uid = force_text(urlsafe_base64_decode(uidb64))
@@ -57,3 +59,14 @@ def activate(request, uidb64, token):
     else:
         return HttpResponse('Activation link is invalid!')
 
+
+# Detail page (artwork) logic:
+def artwork_detail(request, aw_id):
+    aw = get_object_or_404(ArtWork, pk=aw_id)
+    return render(request, "artwork/detail.html", {'aw': aw})
+
+
+# Detail page (user) logic:
+def artist_detail(request, user_id):
+    user = get_object_or_404(UserProfile, user_id_id=user_id)
+    return render(request, "artist/detail.html", {'user': user})
