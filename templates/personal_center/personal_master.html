@@ -15,9 +15,7 @@
 {% block body %}
     {% csrf_token %}
     <div id="portfolio" class="color white">
-        <!--start: Container -->
         <div class="container">
-            <!--start: Wrapper -->
             <div class="wrapper span12">
                 <!-- start: Page Title -->
                 <div id="page-title">
@@ -38,12 +36,26 @@
                         <li>/</li>
                         <li><a href="{% url 'setting' %}">SETTINGS</a></li>
                         <li>/</li>
-                        <li><a>COMPLAINTS</a></li>
+                        <li><a href="{% url 'complaint' %}">COMPLAINTS</a></li>
 
                     </ul>
                 </div>
-                {% block content %}{% endblock %}
+                <!-- start: content -->
+                <div id="portfolio-wrapper" class="row-fluid">
+                    <div class="span2 portfolio-item website html5 css3 responsive"
+                         style="text-align: right; position: -webkit-sticky; position: sticky; top: 70px">
+                        <ul>
+                        <!-- Menu Area -->
+                            {% block menu %}{% endblock %}
+                        </ul>
+                    </div>
 
+                    <!-- Display Area -->
+                    <div class="span9">
+                        {% block content %}{% endblock %}
+                    </div>
+                </div>
+                <!-- end: content -->
             </div>
 
         </div>

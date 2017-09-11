@@ -1,0 +1,29 @@
+{% extends 'personal_center/personal_master.html' %}
+
+{% block title %}Favorite{% endblock %}
+
+{% block menu %}
+    <ul>
+        <li><a><b>FAVORITES</b></a></li>
+        <li><a>RELATED ARTISTS</a></li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+    {% for fav_aw in fav_artworks %}
+        <div class="span4 portfolio-item website html5 css3 responsive">
+            <div class="picture">
+                <a href="" title="fav_aw"><img src="{{ fav_aw.aw_img }}" alt=""/>
+                    <div class="image-overlay-link"></div>
+                </a>
+
+                <div class="item-description alt">
+                    <h5><a href="">{{ fav_aw.aw_name }}</a></h5>
+                    <p>
+                        {{ fav_aw.aw_description }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

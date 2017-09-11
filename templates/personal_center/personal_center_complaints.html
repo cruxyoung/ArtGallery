@@ -1,0 +1,20 @@
+{% extends 'personal_center/personal_master.html' %}
+
+{% block title %}Complaints{% endblock %}
+
+{% block menu %}
+    <ul>
+        <li><a><b>History</b></a></li>
+        <li><a>By Time</a></li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+    <div class="span4">
+        <!-- 跳转到artwork详细页面 -->
+        {% for complaint in complaints %}
+            <label>ARTWORK NAME:</label>
+            <a>{{ complaint.aw_id.aw_name }}</a>
+        {% endfor %}
+    </div>
+{% endblock %}

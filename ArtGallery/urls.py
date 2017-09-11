@@ -36,6 +36,7 @@ urlpatterns = [
     url(r'^customer/$', personal_controller.personal_favorite_default, name='pCenter'),
     # url(r'^customer/favorite/$', personal_controller.personal_favorite, name='favorite'),
     url(r'^customer/settings/$', personal_controller.personal_settings_default, name='setting'),
+    url(r'^customer/complaints/$', personal_controller.personal_complaints_default, name='complaint')
 
 ]
 

@@ -9,7 +9,7 @@
 <head>
     <!-- start: Meta -->
     <meta charset="utf-8">
-    <title>{% block title %}{% endblock %}</title>
+    <title>Art Gallery: {% block title %}{% endblock %}</title>
     <!-- end: Meta -->
 
     <!-- start: Mobile Specific -->
@@ -132,7 +132,7 @@
     <script type="text/javascript" src="{% static "ArtGallery/js/jquery.flot.stack.js" %}"></script>
     <script type="text/javascript" src="{% static "ArtGallery/js/jquery.flot.resize.min.js" %}"></script>
 
-    <script defer="defer" src="js/custom.js"></script>
+{#    <script defer="defer" src="js/custom.js"></script>#}
     <script type="text/javascript">
         $(function () {
             var Page = (function () {
@@ -178,7 +178,7 @@
     </script>
     <!-- end: Java Script -->
 
-    <!-- customised JavaScript, using AJAX in this part, depends on page functions -->
+    <!-- customised JavaScript, using AJAX in this part, depends on  -->
     {% block js %}{% endblock %}
 </body>
 </html>

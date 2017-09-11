@@ -1,92 +1,89 @@
 {% extends 'personal_center/personal_master.html' %}
 
-{% block title %}Art Gallery: Settings{% endblock %}
+{% block title %}Settings{% endblock %}
 
 {% block css %}
     <script type="text/css">
-        label:hover {cursor: default;}
+        label:hover {
+            cursor: default;
+        }
     </script>
 {% endblock %}
 
+{% block menu %}
+    <ul>
+        <li><a onclick="scrollToInformation()">INFORMATION</a></li>
+        <li><a onclick="scrollToSecurity()">SECURITY</a></li>
+    </ul>
+{% endblock %}
+
 {% block content %}
-    <!-- start: content -->
-    <div id="portfolio-wrapper" class="row-fluid">
-        <div class="span2 portfolio-item website html5 css3 responsive"
-             style="text-align: right; position: -webkit-sticky; position: sticky; top: 70px">
-            <ul>
-                <li><a onclick="scrollToInformation()">INFORMATION</a></li>
-                <li><a onclick="scrollToSecurity()">SECURITY</a></li>
-            </ul>
-        </div>
+    <div id="information">
 
-        <!-- Display Area -->
-        <div class="span9">
-            <div id="information">
+        <h2>Information</h2>
+        <hr/>
+        <a class="span3"></a>
+        <label class="span2"><b>USERNAME</b></label>
+        <input id="username" type="text" value="{{ customer.username }}" class="span4 input-block-level"/>
+        <br/>
+        <br/>
+        <a class="span3"></a>
+        <label class="span2"><b>LAST LOGIN</b></label>
+        <input id="last_login" type="text" value="{{ customer.last_login }}" class="span4 input-block-level"/>
+        <br/>
+        <br/>
+        <a class="span3"></a>
+        <label class="span2"><b>FIRST NAME</b></label>
+        <input id="first_name" type="text" value="{{ customer.first_name }}" class="span4 input-block-level"/>
+        <br/>
+        <br/>
+        <a class="span3"></a>
+        <label class="span2"><b>LAST NAME</b></label>
+        <input id="last_name" type="text" value="{{ customer.last_name }}" class="span4 input-block-level"/>
+        <br/>
+        <br/>
+        <a class="span3"></a>
+        <label class="span2"><b>Email</b></label>
+        <input id="email" type="email" value="{{ customer.email }}" class="span4 input-block-level"/>
+        <br/>
+        <br/>
+        <a class="span3"></a>
+        <button class="span5 btn btn-large">SAVE CHANGES</button>
 
-                <h2>Information</h2>
-                <hr/>
-                <a class="span3"></a>
-                <label class="span2"><b>USERNAME</b></label>
-                <input id="username" type="text" value="{{ customer.username }}" class="span4 input-block-level"/>
-                <br/>
-                <br/>
-                <a class="span3"></a>
-                <label class="span2"><b>LAST LOGIN</b></label>
-                <input id="last_login" type="text" value="{{ customer.last_login }}" class="span4 input-block-level"/>
-                <br/>
-                <br/>
-                <a class="span3"></a>
-                <label class="span2"><b>FIRST NAME</b></label>
-                <input id="first_name" type="text" value="{{ customer.first_name }}" class="span4 input-block-level"/>
-                <br/>
-                <br/>
-                <a class="span3"></a>
-                <label class="span2"><b>LAST NAME</b></label>
-                <input id="last_name" type="text" value="{{ customer.last_name }}" class="span4 input-block-level"/>
-                <br/>
-                <br/>
-                <a class="span3"></a>
-                <label class="span2"><b>Email</b></label>
-                <input id="email" type="email" value="{{ customer.email }}" class="span4 input-block-level"/>
-                <br/>
-                <br/>
-                <a class="span3"></a>
-                <button class="span5 btn btn-large">SAVE CHANGES</button>
-
-                <br/>
-                <br/>
-                <br/>
-            </div>
-            <div id="security">
-                <h2>Security</h2>
-                <hr/>
-                <a class="span3"></a>
-                <label class="span2"><b>PASSWORD</b></label>
-                <input id="username" type="text" value="{{ customer.password }}" class="span4 input-block-level"/>
-                <br/>
-                <a class="span3"></a>
-                <button class="span5 btn btn-small">CHANGE PASSWORD</button>
-                <br/>
-                <br/>
-                <br/>
-                <a class="span3"></a>
-                <label class="span2"><b>ACCOUNT</b></label>
-                <input id="username" type="text" value="0.0" class="span4 input-block-level"/>
-                <br/>
-                <a class="span3"></a>
-                <button class="span5 btn btn-small">ADD MONEY</button>
-                <br/>
-                <br/>
-            </div>
-        </div>
+        <br/>
+        <br/>
+        <br/>
     </div>
-    <!-- end: content -->
+    <div id="security">
+        <h2>Security</h2>
+        <hr/>
+        <a class="span3"></a>
+        <label class="span2"><b>PASSWORD</b></label>
+        <input id="username" type="text" value="{{ customer.password }}" class="span4 input-block-level"/>
+        <br/>
+        <a class="span3"></a>
+        <button class="span5 btn btn-small">CHANGE PASSWORD</button>
+        <br/>
+        <br/>
+        <br/>
+        <a class="span3"></a>
+        <label class="span2"><b>ACCOUNT</b></label>
+        <input id="username" type="text" value="0.0" class="span4 input-block-level"/>
+        <br/>
+        <a class="span3"></a>
+        <button class="span5 btn btn-small">ADD MONEY</button>
+        <br/>
+        <br/>
+    </div>
+    </div>
+    <!-- Display Area -->
+
 {% endblock %}
 
 {% block js %}
     <script>
         function scrollToInformation() {
-            window.scrollTo(0, );
+            window.scrollTo(0, 50);
         }
 
         function scrollToSecurity() {
