@@ -9,3 +9,7 @@ def home_page(request):
     for a in artworks:
         print(a.aw_name)
     return render(request, 'home_page/home_page.html', {'artworks':artworks})
+
+def detail(request, art_id):
+    return HttpResponse("You're looking at question %s." % art_id)
+

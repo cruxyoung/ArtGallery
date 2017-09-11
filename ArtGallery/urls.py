@@ -29,6 +29,7 @@ urlpatterns = [
     url('^accounts/', include('django.contrib.auth.urls')),
     url('^accounts/signup/$', view.signup),
     url('^home_page/', home_page.home_page),
+    url(r'^(?P<art_id>[0-9]+)/$', home_page.detail, name='detail'),
 
 ]
 
