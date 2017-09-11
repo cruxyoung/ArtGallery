@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 {% extends '../master.html' %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+
+
+{% block body %}
 {% for art in artworks %}
     <h4>{{ art.aw_img }}</h4>
     <h4>{{ art.id }}</h4>
@@ -15,5 +12,8 @@
     <img src="{{ art.aw_img.url }}"/>
 
 {% endfor %}
-</body>
+
+
+
+{% endblock %}
 </html>
