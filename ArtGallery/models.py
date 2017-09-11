@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 # User profile, represent table "user" in design
 # Inherit THE DJANGO EMBEDDED AUTHENICATION SYSTEM
 # THE EMBEDDED SYSTEM ALREADY INCLUDE NAME AND EMAIL
@@ -27,10 +28,8 @@ class ArtWork(models.Model):
     aw_type = models.CharField(null=True, max_length=32)
     aw_genre = models.CharField(null=True, max_length=32)
     aw_auctionStat = models.BooleanField()
-    aw_totalAward = models.FloatField(default=0.0)
+    aw_totalAward = models.FloatField(default=0.0)  # Auction Record
 
-
-# Auction Record
 class AuctionRecord(models.Model):
     # Foreign Key
     aw_id = models.ForeignKey(ArtWork)
@@ -48,7 +47,6 @@ class AuctionHistory(models.Model):
 
     ah_amount = models.FloatField(default=0.0)
     ah_aucTime = models.DateTimeField()
-
 
 
 # Reward
@@ -78,7 +76,7 @@ class Complaint(models.Model):
 
     complaint_type = models.CharField(default='Illegal', max_length=32)
     complaint_content = models.CharField(null=True, max_length=256)
-    complaint_time = models.DateTimeField()
+    complaint_time = models.DateTimeField(null=True)
 
 
 class Comment(models.Model):

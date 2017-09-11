@@ -17,10 +17,9 @@ from django.conf import settings
 from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.contrib import admin
-from ArtGallery import view
 
 
-
+from ArtGallery.Controller import views_complaints
 from . import view
 
 urlpatterns = [
@@ -28,6 +27,13 @@ urlpatterns = [
     url(r'^$', view.hello),
     url('^accounts/', include('django.contrib.auth.urls')),
     url('^accounts/signup/$', view.signup),
+    # complaints need 4 urls, the art_info is fake one
+    url('^art_info/complaints/(?P<artwork_id>[0-9]+)$', views_complaints.edit_complaints, name='edit_complaints'),
+    url('^art_info/complaints_withdraw/(?P<artwork_id>[0-9]+)$', views_complaints.withdraw_complaints,
+        name='withdraw_complaints'),
+
+    url('^art_info/$', views_complaints.art_info),
+    url('^art_info/complaints/action/$', views_complaints.complaints_action, name='complaints_action'),
 
 ]
 
