@@ -6,4 +6,22 @@ Description: {{ aw.aw_description }} <br />
 Publish time: {{ aw.aw_time }} <br />
 Genre: {{ aw.aw_genre }} <br />
 Total award: {{ aw.aw_totalAward }} <br />
-Auction status: {{ aw.aw_auctionStat }}
+Auction status: {{ aw.aw_auctionStat }} <br />
+Comment:
+<table>
+    <tr>
+        <th>Commenter</th>
+        <th>Time</th>
+        <th>Rating</th>
+        <th>Link</th>
+    </tr>
+    {% for item in comment %}
+    <tr>
+        <td>{{ item.commenter_id.username }}</td>
+        <td>{{ item.comment_time }}</td>
+        <td>{{ item.rating }}</td>
+        <td><a href = "{{CONSTANT_NAME}}/comment/{{ item.id }}/detail/">view</a></td>
+    </tr>
+    {% endfor %}
+</table>
+

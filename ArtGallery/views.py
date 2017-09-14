@@ -9,8 +9,7 @@ from django.utils.encoding import force_bytes, force_text
 from ArtGallery.tokens import account_activation_token
 from django.core.mail import EmailMessage
 from django.contrib.auth.models import User
-from ArtGallery.models import ArtWork, UserProfile
-from django.template import RequestContext
+from ArtGallery.models import ArtWork, UserProfile, Comment, AuctionHistory, AuctionRecord
 
 
 def hello(request):
@@ -63,10 +62,25 @@ def activate(request, uidb64, token):
 # Detail page (artwork) logic:
 def artwork_detail(request, aw_id):
     aw = get_object_or_404(ArtWork, pk=aw_id)
-    return render(request, "artwork/detail.html", {'aw': aw})
+    comment = Comment.objects.filter(aw_id_id=aw_id)
+    return render(request, "artwork/detail.html", {'aw': aw, 'comment': comment})
 
 
 # Detail page (user) logic:
 def artist_detail(request, user_id):
     user = get_object_or_404(UserProfile, user_id_id=user_id)
-    return render(request, "artist/detail.html", {'user': user})
+    aw = ArtWork.objects.filter(artist_id=user_id)
+    return render(request, "artist/detail.html", {'user': user, 'aw': aw})
+
+
+# Detail page (comment) logic:
+def comment_detail(request, comment_id):
+    comment = get_object_or_404(Comment, pk=comment_id)
+    return render(request, "comment/detail.html",{'comment': comment})
+
+
+# Detail page (auction) logic:
+def auction_detail(request, auction_id):
+    auction_record = get_object_or_404(AuctionRecord, pk=auction_id)
+    auction_history = AuctionHistory.objects.filter(ar_id_id=auction_id)
+    return render(request, "auction/detail.html", {'record': auction_record, 'history': auction_history})
