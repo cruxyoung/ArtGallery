@@ -4,17 +4,43 @@
 
 {% block menu %}
     <ul>
-        <li><a><b>History</b></a></li>
+        <li><a><b>HISTORY</b></a></li>
         <li><a>By Time</a></li>
     </ul>
 {% endblock %}
 
 {% block content %}
-    <div class="span4">
-        <!-- 跳转到artwork详细页面 -->
-        {% for complaint in complaints %}
-            <label>ARTWORK NAME:</label>
-            <a>{{ complaint.aw_id.aw_name }}</a>
-        {% endfor %}
-    </div>
+
+    <!-- 跳转到artwork详细页面 -->
+    {% for complaint in complaints %}
+        <hr/>
+        <div class="row">
+            <div class="span8">
+                <div class="row text-center">
+                    <div class="span6"><label>ARTWORK NAME: </label></div>
+                    <div class="span6"><a>{{ complaint.aw_id.aw_name }}</a></div>
+                </div>
+                <div class="row text-center">
+                    <div class="span6"><label>COMPLAINT TYPE: </label></div>
+                    <div class="span6"><a>{{ complaint.complaint_type }}</a></div>
+
+                </div>
+                <div class="row text-center">
+                    <div class="span6"><label>COMPLAINT TIME:</label></div>
+                    <div class="span6"><a>{{ complaint.complaint_time }}</a></div>
+                </div>
+
+                <div class="span">
+                    <textarea class="uneditable-textarea input-block-level">
+                    {{ complaint.complaint_content }}
+                    </textarea>
+                </div>
+            </div>
+            <div class="span4 text-right">
+                <img src="{{ complaint.aw_id.aw_img }}" style="height: 150px;"/>
+            </div>
+        </div>
+
+    {% endfor %}
+
 {% endblock %}
