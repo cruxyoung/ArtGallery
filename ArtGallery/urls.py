@@ -38,6 +38,8 @@ urlpatterns = [
     url(r'^customer/settings/$', personal_controller.personal_settings_default, name='setting'),
     url(r'^customer/complaints/$', personal_controller.personal_complaints_default, name='complaint'),
     url(r'^customer/rewards/$', personal_controller.personal_rewards_default, name='reward'),
+    url(r'^customer/auctions/$', personal_controller.personal_auctions_default, name='auction'),
+    url(r'^customer/comments/$', personal_controller.personal_comments_default, name='comment'),
 ]
 
 if settings.DEBUG:

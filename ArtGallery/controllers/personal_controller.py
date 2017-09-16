@@ -40,3 +40,21 @@ def personal_rewards_default(request):
                   {'rewards': rewards,
                    'customer': request.user},
                   )
+
+
+def personal_auctions_default(request):
+    auctions = models.AuctionHistory.objects.filter(customer_id=request.user.id)
+    return render(request,
+                  'personal_center/personal_center_auctions.html',
+                  {'auctions': auctions,
+                   'customer': request.user},
+                  )
+
+
+def personal_comments_default(request):
+    comments = models.Comment.objects.filter(commenter_id=request.user.id)
+    return render(request,
+                  'personal_center/personal_center_comments.html',
+                  {'comments': comments,
+                   'customer': request.user},
+                  )

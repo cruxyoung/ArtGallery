@@ -13,24 +13,23 @@
 
     <!-- 跳转到artwork详细页面 -->
     {% for complaint in complaints %}
-        <hr/>
-        <div class="row">
+        <div class="row-fluid">
             <div class="span8">
-                <div class="row text-center">
+                <div class="row-fluid text-center">
                     <div class="span6"><label>ARTWORK NAME: </label></div>
                     <div class="span6"><a>{{ complaint.aw_id.aw_name }}</a></div>
                 </div>
-                <div class="row text-center">
+                <div class="row-fluid text-center">
                     <div class="span6"><label>COMPLAINT TYPE: </label></div>
                     <div class="span6"><a>{{ complaint.complaint_type }}</a></div>
 
                 </div>
-                <div class="row text-center">
+                <div class="row-fluid text-center">
                     <div class="span6"><label>COMPLAINT TIME:</label></div>
                     <div class="span6"><a>{{ complaint.complaint_time }}</a></div>
                 </div>
 
-                <div class="span">
+                <div class="row-fluid span12">
                     <textarea class="uneditable-textarea input-block-level">
                     {{ complaint.complaint_content }}
                     </textarea>
@@ -40,7 +39,7 @@
                 <img src="{{ complaint.aw_id.aw_img }}" style="height: 150px;"/>
             </div>
         </div>
-
+        <hr/>
     {% endfor %}
 
 {% endblock %}

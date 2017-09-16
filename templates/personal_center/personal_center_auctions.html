@@ -1,0 +1,36 @@
+{% extends 'personal_center/personal_master.html' %}
+
+{% block title %}Auction History{% endblock %}
+
+{% block menu %}
+    <ul>
+        <li><a><b>Bid Time</b></a></li>
+        <li><a>Amount</a></li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+    {% for auction in auctions %}
+        <div class="row-fluid">
+            <div class="span3 portfolio-item website html5 css3 responsive">
+                <div class="picture">
+                    <a href="" title="fav_aw">
+                        <img src="{{ auction.ar_id.aw_id.aw_img }}" alt=""/>
+                        <div class="image-overlay-link"></div>
+                    </a>
+                </div>
+            </div>
+            <div class="span9 portfolio-item">
+                <div class="item-description alt">
+                    <h3><a href="">{{ auction.ar_id.aw_id.aw_name }}</a></h3>
+                    <h4>Live bidding begins {{ auction.ar_id.ar_time }}</h4>
+                    <h4>Your bid at {{ auction.ah_aucTime }}</h4>
+                    <h4>Set-price <b>${{ auction.ar_id.ar_originalPrice }}</b></h4>
+                    <h4>Your-Price <b>${{ auction.ah_amount }}</b></h4>
+                    <button class="btn">Bid Again</button> <a style="color: red">2 times left</a>
+                </div>
+            </div>
+        </div>
+        <hr/>
+    {% endfor %}
+{% endblock %}

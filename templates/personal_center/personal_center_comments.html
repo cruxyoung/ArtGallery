@@ -1,0 +1,39 @@
+{% extends 'personal_center/personal_master.html' %}
+
+{% block title %}Comments History{% endblock %}
+
+{% block menu %}
+    <ul>
+        <li><a><b>All</b></a></li>
+        <li>Only Comment</li>
+        <li>Only Reply</li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+    {% for comment in comments %}
+        <div class="row-fluid">
+            <div class="span3 portfolio-item website html5 css3 responsive">
+                <div class="picture">
+                    <a href="" title="fav_aw">
+                        <img src="{{ comment.aw_id.aw_img }}" alt=""/>
+                        <div class="image-overlay-link"></div>
+                    </a>
+                </div>
+            </div>
+            <div class="span9 portfolio-item">
+                <div class="item-description alt">
+                    <h3>Comment Artwork: {{ comment.aw_id.aw_name }}</h3>
+                    <h4>Comment Time: {{ comment.comment_time }}</h4>
+                    {% if comment.rating != -1.0 %}
+                        <h4>Comment Type: Comment</h4>
+                        <h4>Rating: {{ comment.rating }}</h4>
+                    {% else %}
+                        <h4>Comment Type: Reply</h4>
+                    {% endif %}
+                </div>
+                <textarea class="uneditable-textarea input-block-level">{{ comment.comment_content }}</textarea>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
