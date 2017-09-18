@@ -52,7 +52,6 @@ class AuctionHistory(models.Model):
     ah_aucTime = models.DateTimeField()
 
 
-
 # Reward
 class Reward(models.Model):
     # Foreign Key
@@ -66,7 +65,7 @@ class Reward(models.Model):
 # Favorite Record
 class FavoriteRecord(models.Model):
     # Foreign Key
-    artist_id = models.ForeignKey(User)
+    customer_id = models.ForeignKey(User)
     aw_id = models.ForeignKey(ArtWork)
 
     fav_time = models.DateTimeField()
@@ -92,7 +91,6 @@ class Comment(models.Model):
     comment_content = models.CharField(null=True, max_length=256)
     comment_time = models.DateTimeField()
     rating = models.FloatField(default=5.0)
-    replay_commentId = models.IntegerField(null=True)
 
 
 # Notification
@@ -104,3 +102,4 @@ class Notification(models.Model):
     receiver_id = models.IntegerField()
 
     notifyType = models.CharField(null=True, max_length=32)
+

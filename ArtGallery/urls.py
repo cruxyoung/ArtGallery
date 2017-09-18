@@ -28,8 +28,8 @@ urlpatterns = [
         views.activate, name='activate'),
     url(r'^artwork/(?P<aw_id>[0-9]+)/detail/$', views.artwork_detail, name='aw'),
     url(r'^artist/(?P<user_id>[0-9]+)/detail/$', views.artist_detail, name='user'),
-    url(r'^comment/(?P<comment_id>[0-9]+)/detail/$', views.comment_detail, name='comment'),
     url(r'^auction/(?P<auction_id>[0-9]+)/detail/$', views.auction_detail, name='auction'),
+    url(r'^artwork/(?P<aw_id>[0-9]+)/reward/$', views.reward_pay, name='reward'),
 ]
 
 if settings.DEBUG:

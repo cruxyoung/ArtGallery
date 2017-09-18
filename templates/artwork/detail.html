@@ -1,27 +1,80 @@
-<h1>Artwork</h1>
-Picture: <img src = "{{CONSTANT_NAME}}/{{ aw.aw_img.url }}" height="420px" /> <br />
-Artwork title: {{ aw.aw_name }} <br />
-Artist: <a href = "{{CONSTANT_NAME}}/artist/{{aw.artist_id.id}}/detail">{{ aw.artist_id.first_name }} {{ aw.artist_id.last_name }}</a> <br />
-Description: {{ aw.aw_description }} <br />
-Publish time: {{ aw.aw_time }} <br />
-Genre: {{ aw.aw_genre }} <br />
-Total award: {{ aw.aw_totalAward }} <br />
-Auction status: {{ aw.aw_auctionStat }} <br />
-Comment:
-<table>
-    <tr>
-        <th>Commenter</th>
-        <th>Time</th>
-        <th>Rating</th>
-        <th>Link</th>
-    </tr>
-    {% for item in comment %}
-    <tr>
-        <td>{{ item.commenter_id.username }}</td>
-        <td>{{ item.comment_time }}</td>
-        <td>{{ item.rating }}</td>
-        <td><a href = "{{CONSTANT_NAME}}/comment/{{ item.id }}/detail/">view</a></td>
-    </tr>
-    {% endfor %}
-</table>
+{% block content %}
+<html>
+    <head>
+        {% load static %}
+        <link rel="stylesheet" href="{% static "ArtGallery/css/artwork.css" %}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
 
+        </script>
+        
+    </head>
+    <body>
+
+        <!-- Detail of artwork -->
+        <h1>Artwork</h1>
+        Picture: <img src = "{{CONSTANT_NAME}}/{{ aw.aw_img.url }}" height="420px" /> <br />
+        Artwork title: {{ aw.aw_name }} <br />
+        Artist: <a href = "{{CONSTANT_NAME}}/artist/{{aw.artist_id.id}}/detail">{{ aw.artist_id.first_name }} {{ aw.artist_id.last_name }}</a> <br />
+        Description: {{ aw.aw_description }} <br />
+        Publish time: {{ aw.aw_time }} <br />
+        Genre: {{ aw.aw_genre }} <br />
+        Total award: {{ aw.aw_totalAward }} <br />
+        Auction status: {{ aw.aw_auctionStat }} <br />
+
+        <!-- Comment list and post comment-->
+        <h2> Comments for this artwork </h2>
+
+        <table id = "commentTable">
+        <tr>
+            <th>User</th>
+            <th>Post time</th>
+            <th>Rating</th>
+            <th>Content</th>
+
+        </tr>
+        {% for item in comment %}
+        <tr>
+            <td>{{ item.commenter_id.username }} </td>
+            <td>{{ item.comment_time }}</td>
+            <td>{{ item.rating }}</td>
+            <td>{{ item.comment_content }}</td>
+        </tr>
+        {% endfor %}
+        </table>
+
+        <h2> Post comment </h2>
+        <form id="commentForm" name="commentForm" action="" method="POST">
+         {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" id = "commentButton" name="commentButton" value="Post Comment" />
+        </form>
+
+        <!-- Reward link and reward record -->
+        <h2>Reward</h2>
+        <a href = "{{CONSTANT_NAME}}/artwork/{{aw.id}}/reward/"> Click here to reward </a>
+
+        <table>
+        <tr>
+            <th>Contributor</th>
+            <th>Reward time</th>
+            <th>amount</th>
+
+        </tr>
+        {% for item in reward %}
+        <tr>
+            <td>{{ item.customer_id.username }}</td>
+            <td>{{ item.reward_time }}</td>
+            <td>{{ item.reward_amount }}</td>
+        </tr>
+        {% endfor %}
+        </table>
+
+        <!-- Button for favourite artwork -->
+        <h2> Add to or Remove from favourite list</h2>
+        <form id="favouriteForm" name="favouriteForm" action="" method="POST">
+            {% csrf_token %}
+            <input type="submit" name="favouriteButton" value="Add to/ Remove from favourite list" />
+        </form>
+    </body>
+</html>
+{% endblock %}
