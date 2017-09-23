@@ -2,12 +2,17 @@
 
 {% block css %}
     <style type="text/css">
-        a:hover {
-            cursor: pointer;
+        .active {
+            font-weight: bold;
         }
 
-        label:hover {
-            cursor: default;
+        .compress {
+            border: 0px solid whitesmoke;
+            overflow: hidden;
+        }
+
+        a {
+            cursor: pointer;
         }
     </style>
 {% endblock %}
@@ -45,7 +50,7 @@
                     <div class="span2 portfolio-item website html5 css3 responsive"
                          style="text-align: right; position: -webkit-sticky; position: sticky; top: 70px">
                         <ul>
-                        <!-- Menu Area -->
+                            <!-- Menu Area -->
                             {% block menu %}{% endblock %}
                         </ul>
                     </div>

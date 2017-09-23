@@ -33,8 +33,8 @@ urlpatterns = [
     url(r'^index/$', view.index_ignore, name='index'),
 
     # personal page url, including customers' and artists'
-    url(r'^customer/$', personal_controller.personal_favorite_default, name='favorite'),
-    # url(r'^customer/favorite/$', personal_controller.personal_favorite, name='favorite'),
+    url(r'^customer/favorites/$', personal_controller.personal_favorite_default, name='favorite'),
+
     url(r'^customer/settings/$', personal_controller.personal_settings_default, name='setting'),
     url(r'^customer/complaints/$', personal_controller.personal_complaints_default, name='complaint'),
     url(r'^customer/rewards/$', personal_controller.personal_rewards_default, name='reward'),

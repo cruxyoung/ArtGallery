@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.auth',
-    'ArtGallery'
+    'ArtGallery',
+    'pure_pagination',
 ]
 
 MIDDLEWARE = [
