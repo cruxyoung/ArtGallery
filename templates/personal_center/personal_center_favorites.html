@@ -5,7 +5,7 @@
 {% block menu %}
     <ul>
         <li><a href="?" class="{% if not sort %}active{% endif %}">FAVORITES</a></li>
-        <li><a href="?sort=like_time" class="{% if sort %}active{% endif %}">TIME ORDER</a></li>
+        <li><a href="?sort=time" class="{% if sort %}active{% endif %}">TIME ORDER</a></li>
     </ul>
 {% endblock %}
 
@@ -15,6 +15,7 @@
             TOTAL: <b>{{ favs_nums }}</b> LIKES
         </div>
     </div>
+
     <div class="row-fluid">
         {% for fav in favs.object_list %}
             <div class="span4 portfolio-item website html5 css3 responsive">
@@ -25,6 +26,7 @@
 
                     <div class="item-description alt">
                         <h5><a href="">{{ fav.aw_id.aw_name }}</a></h5>
+                        <h4><a>{{ fav.aw_id.artist_id.first_name }} {{ fav.aw_id.artist_id.last_name }}</a></h4>
                         <p id="description_paragraph{{ fav.id }}" class="compress" style="height: 200px;">
                             {{ fav.aw_id.aw_description }}
                         </p>
@@ -35,6 +37,7 @@
             </div>
         {% endfor %}
     </div>
+
     <div class="row-fluid text-center">
         {% load i18n %}
         <div class="pagination">

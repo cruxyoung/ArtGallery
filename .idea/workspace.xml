@@ -2,19 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="682c7aba-68e9-4177-8679-bfb82ce106fe" name="Default" comment="Modified model">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/ArtGallery/images/coin.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtGallery/controllers/personal_controller.py" afterPath="$PROJECT_DIR$/ArtGallery/controllers/personal_controller.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtGallery/settings.py" afterPath="$PROJECT_DIR$/ArtGallery/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtGallery/urls.py" afterPath="$PROJECT_DIR$/ArtGallery/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/master.html" afterPath="$PROJECT_DIR$/templates/master.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/personal_center/personal_center_auctions.html" afterPath="$PROJECT_DIR$/templates/personal_center/personal_center_auctions.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/personal_center/personal_center_comments.html" afterPath="$PROJECT_DIR$/templates/personal_center/personal_center_comments.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/personal_center/personal_center_complaints.html" afterPath="$PROJECT_DIR$/templates/personal_center/personal_center_complaints.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/personal_center/personal_center_favorites.html" afterPath="$PROJECT_DIR$/templates/personal_center/personal_center_favorites.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/personal_center/personal_center_rewards.html" afterPath="$PROJECT_DIR$/templates/personal_center/personal_center_rewards.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/personal_center/personal_master.html" afterPath="$PROJECT_DIR$/templates/personal_center/personal_master.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,77 +27,7 @@
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ArtGallery/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="494">
-              <caret line="35" column="98" lean-forward="false" selection-start-line="35" selection-start-column="98" selection-end-line="35" selection-end-column="98" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="personal_controller.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ArtGallery/controllers/personal_controller.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="31" column="44" lean-forward="true" selection-start-line="31" selection-start-column="44" selection-end-line="31" selection-end-column="44" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="personal_center_favorites.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/personal_center/personal_center_favorites.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="16" column="10" lean-forward="true" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
-              <folding>
-                <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="e#1710#1718#0#HTML" expanded="true" />
-                <element signature="e#1718#1726#0#HTML" expanded="true" />
-                <element signature="e#2542#2550#0#HTML" expanded="true" />
-                <element signature="e#2550#2558#0#HTML" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ArtGallery/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="702">
-              <caret line="40" column="22" lean-forward="false" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="personal_master.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/personal_center/personal_master.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="27" lean-forward="false" selection-start-line="0" selection-start-column="27" selection-end-line="0" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="master.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/master.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="16" column="33" lean-forward="false" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -115,9 +40,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>charf</find>
-      <find>user</find>
-      <find>artist_</find>
       <find>article</find>
       <find>../../</find>
       <find>../../static/</find>
@@ -145,11 +67,17 @@
       <find>active</find>
       <find>fav</find>
       <find>og:d</find>
+      <find>favs</find>
+      <find>rewards</find>
+      <find>comments</find>
     </findStrings>
     <replaceStrings>
       <replace>{{ STATIC_URL }}</replace>
       <replace>{% static &quot;</replace>
       <replace>border-radius:1px</replace>
+      <replace>rewards</replace>
+      <replace>comments</replace>
+      <replace>complaints</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -236,19 +164,19 @@
         <option value="$PROJECT_DIR$/templates/personal_center/personal_center_fav.html" />
         <option value="$PROJECT_DIR$/static/ArtGallery/css/bootstrap.min.css" />
         <option value="$PROJECT_DIR$/static/ArtGallery/css/bootstrap3.min.css" />
-        <option value="$PROJECT_DIR$/templates/personal_center/personal_center_rewards.html" />
-        <option value="$PROJECT_DIR$/templates/personal_center/personal_center_complaints.html" />
-        <option value="$PROJECT_DIR$/templates/personal_center/personal_center_comments.html" />
         <option value="$PROJECT_DIR$/templates/personal_center/personal_center_settings.html" />
         <option value="$PROJECT_DIR$/ArtGallery/controllers/personal_tags.py" />
         <option value="$PROJECT_DIR$/ArtGallery/controllers/custom_tags.py" />
         <option value="$PROJECT_DIR$/ArtGallery/settings.py" />
         <option value="$PROJECT_DIR$/ArtGallery/urls.py" />
-        <option value="$PROJECT_DIR$/templates/master.html" />
         <option value="$PROJECT_DIR$/templates/personal_center/personal_master.html" />
-        <option value="$PROJECT_DIR$/templates/personal_center/personal_center_favorites.html" />
-        <option value="$PROJECT_DIR$/ArtGallery/controllers/personal_controller.py" />
+        <option value="$PROJECT_DIR$/templates/master.html" />
         <option value="$PROJECT_DIR$/templates/personal_center/personal_center_auctions.html" />
+        <option value="$PROJECT_DIR$/templates/personal_center/personal_center_favorites.html" />
+        <option value="$PROJECT_DIR$/templates/personal_center/personal_center_rewards.html" />
+        <option value="$PROJECT_DIR$/templates/personal_center/personal_center_comments.html" />
+        <option value="$PROJECT_DIR$/ArtGallery/controllers/personal_controller.py" />
+        <option value="$PROJECT_DIR$/templates/personal_center/personal_center_complaints.html" />
       </list>
     </option>
   </component>
@@ -319,6 +247,17 @@
               <item name="static" type="462c0819:PsiDirectoryNode" />
               <item name="ArtGallery" type="462c0819:PsiDirectoryNode" />
               <item name="images" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ELEC9609" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ELEC9609" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ELEC9609" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ELEC9609" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="personal_center" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ELEC9609" type="b2602c69:ProjectViewProjectNode" />
@@ -460,7 +399,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1831" y="-158" width="1757" height="1058" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug Logs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -470,7 +408,7 @@
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32862645" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Execute Anonymous" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.267009" sideWeight="0.48819444" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.09854227" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.09854227" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26687434" sideWeight="0.4962493" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2495183" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -698,30 +636,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/personal_center/personal_center_rewards.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="21" lean-forward="false" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/personal_center/personal_center_complaints.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="25" lean-forward="false" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/personal_center/personal_center_comments.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/personal_center/personal_center_settings.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
@@ -764,29 +678,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/master.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="16" column="33" lean-forward="false" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/personal_center/personal_master.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="27" lean-forward="false" selection-start-line="0" selection-start-column="27" selection-end-line="0" selection-end-column="27" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ArtGallery/controllers/personal_controller.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="31" column="44" lean-forward="true" selection-start-line="31" selection-start-column="44" selection-end-line="31" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -798,31 +694,89 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/master.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2318">
+          <caret line="122" column="10" lean-forward="true" selection-start-line="122" selection-start-column="10" selection-end-line="122" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/personal_center/personal_center_auctions.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="703">
-          <caret line="37" column="18" lean-forward="true" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="18" />
+        <state relative-caret-position="418">
+          <caret line="22" column="92" lean-forward="false" selection-start-line="22" selection-start-column="92" selection-end-line="22" selection-end-column="92" />
           <folding>
-            <element signature="e#1512#1530#0#HTML" expanded="true" />
-            <element signature="e#1884#1892#0#HTML" expanded="true" />
-            <element signature="e#1892#1900#0#HTML" expanded="true" />
-            <element signature="e#2732#2740#0#HTML" expanded="true" />
-            <element signature="e#2740#2748#0#HTML" expanded="true" />
+            <element signature="e#1535#1553#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/personal_center/personal_center_favorites.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" column="10" lean-forward="true" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
+        <state relative-caret-position="0">
+          <caret line="0" column="52" lean-forward="true" selection-start-line="0" selection-start-column="52" selection-end-line="0" selection-end-column="52" />
           <folding>
-            <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="e#1710#1718#0#HTML" expanded="true" />
-            <element signature="e#1718#1726#0#HTML" expanded="true" />
-            <element signature="e#2542#2550#0#HTML" expanded="true" />
-            <element signature="e#2550#2558#0#HTML" expanded="true" />
+            <element signature="e#751#773#0#HTML" expanded="true" />
+            <element signature="e#1188#1210#0#HTML" expanded="true" />
+            <element signature="e#1379#1400#0#HTML" expanded="true" />
+            <element signature="e#1820#1828#0#HTML" expanded="true" />
+            <element signature="e#1828#1836#0#HTML" expanded="true" />
+            <element signature="e#2652#2660#0#HTML" expanded="true" />
+            <element signature="e#2660#2668#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/personal_center/personal_center_rewards.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="29" lean-forward="false" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#p#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="e#1812#1820#0#HTML" expanded="true" />
+            <element signature="e#1820#1828#0#HTML" expanded="true" />
+            <element signature="e#2502#2510#0#HTML" expanded="true" />
+            <element signature="e#2510#2518#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/personal_center/personal_center_complaints.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding>
+            <element signature="e#1646#1682#0#HTML" expanded="true" />
+            <element signature="e#2011#2019#0#HTML" expanded="true" />
+            <element signature="e#2019#2027#0#HTML" expanded="true" />
+            <element signature="e#2713#2721#0#HTML" expanded="true" />
+            <element signature="e#2721#2729#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/personal_center/personal_center_comments.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6">
+          <caret line="24" column="35" lean-forward="true" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
+          <folding>
+            <element signature="e#983#1005#0#HTML" expanded="true" />
+            <element signature="e#2187#2195#0#HTML" expanded="true" />
+            <element signature="e#2195#2203#0#HTML" expanded="true" />
+            <element signature="e#2881#2889#0#HTML" expanded="true" />
+            <element signature="e#2889#2897#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ArtGallery/controllers/personal_controller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="878">
+          <caret line="159" column="54" lean-forward="false" selection-start-line="159" selection-start-column="54" selection-end-line="159" selection-end-column="54" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
