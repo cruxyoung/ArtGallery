@@ -82,7 +82,7 @@ def artwork_detail(request, aw_id):
                     commenter_id_id=request.user.id,
                 )
                 new_comment.save()
-                data = serializers.serialize('json', comment)
+                data = serializers.serialize('json',  Comment.objects.filter(aw_id_id=aw_id))
                 return HttpResponse(data, content_type="application/json" )
         # Favourite record post
         elif 'favouriteButton' in request.POST:
