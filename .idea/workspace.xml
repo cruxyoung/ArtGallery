@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="682c7aba-68e9-4177-8679-bfb82ce106fe" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/ArtGallery/css/album.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/ArtGallery/css/carousel.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtGallery/views/home_page.py" afterPath="$PROJECT_DIR$/ArtGallery/views/home_page.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/home_page/art_list.html" afterPath="$PROJECT_DIR$/templates/home_page/art_list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/home_page/home_page.html" afterPath="$PROJECT_DIR$/templates/home_page/home_page.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/master.html" afterPath="$PROJECT_DIR$/templates/master.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -442,7 +435,14 @@
       <option name="project" value="LOCAL" />
       <updated>1505116117731</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="jumping between home and art_list enabled">
+      <created>1506509209245</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1506509209245</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
