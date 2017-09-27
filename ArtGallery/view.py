@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.contrib.auth import login, authenticate
 from ArtGallery.forms import UserCreateForm
 from django.shortcuts import render, redirect
-
+import json
 
 def hello(request):
     return HttpResponse("Hello world!")
@@ -19,4 +19,5 @@ def signup(request):
     else:
         form = UserCreateForm()
     return render(request, 'registration/signup.html', {'form': form})
+
 

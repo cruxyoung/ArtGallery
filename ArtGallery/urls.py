@@ -31,7 +31,6 @@ urlpatterns = [
     url('^home_page/', home_page.home_page, name='home'),
     url(r'^(?P<art_id>[0-9]+)/$', home_page.detail, name='detail'),
     url(r'^art_list/$', home_page.art_list, name='art_list'),
-
 ]
 
 if settings.DEBUG:
