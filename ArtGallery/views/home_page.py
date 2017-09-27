@@ -8,11 +8,12 @@ from django import forms
 
 def home_page(request):
     artworks = ArtWork.objects.all()
-    artworks = artworks
+    latest_artworks = artworks.order_by('aw_time')[len(artworks)-6  :]
     print()
     return render(request,
                   'home_page/home_page.html',
                   {'artworks': artworks,
+                   'latest_artworks':latest_artworks,
                    'example0':artworks[0],
                    'example1': artworks[1],
                    'example2': artworks[2],
