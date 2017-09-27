@@ -3,8 +3,24 @@
     <head>
         {% load static %}
         <link rel="stylesheet" href="{% static "ArtGallery/css/artwork.css" %}">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script>
+            $('#id_commentButton').click(function(){
+                alert("shit");
+                console.log("HHHHH");
+                $.ajax({
+                    cache: false,
+                    type: "POST",
+                    dataType:"json",
+                    url:"{% url 'aw' aw.id %}",
+                    async: true,
+                    success: function (data) {
+                        alert("shit");
+                        console.log("HHHHH");
+                    }
+                });
+                return false;
+            })
         </script>
         
     </head>
@@ -46,7 +62,7 @@
         <form id="commentForm" name="commentForm" action="" method="POST">
          {% csrf_token %}
             {{ form.as_p }}
-            <input type="submit" id = "commentButton" name="commentButton" value="Post Comment" />
+            <input type="submit" id = "id_commentButton" name = "commentButton" value="Post Comment" />
         </form>
 
         <!-- Reward link and reward record -->
