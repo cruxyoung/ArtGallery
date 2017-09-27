@@ -33,13 +33,21 @@ urlpatterns = [
     url(r'^index/$', view.index_ignore, name='index'),
 
     # personal page url, including customers' and artists'
-    url(r'^customer/favorites/$', personal_controller.personal_favorite_default, name='favorite'),
+    url(r'^customer/favorites/$', personal_controller.PersonalFavorite.as_view(), name='favorite'),
 
-    url(r'^customer/settings/$', personal_controller.personal_settings_default, name='setting'),
-    url(r'^customer/complaints/$', personal_controller.personal_complaints_default, name='complaint'),
-    url(r'^customer/rewards/$', personal_controller.personal_rewards_default, name='reward'),
-    url(r'^customer/auctions/$', personal_controller.personal_auctions_default, name='auction'),
-    url(r'^customer/comments/$', personal_controller.personal_comments_default, name='comment'),
+    url(r'^customer/settings/$', personal_controller.PersonalSetting.as_view(), name='setting'),
+    url(r'^customer/settings/change_pwd/$', personal_controller.PersonalSetting.as_view(), name='change_pwd'),
+    url(r'^customer/settings/edit_info/$', personal_controller.UserInfoView.as_view(), name='edit_info'),
+
+    url(r'^customer/settings/test/$', personal_controller.TestHaha.as_view(), name='test_haha'),
+
+    url(r'^customer/complaints/$', personal_controller.PersonalComplaint.as_view(), name='complaint'),
+    url(r'^customer/rewards/$', personal_controller.PersonalReward.as_view(), name='reward'),
+    url(r'^customer/auctions/$', personal_controller.PersonalAuction.as_view(), name='auction'),
+    url(r'^customer/comments/$', personal_controller.PersonalComment.as_view(), name='comment'),
+
+    # Change Favorites
+    # url(r'^customer/favorites/change_fav/$', ),
 ]
 
 if settings.DEBUG:

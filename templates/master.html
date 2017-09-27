@@ -74,7 +74,7 @@
                                     </a>
                                 </li>
                                 <!-- Judge the status whether logged or not -->
-                                {% if customer.username %}
+                                {% if request.user.is_authenticated %}
                                     <li>
                                         <a class="dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown">
                                             {{ customer.username|upper }}

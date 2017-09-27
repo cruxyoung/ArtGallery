@@ -129,3 +129,10 @@ STATICFILES_DIRS = (
 )
 STATIC_URL = '/static/'
 
+# # Setting Email
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 25
+# EMAIL_HOST_USER = 'nikelazy@gmail.com'
+# EMAIL_HOST_PASSWORD = ''
+# EMAIL_USE_TLS = False
+# EMAIL_FROM = "nikelazy@gmail.com"
