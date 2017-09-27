@@ -3,25 +3,7 @@
     <head>
         {% load static %}
         <link rel="stylesheet" href="{% static "ArtGallery/css/artwork.css" %}">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script>
-            $('#id_commentButton').click(function(){
-                alert("shit");
-                console.log("HHHHH");
-                $.ajax({
-                    cache: false,
-                    type: "POST",
-                    dataType:"json",
-                    url:"{% url 'aw' aw.id %}",
-                    async: true,
-                    success: function (data) {
-                        alert("shit");
-                        console.log("HHHHH");
-                    }
-                });
-                return false;
-            })
-        </script>
+
         
     </head>
     <body>
@@ -59,7 +41,7 @@
         </table>
 
         <h2> Post comment </h2>
-        <form id="commentForm" name="commentForm" action="" method="POST">
+        <form id="id_commentForm" name="commentForm" action="" method="POST">
          {% csrf_token %}
             {{ form.as_p }}
             <input type="submit" id = "id_commentButton" name = "commentButton" value="Post Comment" />
@@ -69,7 +51,7 @@
         <h2>Reward</h2>
         <a href = "{{CONSTANT_NAME}}/artwork/{{aw.id}}/reward/"> Click here to reward </a>
 
-        <table>
+        <table id="commentTable">
         <tr>
             <th>Contributor</th>
             <th>Reward time</th>
@@ -92,5 +74,22 @@
             <input type="submit" name="favouriteButton" value="Add to/ Remove from favourite list" />
         </form>
     </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script>
+            $('#id_commentButton').click(function(e){
+                $.ajax({
+                    cache: false,
+                    type: "POST",
+                    dataType: "json",
+                    url:"{% url 'aw' aw.id %}",
+                    data: $('#id_commentForm').serialize(),
+                    async: true,
+                    success: function (data) {
+                        alert(data)
+                    }
+                })
+
+            });
+        </script>
 </html>
 {% endblock %}
