@@ -3,4 +3,120 @@
 {% block body %}
 
 
+    {#    <div class="smallsearch col-sm-8 col-xs-11">#}
+    {#        <br><br><br>#}
+    {#        <form method="get" action="{% url 'art_list' %}">#}
+    {#            {% csrf_token %}#}
+    {#            <input type="text" name="keyword" class="form-control"#}
+    {#                   placeholder="Search for..."#}
+    {#                   aria-label="Search for...">#}
+    {#            <button class="btn-default" type="submit"> submit</button>#}
+    {#        </form>#}
+    {##}
+    {##}
+    {#    </div>#}
+
+    <br><br><br>
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <form class="form-search text-center">
+                    <input class="input-large search-query" type="text"/>
+                    <button type="submit" class="btn">查找</button>
+                </form>
+                <div class="pagination pagination-centered pagination-large">
+				<ul>
+					<li>
+						<a href="#">上一页</a>
+					</li>
+					<li>
+						<a href="#">1</a>
+					</li>
+					<li>
+						<a href="#">2</a>
+					</li>
+					<li>
+						<a href="#">3</a>
+					</li>
+					<li>
+						<a href="#">4</a>
+					</li>
+					<li>
+						<a href="#">5</a>
+					</li>
+					<li>
+						<a href="#">下一页</a>
+					</li>
+				</ul>
+			</div>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span2">
+                <ul class="table table-bordered text-center">
+                    <li class="nav-header">
+                        Genre
+                    </li>
+                    <li class="active">
+                        <a href="#">首页</a>
+                    </li>
+                    <li>
+                        <a href="#">库</a>
+                    </li>
+                    <li>
+                        <a href="#">应用</a>
+                    </li>
+                    <li>
+                        <a href="#">资料</a>
+                    </li>
+                    <li>
+                        <a href="#">设置</a>
+                    </li>
+                    <li class="divider">
+                    </li>
+                    <li>
+                        <a href="#">帮助</a>
+                    </li>
+                </ul>
+
+                <ul class="table table-bordered text-center">
+                    <li class="nav-header">
+                        Period
+                    </li>
+                    <li class="active">
+                        <a href="#">首页</a>
+                    </li>
+                    <li>
+                        <a href="#">库</a>
+                    </li>
+                    <li>
+                        <a href="#">应用</a>
+                    </li>
+                    <li>
+                        <a href="#">资料</a>
+                    </li>
+                    <li>
+                        <a href="#">设置</a>
+                    </li>
+                    <li class="divider">
+                    </li>
+                    <li>
+                        <a href="#">帮助</a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="span10 text-center">
+                <button type="button" class="btn btn-default btn-large">Style1</button>
+                <button type="button" class="btn btn-default btn-large">Style2</button>
+                <button type="button" class="btn btn-default btn-large">Style3</button>
+                <button type="button" class="btn btn-default btn-large">Style4</button>
+                <button type="button" class="btn btn-default btn-large">Style5</button>
+                <button type="button" class="btn btn-default btn-large">Style6</button>
+
+            </div>
+        </div>
+    </div>
+
 {% endblock %}
