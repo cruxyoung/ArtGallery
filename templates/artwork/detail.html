@@ -3,8 +3,6 @@
     <head>
         {% load static %}
         <link rel="stylesheet" href="{% static "ArtGallery/css/artwork.css" %}">
-
-        
     </head>
     <body>
 
@@ -22,23 +20,19 @@
         <!-- Comment list and post comment-->
         <h2> Comments for this artwork </h2>
 
-        <table id = "commentTable">
-        <tr>
-            <th>User</th>
-            <th>Post time</th>
-            <th>Rating</th>
-            <th>Content</th>
+        <div id = "id_comment_display">
+            {% for item in comment %}
+            <p>
+                Author: {{ item.commenter_id.username }}<br />
+                Time: {{ item.comment_time }}<br />
+                Rating: {{ item.rating }}<br />
+                Comment content: <br />{{ item.comment_content }}<br />
+                <br />
+            </p>
+            {% endfor %}
+        </div>
 
-        </tr>
-        {% for item in comment %}
-        <tr>
-            <td>{{ item.commenter_id.username }} </td>
-            <td>{{ item.comment_time }}</td>
-            <td>{{ item.rating }}</td>
-            <td>{{ item.comment_content }}</td>
-        </tr>
-        {% endfor %}
-        </table>
+
 
         <h2> Post comment </h2>
         <form id="id_commentForm" name="commentForm" action="" method="POST">
@@ -51,7 +45,7 @@
         <h2>Reward</h2>
         <a href = "{{CONSTANT_NAME}}/artwork/{{aw.id}}/reward/"> Click here to reward </a>
 
-        <table id="commentTable">
+        <table id="reewardTable">
         <tr>
             <th>Contributor</th>
             <th>Reward time</th>
@@ -75,21 +69,34 @@
         </form>
     </body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script>
-            $('#id_commentButton').click(function(e){
-                $.ajax({
-                    cache: false,
-                    type: "POST",
-                    dataType: "json",
-                    url:"{% url 'aw' aw.id %}",
-                    data: $('#id_commentForm').serialize(),
-                    async: true,
-                    success: function (data) {
-                        alert(data)
-                    }
-                })
+    <script>
 
+        $('#id_commentButton').click(function(){
+            $.ajax({
+                cache: false,
+                type: "POST",
+                dataType: "json",
+                url:"{% url 'comment' aw.id %}",
+                data: $('#id_commentForm').serialize(),
+                async: true,
+                success: function (data) {
+                    var json = jQuery.parseJSON(data);
+                    var content = "<div id = \"id_comment_display\">"; // Div head
+
+                    // Read data and append to content
+                    for (i = 0; i < json.length; i++) {
+                        content += "<p>" + "Author: " + json[i].fields.commenter_id + "<br />" +
+                                "Time: " + json[i].fields.comment_time + "<br />" +
+                                "Rating: " + json[i].fields.rating + "<br />" +
+                                "Comment content: " + "<br />" + json[i].fields.comment_content + "<br />" + "<br />" + "</p>"
+                    }
+                    content += "</div>";
+                    $('#id_comment_display').html(content);
+                }
             });
-        </script>
+            return false;
+        });
+
+    </script>
 </html>
 {% endblock %}

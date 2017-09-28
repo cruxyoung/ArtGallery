@@ -18,6 +18,7 @@ from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.contrib import admin
 from . import views
+from . import ajax
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -30,6 +31,7 @@ urlpatterns = [
     url(r'^artist/(?P<user_id>[0-9]+)/detail/$', views.artist_detail, name='user'),
     url(r'^auction/(?P<auction_id>[0-9]+)/detail/$', views.auction_detail, name='auction'),
     url(r'^artwork/(?P<aw_id>[0-9]+)/reward/$', views.reward_pay, name='reward'),
+    url(r'^artwork/(?P<aw_id>[0-9]+)/detail/comment/$', views.ajax_comment, name='comment'),
 ]
 
 if settings.DEBUG:
