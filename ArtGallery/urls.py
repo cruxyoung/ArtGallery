@@ -16,14 +16,19 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls import url, include
 from django.conf.urls.static import static
-from django.contrib import admin
+# from django.contrib import admin
 
 
 from ArtGallery.Controller import views_complaints
 from . import view
+import xadmin
+from xadmin.plugins import xversion
+
+xadmin.autodiscover()
+xversion.register_models()
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    url(r'^xadmin/', xadmin.site.urls),
     url(r'^$', view.hello),
     url('^accounts/', include('django.contrib.auth.urls')),
     url('^accounts/signup/$', view.signup),
