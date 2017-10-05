@@ -6,6 +6,7 @@ import time
 # User profile, represent table "user" in design
 # Inherit THE DJANGO EMBEDDED AUTHENICATION SYSTEM
 # THE EMBEDDED SYSTEM ALREADY INCLUDE NAME AND EMAIL
+
 class UserProfile(models.Model):
     user_id = models.ForeignKey(User)
 
@@ -22,7 +23,9 @@ class ArtWork(models.Model):
     artist_id = models.ForeignKey(User)
 
     aw_name = models.CharField(null=True, max_length=64)
+
     aw_img = models.ImageField(default="/static/images/profile-default.png", upload_to='artwork/'+time.time().__str__())
+
     aw_description = models.CharField(null=True, max_length=256)
     aw_location = models.CharField(null=True, max_length=32)
     aw_time = models.DateTimeField()

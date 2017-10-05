@@ -1,0 +1,74 @@
+{% extends 'personal_center/personal_master.html' %}
+
+{% block title %}Complaints{% endblock %}
+
+{% block menu %}
+    <ul>
+        <li><a><b>HISTORY</b></a></li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+    <div class="row-fluid">
+        <div class="offset1">
+            TOTAL: <b>{{ complaints_nums }}</b> COMPLAINTS
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        {% for complaint in complaints.object_list %}
+            <hr/>
+            <div class="row-fluid">
+                <div class="span8">
+                    <div class="row-fluid text-center">
+                        <div class="span6"><label>ARTWORK NAME: </label></div>
+                        <div class="span6"><a>{{ complaint.aw_id.aw_name }}</a></div>
+                    </div>
+                    <div class="row-fluid text-center">
+                        <div class="span6"><label>COMPLAINT TYPE: </label></div>
+                        <div class="span6"><a>{{ complaint.complaint_type }}</a></div>
+
+                    </div>
+                    <div class="row-fluid text-center">
+                        <div class="span6"><label>COMPLAINT TIME:</label></div>
+                        <div class="span6"><a>{{ complaint.complaint_time }}</a></div>
+                    </div>
+
+                    <div class="row-fluid span12">
+                    <textarea class="uneditable-textarea input-block-level">
+                    {{ complaint.complaint_content }}
+                    </textarea>
+                    </div>
+                </div>
+                <div class="span4 text-right">
+                    <img src="{{ complaint.aw_id.aw_img }}" style="height: 200px; width: 150px;"/>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="row-fluid text-center">
+        {% load i18n %}
+        <div class="pagination">
+            {% if complaints.has_previous %}
+                <a href="?{{ complaints.previous_page_number.querystring }}"
+                   class="prev">&lsaquo;&lsaquo; {% trans "previous" %}</a>
+            {% endif %}
+            {% for page in complaints.pages %}
+                {% if page %}
+                    {% ifequal page complaints.number %}
+                        <span class="current page"><b>{{ page }}</b></span>
+                    {% else %}
+                        <a href="?{{ page.querystring }}" class="page">{{ page }}</a>
+                    {% endifequal %}
+                {% else %}
+                    ...
+                {% endif %}
+            {% endfor %}
+            {% if complaints.has_next %}
+                <a href="?{{ complaints.next_page_number.querystring }}" class="next">{% trans "next" %}
+                    &rsaquo;&rsaquo;</a>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

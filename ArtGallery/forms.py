@@ -4,7 +4,6 @@ from django.contrib.auth.forms import UserCreationForm
 from ArtGallery.models import Comment, Reward
 from django.db import models
 
-
 # Form for register (sign up page)
 class UserCreateForm(UserCreationForm):
     email = forms.CharField(required=True)
@@ -23,6 +22,19 @@ class UserCreateForm(UserCreationForm):
         if commit:
             user.save()
         return user
+
+
+class ModifyPwdForm(forms.Form):
+    password1 = forms.CharField(required=True, min_length=5)
+    password2 = forms.CharField(required=True, min_length=5)
+    password3 = forms.CharField(required=True, min_length=5)
+
+
+# should be modified later, cuz include userProfile
+class UserInfoForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ('username', 'first_name', 'last_name', 'email')
 
 
 # Form for post a comment to an artwork (artwork page)

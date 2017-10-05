@@ -1,71 +1,71 @@
-
 {% block content %}
 
-<html>
+    <html>
     <head>
-       10
-        <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        10
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet"
+              id="bootstrap-css">
         <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-        <script type="text/javascript" >
-            $(document).ready(function(){
-            $("#id_username").attr('placeholder', '{{form.username.label}}');
-            $("#id_email").attr('placeholder', '{{form.password.label}}');
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#id_username").attr('placeholder', '{{form.username.label}}');
+                $("#id_email").attr('placeholder', '{{form.password.label}}');
             });
         </script>
     </head>
-    <body style="background: url('{% static "ArtGallery/images/bg_login.jpg" %}') fixed">
+{#    <body style="background: url('{% static "ArtGallery/images/bg_login.jpg" %}') fixed">#}
     <div class="container">
-    <div class="row">
-        <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-12">
 
-            <div class="wrap">
-                <p class="form-title">
-                    Sign In</p>
-                <form class="login" method="post" action="{% url 'login' %}">
-                     {% csrf_token %}
+                <div class="wrap">
+                    <p class="form-title">
+                        Sign In</p>
+                    <form class="login" method="post" action="{% url 'login' %}">
+                        {% csrf_token %}
 
-                    {{ form.username }}
-                    {{ form.password }}
-                    <div class = "row" style="color: #ff0000">
-                        {% if form.errors %}
-                            <p>Your username and password didn't match. Please try again.</p>
-                        {% endif %}
-                        {% if next %}
-                            {% if user.is_authenticated %}
-                                <p>Your account doesn't have access to this page. To proceed,
-                                please login with an account that has access.</p>
-                            {% else %}
-                                <p>Please login to see this page.</p>
+                        {{ form.username }}
+                        {{ form.password }}
+                        <div class="row" style="color: #ff0000">
+                            {% if form.errors %}
+                                <p>Your username and password didn't match. Please try again.</p>
                             {% endif %}
-                        {% endif %}
-                    </div>
+                            {% if next %}
+                                {% if user.is_authenticated %}
+                                    <p>Your account doesn't have access to this page. To proceed,
+                                        please login with an account that has access.</p>
+                                {% else %}
+                                    <p>Please login to see this page.</p>
+                                {% endif %}
+                            {% endif %}
+                        </div>
 
-                <input type="submit" value="Sign In" class="btn btn-success btn-sm" />
-                    <input type="hidden" name="next" value="{{ next }}" >
-                <div class="remember-forgot">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" />
-                                    Remember Me
+                        <input type="submit" value="Sign In" class="btn btn-success btn-sm"/>
+                        <input type="hidden" name="next" value="{{ next }}">
+                        <div class="remember-forgot">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox"/>
+                                            Remember Me
 
-                                </label>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 forgot-pass-content">
+                                    <a href="{% url 'password_reset' %}">Lost password?</a>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-6 forgot-pass-content">
-                        <a href="{% url 'password_reset' %}">Lost password?</a>
-                        </div>
-                    </div>
+                    </form>
                 </div>
-                </form>
             </div>
-            </div>
-            </div>
-            </div>
-        {# Assumes you setup the password_reset view in your URLconf #}
+        </div>
+    </div>
+    {# Assumes you setup the password_reset view in your URLconf #}
 
     </body>
-</html>
+    </html>
 
 {% endblock %}
