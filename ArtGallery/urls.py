@@ -14,26 +14,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf import settings
-from django.conf.urls import include
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.conf.urls.static import static
-from django.contrib import admin
 
-from ArtGallery.controllers import account_controller
+from ArtGallery.controllers import account_controller, home_controller
 from ArtGallery.controllers import artwork_controller
 from ArtGallery.controllers import personal_controller
 
-from . import view
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^$', view.hello),
 
-    url(r'^accounts/', include('django.contrib.auth.urls')),
-    url(r'^accounts/signup/$', view.signup),
-    url(r'^index/$', view.index_ignore, name='index'),
-
-    # personal page url, including customers' and artists'
+    # Personal page url, including customers' and artists'
     url(r'^customer/favorites/$', personal_controller.PersonalFavorite.as_view(), name='favorite'),
 
     url(r'^customer/settings/$', personal_controller.PersonalSetting.as_view(), name='setting'),
@@ -48,13 +39,16 @@ urlpatterns = [
     url(r'^artist/settings/$', personal_controller.ArtistSetting.as_view(), name='artist_setting'),
     url(r'^artist/artworks/$', personal_controller.ArtistArtwork.as_view(), name='artist_artwork'),
 
-    # Change Favorites
-    # url(r'^customer/favorites/change_fav/$', ),
-
     # Login
     url('^accounts/', include('django.contrib.auth.urls')),
     url('^accounts/signup/$', account_controller.signup),
 
+    # Home Page and Information Page
+    url('^index/', home_controller.home_page, name='index'),
+    url(r'^(?P<art_id>[0-9]+)/$', home_controller.detail, name='detail'),
+    url(r'^art_list/$', home_controller.art_list, name='art_list'),
+
+    # Artwork Detail
     url('^accounts/activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
         account_controller.activate, name='activate'),
     url(r'^artwork/(?P<aw_id>[0-9]+)/detail/$', artwork_controller.artwork_detail, name='aw'),
@@ -65,7 +59,8 @@ urlpatterns = [
 ]
 
 if settings.DEBUG:
-    # urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     urlpatterns += static(settings.ARTWORK_URL, document_root=settings.ARTWORK_ROOT)
+    # urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
 

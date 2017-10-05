@@ -24,8 +24,8 @@ class ArtWork(models.Model):
 
     aw_name = models.CharField(null=True, max_length=64)
 
-    # aw_img = models.ImageField(default="/static/images/profile-default.png")
     aw_img = models.ImageField(default="/static/images/profile-default.png", upload_to='artwork/'+time.time().__str__())
+
     aw_description = models.CharField(null=True, max_length=256)
     aw_location = models.CharField(null=True, max_length=32)
     aw_time = models.DateTimeField()
