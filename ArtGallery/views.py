@@ -1,4 +1,3 @@
-import json
 from django.http import HttpResponse, JsonResponse
 from django.core import serializers
 from _datetime import datetime
@@ -13,7 +12,6 @@ from ArtGallery.tokens import account_activation_token
 from django.core.mail import EmailMessage
 from django.contrib.auth.models import User
 from ArtGallery.models import ArtWork, UserProfile, AuctionHistory, AuctionRecord, Comment, Reward, FavoriteRecord
-from django.views.decorators.csrf import csrf_exempt
 
 
 def hello(request):
@@ -64,35 +62,30 @@ def activate(request, uidb64, token):
         return HttpResponse('Activation link is invalid!')
 
 
-# get comment list
-def ajax_comment(request, aw_id):
-    form = CommentForm(request.POST)
-    if form.is_valid():
-        new_comment = Comment(
-            comment_time=datetime.now(),
-            comment_content=request.POST.get('comment_content'),
-            rating=request.POST.get('rating'),
-            aw_id_id=aw_id,
-            commenter_id_id=request.user.id,
-        )
-        new_comment.save()
-    comment = Comment.objects.filter(aw_id_id=aw_id)
-    data = serializers.serialize('json', comment)
-    return HttpResponse(json.dumps(data), content_type="application/json")
-
-
 # Detail page (artwork) logic:
 # Include Comment logic
-@csrf_exempt
 def artwork_detail(request, aw_id):
     aw = get_object_or_404(ArtWork, pk=aw_id)
     comment = Comment.objects.filter(aw_id_id=aw_id)
     reward = Reward.objects.filter(aw_id_id=aw_id)
     favourite = FavoriteRecord.objects.filter(aw_id_id=aw_id, customer_id_id=request.user.id)
-    form = CommentForm(request.POST)
     if request.method == 'POST':
+        # Comment post
+        if 'commentButton' in request.POST:
+            form = CommentForm(request.POST)
+            if form.is_valid():
+                new_comment = Comment(
+                    comment_time=datetime.now(),
+                    comment_content=form.cleaned_data.get("comment_content"),
+                    rating=form.cleaned_data.get("rating"),
+                    aw_id_id=aw.id,
+                    commenter_id_id=request.user.id,
+                )
+                new_comment.save()
+                data = serializers.serialize('json',  Comment.objects.filter(aw_id_id=aw_id))
+                return HttpResponse(data, content_type="application/json" )
         # Favourite record post
-        if 'favouriteButton' in request.POST:
+        elif 'favouriteButton' in request.POST:
             # if not exists, add it to favourite list
             if favourite.count() == 0:
                 new_favourite = FavoriteRecord(

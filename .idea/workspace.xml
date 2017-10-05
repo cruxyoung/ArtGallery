@@ -2,8 +2,47 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="682c7aba-68e9-4177-8679-bfb82ce106fe" name="Default" comment="Modified model">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/artwork/1505101852.268796/60-160324160024.jpg" afterPath="$PROJECT_DIR$/artwork/1505101852.268796/60-160324160024.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtGallery/admin.py" afterPath="$PROJECT_DIR$/ArtGallery/admin.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtGallery/ajax.py" afterPath="$PROJECT_DIR$/ArtGallery/ajax.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtGallery/forms.py" afterPath="$PROJECT_DIR$/ArtGallery/forms.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtGallery/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/ArtGallery/migrations/0001_initial.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtGallery/migrations/0002_auto_20170911_0350.py" afterPath="$PROJECT_DIR$/ArtGallery/migrations/0002_auto_20170911_0350.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtGallery/migrations/0003_auto_20170914_1312.py" afterPath="$PROJECT_DIR$/ArtGallery/migrations/0003_auto_20170914_1312.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtGallery/migrations/0004_auto_20170914_1315.py" afterPath="$PROJECT_DIR$/ArtGallery/migrations/0004_auto_20170914_1315.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtGallery/migrations/0005_auto_20170914_1315.py" afterPath="$PROJECT_DIR$/ArtGallery/migrations/0005_auto_20170914_1315.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtGallery/migrations/0006_auto_20170914_1316.py" afterPath="$PROJECT_DIR$/ArtGallery/migrations/0006_auto_20170914_1316.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtGallery/migrations/0007_auto_20170914_1319.py" afterPath="$PROJECT_DIR$/ArtGallery/migrations/0007_auto_20170914_1319.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtGallery/migrations/0008_auto_20170914_1337.py" afterPath="$PROJECT_DIR$/ArtGallery/migrations/0008_auto_20170914_1337.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtGallery/migrations/0009_auto_20170914_1342.py" afterPath="$PROJECT_DIR$/ArtGallery/migrations/0009_auto_20170914_1342.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtGallery/migrations/0010_auto_20170914_1502.py" afterPath="$PROJECT_DIR$/ArtGallery/migrations/0010_auto_20170914_1502.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtGallery/migrations/0011_auto_20170914_1544.py" afterPath="$PROJECT_DIR$/ArtGallery/migrations/0011_auto_20170914_1544.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtGallery/migrations/0012_auto_20170915_0252.py" afterPath="$PROJECT_DIR$/ArtGallery/migrations/0012_auto_20170915_0252.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtGallery/migrations/0013_auto_20170915_0301.py" afterPath="$PROJECT_DIR$/ArtGallery/migrations/0013_auto_20170915_0301.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtGallery/migrations/0014_auto_20170915_0958.py" afterPath="$PROJECT_DIR$/ArtGallery/migrations/0014_auto_20170915_0958.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtGallery/migrations/0015_auto_20170915_1000.py" afterPath="$PROJECT_DIR$/ArtGallery/migrations/0015_auto_20170915_1000.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtGallery/migrations/0016_auto_20170915_1000.py" afterPath="$PROJECT_DIR$/ArtGallery/migrations/0016_auto_20170915_1000.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtGallery/migrations/0017_auto_20170915_1100.py" afterPath="$PROJECT_DIR$/ArtGallery/migrations/0017_auto_20170915_1100.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtGallery/migrations/0018_auto_20170917_1214.py" afterPath="$PROJECT_DIR$/ArtGallery/migrations/0018_auto_20170917_1214.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtGallery/migrations/__init__.py" afterPath="$PROJECT_DIR$/ArtGallery/migrations/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtGallery/models.py" afterPath="$PROJECT_DIR$/ArtGallery/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtGallery/tokens.py" afterPath="$PROJECT_DIR$/ArtGallery/tokens.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtGallery/urls.py" afterPath="$PROJECT_DIR$/ArtGallery/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtGallery/views.py" afterPath="$PROJECT_DIR$/ArtGallery/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/ArtGallery/css/account.css" afterPath="$PROJECT_DIR$/static/ArtGallery/css/account.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/ArtGallery/css/artwork.css" afterPath="$PROJECT_DIR$/static/ArtGallery/css/artwork.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/ArtGallery/js/artwork.js" afterPath="$PROJECT_DIR$/static/ArtGallery/js/artwork.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/ArtGallery/js/jquery.js" afterPath="$PROJECT_DIR$/static/ArtGallery/js/jquery.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/artist/detail.html" afterPath="$PROJECT_DIR$/templates/artist/detail.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/artwork/detail.html" afterPath="$PROJECT_DIR$/templates/artwork/detail.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/artwork/reward.html" afterPath="$PROJECT_DIR$/templates/artwork/reward.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/auction/detail.html" afterPath="$PROJECT_DIR$/templates/auction/detail.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/notification/detail.html" afterPath="$PROJECT_DIR$/templates/notification/detail.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/registration/activation.html" afterPath="$PROJECT_DIR$/templates/registration/activation.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/registration/login.html" afterPath="$PROJECT_DIR$/templates/registration/login.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/registration/logout.html" afterPath="$PROJECT_DIR$/templates/registration/logout.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/registration/signup.html" afterPath="$PROJECT_DIR$/templates/registration/signup.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,8 +65,18 @@
       <file leaf-file-name="detail.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/artwork/detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="81" column="42" lean-forward="false" selection-start-line="81" selection-start-column="42" selection-end-line="81" selection-end-column="42" />
+            <state relative-caret-position="735">
+              <caret line="95" column="14" lean-forward="false" selection-start-line="95" selection-start-column="14" selection-end-line="95" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ArtGallery/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="525">
+              <caret line="37" column="38" lean-forward="false" selection-start-line="37" selection-start-column="38" selection-end-line="37" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -36,10 +85,19 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ArtGallery/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="975">
-              <caret line="80" column="11" lean-forward="false" selection-start-line="80" selection-start-column="11" selection-end-line="80" selection-end-column="15" />
+            <state relative-caret-position="960">
+              <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
               <folding>
-                <element signature="e#0#11#0" expanded="true" />
+                <marker date="1506418684000" expanded="true" signature="3708:4249" ph="..." />
+                <marker date="1506418684000" expanded="true" signature="3708:4555" ph="..." />
+                <marker date="1506418684000" expanded="true" signature="3745:4249" ph="..." />
+                <marker date="1506418684000" expanded="true" signature="3838:4073" ph="..." />
+                <marker date="1506418684000" expanded="true" signature="4340:4553" ph="..." />
+                <marker date="1506418684000" expanded="true" signature="4622:4810" ph="..." />
+                <marker date="1506418684000" expanded="true" signature="4884:5132" ph="..." />
+                <marker date="1506418684000" expanded="true" signature="5190:5852" ph="..." />
+                <marker date="1506418684000" expanded="true" signature="5288:5738" ph="..." />
+                <marker date="1506418684000" expanded="true" signature="5356:5738" ph="..." />
               </folding>
             </state>
           </provider>
@@ -48,11 +106,9 @@
       <file leaf-file-name="ajax.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ArtGallery/ajax.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -70,10 +126,12 @@
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ArtGallery/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="33" column="61" lean-forward="false" selection-start-line="33" selection-start-column="61" selection-end-line="33" selection-end-column="61" />
+            <state relative-caret-position="480">
+              <caret line="32" column="1" lean-forward="false" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
               <folding>
                 <element signature="e#644#676#0" expanded="true" />
+                <marker date="1506418684000" expanded="true" signature="1489:1493" ph="..." />
+                <marker date="1506418684000" expanded="true" signature="1514:1682" ph="..." />
               </folding>
             </state>
           </provider>
@@ -233,6 +291,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -296,7 +355,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -487,10 +545,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="970" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="58" width="1680" height="935" extended-state="0" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20757021" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21245421" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914287" sideWeight="0.4993895" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32793018" sideWeight="0.5087187" order="14" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -503,16 +560,28 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914287" sideWeight="0.4993895" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug Logs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32793018" sideWeight="0.5087187" order="14" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39885715" sideWeight="0.504884" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914287" sideWeight="0.495116" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914287" sideWeight="0.490232" order="16" side_tool="false" content_ui="tabs" />
       <window_info id="Execute Anonymous" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914287" sideWeight="0.46336997" order="17" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20757021" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32958034" sideWeight="0.5" order="18" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3285568" sideWeight="0.490232" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39885715" sideWeight="0.495116" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Salesforce" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32958034" sideWeight="0.50183153" order="6" side_tool="false" content_ui="tabs" />
@@ -702,8 +771,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ArtGallery/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="975">
-          <caret line="67" column="15" lean-forward="false" selection-start-line="67" selection-start-column="15" selection-end-line="67" selection-end-column="15" />
+        <state relative-caret-position="525">
+          <caret line="37" column="38" lean-forward="false" selection-start-line="37" selection-start-column="38" selection-end-line="37" selection-end-column="38" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -821,31 +891,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ArtGallery/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="33" column="61" lean-forward="false" selection-start-line="33" selection-start-column="61" selection-end-line="33" selection-end-column="61" />
+        <state relative-caret-position="480">
+          <caret line="32" column="1" lean-forward="false" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
           <folding>
             <element signature="e#644#676#0" expanded="true" />
+            <marker date="1506418684000" expanded="true" signature="1489:1493" ph="..." />
+            <marker date="1506418684000" expanded="true" signature="1514:1682" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ArtGallery/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="975">
-          <caret line="80" column="11" lean-forward="false" selection-start-line="80" selection-start-column="11" selection-end-line="80" selection-end-column="15" />
+        <state relative-caret-position="960">
+          <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
           <folding>
-            <element signature="e#0#11#0" expanded="true" />
+            <marker date="1506418684000" expanded="true" signature="3708:4249" ph="..." />
+            <marker date="1506418684000" expanded="true" signature="3708:4555" ph="..." />
+            <marker date="1506418684000" expanded="true" signature="3745:4249" ph="..." />
+            <marker date="1506418684000" expanded="true" signature="3838:4073" ph="..." />
+            <marker date="1506418684000" expanded="true" signature="4340:4553" ph="..." />
+            <marker date="1506418684000" expanded="true" signature="4622:4810" ph="..." />
+            <marker date="1506418684000" expanded="true" signature="4884:5132" ph="..." />
+            <marker date="1506418684000" expanded="true" signature="5190:5852" ph="..." />
+            <marker date="1506418684000" expanded="true" signature="5288:5738" ph="..." />
+            <marker date="1506418684000" expanded="true" signature="5356:5738" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ArtGallery/ajax.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -859,8 +938,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/artwork/detail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="81" column="42" lean-forward="false" selection-start-line="81" selection-start-column="42" selection-end-line="81" selection-end-column="42" />
+        <state relative-caret-position="735">
+          <caret line="95" column="14" lean-forward="false" selection-start-line="95" selection-start-column="14" selection-end-line="95" selection-end-column="14" />
           <folding />
         </state>
       </provider>
