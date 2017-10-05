@@ -1,10 +1,12 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+from ArtGallery.models import Comment, Reward
+from django.db import models
 
-
+# Form for register (sign up page)
 class UserCreateForm(UserCreationForm):
-    email = forms.EmailField(required=True)
+    email = forms.CharField(required=True)
     first_name = forms.CharField
     last_name = forms.CharField
 
@@ -34,4 +36,22 @@ class UserInfoForm(forms.ModelForm):
         model = User
         fields = ('username', 'first_name', 'last_name', 'email')
 
+
+# Form for post a comment to an artwork (artwork page)
+class CommentForm(forms.ModelForm):
+    comment_content = models.CharField(max_length=256)
+    rating = models.FloatField(default=5.0)
+
+    class Meta:
+        model = Comment
+        fields = ("rating", "comment_content")
+
+
+# Form for reward an artwork (reward page)
+class RewardForm(forms.ModelForm):
+    reward_amount = models.FloatField(default=0.0)
+
+    class Meta:
+        model = Reward
+        fields = ('reward_amount',)
 

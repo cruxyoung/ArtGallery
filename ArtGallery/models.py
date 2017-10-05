@@ -1,11 +1,11 @@
 from django.db import models
 from django.contrib.auth.models import User
+import time
 
 
 # User profile, represent table "user" in design
 # Inherit THE DJANGO EMBEDDED AUTHENICATION SYSTEM
 # THE EMBEDDED SYSTEM ALREADY INCLUDE NAME AND EMAIL
-
 
 class UserProfile(models.Model):
     user_id = models.ForeignKey(User)
@@ -24,7 +24,8 @@ class ArtWork(models.Model):
 
     aw_name = models.CharField(null=True, max_length=64)
 
-    aw_img = models.ImageField(default="/static/images/profile-default.png")
+    # aw_img = models.ImageField(default="/static/images/profile-default.png")
+    aw_img = models.ImageField(default="/static/images/profile-default.png", upload_to='artwork/'+time.time().__str__())
     aw_description = models.CharField(null=True, max_length=256)
     aw_location = models.CharField(null=True, max_length=32)
     aw_time = models.DateTimeField()
@@ -93,7 +94,6 @@ class Comment(models.Model):
     comment_content = models.CharField(null=True, max_length=256)
     comment_time = models.DateTimeField()
     rating = models.FloatField(default=5.0)
-    replay_commentId = models.IntegerField(null=True)
 
 
 # Notification
@@ -105,3 +105,4 @@ class Notification(models.Model):
     receiver_id = models.IntegerField()
 
     notifyType = models.CharField(null=True, max_length=32)
+

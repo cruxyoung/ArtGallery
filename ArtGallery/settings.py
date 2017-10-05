@@ -39,7 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'ArtGallery',
     'pure_pagination',
+    'django.contrib.sites',
 ]
+
+COMMENTS_APP = 'threadedcomments'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -50,7 +53,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware'
 ]
 
 ROOT_URLCONF = 'ArtGallery.urls'
@@ -77,6 +79,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'ArtGallery.wsgi.application'
 
+SITE_ID = 1
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
@@ -136,3 +139,15 @@ STATIC_URL = '/static/'
 # EMAIL_HOST_PASSWORD = ''
 # EMAIL_USE_TLS = False
 # EMAIL_FROM = "nikelazy@gmail.com"
+
+ARTWORK_ROOT =  os.path.join(BASE_DIR, "artwork")
+ARTWORK_URL = "/artwork/"
+
+# Email configuration
+# Do not use this in real world project
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'czxbnb@gmail.com'
+EMAIL_HOST_PASSWORD = 'Cheng2277980.'
+EMAIL_PORT = 587

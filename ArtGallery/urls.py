@@ -14,13 +14,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf import settings
-from django.conf.urls import url
 from django.conf.urls import include
+from django.conf.urls import url
 from django.conf.urls.static import static
 from django.contrib import admin
-from ArtGallery import view
+
+from ArtGallery.controllers import account_controller
+from ArtGallery.controllers import artwork_controller
 from ArtGallery.controllers import personal_controller
-from django.contrib.auth import views as auth_views
 
 from . import view
 
@@ -49,7 +50,22 @@ urlpatterns = [
 
     # Change Favorites
     # url(r'^customer/favorites/change_fav/$', ),
+
+    # Login
+    url('^accounts/', include('django.contrib.auth.urls')),
+    url('^accounts/signup/$', account_controller.signup),
+
+    url('^accounts/activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
+        account_controller.activate, name='activate'),
+    url(r'^artwork/(?P<aw_id>[0-9]+)/detail/$', artwork_controller.artwork_detail, name='aw'),
+    url(r'^artwork/(?P<aw_id>[0-9]+)/detail/comment/$', artwork_controller.ajax_comment, name='comment'),
+    url(r'^artist/(?P<user_id>[0-9]+)/detail/$', artwork_controller.artist_detail, name='user'),
+    url(r'^auction/(?P<auction_id>[0-9]+)/detail/$', artwork_controller.auction_detail, name='auction'),
+    url(r'^artwork/(?P<aw_id>[0-9]+)/reward/$', artwork_controller.reward_pay, name='reward'),
 ]
 
 if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    # urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+    urlpatterns += static(settings.ARTWORK_URL, document_root=settings.ARTWORK_ROOT)
+
