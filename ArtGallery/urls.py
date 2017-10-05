@@ -39,12 +39,13 @@ urlpatterns = [
     url(r'^customer/settings/change_pwd/$', personal_controller.PersonalSetting.as_view(), name='change_pwd'),
     url(r'^customer/settings/edit_info/$', personal_controller.UserInfoView.as_view(), name='edit_info'),
 
-    url(r'^customer/settings/test/$', personal_controller.TestHaha.as_view(), name='test_haha'),
-
     url(r'^customer/complaints/$', personal_controller.PersonalComplaint.as_view(), name='complaint'),
     url(r'^customer/rewards/$', personal_controller.PersonalReward.as_view(), name='reward'),
     url(r'^customer/auctions/$', personal_controller.PersonalAuction.as_view(), name='auction'),
     url(r'^customer/comments/$', personal_controller.PersonalComment.as_view(), name='comment'),
+
+    url(r'^artist/settings/$', personal_controller.ArtistSetting.as_view(), name='artist_setting'),
+    url(r'^artist/artworks/$', personal_controller.ArtistArtwork.as_view(), name='artist_artwork'),
 
     # Change Favorites
     # url(r'^customer/favorites/change_fav/$', ),

@@ -1,0 +1,60 @@
+{% extends 'master.html' %}
+
+{% block css %}
+    <style type="text/css">
+        .active {
+            font-weight: bold;
+        }
+
+        .compress {
+            border: 0px solid whitesmoke;
+            overflow: hidden;
+        }
+
+        a {
+            cursor: pointer;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    {% csrf_token %}
+    <div id="portfolio" class="color white">
+        <div class="container">
+            <div class="wrapper span12">
+                <!-- start: Page Title -->
+                <div id="page-title">
+                    <div id="page-title-inner">
+                        <h2><span>Artist Center</span></h2>
+                    </div>
+                </div>
+                <!-- end: Page Title -->
+                <div id="filters">
+                    <ul class="option-set" data-option-key="filter">
+                        <li><a href="{% url 'artist_artwork' %}">ARTWORKS</a></li>
+                        <li>/</li>
+                        <li><a href="{% url 'artist_setting' %}">SETTINGS</a></li>
+                    </ul>
+                </div>
+                <!-- start: content -->
+                <div id="portfolio-wrapper" class="row-fluid">
+                    <div class="span2 portfolio-item website html5 css3 responsive"
+                         style="text-align: right; position: -webkit-sticky; position: sticky; top: 70px">
+                        <ul>
+                            <!-- Menu Area -->
+                            {% block menu %}{% endblock %}
+                        </ul>
+                    </div>
+
+                    <!-- Display Area -->
+                    <div class="span9">
+                        {% block content %}{% endblock %}
+                    </div>
+                </div>
+                <!-- end: content -->
+            </div>
+
+        </div>
+
+    </div>
+{% endblock %}

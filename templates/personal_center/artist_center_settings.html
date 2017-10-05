@@ -1,4 +1,4 @@
-{% extends 'personal_center/personal_master.html' %}
+{% extends "personal_center/artist_master.html" %}
 
 {% block title %}Settings{% endblock %}
 
@@ -92,6 +92,9 @@
         </form>
     </div>
     <!-- Display Area -->
+{#    <div id="guess_what">#}
+{#        <button id="haha">123</button>#}
+{#    </div>#}
 
 {% endblock %}
 
@@ -106,7 +109,13 @@
         }
     </script>
     <script>
-
+        function JSONLength(obj) {
+            var size = 0, key;
+            for (key in obj) {
+                if (obj.hasOwnProperty(key)) size++;
+            }
+            return size;
+        };
         $('#jsResetPwdBtn').click(function () {
             $.ajax({
                 cache: false,
