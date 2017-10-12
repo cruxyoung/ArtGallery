@@ -2,7 +2,7 @@ import json
 from django.http import HttpResponse
 from django.core import serializers
 from _datetime import datetime
-from ArtGallery.forms import CommentForm, RewardForm
+from ArtGallery.forms import CommentForm, RewardForm, AuctionCreateForm
 from django.shortcuts import render, get_object_or_404, HttpResponseRedirect, reverse
 from ArtGallery.models import ArtWork, UserProfile, AuctionHistory, AuctionRecord, Comment, Reward, FavoriteRecord
 from django.views.decorators.csrf import csrf_exempt
@@ -104,3 +104,26 @@ def ajax_comment(request, aw_id):
     comment = Comment.objects.filter(aw_id_id=aw_id)
     data = serializers.serialize('json', comment)
     return HttpResponse(json.dumps(data), content_type="application/json")
+
+
+# Auction creation page (reward)
+def auction_creation(request, aw_id):
+    aw = get_object_or_404(ArtWork, pk=aw_id)
+
+    # Reward post
+    if request.method == 'POST':
+        form = AuctionCreateForm(request.POST)
+        if form.is_valid():
+            new_auction = AuctionRecord(
+                ar_originalPrice=form.cleaned_data.get("ar_originalPrice"),
+                ar_startTime=datetime.now(),
+                ar_expiration=form.cleaned_data.get("ar_expiration"),
+                ar_fixedPrice=form.cleaned_data.get("ar_fixedPrice"),
+                aw_id_id=aw_id
+            )
+            new_auction.save()
+            # PUT SUCCESS PAGE HERE LATER
+            return HttpResponseRedirect(reverse('aw', args=(aw.id,)))
+    else:
+        form = AuctionCreateForm()
+    return render(request, "artwork/auction.html", {'aw': aw, 'form': form})

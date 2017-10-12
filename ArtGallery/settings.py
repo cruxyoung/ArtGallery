@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'ArtGallery',
     'pure_pagination',
     'django.contrib.sites',
+    'betterforms'
 ]
 
 COMMENTS_APP = 'threadedcomments'

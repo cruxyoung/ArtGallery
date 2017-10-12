@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.contrib.auth import login
-from ArtGallery.forms import UserCreateForm
+from ArtGallery.forms import UserCreateForm, UserProfileCreationForm
 from django.shortcuts import render
 from django.contrib.sites.shortcuts import get_current_site
 from django.template.loader import render_to_string
@@ -22,6 +22,7 @@ def signup(request):
             user = form.save(commit=False)
             user.is_active = False
             user.save()
+
             current_site = get_current_site(request)
             message = render_to_string('registration/activation.html', {
                 'user': user,

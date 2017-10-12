@@ -1,8 +1,11 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from ArtGallery.models import Comment, Reward
+from ArtGallery.models import Comment, Reward, UserProfile, AuctionRecord
 from django.db import models
+from django.forms import extras
+from django.contrib.admin import widgets
+
 
 # Form for register (sign up page)
 class UserCreateForm(UserCreationForm):
@@ -22,6 +25,27 @@ class UserCreateForm(UserCreationForm):
         if commit:
             user.save()
         return user
+
+
+class UserProfileCreationForm(forms.ModelForm):
+    GENDER_CHOICES = (
+        (False, "Male"),
+        (True, "Female"),
+    )
+    sex = models.CharField(max_length=1, choices=GENDER_CHOICES, default=False, null=True)
+    birthday = forms.DateField(widget=extras.SelectDateWidget)
+
+    class Meta:
+        model = UserProfile
+        fields = ("sex", "birthday")
+        exclude = ('id',)
+
+    def save(self, commit=True):
+        UserProfile.sex = self.cleaned_data["sex"]
+        UserProfile.birthday = self.cleaned_data["birthday"]
+        if commit:
+            UserProfile.save()
+        return UserProfile
 
 
 class ModifyPwdForm(forms.Form):
@@ -55,3 +79,17 @@ class RewardForm(forms.ModelForm):
         model = Reward
         fields = ('reward_amount',)
 
+
+# Form to start an auction for an specific artwork
+class AuctionCreateForm(forms.ModelForm):
+    ar_originalPrice = models.FloatField()
+    ar_expiration = models.DateTimeField()
+    ar_fixedPrice = models.FloatField()  # 一口价
+
+    class Meta:
+        model = AuctionRecord
+        fields = ("ar_originalPrice", "ar_expiration", "ar_fixedPrice")
+
+    def __init__(self, *args, **kwargs):
+        super(AuctionCreateForm, self).__init__(*args, **kwargs)
+        self.fields['ar_expiration'].widget = widgets.AdminDateWidget()

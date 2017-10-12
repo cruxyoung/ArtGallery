@@ -21,11 +21,8 @@ class UserProfile(models.Model):
 class ArtWork(models.Model):
     # Foreign Key
     artist_id = models.ForeignKey(User)
-
     aw_name = models.CharField(null=True, max_length=64)
-
     aw_img = models.ImageField(default="/static/images/profile-default.png", upload_to='artwork/'+time.time().__str__())
-
     aw_description = models.CharField(null=True, max_length=256)
     aw_location = models.CharField(null=True, max_length=32)
     aw_time = models.DateTimeField()
@@ -41,8 +38,11 @@ class AuctionRecord(models.Model):
     aw_id = models.ForeignKey(ArtWork)
 
     ar_originalPrice = models.FloatField(default=0.0)
-    ar_time = models.DateTimeField()
+    ar_startTime = models.DateTimeField()
+    ar_expiration = models.DateTimeField()
     ar_finalPrice = models.FloatField(null=True)
+    ar_isEnd = models.BooleanField(null=False, default=False)
+    ar_fixedPrice = models.FloatField(default=100.0)  # 一口价
 
 
 # Auction History
