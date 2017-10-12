@@ -13,7 +13,8 @@
             });
         </script>
     </head>
-{#    <body style="background: url('{% static "ArtGallery/images/bg_login.jpg" %}') fixed">#}
+    {% load staticfiles %}
+    <body style="background: url('{% static "ArtGallery/images/bg_login.jpg" %}') fixed">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -41,6 +42,7 @@
                         </div>
 
                         <input type="submit" value="Sign In" class="btn btn-success btn-sm"/>
+                        <a href="{% url 'signup' %}">Sign Up</a>
                         <input type="hidden" name="next" value="{{ next }}">
                         <div class="remember-forgot">
                             <div class="row">

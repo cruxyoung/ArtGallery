@@ -17,9 +17,11 @@ from django.conf import settings
 from django.conf.urls import url, include
 from django.conf.urls.static import static
 
-from ArtGallery.controllers import account_controller, home_controller
+from ArtGallery.controllers import home_controller
+from ArtGallery.controllers import account_controller
 from ArtGallery.controllers import artwork_controller
 from ArtGallery.controllers import personal_controller
+from ArtGallery.controllers import artist_artworks_controller
 
 
 urlpatterns = [
@@ -36,12 +38,13 @@ urlpatterns = [
     url(r'^customer/auctions/$', personal_controller.PersonalAuction.as_view(), name='auction'),
     url(r'^customer/comments/$', personal_controller.PersonalComment.as_view(), name='comment'),
 
-    url(r'^artist/settings/$', personal_controller.ArtistSetting.as_view(), name='artist_setting'),
-    url(r'^artist/artworks/$', personal_controller.ArtistArtwork.as_view(), name='artist_artwork'),
+    url(r'^artist/settings/$', artist_artworks_controller.ArtistSetting.as_view(), name='artist_setting'),
+    url(r'^artist/artworks/$', artist_artworks_controller.ArtistArtwork.as_view(), name='artist_artwork'),
 
-    # Login
+    # Login and Logout
     url('^accounts/', include('django.contrib.auth.urls')),
-    url('^accounts/signup/$', account_controller.signup),
+    url('^accounts/signup/$', account_controller.signup, name='signup'),
+
 
     # Home Page and Information Page
     url('^index/', home_controller.home_page, name='index'),
@@ -60,7 +63,7 @@ urlpatterns = [
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-    urlpatterns += static(settings.ARTWORK_URL, document_root=settings.ARTWORK_ROOT)
-    # urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    # urlpatterns += static(settings.ARTWORK_URL, document_root=settings.ARTWORK_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

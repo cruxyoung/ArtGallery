@@ -1,1 +1,50 @@
 {% extends "personal_center/artist_master.html" %}
+
+{% block menu %}
+    <ul>
+        <li><a>All</a></li>
+        <li><a>ADD NEW</a></li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+    <div class="row-fluid">
+        <div class="span12 portfolio-item website html5 css3 responsive">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>Artwork</th>
+                    <th>Name</th>
+                    <th>CreationDate</th>
+                    <th>Type</th>
+                    <th>Genre</th>
+                    <th>Auction</th>
+                    <th>Total Rewards</th>
+                    <th>Operations</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for artwork in artworks %}
+                    <tr>
+                        <td><img src="{{ artwork.aw_img }}" style="width: 50px;"></td>
+                        <td>{{ artwork.aw_name }}</td>
+                        <td>{{ artwork.aw_time }}</td>
+                        <td>{{ artwork.aw_type }}</td>
+                        <td>{{ artwork.aw_genre }}</td>
+                        {% if not artwork.aw_auctionStat %}
+                            <td><a class="fa-icon-hand-up">Open Auction</a></td>
+                        {% else %}
+                            <td><a>Time Limited:</a></td>
+                        {% endif %}
+                        <td>{{ artwork.aw_totalAward }}</td>
+                        <td>
+                            <a class="fa-icon-edit" href="">Edit</a>
+                            <a class="fa-icon-remove" href="">Remove</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

@@ -42,6 +42,7 @@ class AuctionRecord(models.Model):
 
     ar_originalPrice = models.FloatField(default=0.0)
     ar_time = models.DateTimeField()
+    ar_end_time = models.DateTimeField()
     ar_finalPrice = models.FloatField(null=True)
 
 

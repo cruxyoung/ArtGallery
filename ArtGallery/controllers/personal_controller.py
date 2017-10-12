@@ -42,25 +42,6 @@ class PersonalFavorite(View):
                        })
 
 
-#
-# def change_favorite(request):
-#     fav_id = request.POST.get('fav_id', '')
-#
-#     if not request.user.is_authenticated():
-#         return HttpResponse('{"status": "fail", "msg": "Need Log In!"}', content_type='application/json')
-#
-#     exist_fav = models.FavoriteRecord.objects.filter(customer_id=request.user.id, pk=int(fav_id))
-#
-#     if exist_fav:
-#         # if favorite exist, means user want to cancel this favorite object
-#         exist_fav.delete()
-#     else:
-#         favorite = models.FavoriteRecord
-#         favorite.aw_id = int(fav_id)
-#         favorite.customer_id = request.user.id
-#         favorite.save()
-
-
 class PersonalAuction(View):
     # get auctions history of current user
     def get(self, request):
@@ -219,37 +200,3 @@ class PersonalComplaint(View):
                        })
 
 
-class ArtistSetting(View):
-    # get personal information of current artist user
-    def get(self, request):
-        return render(request,
-                      'personal_center/artist_center_settings.html',
-                      {'customer': request.user})
-
-    def post(self, request):
-        modify_form = forms.ModifyPwdForm(request.POST)
-        user = request.user
-        if modify_form.is_valid():
-            pwd_ori = request.POST.get('password1', "")
-            pwd_new = request.POST.get('password2', "")
-            pwd_check = request.POST.get('password3', "")
-            if pwd_new != pwd_check:
-                return HttpResponse('{"status": "fail", "msg": "New Password Not Match."}',
-                                    content_type='application/json')
-            if user.check_password(pwd_ori):
-                user.password = make_password(pwd_new)
-                user.save()
-                return HttpResponse('{"status": "success"}', content_type='application/json')
-            else:
-                return HttpResponse('{"status": "wrong", "msg": "Not match current password."}')
-
-        else:
-            return HttpResponse(json.dumps(modify_form.errors), content_type='application/json')
-
-
-class ArtistArtwork(View):
-    # get all artworks related information created by current artist user
-    def get(self, request):
-        return render(request,
-                      'personal_center/artist_center_artworks.html',
-                      {'customer': request.user})
