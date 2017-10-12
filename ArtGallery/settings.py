@@ -11,10 +11,12 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+import sys
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+sys.path.append(BASE_DIR + '/ArtGallery/extra_apps/')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
@@ -26,7 +28,6 @@ SECRET_KEY = '+5$&gcmvw5!@@p7x$i7peqjx!liw3##az%*40+jx#fyp@p2sp6'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -40,6 +41,9 @@ INSTALLED_APPS = [
     'ArtGallery',
     'pure_pagination',
     'django.contrib.sites',
+    'xadmin',
+    'crispy_forms',
+    'reversion'
 ]
 
 COMMENTS_APP = 'threadedcomments'
@@ -61,11 +65,10 @@ ROOT_URLCONF = 'ArtGallery.urls'
 LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'login'
 
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['./templates',],
+        'DIRS': ['./templates', ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -76,7 +79,6 @@ TEMPLATES = [
             ],
         },
     }, ]
-
 
 WSGI_APPLICATION = 'ArtGallery.wsgi.application'
 
@@ -91,7 +93,6 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -111,7 +112,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
@@ -125,7 +125,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 STATICFILES_DIRS = (
@@ -134,7 +133,6 @@ STATICFILES_DIRS = (
 )
 STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "")
-
 
 # # Setting Email
 # EMAIL_HOST = 'smtp.gmail.com'
@@ -155,6 +153,5 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'czxbnb@gmail.com'
 EMAIL_HOST_PASSWORD = 'Cheng2277980.'
 EMAIL_PORT = 587
-# =======
+
 MEDIA_URL = '/artwork/'
-# >>>>>>> jie_dev

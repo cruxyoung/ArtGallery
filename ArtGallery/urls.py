@@ -17,14 +17,19 @@ from django.conf import settings
 from django.conf.urls import url, include
 from django.conf.urls.static import static
 
-from ArtGallery.controllers import home_controller
 from ArtGallery.controllers import account_controller
-from ArtGallery.controllers import artwork_controller
-from ArtGallery.controllers import personal_controller
 from ArtGallery.controllers import artist_artworks_controller
+from ArtGallery.controllers import artwork_controller
+from ArtGallery.controllers import home_controller, views_complaints
+from ArtGallery.controllers import personal_controller
+from .extra_apps import xadmin
+from .extra_apps.xadmin.plugins import xversion
 
+xadmin.autodiscover()
+xversion.register_models()
 
 urlpatterns = [
+    url(r'^xadmin/', xadmin.site.urls),
 
     # Personal page url, including customers' and artists'
     url(r'^customer/favorites/$', personal_controller.PersonalFavorite.as_view(), name='favorite'),
@@ -44,6 +49,25 @@ urlpatterns = [
     # Login and Logout
     url('^accounts/', include('django.contrib.auth.urls')),
     url('^accounts/signup/$', account_controller.signup, name='signup'),
+    url('^accounts/activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
+        account_controller.activate, name='activate'),
+
+
+
+
+    # complaints need 4 urls, the art_info is fake one
+    url('^art_info/complaints/(?P<artwork_id>[0-9]+)$', views_complaints.edit_complaints, name='edit_complaints'),
+    url('^art_info/complaints_withdraw/(?P<artwork_id>[0-9]+)$', views_complaints.withdraw_complaints,
+        name='withdraw_complaints'),
+
+    url('^art_info/$', views_complaints.art_info),
+    url('^art_info/complaints/action/$', views_complaints.complaints_action, name='complaints_action'),
+
+
+
+
+
+
 
 
     # Home Page and Information Page
@@ -52,8 +76,7 @@ urlpatterns = [
     url(r'^art_list/$', home_controller.art_list, name='art_list'),
 
     # Artwork Detail
-    url('^accounts/activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
-        account_controller.activate, name='activate'),
+
     url(r'^artwork/(?P<aw_id>[0-9]+)/detail/$', artwork_controller.artwork_detail, name='aw'),
     url(r'^artwork/(?P<aw_id>[0-9]+)/detail/comment/$', artwork_controller.ajax_comment, name='comment'),
     url(r'^artist/(?P<user_id>[0-9]+)/detail/$', artwork_controller.artist_detail, name='user'),
@@ -65,5 +88,3 @@ if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     # urlpatterns += static(settings.ARTWORK_URL, document_root=settings.ARTWORK_ROOT)
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-

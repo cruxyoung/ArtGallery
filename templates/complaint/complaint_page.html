@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Complaints</title>
+</head>
+<body>
+<form action="{% url 'complaints_action' %}" , method="post", id="form1" name="form1">
+    {% csrf_token %}
+    <!-- fetch the artwork.id -->
+    <input type="hidden" name="artwork_id" value="{{ artwork.id }}"/>
+    <label>Artwork Name:</label>
+    <label>{{ artwork.aw_name }}</label>
+    <br/>
+    <label>Artist:</label>
+    <label>{{ artist.first_name }}&nbsp{{ artist.last_name }}</label>
+    <br/>
+    <label>Choose Complaint type:
+        <select name="complaint_type" id="select_k1" class="xla_k">
+            <option value="Illegal"></option>
+            <option value="Illegal">Illegal</option>
+            <option value="Plagiarism">Plagiarism</option>
+            <option value="Advertisement">Advertisement</option>
+            <option value="Counterfeit">Counterfeit</option>
+            <option value="Others">Others</option>
+        </select>
+    </label>
+    <br/>
+    <label>Complaint content:</label>
+    <br/>
+    <textarea name="complaint_content" cols=40 rows=4></textarea>
+    <br/>
+    <input type="submit" name="submit" value="Submit" onclick="formSubmit()" id="form2"/>
+    <script type="text/javascript">
+    function formSubmit() {
+    var msg = "Are you sure to complain this artwork?";
+    if (confirm(msg)==true){
+    return true;
+    }
+    else{
+     document.form1.action="{% url 'edit_complaints' artwork.id %}";
+     }
+    }
+    </script>
+</form>
+
+</body>
+</html>

@@ -4,7 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from ArtGallery.models import Comment, Reward
 from django.db import models
 
-# Form for register (sign up page)
+
 class UserCreateForm(UserCreationForm):
     email = forms.CharField(required=True)
     first_name = forms.CharField
