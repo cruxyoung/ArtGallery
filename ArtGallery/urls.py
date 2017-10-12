@@ -54,8 +54,8 @@ urlpatterns = [
 
     url(r'^artwork/(?P<aw_id>[0-9]+)/detail/$', artwork_controller.artwork_detail, name='aw'),
     url(r'^artwork/(?P<aw_id>[0-9]+)/detail/comment/$', artwork_controller.ajax_comment, name='comment'),
+    url(r'^artwork/(?P<aw_id>[0-9]+)/detail/bid/$', artwork_controller.ajax_bid, name='bid'),
     url(r'^artwork/(?P<aw_id>[0-9]+)/reward/$', artwork_controller.reward_pay, name='reward'),
-    url(r'^artwork/(?P<aw_id>[0-9]+)/createAuction/$', artwork_controller.auction_creation, name='post_auction'),
 
     url(r'^artist/(?P<user_id>[0-9]+)/detail/$', artwork_controller.artist_detail, name='user'),
 

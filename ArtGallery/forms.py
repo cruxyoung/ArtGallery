@@ -1,10 +1,9 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from ArtGallery.models import Comment, Reward, UserProfile, AuctionRecord
+from ArtGallery.models import Comment, Reward, UserProfile, AuctionHistory
 from django.db import models
 from django.forms import extras
-from django.contrib.admin import widgets
 
 
 # Form for register (sign up page)
@@ -80,16 +79,10 @@ class RewardForm(forms.ModelForm):
         fields = ('reward_amount',)
 
 
-# Form to start an auction for an specific artwork
-class AuctionCreateForm(forms.ModelForm):
-    ar_originalPrice = models.FloatField()
-    ar_expiration = models.DateTimeField()
-    ar_fixedPrice = models.FloatField()  # 一口价
+# Form to bid (artwork page)
+class BidForm(forms.ModelForm):
+    ah_amount = models.FloatField
 
     class Meta:
-        model = AuctionRecord
-        fields = ("ar_originalPrice", "ar_expiration", "ar_fixedPrice")
-
-    def __init__(self, *args, **kwargs):
-        super(AuctionCreateForm, self).__init__(*args, **kwargs)
-        self.fields['ar_expiration'].widget = widgets.AdminDateWidget()
+        model = AuctionHistory
+        fields = ("ah_amount", )

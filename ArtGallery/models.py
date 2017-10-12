@@ -53,6 +53,7 @@ class AuctionHistory(models.Model):
 
     ah_amount = models.FloatField(default=0.0)
     ah_aucTime = models.DateTimeField()
+    ah_remaining = models.IntegerField(default=3)
 
 
 # Reward

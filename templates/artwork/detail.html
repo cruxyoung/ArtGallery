@@ -17,6 +17,18 @@
         Total award: {{ aw.aw_totalAward }} <br />
         Auction status: {{ aw.aw_auctionStat }} <br />
 
+        <!-- bid -->
+        <h2> Bid </h2>
+        <p id ="id_bidStatus">
+            You can bid {{ auction_record.ah_remaining }} times for this artwork. <br />
+            Your bid price should be higher than $ {{ auction_record.ah_amount}}
+        </p>
+        <p id="id_bidError" />
+        <form id="id_bidForm" name="bidForm" action="" method="POST">
+         {% csrf_token %}
+            {{ bid.as_p }}
+            <input type="submit" id = "id_bidButton" name = "bidButton" value="Bid" />
+        </form>
         <!-- Comment list and post comment-->
         <h2> Comments for this artwork </h2>
 
@@ -43,7 +55,7 @@
         <h2>Reward</h2>
         <a href = "{{CONSTANT_NAME}}/artwork/{{aw.id}}/reward/"> Click here to reward </a>
 
-        <table id="reewardTable">
+        <table id="rewardTable">
         <tr>
             <th>Contributor</th>
             <th>Reward time</th>
@@ -92,6 +104,30 @@
             });
             return false;
         });
+        var remaining = {{ auction_record.ah_remaining }};
+
+        $('#id_bidButton').click(function () {
+            $.ajax({
+                cache:false,
+                type:"POST",
+                dataType:"json",
+                url: "{%  url 'bid' aw.id %}",
+                data: $('#id_bidForm').serialize(),
+                async:true,
+                success: function(data){
+                    if (data.status=='fail') {
+                        $('#id_bidError').text(data.msg);
+                    }
+                    else{
+                        remaining --
+                        $('#id_bidError').text("success");
+                        $('#id_bidStatus').html("You can bid " + remaining + " times for this artwork. <br />\n" +
+                            "            Your bid price should be higher than $ " + $('#id_ah_amount').val())
+                    }
+                }
+            })
+            return false;
+        })
     </script>
 </html>
 {% endblock %}

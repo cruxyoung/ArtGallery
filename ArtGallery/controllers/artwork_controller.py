@@ -2,7 +2,7 @@ import json
 from django.http import HttpResponse
 from django.core import serializers
 from _datetime import datetime
-from ArtGallery.forms import CommentForm, RewardForm, AuctionCreateForm
+from ArtGallery.forms import CommentForm, RewardForm, BidForm
 from django.shortcuts import render, get_object_or_404, HttpResponseRedirect, reverse
 from ArtGallery.models import ArtWork, UserProfile, AuctionHistory, AuctionRecord, Comment, Reward, FavoriteRecord
 from django.views.decorators.csrf import csrf_exempt
@@ -16,23 +16,18 @@ def artwork_detail(request, aw_id):
     comment = Comment.objects.filter(aw_id_id=aw_id)
     reward = Reward.objects.filter(aw_id_id=aw_id)
     favourite = FavoriteRecord.objects.filter(aw_id_id=aw_id, customer_id_id=request.user.id)
+
+    # get auction status for current user
+    auction_list = AuctionHistory.objects.filter(customer_id_id=request.user.id)
+    if auction_list.count() > 0:
+        auction_record = auction_list.latest('ah_aucTime')
+    else:
+        auction_record = AuctionHistory (ah_remaining=3, ah_amount=0.01)
+    form = CommentForm()
+    bid_form = BidForm()
     if request.method == 'POST':
-        # Comment post
-        form = CommentForm(request.POST)
-        if 'commentButton' in request.POST:
-            if form.is_valid():
-                new_comment = Comment(
-                    comment_time=datetime.now(),
-                    comment_content=request.POST.get('comment_content'),
-                    rating=request.POST.get('rating'),
-                    aw_id_id=aw.id,
-                    commenter_id_id=request.user.id,
-                )
-                new_comment.save()
-                data = serializers.serialize('json',  Comment.objects.filter(aw_id_id=aw_id))
-                return HttpResponse(json.dumps(data), content_type="application/json")
         # Favourite record post
-        elif 'favouriteButton' in request.POST:
+        if 'favouriteButton' in request.POST:
             # if not exists, add it to favourite list
             if favourite.count() == 0:
                 new_favourite = FavoriteRecord(
@@ -45,12 +40,12 @@ def artwork_detail(request, aw_id):
             else:
                 favourite.delete()
             return HttpResponseRedirect(reverse('aw', args=(aw.id,)))
-    else:
-        form = CommentForm()
     return render(request, "artwork/detail.html", {'form': form,
                                                    'aw': aw,
                                                    'comment': comment,
-                                                   'reward': reward})
+                                                   'reward': reward,
+                                                   'bid': bid_form,
+                                                   'auction_record': auction_record})
 
 
 # Detail page (user) logic:
@@ -106,24 +101,35 @@ def ajax_comment(request, aw_id):
     return HttpResponse(json.dumps(data), content_type="application/json")
 
 
-# Auction creation page (reward)
-def auction_creation(request, aw_id):
-    aw = get_object_or_404(ArtWork, pk=aw_id)
-
-    # Reward post
-    if request.method == 'POST':
-        form = AuctionCreateForm(request.POST)
-        if form.is_valid():
-            new_auction = AuctionRecord(
-                ar_originalPrice=form.cleaned_data.get("ar_originalPrice"),
-                ar_startTime=datetime.now(),
-                ar_expiration=form.cleaned_data.get("ar_expiration"),
-                ar_fixedPrice=form.cleaned_data.get("ar_fixedPrice"),
-                aw_id_id=aw_id
-            )
-            new_auction.save()
-            # PUT SUCCESS PAGE HERE LATER
-            return HttpResponseRedirect(reverse('aw', args=(aw.id,)))
+# send bid request
+def ajax_bid(request, aw_id):
+    form = BidForm(request.POST)
+    record = AuctionHistory.objects.filter(customer_id_id=request.user.id)  # get all request list
+    # If no record in the history, set the lowest price to 0, set the remaining times to 3
+    if record.count() == 0:
+        remaining = 3
+        lowest_price = 0.0
     else:
-        form = AuctionCreateForm()
-    return render(request, "artwork/auction.html", {'aw': aw, 'form': form})
+        # find the remaining times and lowest price in record
+        remaining = record.latest('ah_aucTime').ah_remaining
+        lowest_price = record.latest('ah_aucTime').ah_amount
+    ar_id = AuctionRecord.objects.filter(aw_id_id=aw_id).latest("id").id
+    if form.is_valid():
+        if remaining <= 0:
+            return HttpResponse('{"status": "fail", "msg": "No more chance to bid this artwork."}',
+                                content_type='application/json')
+        else:
+            new_history = AuctionHistory(
+                ah_amount=request.POST.get('ah_amount'),
+                ah_aucTime=datetime.now(),
+                ar_id_id=ar_id,
+                customer_id_id=request.user.id,
+                ah_remaining=remaining - 1
+            )
+            if float(new_history.ah_amount) <= lowest_price:
+                return HttpResponse('{"status": "fail", '
+                                    '"msg": "The bid price should be higher than the price that your bid before"}',
+                                    content_type='application/json')
+            new_history.save()
+            return HttpResponse('{"status": "success"}',
+                                content_type='application/json')
