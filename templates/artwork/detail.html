@@ -5,7 +5,6 @@
         <link rel="stylesheet" href="{% static "ArtGallery/css/artwork.css" %}">
     </head>
     <body>
-
         <!-- Detail of artwork -->
         <h1>Artwork</h1>
         Picture: <img src = "{{CONSTANT_NAME}}/{{ aw.aw_img.url }}" height="420px" /> <br />
@@ -16,6 +15,7 @@
         Genre: {{ aw.aw_genre }} <br />
         Total award: {{ aw.aw_totalAward }} <br />
         Auction status: {{ aw.aw_auctionStat }} <br />
+
 
         <!-- bid -->
         <h2> Bid </h2>
@@ -45,9 +45,10 @@
         </div>
 
         <h2> Post comment </h2>
+        <p id="id_commentError" />
         <form id="id_commentForm" name="commentForm" action="" method="POST">
          {% csrf_token %}
-            {{ form.as_p }}
+            {{ form.as_p | escape }}
             <input type="submit" id = "id_commentButton" name = "commentButton" value="Post Comment" />
         </form>
 
@@ -99,7 +100,13 @@
                                 "Comment content: " + "<br />" + json[i].fields.comment_content + "<br />" + "<br />" + "</p>"
                     }
                     content += "</div>";
-                    $('#id_comment_display').html(content);
+                    if (data.status == "fail") {
+                        $('#id_commentError').text("For security reasons, we do not allow you to submit any text with special characteristics / and $.");
+                    }
+                    else {
+                        $('#id_commentError').text("success");
+                        $('#id_comment_display').html(content);
+                    }
                 }
             });
             return false;

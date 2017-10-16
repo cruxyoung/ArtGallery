@@ -28,23 +28,30 @@ class UserCreateForm(UserCreationForm):
 
 class UserProfileCreationForm(forms.ModelForm):
     GENDER_CHOICES = (
-        (False, "Male"),
-        (True, "Female"),
+        (True, "Male"),
+        (False, "Female"),
     )
-    sex = models.CharField(max_length=1, choices=GENDER_CHOICES, default=False, null=True)
-    birthday = forms.DateField(widget=extras.SelectDateWidget)
+    IDENTITY_CHOICE = (
+        (True, "Customer"),
+        (False, "Artist"),
+    )
+    sex = forms.ChoiceField(choices=GENDER_CHOICES, widget=forms.RadioSelect(attrs={'display': 'inline-block'}))
+    birthday = forms.CharField(required=True, )
+    identity = forms.ChoiceField(choices=IDENTITY_CHOICE, widget=forms.RadioSelect(attrs={'display': 'inline-block'}))
 
     class Meta:
         model = UserProfile
-        fields = ("sex", "birthday")
-        exclude = ('id',)
+        fields = ("sex", "birthday", "identity")
+        exclude = ['id']
 
     def save(self, commit=True):
-        UserProfile.sex = self.cleaned_data["sex"]
-        UserProfile.birthday = self.cleaned_data["birthday"]
+        user_profile = super(UserProfileCreationForm, self).save(commit=False)
+        user_profile.sex = self.cleaned_data["sex"]
+        user_profile.birthday = self.cleaned_data["birthday"]
+        user_profile.identity = self.cleaned_data["identity"]
         if commit:
-            UserProfile.save()
-        return UserProfile
+            user_profile.save()
+        return user_profile
 
 
 class ModifyPwdForm(forms.Form):
@@ -86,3 +93,4 @@ class BidForm(forms.ModelForm):
     class Meta:
         model = AuctionHistory
         fields = ("ah_amount", )
+

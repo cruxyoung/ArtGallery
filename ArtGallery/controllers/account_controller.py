@@ -16,12 +16,20 @@ from django.contrib.auth.models import User
 def signup(request):
     # Request to post a new data entry to database
     if request.method == 'POST':
+
         # Use embedded authentication system
-        form = UserCreateForm(request.POST)
-        if form.is_valid():
-            user = form.save(commit=False)
+        form_user = UserCreateForm(request.POST)
+        form_profile = UserProfileCreationForm(request.POST)
+        if form_user.is_valid() and form_profile.is_valid():
+            user = form_user.save()
             user.is_active = False
             user.save()
+
+            profile = form_profile.save(commit=False)
+            profile.is_active = False
+            profile.user_id = user
+            profile.id = user.id
+            profile.save()
 
             current_site = get_current_site(request)
             message = render_to_string('registration/activation.html', {
@@ -31,13 +39,14 @@ def signup(request):
                 'token': account_activation_token.make_token(user),
             })
             mail_subject = 'Activate your ArtGallery account.'
-            to_email = form.cleaned_data.get('email')
+            to_email = form_user.cleaned_data.get('email')
             email = EmailMessage(mail_subject, message, to=[to_email])
             email.send()
             return HttpResponse('Please confirm your email address to complete the registration')
     else:
-        form = UserCreateForm()
-    return render(request, 'registration/signup.html', {'form': form})
+        form_user = UserCreateForm()
+        form_profile = UserProfileCreationForm()
+    return render(request, 'registration/signup.html', {'form': form_user, 'profile': form_profile})
 
 
 # Activation page logic

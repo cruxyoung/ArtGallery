@@ -6,6 +6,7 @@ from ArtGallery.forms import CommentForm, RewardForm, BidForm
 from django.shortcuts import render, get_object_or_404, HttpResponseRedirect, reverse
 from ArtGallery.models import ArtWork, UserProfile, AuctionHistory, AuctionRecord, Comment, Reward, FavoriteRecord
 from django.views.decorators.csrf import csrf_exempt
+from django.db import transaction
 
 
 # Detail page (artwork) logic:
@@ -63,6 +64,7 @@ def auction_detail(request, auction_id):
 
 
 # Payment page (reward)
+@transaction.atomic  # Ensure data integrity
 def reward_pay(request, aw_id):
     aw = get_object_or_404(ArtWork, pk=aw_id)
 
@@ -77,6 +79,7 @@ def reward_pay(request, aw_id):
                 aw_id_id=aw_id
             )
             new_reward.save()
+
             # PUT SUCCESS PAGE HERE LATER
             return HttpResponseRedirect(reverse('aw', args=(aw.id,)))
     else:
@@ -88,17 +91,23 @@ def reward_pay(request, aw_id):
 def ajax_comment(request, aw_id):
     form = CommentForm(request.POST)
     if form.is_valid():
-        new_comment = Comment(
-            comment_time=datetime.now(),
-            comment_content=request.POST.get('comment_content'),
-            rating=request.POST.get('rating'),
-            aw_id_id=aw_id,
-            commenter_id_id=request.user.id,
-        )
-        new_comment.save()
-    comment = Comment.objects.filter(aw_id_id=aw_id)
-    data = serializers.serialize('json', comment)
-    return HttpResponse(json.dumps(data), content_type="application/json")
+        content = request.POST.get('comment_content')
+        if '/' in content or '$' in content:
+            return HttpResponse('{"status": "fail", "msg": "For security reasons, '
+                                'we does not allowed comments with special characteristics / and $."}',
+                                content_type='application/json')
+        else:
+                new_comment = Comment(
+                    comment_time=datetime.now(),
+                    comment_content=request.POST.get('comment_content'),
+                    rating=request.POST.get('rating'),
+                    aw_id_id=aw_id,
+                    commenter_id_id=request.user.id,
+                )
+                new_comment.save()
+                comment = Comment.objects.filter(aw_id_id=aw_id)
+                data = serializers.serialize('json', comment)
+                return HttpResponse(json.dumps(data), content_type="application/json")
 
 
 # send bid request

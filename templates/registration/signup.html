@@ -7,12 +7,25 @@
          {% load static %}
         <link rel="stylesheet" href="{% static "ArtGallery/css/account.css" %}">
         <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="/resources/demos/style.css">
         <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script type="text/javascript" >
             $(document).ready(function(){
             $("#id_username").attr('placeholder', '{{form.username.label}}');
             $("#id_email").attr('placeholder', '{{form.password.label}}');
             });
+            $( function() {
+                $( "#id_birthday" ).datepicker({
+                    dateFormat: 'yy-mm-dd',
+                    changeMonth: true,
+                    changeYear: true,
+                    yearRange: "1950:1999"
+                });
+             });
+            // prevent doublick
+
         </script>
     </head>
     <body style="background: url('{% static "ArtGallery/images/bg_login.jpg" %}') fixed">
