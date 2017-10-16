@@ -2,409 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b3bc383-5263-43a6-82aa-596f3730d9ee" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/locale/de_DE/LC_MESSAGES/django.mo" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/locale/de_DE/LC_MESSAGES/djangojs.mo" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/locale/en/LC_MESSAGES/django.mo" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/locale/en/LC_MESSAGES/djangojs.mo" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/locale/es_MX/LC_MESSAGES/django.mo" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/locale/es_MX/LC_MESSAGES/djangojs.mo" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/locale/eu/LC_MESSAGES/django.mo" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/locale/eu/LC_MESSAGES/djangojs.mo" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/locale/id_ID/LC_MESSAGES/django.mo" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/locale/id_ID/LC_MESSAGES/djangojs.mo" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/locale/ja/LC_MESSAGES/django.mo" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/locale/ja/LC_MESSAGES/djangojs.mo" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/locale/lt/LC_MESSAGES/django.mo" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/locale/lt/LC_MESSAGES/djangojs.mo" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/locale/nl_NL/LC_MESSAGES/django.mo" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/locale/nl_NL/LC_MESSAGES/djangojs.mo" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/locale/pl/LC_MESSAGES/django.mo" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/locale/pl/LC_MESSAGES/djangojs.mo" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/locale/pt_BR/LC_MESSAGES/django.mo" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/locale/pt_BR/LC_MESSAGES/djangojs.mo" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/locale/ru_RU/LC_MESSAGES/django.mo" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/locale/ru_RU/LC_MESSAGES/djangojs.mo" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/locale/zh_Hans/LC_MESSAGES/django.mo" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/locale/zh_Hans/LC_MESSAGES/djangojs.mo" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-image-gallery/img/loading.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-modal/img/ajax-loader.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap/fonts/glyphicons-halflings-regular.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap/fonts/glyphicons-halflings-regular.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap/fonts/glyphicons-halflings-regular.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/font-awesome/fonts/FontAwesome.otf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/font-awesome/fonts/fontawesome-webfont.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/font-awesome/fonts/fontawesome-webfont.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/font-awesome/fonts/fontawesome-webfont.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/select2/select2-spinner.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/select2/select2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/select2/select2x2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/admin.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/adminx.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/apps.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/controllers/views_complaints.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/.tx/config" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/adminx.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/apps.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/filters.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/forms.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/layout.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/locale/de_DE/LC_MESSAGES/django.po" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/locale/de_DE/LC_MESSAGES/djangojs.po" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/locale/en/LC_MESSAGES/django.po" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/locale/en/LC_MESSAGES/djangojs.po" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/locale/es_MX/LC_MESSAGES/django.po" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/locale/es_MX/LC_MESSAGES/djangojs.po" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/locale/eu/LC_MESSAGES/django.po" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/locale/eu/LC_MESSAGES/djangojs.po" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/locale/id_ID/LC_MESSAGES/django.po" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/locale/id_ID/LC_MESSAGES/djangojs.po" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/locale/ja/LC_MESSAGES/django.po" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/locale/ja/LC_MESSAGES/djangojs.po" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/locale/lt/LC_MESSAGES/django.po" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/locale/lt/LC_MESSAGES/djangojs.po" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/locale/nl_NL/LC_MESSAGES/django.po" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/locale/nl_NL/LC_MESSAGES/djangojs.po" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/locale/pl/LC_MESSAGES/django.po" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/locale/pl/LC_MESSAGES/djangojs.po" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/locale/pt_BR/LC_MESSAGES/django.po" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/locale/pt_BR/LC_MESSAGES/djangojs.po" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/locale/ru_RU/LC_MESSAGES/django.po" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/locale/ru_RU/LC_MESSAGES/djangojs.po" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/locale/zh_Hans/LC_MESSAGES/django.po" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/locale/zh_Hans/LC_MESSAGES/djangojs.po" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/migrations/0001_initial.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/migrations/0002_log.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/migrations/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/models.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/plugins/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/plugins/actions.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/plugins/aggregation.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/plugins/ajax.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/plugins/auth.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/plugins/batch.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/plugins/bookmark.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/plugins/chart.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/plugins/comments.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/plugins/details.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/plugins/editable.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/plugins/export.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/plugins/filters.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/plugins/images.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/plugins/importexport.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/plugins/inline.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/plugins/language.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/plugins/layout.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/plugins/mobile.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/plugins/multiselect.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/plugins/passwords.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/plugins/portal.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/plugins/quickfilter.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/plugins/quickform.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/plugins/refresh.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/plugins/relate.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/plugins/relfield.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/plugins/sitemenu.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/plugins/sortablelist.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/plugins/themes.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/plugins/topnav.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/plugins/utils.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/plugins/wizard.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/plugins/xversion.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/sites.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/component.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/css/themes/bootstrap-theme.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/css/themes/bootstrap-theme.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/css/themes/bootstrap-xadmin.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/css/xadmin.form.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/css/xadmin.main.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/css/xadmin.mobile.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/css/xadmin.page.dashboard.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/css/xadmin.plugin.aggregation.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/css/xadmin.plugin.formset.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/css/xadmin.plugin.importexport.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/css/xadmin.plugin.quickfilter.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/css/xadmin.plugins.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/css/xadmin.responsive.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/css/xadmin.widget.editable.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/css/xadmin.widget.select-transfer.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/js/xadmin.main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/js/xadmin.page.dashboard.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/js/xadmin.page.form.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/js/xadmin.page.list.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/js/xadmin.plugin.actions.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/js/xadmin.plugin.batch.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/js/xadmin.plugin.bookmark.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/js/xadmin.plugin.charts.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/js/xadmin.plugin.details.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/js/xadmin.plugin.editable.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/js/xadmin.plugin.filters.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/js/xadmin.plugin.formset.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/js/xadmin.plugin.importexport.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/js/xadmin.plugin.portal.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/js/xadmin.plugin.quick-form.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/js/xadmin.plugin.quickfilter.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/js/xadmin.plugin.refresh.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/js/xadmin.plugin.revision.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/js/xadmin.plugin.sortablelist.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/js/xadmin.plugin.themes.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/js/xadmin.responsive.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/js/xadmin.widget.datetime.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/js/xadmin.widget.multiselect.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/js/xadmin.widget.select-transfer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/js/xadmin.widget.select.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/autotype/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-clockpicker/bootstrap-clockpicker.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-clockpicker/bootstrap-clockpicker.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-clockpicker/bootstrap-clockpicker.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-clockpicker/bootstrap-clockpicker.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-datepicker/css/datepicker.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-datepicker/js/locales/bootstrap-datepicker.bg.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-datepicker/js/locales/bootstrap-datepicker.ca.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-datepicker/js/locales/bootstrap-datepicker.cs.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-datepicker/js/locales/bootstrap-datepicker.da.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-datepicker/js/locales/bootstrap-datepicker.de.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-datepicker/js/locales/bootstrap-datepicker.el.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-datepicker/js/locales/bootstrap-datepicker.es.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-datepicker/js/locales/bootstrap-datepicker.fi.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-datepicker/js/locales/bootstrap-datepicker.fr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-datepicker/js/locales/bootstrap-datepicker.he.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-datepicker/js/locales/bootstrap-datepicker.hr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-datepicker/js/locales/bootstrap-datepicker.hu.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-datepicker/js/locales/bootstrap-datepicker.id.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-datepicker/js/locales/bootstrap-datepicker.is.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-datepicker/js/locales/bootstrap-datepicker.it.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-datepicker/js/locales/bootstrap-datepicker.ja.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-datepicker/js/locales/bootstrap-datepicker.kr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-datepicker/js/locales/bootstrap-datepicker.lt.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-datepicker/js/locales/bootstrap-datepicker.lv.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-datepicker/js/locales/bootstrap-datepicker.ms.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-datepicker/js/locales/bootstrap-datepicker.nb.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-datepicker/js/locales/bootstrap-datepicker.nl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-datepicker/js/locales/bootstrap-datepicker.pl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-datepicker/js/locales/bootstrap-datepicker.pt-BR.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-datepicker/js/locales/bootstrap-datepicker.pt.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-datepicker/js/locales/bootstrap-datepicker.ro.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-datepicker/js/locales/bootstrap-datepicker.rs-latin.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-datepicker/js/locales/bootstrap-datepicker.rs.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-datepicker/js/locales/bootstrap-datepicker.ru.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-datepicker/js/locales/bootstrap-datepicker.sk.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-datepicker/js/locales/bootstrap-datepicker.sl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-datepicker/js/locales/bootstrap-datepicker.sv.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-datepicker/js/locales/bootstrap-datepicker.sw.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-datepicker/js/locales/bootstrap-datepicker.th.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-datepicker/js/locales/bootstrap-datepicker.tr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-datepicker/js/locales/bootstrap-datepicker.uk.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-datepicker/js/locales/bootstrap-datepicker.zh-CN.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-datepicker/js/locales/bootstrap-datepicker.zh-TW.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-image-gallery/css/bootstrap-image-gallery.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-image-gallery/css/bootstrap-image-gallery.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-image-gallery/js/bootstrap-image-gallery.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-image-gallery/js/bootstrap-image-gallery.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-modal/css/bootstrap-modal.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-modal/js/bootstrap-modal.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-modal/js/bootstrap-modalmanager.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-multiselect/css/bootstrap-multiselect.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-multiselect/js/bootstrap-multiselect.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-timepicker/css/bootstrap-timepicker.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-timepicker/css/bootstrap-timepicker.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-timepicker/js/bootstrap-timepicker.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap-timepicker/js/bootstrap-timepicker.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap/css/bootstrap.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap/css/bootstrap.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap/fonts/glyphicons-halflings-regular.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap/js/bootstrap.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/bootstrap/js/bootstrap.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/flot/excanvas.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/flot/excanvas.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/flot/jquery.colorhelpers.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/flot/jquery.flot.aggregate.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/flot/jquery.flot.canvas.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/flot/jquery.flot.categories.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/flot/jquery.flot.crosshair.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/flot/jquery.flot.errorbars.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/flot/jquery.flot.fillbetween.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/flot/jquery.flot.image.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/flot/jquery.flot.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/flot/jquery.flot.navigate.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/flot/jquery.flot.pie.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/flot/jquery.flot.resize.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/flot/jquery.flot.selection.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/flot/jquery.flot.stack.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/flot/jquery.flot.symbol.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/flot/jquery.flot.threshold.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/flot/jquery.flot.time.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/font-awesome/css/font-awesome.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/font-awesome/css/font-awesome.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/font-awesome/fonts/fontawesome-webfont.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/jquery-ui/jquery.ui.core.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/jquery-ui/jquery.ui.core.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/jquery-ui/jquery.ui.effect.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/jquery-ui/jquery.ui.effect.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/jquery-ui/jquery.ui.mouse.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/jquery-ui/jquery.ui.mouse.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/jquery-ui/jquery.ui.sortable.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/jquery-ui/jquery.ui.sortable.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/jquery-ui/jquery.ui.widget.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/jquery-ui/jquery.ui.widget.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/jquery/jquery.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/jquery/jquery.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/load-image/load-image.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/load-image/load-image.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/select2/select2.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/select2/select2.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/select2/select2.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/select2/select2_locale_de.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/select2/select2_locale_en.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/select2/select2_locale_es.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/select2/select2_locale_eu.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/select2/select2_locale_fr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/select2/select2_locale_hr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/select2/select2_locale_hu.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/select2/select2_locale_it.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/select2/select2_locale_nl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/select2/select2_locale_pt-BR.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/select2/select2_locale_pt-PT.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/select2/select2_locale_ro.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/select2/select2_locale_ru.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/select2/select2_locale_sk.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/select2/select2_locale_sv.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/select2/select2_locale_tr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/select2/select2_locale_ua.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/select2/select2_locale_zh-CN.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/select2/select2_locale_zh-hans.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/selectize/selectize.bootstrap2.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/selectize/selectize.bootstrap3.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/selectize/selectize.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/selectize/selectize.default.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/selectize/selectize.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/selectize/selectize.legacy.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/selectize/selectize.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/snapjs/snap.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/snapjs/snap.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/static/xadmin/vendor/snapjs/snap.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/404.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/500.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/auth/password_reset/complete.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/auth/password_reset/confirm.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/auth/password_reset/done.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/auth/password_reset/email.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/auth/password_reset/form.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/auth/user/add_form.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/auth/user/change_password.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/base.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/base_site.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/blocks/comm.top.setlang.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/blocks/comm.top.theme.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/blocks/comm.top.topnav.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/blocks/modal_list.left_navbar.quickfilter.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/blocks/model_form.before_fieldsets.wizard.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/blocks/model_form.submit_line.wizard.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/blocks/model_list.nav_form.search_form.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/blocks/model_list.nav_menu.bookmarks.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/blocks/model_list.nav_menu.filters.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/blocks/model_list.results_bottom.actions.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/blocks/model_list.results_top.charts.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/blocks/model_list.results_top.date_hierarchy.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/blocks/model_list.top_toolbar.exports.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/blocks/model_list.top_toolbar.importexport.export.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/blocks/model_list.top_toolbar.importexport.import.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/blocks/model_list.top_toolbar.layouts.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/blocks/model_list.top_toolbar.refresh.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/blocks/model_list.top_toolbar.saveorder.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/edit_inline/accordion.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/edit_inline/base.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/edit_inline/blank.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/edit_inline/one.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/edit_inline/stacked.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/edit_inline/tab.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/edit_inline/tabular.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/filters/char.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/filters/checklist.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/filters/date.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/filters/fk_search.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/filters/list.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/filters/number.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/filters/quickfilter.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/filters/rel.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/forms/transfer.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/grids/thumbnails.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/import_export/export_action.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/import_export/import.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/includes/box.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/includes/pagination.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/includes/sitemenu_accordion.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/includes/sitemenu_default.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/includes/submit_line.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/includes/toggle_back.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/includes/toggle_menu.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/layout/field_value.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/layout/field_value_td.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/layout/fieldset.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/layout/input_group.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/layout/td-field.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/views/app_index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/views/batch_change_form.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/views/dashboard.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/views/form.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/views/invalid_setup.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/views/logged_out.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/views/login.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/views/model_dashboard.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/views/model_delete_confirm.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/views/model_delete_selected_confirm.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/views/model_detail.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/views/model_form.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/views/model_history.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/views/model_list.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/views/quick_detail.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/views/quick_form.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/views/recover_form.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/views/recover_list.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/views/revision_diff.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/views/revision_form.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/widgets/addform.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/widgets/base.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/widgets/chart.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/widgets/list.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templates/xadmin/widgets/qbutton.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templatetags/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/templatetags/xadmin_tags.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/util.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/vendors.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/views/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/views/base.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/views/dashboard.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/views/delete.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/views/detail.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/views/edit.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/views/form.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/views/list.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/views/website.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/widgets.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/complaint/art_info.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/complaint/complaint_page.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ArtGallery/migrations/0001_initial.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ArtGallery/migrations/0002_auto_20171005_0721.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ArtGallery/migrations/0003_merge_20171011_1150.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ArtGallery/migrations/0004_auto_20171011_1151.py" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ArtGallery/migrations/0002_auto_20170908_1208.py" afterPath="$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/migrations/0003_auto_20160715_0100.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img-default.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/personal_center/artist_center_edit.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/artwork/1505101852.268796/60-160324160024.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/ELEC9609.iml" afterPath="$PROJECT_DIR$/.idea/ELEC9609.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/preferred-vcs.xml" afterPath="$PROJECT_DIR$/.idea/preferred-vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtGallery/__init__.py" afterPath="$PROJECT_DIR$/ArtGallery/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtGallery/controllers/artist_artworks_controller.py" afterPath="$PROJECT_DIR$/ArtGallery/controllers/artist_artworks_controller.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtGallery/controllers/home_controller.py" afterPath="$PROJECT_DIR$/ArtGallery/controllers/home_controller.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtGallery/controllers/personal_controller.py" afterPath="$PROJECT_DIR$/ArtGallery/controllers/personal_controller.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtGallery/forms.py" afterPath="$PROJECT_DIR$/ArtGallery/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtGallery/migrations/__init__.py" afterPath="$PROJECT_DIR$/ArtGallery/migrations/__init__.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtGallery/models.py" afterPath="$PROJECT_DIR$/ArtGallery/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtGallery/settings.py" afterPath="$PROJECT_DIR$/ArtGallery/settings.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtGallery/urls.py" afterPath="$PROJECT_DIR$/ArtGallery/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/ArtGallery/css/account.css" afterPath="$PROJECT_DIR$/static/ArtGallery/css/account.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/registration/login.html" afterPath="$PROJECT_DIR$/templates/registration/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/registration/logout.html" afterPath="$PROJECT_DIR$/templates/registration/logout.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/artwork/detail.html" afterPath="$PROJECT_DIR$/templates/artwork/detail.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/personal_center/artist_center_artworks.html" afterPath="$PROJECT_DIR$/templates/personal_center/artist_center_artworks.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/personal_center/artist_center_settings.html" afterPath="$PROJECT_DIR$/templates/personal_center/artist_center_settings.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/personal_center/personal_center_settings.html" afterPath="$PROJECT_DIR$/templates/personal_center/personal_center_settings.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/registration/signup.html" afterPath="$PROJECT_DIR$/templates/registration/signup.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -419,52 +32,27 @@
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ArtGallery/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="412">
-              <caret line="25" column="9" lean-forward="false" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ArtGallery/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
-              <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ArtGallery/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="402">
-              <caret line="143" column="0" lean-forward="true" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sites.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/sites.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#10#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>img</find>
+      <find>time</find>
+      <find>defaut</find>
+      <find>frame</find>
+      <find>end</find>
+      <find>index</find>
+      <find>redirect</find>
+      <find>action</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -472,10 +60,21 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/templates/artwork/detail.html" />
+        <option value="$PROJECT_DIR$/ArtGallery/controllers/home_controller.py" />
+        <option value="$PROJECT_DIR$/ArtGallery/controllers/personal_controller.py" />
+        <option value="$PROJECT_DIR$/templates/home_page/home_page.html" />
+        <option value="$PROJECT_DIR$/templates/registration/signup.html" />
+        <option value="$PROJECT_DIR$/templates/personal_center/artist_center_edit_artwork.py" />
         <option value="$PROJECT_DIR$/ArtGallery/forms.py" />
-        <option value="$PROJECT_DIR$/ArtGallery/models.py" />
         <option value="$PROJECT_DIR$/ArtGallery/urls.py" />
+        <option value="$PROJECT_DIR$/ArtGallery/models.py" />
+        <option value="$PROJECT_DIR$/templates/personal_center/artist_center_artworks.html" />
         <option value="$PROJECT_DIR$/ArtGallery/settings.py" />
+        <option value="$PROJECT_DIR$/ArtGallery/controllers/artist_artworks_controller.py" />
+        <option value="$PROJECT_DIR$/templates/personal_center/artist_center_edit.html" />
+        <option value="$PROJECT_DIR$/templates/personal_center/artist_center_settings.html" />
+        <option value="$PROJECT_DIR$/templates/personal_center/personal_center_settings.html" />
       </list>
     </option>
   </component>
@@ -486,9 +85,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="22" />
-    <option name="width" value="1440" />
-    <option name="height" value="829" />
+    <option name="x" value="-1714" />
+    <option name="y" value="-117" />
+    <option name="width" value="1514" />
+    <option name="height" value="1053" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -505,7 +105,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -522,40 +121,26 @@
               <item name="ELEC9609" type="b2602c69:ProjectViewProjectNode" />
               <item name="ELEC9609" type="462c0819:PsiDirectoryNode" />
               <item name="ArtGallery" type="462c0819:PsiDirectoryNode" />
-              <item name="extra_apps" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ELEC9609" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ELEC9609" type="462c0819:PsiDirectoryNode" />
-              <item name="ArtGallery" type="462c0819:PsiDirectoryNode" />
-              <item name="extra_apps" type="462c0819:PsiDirectoryNode" />
-              <item name="xadmin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ELEC9609" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ELEC9609" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ELEC9609" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ELEC9609" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="ArtGallery" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="last_opened_file_path" value="$USER_HOME$/anaconda/envs/influence/bin/python" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/static" />
+      <recent name="$PROJECT_DIR$/artwork" />
       <recent name="$PROJECT_DIR$/ArtGallery/controllers" />
     </key>
   </component>
@@ -613,32 +198,58 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1440" height="829" extended-state="0" />
-    <editor active="true" />
+    <frame x="-1714" y="-117" width="1514" height="1053" extended-state="0" />
     <layout>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug Logs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970026" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Execute Anonymous" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16881259" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970026" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Salesforce" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug Logs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32045928" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Execute Anonymous" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17934783" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32881" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2498621" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Concurrent Activities Diagram" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32917964" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3131524" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Salesforce" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug Logs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32846716" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Execute Anonymous" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15545395" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970026" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Concurrent Activities Diagram" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32917964" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997923" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Salesforce" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -647,10 +258,50 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="41" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/ArtGallery/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="25" column="9" lean-forward="false" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
+          <folding>
+            <element signature="e#644#676#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ArtGallery/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="760">
+          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/sites.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#10#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ArtGallery/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2698">
+          <caret line="143" column="0" lean-forward="true" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ArtGallery/adminx.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -663,7 +314,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -671,34 +321,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
           <caret line="6" column="42" lean-forward="true" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ArtGallery/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="32" lean-forward="true" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ArtGallery/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ArtGallery/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="25" column="9" lean-forward="false" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
           <folding />
         </state>
       </provider>
@@ -711,20 +333,293 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/views/form.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#38#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/views/edit.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="17" column="10" lean-forward="false" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ArtGallery/extra_apps/xadmin/sites.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="437">
-          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding>
-            <element signature="e#0#10#0" expanded="true" />
+            <element signature="e#0#10#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/personal_center/personal_center_auctions.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/artwork/1505101852.268796/60-160324160024.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/registration/logout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/registration/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-13">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/personal_center/personal_center_comments.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="758">
+          <caret line="53" column="23" lean-forward="true" selection-start-line="53" selection-start-column="23" selection-end-line="53" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/artwork/detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/complaint/art_info.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/complaint/complaint_page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/home_page/home_page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="135" column="26" lean-forward="true" selection-start-line="135" selection-start-column="26" selection-end-line="135" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/personal_center/artist_master.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/personal_center/personal_master.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/master.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="99" column="91" lean-forward="false" selection-start-line="99" selection-start-column="91" selection-end-line="99" selection-end-column="91" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/selectors.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="378" column="0" lean-forward="false" selection-start-line="378" selection-start-column="0" selection-end-line="378" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/http/response.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="299" column="8" lean-forward="false" selection-start-line="299" selection-start-column="8" selection-end-line="299" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/registration/signup.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="16" column="17" lean-forward="true" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ArtGallery/controllers/artwork_controller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="82">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ArtGallery/controllers/account_controller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="15" column="4" lean-forward="false" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ArtGallery/controllers/home_controller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="8" column="23" lean-forward="false" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ArtGallery/controllers/personal_controller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="11" column="35" lean-forward="false" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/personal_center/artist_center_edit_artwork.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="14" lean-forward="true" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/personal_center/personal_center_complaints.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/personal_center/personal_center_favorites.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/conf/urls/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="72" column="0" lean-forward="true" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ArtGallery/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="29" column="42" lean-forward="false" selection-start-line="29" selection-start-column="42" selection-end-line="29" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ArtGallery/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="143" column="0" lean-forward="true" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
+        <state relative-caret-position="489">
+          <caret line="92" column="30" lean-forward="false" selection-start-line="92" selection-start-column="30" selection-end-line="92" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ArtGallery/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="43" column="96" lean-forward="true" selection-start-line="43" selection-start-column="96" selection-end-line="43" selection-end-column="96" />
+          <folding>
+            <element signature="e#644#676#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ArtGallery/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="664">
+          <caret line="69" column="93" lean-forward="false" selection-start-line="69" selection-start-column="85" selection-end-line="69" selection-end-column="93" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ArtGallery/controllers/artist_artworks_controller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="14" column="27" lean-forward="false" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/personal_center/artist_center_edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-54">
+          <caret line="89" column="98" lean-forward="false" selection-start-line="89" selection-start-column="60" selection-end-line="89" selection-end-column="98" />
+          <folding>
+            <element signature="e#4864#4883#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/personal_center/artist_center_artworks.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="398">
+          <caret line="33" column="55" lean-forward="true" selection-start-line="33" selection-start-column="55" selection-end-line="33" selection-end-column="55" />
+          <folding>
+            <element signature="e#303#322#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/personal_center/artist_center_settings.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="119" column="12" lean-forward="false" selection-start-line="119" selection-start-column="12" selection-end-line="119" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/personal_center/personal_center_settings.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-18">
+          <caret line="106" column="9" lean-forward="true" selection-start-line="106" selection-start-column="9" selection-end-line="106" selection-end-column="9" />
           <folding />
         </state>
       </provider>

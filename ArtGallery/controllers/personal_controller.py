@@ -15,7 +15,8 @@ from django.core import serializers
 class PersonalFavorite(View):
     # get favorites of current user
     def get(self, request):
-        favs = models.FavoriteRecord.objects.filter(customer_id=request.user.id)
+
+        favs = models.FavoriteRecord.objects.filter(artist_id=request.user.id)
         favs_nums = favs.count()
 
         # get sort info

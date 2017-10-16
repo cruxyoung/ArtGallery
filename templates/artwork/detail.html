@@ -75,7 +75,7 @@
                 cache: false,
                 type: "POST",
                 dataType: "json",
-                url:"{% url 'comment' aw.id %}"
+                url:"{% url 'comment' aw.id %}",
                 data: $('#id_commentForm').serialize(),
                 async: true,
                 success: function (data) {

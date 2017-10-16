@@ -45,15 +45,18 @@ urlpatterns = [
 
     url(r'^artist/settings/$', artist_artworks_controller.ArtistSetting.as_view(), name='artist_setting'),
     url(r'^artist/artworks/$', artist_artworks_controller.ArtistArtwork.as_view(), name='artist_artwork'),
+    url(r'^artist/artworks/edit/(?P<artwork_id>[0-9]+)/$', artist_artworks_controller.ArtworkEdit.as_view(),
+        name='edit_artwork'),
+    url(r'^artist/artworks/edit/action/$', artist_artworks_controller.EditAction.as_view(), name='edit_action'),
+    # url(r'^artist/artworks/$', artist_artworks_controller.UploadImage.as_view(), name='artwork_img'),
+    url(r'^artist/artworks/delete/(?P<artwork_id>[0-9]+)/$', artist_artworks_controller.delete_artwork,
+        name='delete_artwork'),
 
     # Login and Logout
     url('^accounts/', include('django.contrib.auth.urls')),
     url('^accounts/signup/$', account_controller.signup, name='signup'),
     url('^accounts/activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
         account_controller.activate, name='activate'),
-
-
-
 
     # complaints need 4 urls, the art_info is fake one
     url('^art_info/complaints/(?P<artwork_id>[0-9]+)$', views_complaints.edit_complaints, name='edit_complaints'),
@@ -63,13 +66,6 @@ urlpatterns = [
     url('^art_info/$', views_complaints.art_info),
     url('^art_info/complaints/action/$', views_complaints.complaints_action, name='complaints_action'),
 
-
-
-
-
-
-
-
     # Home Page and Information Page
     url('^index/', home_controller.home_page, name='index'),
     url(r'^(?P<art_id>[0-9]+)/$', home_controller.detail, name='detail'),
@@ -77,11 +73,12 @@ urlpatterns = [
 
     # Artwork Detail
 
-    url(r'^artwork/(?P<aw_id>[0-9]+)/detail/$', artwork_controller.artwork_detail, name='aw'),
-    url(r'^artwork/(?P<aw_id>[0-9]+)/detail/comment/$', artwork_controller.ajax_comment, name='comment'),
+    url(r'^artworks/(?P<aw_id>[0-9]+)/detail/$', artwork_controller.artwork_detail, name='aw'),
+    url(r'^artworks/(?P<aw_id>[0-9]+)/detail/comment/$', artwork_controller.ajax_comment, name='comment'),
     url(r'^artist/(?P<user_id>[0-9]+)/detail/$', artwork_controller.artist_detail, name='user'),
     url(r'^auction/(?P<auction_id>[0-9]+)/detail/$', artwork_controller.auction_detail, name='auction'),
-    url(r'^artwork/(?P<aw_id>[0-9]+)/reward/$', artwork_controller.reward_pay, name='reward'),
+    url(r'^artworks/(?P<aw_id>[0-9]+)/reward/$', artwork_controller.reward_pay, name='reward'),
+
 ]
 
 if settings.DEBUG:

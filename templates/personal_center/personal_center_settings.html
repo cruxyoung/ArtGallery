@@ -89,6 +89,7 @@
                 <input id="jsDepositForm" type="button" value="DEPOSIT MONEY"/>
             </div>
             <br/>
+            {% csrf_token %}
         </form>
     </div>
     <!-- Display Area -->
@@ -108,6 +109,7 @@
     <script>
 
         $('#jsResetPwdBtn').click(function () {
+            $(this).disabled = true;
             $.ajax({
                 cache: false,
                 type: "POST",
@@ -138,10 +140,12 @@
                         alert('success change password.');
                         window.location = "/accounts/login";
                     }
+                    $('#jsResetPwdBtn').disabled = false;
                 }
             })
         });
         $('#jsEditInfoBtn').on('click', function () {
+            $(this).disabled = true;
             $.ajax({
                 cache: false,
                 type: 'POST',
@@ -157,6 +161,7 @@
                         alert(' success change.');
                         location.reload();
                     }
+                    $('#jsEditInfoBtn').disabled = false;
                 }
             })
         })

@@ -24,7 +24,7 @@ class ArtWork(models.Model):
 
     aw_name = models.CharField(null=True, max_length=64, verbose_name='Artwork Name')
     aw_img = models.ImageField(default="/static/images/profile-default.png",
-                               upload_to='artwork/' + time.time().__str__(),
+                               upload_to='./artwork/' + time.time().__str__(),
                                verbose_name='Image')
     # aw_img = models.ImageField(default="/static/images/profile-default.png", verbose_name='Image')
     aw_description = models.CharField(null=True, max_length=256, verbose_name='Description')

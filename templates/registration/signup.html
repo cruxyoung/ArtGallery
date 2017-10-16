@@ -2,53 +2,54 @@
 
 {% block content %}
 
-<html>
+    <html>
     <head>
-         {% load static %}
+        {% load static %}
         <link rel="stylesheet" href="{% static "ArtGallery/css/account.css" %}">
-        <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet"
+              id="bootstrap-css">
         <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-        <script type="text/javascript" >
-            $(document).ready(function(){
-            $("#id_username").attr('placeholder', '{{form.username.label}}');
-            $("#id_email").attr('placeholder', '{{form.password.label}}');
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#id_username").attr('placeholder', '{{form.username.label}}');
+                $("#id_email").attr('placeholder', '{{form.password.label}}');
             });
         </script>
     </head>
     <body style="background: url('{% static "ArtGallery/images/bg_login.jpg" %}') fixed">
     <div class="container">
-    <div class="row">
-        <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-12">
 
-            <div class="wrap">
-                <p class="form-title">
-                    Sign Up</p>
-                <form class="login" method="post">
-                     {% csrf_token %}
-                     {% for field in form %}
-                     <p>
-                        {{ field.label_tag }}<br>
-                        {{ field }}
-                        {% if field.help_text %}
-                            <small style="display: none">{{ field.help_text }}</small>
-                        {% endif %}
-                        {% for error in field.errors %}
-                            <p style="color: red">{{ error }}</p>
+                <div class="wrap">
+                    <p class="form-title">
+                        Sign Up</p>
+                    <form class="login" method="post">
+                        {% csrf_token %}
+                        {% for field in form %}
+                            <p>
+                                {{ field.label_tag }}<br>
+                                {{ field }}
+                                {% if field.help_text %}
+                                    <small style="display: none">{{ field.help_text }}</small>
+                                {% endif %}
+                                {% for error in field.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </p>
                         {% endfor %}
-                    </p>
-                    {% endfor %}
 
-                <input type="submit" value="Sign Up" class="btn btn-success btn-sm" />
-                    <input type="hidden" name="next" value="{{ next }}" >
+                        <input type="submit" value="Sign Up" class="btn btn-success btn-sm"/>
+                        <input type="hidden" name="next" value="{{ next }}">
 
-                </form>
+                    </form>
+                </div>
             </div>
-            </div>
-            </div>
-            </div>
-        {# Assumes you setup the password_reset view in your URLconf #}
+        </div>
+    </div>
+    {# Assumes you setup the password_reset view in your URLconf #}
 
     </body>
-</html>
+    </html>
 
 {% endblock %}

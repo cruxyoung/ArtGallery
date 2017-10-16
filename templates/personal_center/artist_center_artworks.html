@@ -2,15 +2,16 @@
 
 {% block menu %}
     <ul>
-        <li><a>All</a></li>
-        <li><a>ADD NEW</a></li>
+        <li><a id="all" class="active">All</a></li>
+        <li><a id="new" href="{% url 'edit_artwork' 0 %}">ADD NEW</a></li>
     </ul>
 {% endblock %}
 
 {% block content %}
     <div class="row-fluid">
+        <h4 id="result" style="color: red;">{{ result }}</h4>
         <div class="span12 portfolio-item website html5 css3 responsive">
-            <table class="table table-bordered">
+            <table id="all_info" class="table table-bordered">
                 <thead>
                 <tr>
                     <th>Artwork</th>
@@ -26,7 +27,7 @@
                 <tbody>
                 {% for artwork in artworks %}
                     <tr>
-                        <td><img src="{{ artwork.aw_img }}" style="width: 50px;"></td>
+                        <td><img src="{{ artwork.aw_img.url }}" style="width: 50px;"></td>
                         <td>{{ artwork.aw_name }}</td>
                         <td>{{ artwork.aw_time }}</td>
                         <td>{{ artwork.aw_type }}</td>
@@ -38,13 +39,17 @@
                         {% endif %}
                         <td>{{ artwork.aw_totalAward }}</td>
                         <td>
-                            <a class="fa-icon-edit" href="">Edit</a>
-                            <a class="fa-icon-remove" href="">Remove</a>
+                            <a class="fa-icon-edit" href="{% url 'edit_artwork' artwork.id %}">Edit</a>
+                            <a class="fa-icon-remove" href="{% url 'delete_artwork' artwork.id %}"
+                               onclick="return confirm('Really Delete?')">Remove</a>
                         </td>
+                        {% csrf_token %}
                     </tr>
                 {% endfor %}
                 </tbody>
             </table>
+
         </div>
+
     </div>
 {% endblock %}

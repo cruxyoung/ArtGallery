@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from ArtGallery.models import Comment, Reward
+from ArtGallery.models import Comment, Reward, ArtWork
 from django.db import models
 
 
@@ -12,7 +12,7 @@ class UserCreateForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ("username", "email", "first_name","last_name","password1", "password2")
+        fields = ("username", "email", "first_name", "last_name", "password1", "password2")
 
     def save(self, commit=True):
         user = super(UserCreateForm, self).save(commit=False)
@@ -55,3 +55,23 @@ class RewardForm(forms.ModelForm):
         model = Reward
         fields = ('reward_amount',)
 
+
+# Form for Submit new artworks by artist
+class ArtworkForm(forms.ModelForm):
+    aw_name = forms.CharField(required=True)
+    aw_location = forms.CharField(required=True)
+    aw_type = forms.CharField()
+    aw_genre = forms.CharField()
+    aw_img = forms.ImageField(required=True)
+    aw_description = forms.CharField(max_length=256)
+
+    class Meta:
+        model = ArtWork
+        fields = ("aw_name", "aw_location", "aw_type", "aw_genre", "aw_description", "aw_img")
+
+
+# Form for uploading image
+class UploadImageForm(forms.ModelForm):
+    class Meta:
+        model = ArtWork
+        fields = ['aw_img']
