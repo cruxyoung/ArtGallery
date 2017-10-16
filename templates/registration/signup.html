@@ -63,7 +63,7 @@
                     </p>
                     {% endfor %}
 
-                <input type="submit" value="Sign Up" class="btn btn-success btn-sm" />
+                <input type="submit" value="Sign Up" class="btn btn-success btn-sm" onclick="this.disabled=true,this.form.submit();" />
                     <input type="hidden" name="next" value="{{ next }}" >
 
                 </form>

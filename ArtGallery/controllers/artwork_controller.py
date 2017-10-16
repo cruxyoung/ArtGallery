@@ -92,7 +92,7 @@ def ajax_comment(request, aw_id):
     form = CommentForm(request.POST)
     if form.is_valid():
         content = request.POST.get('comment_content')
-        if '/' in content or '$' in content:
+        if '/' in content or '$' in content or '<' in content:
             return HttpResponse('{"status": "fail", "msg": "For security reasons, '
                                 'we does not allowed comments with special characteristics / and $."}',
                                 content_type='application/json')

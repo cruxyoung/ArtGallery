@@ -45,7 +45,9 @@
         </div>
 
         <h2> Post comment </h2>
-        <p id="id_commentError" />
+        <p id="id_commentError" >
+        For security reasons, we do not allow you to submit any text with special characteristics /, < and $.
+        </p>
         <form id="id_commentForm" name="commentForm" action="" method="POST">
          {% csrf_token %}
             {{ form.as_p | escape }}
@@ -91,19 +93,21 @@
                 async: true,
                 success: function (data) {
                     var json = jQuery.parseJSON(data);
-                    var content = "<div id = \"id_comment_display\">"; // Div head
-                    // Read data and append to content
-                    for (i = 0; i < json.length; i++) {
+
+
+                    if (data.status == "fail") {
+                        $('#id_commentError').text("For security reasons, we do not allow you to submit any text with special characteristics /, < and $.");
+                    }
+                    else {
+                        var content = "<div id = \"id_comment_display\">"; // Div head
+                        // Read data and append to content
+                        for (i = 0; i < json.length; i++) {
                         content += "<p>" + "Author: " + json[i].fields.commenter_id + "<br />" +
                                 "Time: " + json[i].fields.comment_time + "<br />" +
                                 "Rating: " + json[i].fields.rating + "<br />" +
                                 "Comment content: " + "<br />" + json[i].fields.comment_content + "<br />" + "<br />" + "</p>"
-                    }
-                    content += "</div>";
-                    if (data.status == "fail") {
-                        $('#id_commentError').text("For security reasons, we do not allow you to submit any text with special characteristics / and $.");
-                    }
-                    else {
+                        }
+                        content += "</div>";
                         $('#id_commentError').text("success");
                         $('#id_comment_display').html(content);
                     }
