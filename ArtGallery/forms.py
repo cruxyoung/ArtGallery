@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from ArtGallery.models import Comment, Reward
+from ArtGallery.models import Comment, Reward, ArtWork
 from django.db import models
 
 # Form for register (sign up page)
@@ -54,4 +54,10 @@ class RewardForm(forms.ModelForm):
     class Meta:
         model = Reward
         fields = ('reward_amount',)
+
+# Form for search the artwork
+class SearchForm(forms.Form):
+    filt  = models.CharField(max_length=256)
+
+
 

@@ -21,7 +21,8 @@
     <div class="container-fluid">
         <div class="row-fluid">
             <div class="span12">
-                <form class="form-search text-center">
+                <form action="/art_list/" method="post" class="form-search text-center">
+                    {% csrf_token %}
                     <input class="input-large search-query" type="text"/>
                     <button type="submit" class="btn">查找</button>
                 </form>

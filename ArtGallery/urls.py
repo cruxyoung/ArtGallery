@@ -13,6 +13,8 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
+from django.contrib import admin
+
 from django.conf import settings
 from django.conf.urls import url, include
 from django.conf.urls.static import static
@@ -23,6 +25,7 @@ from ArtGallery.controllers import personal_controller
 
 
 urlpatterns = [
+url(r'^admin/', admin.site.urls),
 
     # Personal page url, including customers' and artists'
     url(r'^customer/favorites/$', personal_controller.PersonalFavorite.as_view(), name='favorite'),
@@ -47,6 +50,7 @@ urlpatterns = [
     url('^index/', home_controller.home_page, name='index'),
     url(r'^(?P<art_id>[0-9]+)/$', home_controller.detail, name='detail'),
     url(r'^art_list/$', home_controller.art_list, name='art_list'),
+    # url(r'^search_content/$', home_controller.get_filter, name='search_content'),
 
     # Artwork Detail
     url('^accounts/activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
@@ -60,7 +64,7 @@ urlpatterns = [
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-    urlpatterns += static(settings.ARTWORK_URL, document_root=settings.ARTWORK_ROOT)
-    # urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    # urlpatterns += static(settings.ARTWORK_URL, document_root=settings.ARTWORK_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
