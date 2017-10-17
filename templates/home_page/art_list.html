@@ -21,36 +21,37 @@
     <div class="container-fluid">
         <div class="row-fluid">
             <div class="span12">
-                <form action="/art_list/" method="post" class="form-search text-center">
+                <form id="search_content" class="form-search text-center">
+
+                    <input name='filter' class="input-large search-query" id="filter" type="text"/>
+                    <button id="search_button" type="submit" class="btn">Search</button>
                     {% csrf_token %}
-                    <input class="input-large search-query" type="text"/>
-                    <button type="submit" class="btn">查找</button>
                 </form>
                 <div class="pagination pagination-centered pagination-large">
-				<ul>
-					<li>
-						<a href="#">上一页</a>
-					</li>
-					<li>
-						<a href="#">1</a>
-					</li>
-					<li>
-						<a href="#">2</a>
-					</li>
-					<li>
-						<a href="#">3</a>
-					</li>
-					<li>
-						<a href="#">4</a>
-					</li>
-					<li>
-						<a href="#">5</a>
-					</li>
-					<li>
-						<a href="#">下一页</a>
-					</li>
-				</ul>
-			</div>
+                    <ul>
+                        <li>
+                            <a href="#">上一页</a>
+                        </li>
+                        <li>
+                            <a href="#">1</a>
+                        </li>
+                        <li>
+                            <a href="#">2</a>
+                        </li>
+                        <li>
+                            <a href="#">3</a>
+                        </li>
+                        <li>
+                            <a href="#">4</a>
+                        </li>
+                        <li>
+                            <a href="#">5</a>
+                        </li>
+                        <li>
+                            <a href="#">下一页</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
         <div class="row-fluid">
@@ -116,8 +117,48 @@
                 <button type="button" class="btn btn-default btn-large">Style5</button>
                 <button type="button" class="btn btn-default btn-large">Style6</button>
 
+
+                <div class="container">
+                    <ul id="list"></ul>
+                </div>
+
+
             </div>
         </div>
     </div>
 
+
+
+
+{% endblock %}
+{% block js %}
+    <script>
+        $(document).ready(function () {
+            $('#search_button').click(function (e) {
+
+                e.preventDefault();
+                $("#list").empty();
+                $.ajax({
+                    cache: false,
+                    type: "POST",
+                    dataType: 'json',
+                    url: "{% url 'art_list' %}",
+                    data: $('#search_content').serialize(),
+                    async: true,
+                    success: function (data) {
+                        {#                        alert(data);#}
+                        {#                        console.log(data);#}
+                        $.each(data, function (k, v) {
+                            /// do stuff
+                            {#                            alert(k+":"+v.aw_name);#}
+                            $("#list").append('<li>' + v.aw_name + ':' + v.aw_genre + '</li>')
+
+                        });
+                    }
+
+                })
+            });
+        });
+
+    </script>
 {% endblock %}

@@ -5,6 +5,8 @@ from django.shortcuts import render, redirect
 from ArtGallery.models import ArtWork
 from django import forms
 from ..forms import SearchForm
+import json
+
 
 
 def home_page(request):
@@ -33,11 +35,24 @@ def detail(request, art_id):
 
 # art_list page
 def art_list(request):
+    # print(request.is_ajax())
     if request.method == "POST":
+        # print('success')
         form = SearchForm(request.POST)
+        # print(form)
         if form.is_valid():
-
-            return HttpResponse('fifdsafidsaf')
+            # print('success')
+            # print(form.filt.__str__())
+            filt = request.POST.get('filter','')
+            artworks = ArtWork.objects.filter(aw_name__contains=filt)
+            artworks = list(artworks.values('aw_name','aw_genre'))
+            # print(artworks)
+            # request_response = {}
+            # request_response['1'] = "1"
+            # request_response['2'] = "2"
+            # print(json.dumps(artworks))
+            return HttpResponse(json.dumps(artworks), content_type='application/json')
+            # return HttpResponse('{"status": "success"}', content_type='application/json')
 
     return render(request, 'home_page/art_list.html')
 

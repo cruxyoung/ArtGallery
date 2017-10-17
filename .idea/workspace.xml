@@ -2,39 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a76937c2-c806-4225-a1f7-0dc48d2d399a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/artwork/1507790646.5227952/tid50.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/artwork/1507790804.5169694/Figure_3.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/artwork/1507791066.6032481/Figure_fakedata.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/artwork/1507791066.6032481/inception_data0.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/artwork/1507791066.6032481/tid18.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/artwork/1507791066.6032481/tid51.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/artwork/1507791066.6032481/wrong_figure.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/artwork/1507791878.7877479/Figure_9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/artwork/1507792563.6117177/Figure_2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/artwork/1507792563.6117177/Figure_6.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/artwork/1507792563.6117177/Figure_9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/artwork/1507792563.6117177/inception_data0.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/artwork/1507792563.6117177/tid20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/artwork/1507792563.6117177/tid50.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/admin.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtGallery/migrations/0003_merge_20171012_0634.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/artwork/1505101852.268796/60-160324160024.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uploaded_arts/download.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uploaded_arts/example_art.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uploaded_arts/uploaded_arts/0ad8a7c08d911873e78b6e7ba6a3f18a--my-style-new-york-style.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uploaded_arts/uploaded_arts/download.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uploaded_arts/uploaded_arts/download_uMozTv7.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uploaded_arts/uploaded_arts/example_art.jpg" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/home_page/home_page.html" afterPath="$PROJECT_DIR$/templates/home_page/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/ELEC9609.iml" afterPath="$PROJECT_DIR$/.idea/ELEC9609.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtGallery/controllers/home_controller.py" afterPath="$PROJECT_DIR$/ArtGallery/controllers/home_controller.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtGallery/forms.py" afterPath="$PROJECT_DIR$/ArtGallery/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtGallery/settings.py" afterPath="$PROJECT_DIR$/ArtGallery/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtGallery/urls.py" afterPath="$PROJECT_DIR$/ArtGallery/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/home_page/art_list.html" afterPath="$PROJECT_DIR$/templates/home_page/art_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/master.html" afterPath="$PROJECT_DIR$/templates/master.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -48,14 +19,24 @@
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.49437457">
+    <splitter split-orientation="horizontal" split-proportion="0.41826606">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/ArtGallery/models.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="108">
+                  <caret line="24" column="11" lean-forward="false" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="11" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
           <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/ArtGallery/urls.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="374">
-                  <caret line="53" column="0" lean-forward="true" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+                <state relative-caret-position="122">
+                  <caret line="33" column="68" lean-forward="true" selection-start-line="33" selection-start-column="68" selection-end-line="33" selection-end-column="68" />
                   <folding>
                     <element signature="e#644#676#0" expanded="true" />
                   </folding>
@@ -66,7 +47,7 @@
           <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/ArtGallery/settings.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="626">
+                <state relative-caret-position="1706">
                   <caret line="136" column="0" lean-forward="false" selection-start-line="136" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
                   <folding />
                 </state>
@@ -76,8 +57,8 @@
           <file leaf-file-name="home_controller.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/ArtGallery/controllers/home_controller.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="576">
-                  <caret line="52" column="0" lean-forward="true" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+                <state relative-caret-position="360">
+                  <caret line="57" column="0" lean-forward="true" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
                   <folding>
                     <element signature="e#0#36#0" expanded="true" />
                   </folding>
@@ -92,20 +73,22 @@
           <file leaf-file-name="art_list.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/templates/home_page/art_list.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="270">
-                  <caret line="15" column="8" lean-forward="true" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
-                  <folding />
+                <state relative-caret-position="990">
+                  <caret line="137" column="16" lean-forward="false" selection-start-line="137" selection-start-column="16" selection-end-line="137" selection-end-column="16" />
+                  <folding>
+                    <element signature="e#1025#1899#0#HTML" expanded="false" />
+                  </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="forms.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/ArtGallery/forms.py">
+          <file leaf-file-name="personal_controller.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/ArtGallery/controllers/personal_controller.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="950">
-                  <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+                <state relative-caret-position="-810">
+                  <caret line="177" column="36" lean-forward="false" selection-start-line="177" selection-start-column="36" selection-end-line="177" selection-end-column="36" />
                   <folding>
-                    <element signature="e#0#24#0" expanded="true" />
+                    <element signature="e#0#11#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -126,6 +109,9 @@
     <findStrings>
       <find>jie</find>
       <find>ARTWORK_URL</find>
+      <find>jquer</find>
+      <find>jquery</find>
+      <find>username_a</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -135,15 +121,15 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/templates/registration/login.html" />
-        <option value="$PROJECT_DIR$/templates/master.html" />
         <option value="$PROJECT_DIR$/ArtGallery/models.py" />
         <option value="$PROJECT_DIR$/ArtGallery/admin.py" />
         <option value="$PROJECT_DIR$/ArtGallery/settings.py" />
         <option value="$PROJECT_DIR$/templates/home_page/index.html" />
         <option value="$PROJECT_DIR$/ArtGallery/forms.py" />
-        <option value="$PROJECT_DIR$/templates/home_page/art_list.html" />
         <option value="$PROJECT_DIR$/ArtGallery/urls.py" />
+        <option value="$PROJECT_DIR$/templates/master.html" />
         <option value="$PROJECT_DIR$/ArtGallery/controllers/home_controller.py" />
+        <option value="$PROJECT_DIR$/templates/home_page/art_list.html" />
       </list>
     </option>
   </component>
@@ -208,6 +194,12 @@
               <item name="9609" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="home_page" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="9609" type="b2602c69:ProjectViewProjectNode" />
+              <item name="9609" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="personal_center" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -277,6 +269,14 @@
       <option name="presentableId" value="Default" />
       <updated>1507189780410</updated>
     </task>
+    <task id="LOCAL-00001" summary="passing parameters in art_list enabled">
+      <created>1508151415376</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1508151415376</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -314,26 +314,15 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="passing parameters in art_list enabled" />
+    <option name="LAST_COMMIT_MESSAGE" value="passing parameters in art_list enabled" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/home_page/art_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/home_page/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ArtGallery/controllers/personal_controller.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -450,7 +439,7 @@
         <state relative-caret-position="18">
           <caret line="28" column="20" lean-forward="false" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
           <folding>
-            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#0#28#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -476,24 +465,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ArtGallery/controllers/personal_controller.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/registration/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
           <caret line="24" column="39" lean-forward="false" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/master.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1854">
-          <caret line="103" column="119" lean-forward="false" selection-start-line="103" selection-start-column="119" selection-end-line="103" selection-end-column="119" />
         </state>
       </provider>
     </entry>
@@ -560,14 +535,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ArtGallery/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="626">
-          <caret line="136" column="0" lean-forward="false" selection-start-line="136" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/home_page/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
@@ -576,39 +543,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ArtGallery/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="20" column="6" lean-forward="false" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ArtGallery/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="53" column="0" lean-forward="true" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-          <folding>
-            <element signature="e#644#676#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ArtGallery/controllers/home_controller.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="52" column="0" lean-forward="true" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ArtGallery/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="950">
+        <state relative-caret-position="990">
           <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
@@ -616,11 +553,83 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/master.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="150" column="0" lean-forward="false" selection-start-line="150" selection-start-column="0" selection-end-line="151" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ArtGallery/controllers/personal_controller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-810">
+          <caret line="177" column="36" lean-forward="false" selection-start-line="177" selection-start-column="36" selection-end-line="177" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/personal_center/personal_center_settings.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="617">
+          <caret line="157" column="42" lean-forward="true" selection-start-line="157" selection-start-column="42" selection-end-line="157" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ArtGallery/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="24" column="11" lean-forward="false" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ArtGallery/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="33" column="68" lean-forward="true" selection-start-line="33" selection-start-column="68" selection-end-line="33" selection-end-column="68" />
+          <folding>
+            <element signature="e#644#676#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ArtGallery/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1706">
+          <caret line="136" column="0" lean-forward="false" selection-start-line="136" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/personal_center/artist_center_settings.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2106">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ArtGallery/controllers/home_controller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="57" column="0" lean-forward="true" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/home_page/art_list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" column="8" lean-forward="true" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
-          <folding />
+        <state relative-caret-position="990">
+          <caret line="137" column="16" lean-forward="false" selection-start-line="137" selection-start-column="16" selection-end-line="137" selection-end-column="16" />
+          <folding>
+            <element signature="e#1025#1899#0#HTML" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
