@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.auth',
     'ArtGallery',
+    'pure_pagination',
     'django.contrib.sites',
+    'betterforms'
 ]
 
 COMMENTS_APP = 'threadedcomments'
@@ -55,6 +57,10 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'ArtGallery.urls'
+
+# Login Path
+LOGIN_REDIRECT_URL = 'index'
+
 
 TEMPLATES = [
     {
@@ -124,10 +130,21 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
+
 )
 STATIC_URL = '/static/'
+MEDIA_ROOT = os.path.join(BASE_DIR, "uploaded_arts")
 
-ARTWORK_ROOT =  os.path.join(BASE_DIR, "artwork")
+
+# # Setting Email
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 25
+# EMAIL_HOST_USER = 'nikelazy@gmail.com'
+# EMAIL_HOST_PASSWORD = ''
+# EMAIL_USE_TLS = False
+# EMAIL_FROM = "nikelazy@gmail.com"
+
+ARTWORK_ROOT = os.path.join(BASE_DIR, "artwork")
 ARTWORK_URL = "/artwork/"
 
 # Email configuration
@@ -138,3 +155,6 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'czxbnb@gmail.com'
 EMAIL_HOST_PASSWORD = 'Cheng2277980.'
 EMAIL_PORT = 587
+# =======
+# MEDIA_URL = '/uploaded_arts/'
+# >>>>>>> jie_dev

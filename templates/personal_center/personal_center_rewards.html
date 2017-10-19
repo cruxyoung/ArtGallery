@@ -1,0 +1,67 @@
+{% extends 'personal_center/personal_master.html' %}
+
+{% block title %}Rewards History{% endblock %}
+
+{% block menu %}
+    <ul>
+        <li><a href="?sort=time" class="{% ifequal sort 'time' %}active{% endifequal %}">TIME ORDER</a></li>
+        <li><a href="?sort=price" class="{% ifequal sort 'price' %}active{% endifequal %}">AMOUNT</a></li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+    <div class="row-fluid">
+        <div class="offset10">
+            TOTAL: <b>{{ rewards_nums }}</b> REWARDS
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        {% for reward in rewards.object_list %}
+            <div class="span4 portfolio-item website html5 css3 responsive">
+                <div class="picture">
+                    <a href="">
+                        <img src="{{ reward.aw_id.aw_img }}" alt="" style="height: 250px;"/>
+                        <div class="image-overlay-link"></div>
+                    </a>
+                    <div class="item-description alt">
+                        <h5><a href="">{{ reward.aw_id.aw_name }}</a></h5>
+                        <p>
+                            {{ reward.reward_time }}
+                        </p
+                                {% load staticfiles %}>
+                        <p>
+                            <img src="{% static "ArtGallery/images/coin.png" %}" style="height: 30px; width: 30px;">
+                            <b>${{ reward.reward_amount }}</b>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="row-fluid text-center">
+        {% load i18n %}
+        <div class="pagination">
+            {% if rewards.has_previous %}
+                <a href="?{{ rewards.previous_page_number.querystring }}"
+                   class="prev">&lsaquo;&lsaquo; {% trans "previous" %}</a>
+            {% endif %}
+            {% for page in rewards.pages %}
+                {% if page %}
+                    {% ifequal page rewards.number %}
+                        <span class="current page"><b>{{ page }}</b></span>
+                    {% else %}
+                        <a href="?{{ page.querystring }}" class="page">{{ page }}</a>
+                    {% endifequal %}
+                {% else %}
+                    ...
+                {% endif %}
+            {% endfor %}
+            {% if rewards.has_next %}
+                <a href="?{{ rewards.next_page_number.querystring }}" class="next">{% trans "next" %}
+                    &rsaquo;&rsaquo;</a>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

@@ -3,11 +3,8 @@
     <head>
         {% load static %}
         <link rel="stylesheet" href="{% static "ArtGallery/css/artwork.css" %}">
-
-        
     </head>
     <body>
-
         <!-- Detail of artwork -->
         <h1>Artwork</h1>
         Picture: <img src = "{{CONSTANT_NAME}}/{{ aw.aw_img.url }}" height="420px" /> <br />
@@ -19,39 +16,57 @@
         Total award: {{ aw.aw_totalAward }} <br />
         Auction status: {{ aw.aw_auctionStat }} <br />
 
+        <!-- bid -->
+        {% if identity %}
+        <h2> Bid </h2>
+        <p id ="id_bidStatus">
+            You can bid {{ auction_record.ah_remaining }} times for this artwork. <br />
+            Your bid price should be higher than $ {{ auction_record.ah_amount}}
+        </p>
+        <p id="id_bidError" />
+        <form id="id_bidForm" name="bidForm" action="" method="POST">
+         {% csrf_token %}
+            {{ bid.as_p }}
+            <input type="submit" id = "id_bidButton" name = "bidButton" value="Bid" />
+        </form>
+        {%  endif %}
         <!-- Comment list and post comment-->
         <h2> Comments for this artwork </h2>
 
-        <table id = "commentTable">
-        <tr>
-            <th>User</th>
-            <th>Post time</th>
-            <th>Rating</th>
-            <th>Content</th>
-
-        </tr>
-        {% for item in comment %}
-        <tr>
-            <td>{{ item.commenter_id.username }} </td>
-            <td>{{ item.comment_time }}</td>
-            <td>{{ item.rating }}</td>
-            <td>{{ item.comment_content }}</td>
-        </tr>
-        {% endfor %}
-        </table>
+        <div id = "id_comment_display">
+            {% for item in comment %}
+            <p>
+                Author: {{ item.commenter_id.username }}<br />
+                Time: {{ item.comment_time }}<br />
+                Rating: {{ item.rating }}<br />
+                Comment content: <br />{{ item.comment_content }}<br />
+                <br />
+            </p>
+            {% endfor %}
+        </div>
 
         <h2> Post comment </h2>
+        <p id="id_commentError" >
+        For security reasons, we do not allow you to submit any text with special characteristics /, < and $.
+        </p>
         <form id="id_commentForm" name="commentForm" action="" method="POST">
          {% csrf_token %}
-            {{ form.as_p }}
+            {{ form.as_p | escape }}
             <input type="submit" id = "id_commentButton" name = "commentButton" value="Post Comment" />
         </form>
 
         <!-- Reward link and reward record -->
+        {% if identity %}
         <h2>Reward</h2>
-        <a href = "{{CONSTANT_NAME}}/artwork/{{aw.id}}/reward/"> Click here to reward </a>
+        <p id="id_rewardError"></p>
+        <form id="id_rewardForm" name="rewardForm" action="" method="POST">
+         {% csrf_token %}
+            {{ reward_form.as_p }}
+            <input type="submit" value="Pay" id ='id_rewardButton' name = "rewardButton" />
+        </form>
+        {% endif %}
 
-        <table id="commentTable">
+        <table id="id_rewardTable">
         <tr>
             <th>Contributor</th>
             <th>Reward time</th>
@@ -75,21 +90,103 @@
         </form>
     </body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script>
-            $('#id_commentButton').click(function(e){
-                $.ajax({
-                    cache: false,
-                    type: "POST",
-                    dataType: "json",
-                    url:"{% url 'aw' aw.id %}",
-                    data: $('#id_commentForm').serialize(),
-                    async: true,
-                    success: function (data) {
-                        alert(data)
+    <script>
+        $('#id_commentButton').click(function(){
+            $.ajax({
+                cache: false,
+                type: "POST",
+                dataType: "json",
+                url:"{% url 'comment' aw.id %}",
+                data: $('#id_commentForm').serialize(),
+                async: true,
+                success: function (data) {
+                    var json = jQuery.parseJSON(data);
+                    if (data.status == "fail") {
+                        $('#id_commentError').text("For security reasons, we do not allow you to submit any text with special characteristics /, < and $.");
                     }
-                })
-
+                    else {
+                        var content = "<div id = \"id_comment_display\">"; // Div head
+                        // Read data and append to content
+                        for (i = 0; i < json.length; i++) {
+                            var date = new Date( json[i].fields.comment_time);
+                            content += "<p>" + "Author: " + json[i].fields.commenter_id + "<br />" +
+                                "Time: " + date.format("YYYY-MM-DD") + "<br />" +
+                                "Rating: " + json[i].fields.rating + "<br />" +
+                                "Comment content: " + "<br />" + json[i].fields.comment_content + "<br />" + "<br />" + "</p>"
+                        }
+                        content += "</div>";
+                        $('#id_commentError').text("success");
+                        $('#id_comment_display').html(content);
+                    }
+                }
             });
-        </script>
+            return false;
+        });
+        var remaining = {{ auction_record.ah_remaining }};
+
+        $('#id_bidButton').click(function () {
+            $.ajax({
+                cache:false,
+                type:"POST",
+                dataType:"json",
+                url: "{% url 'bid' aw.id %}",
+                data: $('#id_bidForm').serialize(),
+                async:true,
+                success: function(data){
+                    if (data.status=='fail') {
+                        $('#id_bidError').text(data.msg);
+                    }
+                    else{
+                        remaining --
+                        $('#id_bidError').text("success");
+                        $('#id_bidStatus').html("You can bid " + remaining + " times for this artwork. <br />\n" +
+                            "            Your bid price should be higher than $ " + $('#id_ah_amount').val())
+                    }
+                }
+            })
+            return false;
+        })
+
+        $('#id_rewardButton').click(function(){
+            $.ajax({
+                cache: false,
+                type: "POST",
+                dataType: "json",
+                url:"{% url 'reward' aw.id %}",
+                data: $('#id_rewardForm').serialize(),
+                async: true,
+                success: function (data) {
+                    if (data.status == "fail") {
+                        $('#id_rewardError').text("Minimum award amount is $1");
+                    }
+                    else if (data.status == "balance") {
+                        $('#id_rewardError').text("Insufficient balance");
+                    }
+                    else {
+                        var json = jQuery.parseJSON(data);
+                        var content = "<table id=\"rewardTable\">\n" +
+                            "        <tr>\n" +
+                            "            <th>Contributor</th>\n" +
+                            "            <th>Reward time</th>\n" +
+                            "            <th>amount</th>\n" +
+                            "\n" +
+                            "        </tr>";  //Table head
+                        for (i = 0; i < json.length; i++) {
+                            content += "<tr>\n" +
+                                "            <td>"+ json[i].fields.customer_id + "</td>\n" +
+                                "            <td>"+ json[i].fields.reward_time +"</td>\n" +
+                                "            <td>"+ json[i].fields.reward_amount + "</td>\n" +
+                                "        </tr>"
+                            content += "</tr>"
+                        }
+                        content += "</table>"
+                        $('#id_rewardError').text("success");
+                        $('#id_rewardTable').html(content);
+                    }
+                }
+            })
+            return false;
+        });
+    </script>
 </html>
 {% endblock %}

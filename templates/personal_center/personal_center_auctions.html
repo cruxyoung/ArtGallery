@@ -1,0 +1,69 @@
+{% extends 'personal_center/personal_master.html' %}
+
+{% block title %}Auction History{% endblock %}
+
+{% block menu %}
+    <ul>
+        <li><a href="?sort=time" class="{% ifequal sort 'time' %}active{% endifequal %}">BID TIME</a></li>
+        <li><a href="?sort=price" class="{% ifequal sort 'price' %}active{% endifequal %}">AMOUNT</a></li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+    <div class="row-fluid">
+        <div class="offset10">
+            TOTAL: <b>{{ auctions_nums }}</b> BID
+        </div>
+    </div>
+    {% for auction in auctions.object_list %}
+        <div class="row-fluid">
+            <div class="span3 portfolio-item website html5 css3 responsive">
+                <div class="picture">
+                    <a href="">
+                        <img src="{{ auction.ar_id.aw_id.aw_img }}" alt="" style="height: 200px;"/>
+                        <div class="image-overlay-link"></div>
+                    </a>
+                </div>
+            </div>
+            <div class="span9 portfolio-item">
+                <div class="item-description alt">
+                    <h3><a href="">{{ auction.ar_id.aw_id.aw_name }}</a></h3>
+                    <h4>Live bidding begins {{ auction.ar_id.ar_time }}</h4>
+                    <h4>Your bid at {{ auction.ah_aucTime }}</h4>
+                    <h4>Set-price <b>${{ auction.ar_id.ar_originalPrice }}</b></h4>
+                    <h4>Your-Price <b>${{ auction.ah_amount }}</b></h4>
+                    <button class="btn">Bid Again</button>
+                    <a style="color: red">2 times left</a>
+                </div>
+            </div>
+        </div>
+        <hr/>
+    {% endfor %}
+
+    <div class="row-fluid text-center">
+        {% load i18n %}
+        <div class="pagination">
+            {% if auctions.has_previous %}
+                <a href="?{{ auctions.previous_page_number.querystring }}"
+                   class="prev">&lsaquo;&lsaquo; {% trans "previous" %}</a>
+                {#            {% else %}#}
+                {#                <span class="disabled prev">&lsaquo;&lsaquo; {% trans "previous" %}</span>#}
+            {% endif %}
+            {% for page in auctions.pages %}
+                {% if page %}
+                    {% ifequal page auctions.number %}
+                        <span class="current page"><b>{{ page }}</b></span>
+                    {% else %}
+                        <a href="?{{ page.querystring }}" class="page">{{ page }}</a>
+                    {% endifequal %}
+                {% else %}
+                    ...
+                {% endif %}
+            {% endfor %}
+            {% if auctions.has_next %}
+                <a href="?{{ auctions.next_page_number.querystring }}" class="next">{% trans "next" %}
+                    &rsaquo;&rsaquo;</a>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

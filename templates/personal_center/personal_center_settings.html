@@ -1,0 +1,164 @@
+{% extends 'personal_center/personal_master.html' %}
+
+{% block title %}Settings{% endblock %}
+
+{% block menu %}
+    <ul>
+        <li><a onclick="scrollToInformation()">INFORMATION</a></li>
+        <li><a onclick="scrollToSecurity()">SECURITY</a></li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+    <div class="row-fluid">
+        <h2>Information
+            <small>Last Login: {{ customer.last_login }}</small>
+        </h2>
+        <hr/>
+
+        <form id="jsEditInfoForm">
+            <br/>
+            <a class="span3"></a>
+            <label class="span2"><b>USERNAME</b></label>
+            <input class="input--kohana" id="username" name="username" type="text" value="{{ customer.username }}"
+                   class="span4 input-block-level"/><a style="text-decoration: none; color: red;" id="username_a"> </a>
+            <br/>
+            <br/>
+
+            <a class="span3"></a>
+            <label class="span2"><b>FIRST NAME</b></label>
+            <input class="input--kohana" id="first_name" name="first_name" type="text" value="{{ customer.first_name }}"
+                   class="span4 input-block-level"/><a style="text-decoration: none; color: red;" id="firstname_a"> </a>
+            <br/>
+            <br/>
+            <a class="span3"></a>
+            <label class="span2"><b>LAST NAME</b></label>
+            <input class="input--kohana" id="last_name" name="last_name" type="text" value="{{ customer.last_name }}"
+                   class="span4 input-block-level"/><a style="text-decoration: none; color: red;" id="lastname_a"> </a>
+            <br/>
+            <br/>
+            <a class="span3"></a>
+            <label class="span2"><b>Email</b></label>
+            <input class="input--kohana" id="email" name="email" type="email" value="{{ customer.email }}"
+                   class="span4 input-block-level"/><a style="text-decoration: none; color: red;" id="email_a"> </a>
+            <br/>
+            <div class="row-fluid offset4">
+                <input id="jsEditInfoBtn" type="button" value="SAVE CHANGES"/>
+            </div>
+            {% csrf_token %}
+        </form>
+    </div>
+
+    <div id="security">
+        <h2>Security</h2>
+        <hr/>
+        <form id="jsResetPwdForm" autocomplete="off">
+            <br/>
+            <a class="span3"></a>
+            <label class="span2"><b>OLD PASSWORD</b></label>
+            <input class="input--kohana" id="pwd_ori" name="password1" type="password"
+                   class="span4 input-block-level"/><a style="text-decoration: none; color: red;" id="pwd1"> </a>
+            <br/>
+            <br/>
+            <a class="span3"></a>
+            <label class="span2"><b>NEW PASSWORD</b></label>
+            <input class="input--kohana" id="pwd_new" name="password2" type="password"
+                   class="span2 input-block-level"/><a style="text-decoration: none; color: red;" id="pwd2"> </a>
+            <br/>
+            <br/>
+            <a class="span2"></a>
+            <label class="span3 text-right"><b>REPEAT PASSWORD</b></label>
+            <input class="input--kohana" id="pwd_check" name="password3" type="password"
+                   class="span4 input-block-level"/><a style="text-decoration: none; color: red;" id="pwd3"> </a>
+            <br/>
+            <div class="row-fluid offset4">
+                <input id="jsResetPwdBtn" type="button" value="CHANGE PASSWORD"/>
+            </div>
+            {% csrf_token %}
+        </form>
+        <br/>
+        <form id="jsDepositForm" autocomplete="off">
+            <br/>
+            <br/>
+            <a class="span3"></a>
+            <label class="span2"><b>ACCOUNT</b></label>
+            <input class="input--kohana" id="username" type="text" value="0.0"
+                   class="span4 input-block-level"/>
+            <br/>
+            <div class="row-fluid offset4">
+                <input id="jsDepositForm" type="button" value="DEPOSIT MONEY"/>
+            </div>
+            <br/>
+        </form>
+    </div>
+    <!-- Display Area -->
+
+{% endblock %}
+
+{% block js %}
+    <script>
+        function scrollToInformation() {
+            window.scrollTo(0, 50);
+        }
+
+        function scrollToSecurity() {
+            window.scrollTo(0, 300);
+        }
+    </script>
+    <script>
+
+        $('#jsResetPwdBtn').click(function () {
+            $.ajax({
+                cache: false,
+                type: "POST",
+                dataType: 'json',
+                url: "{% url 'change_pwd' %}",
+                data: $('#jsResetPwdForm').serialize(),
+                async: true,
+                success: function (data) {
+                    $('#pwd1').text(' ');
+                    $('#pwd2').text(' ');
+                    $('#pwd3').text(' ');
+                    if (data.password1) {
+                        $('#pwd1').text(' Password at least 5 characters!');
+                    } else if (data.password2) {
+                        $('#pwd2').text(' Password at least 5 characters!');
+                    }
+                    else if (data.password3) {
+                        $('#pwd3').text(' Password at least 5 characters!');
+                    }
+                    if (data.status == 'fail') {
+                        $('#pwd2').text(data.msg);
+                    } else if (data.status == 'wrong') {
+                        $('#pwd1').text(data.msg);
+                    } else if (data.status == 'success') {
+                        $('#pwd1').text(' ');
+                        $('#pwd2').text(' ');
+                        $('#pwd3').text(' ');
+                        alert('success change password.');
+                        window.location = "/accounts/login";
+                    }
+                }
+            })
+        });
+        $('#jsEditInfoBtn').on('click', function () {
+            $.ajax({
+                cache: false,
+                type: 'POST',
+                dataType: 'json',
+                url: "{% url 'edit_info' %}",
+                data: $('#jsEditInfoForm').serialize(),
+                async: true,
+                success: function (data) {
+                    if (data.username) {
+                        $('#username_a').text('Error')
+                    } else if (data.status == 'success') {
+                        $('#username_a').text(' ');
+                        alert(' success change.');
+                        location.reload();
+                    }
+                }
+            })
+        })
+    </script>
+{% endblock %}

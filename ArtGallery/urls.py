@@ -16,22 +16,55 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls import url, include
 from django.conf.urls.static import static
-from django.contrib import admin
-from . import views
+
+from ArtGallery.controllers import account_controller, home_controller
+from ArtGallery.controllers import artwork_controller
+from ArtGallery.controllers import personal_controller
+
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^$', views.hello),
+
+    # Personal page url, including customers' and artists'
+    url(r'^customer/favorites/$', personal_controller.PersonalFavorite.as_view(), name='favorite'),
+
+    url(r'^customer/settings/$', personal_controller.PersonalSetting.as_view(), name='setting'),
+    url(r'^customer/settings/change_pwd/$', personal_controller.PersonalSetting.as_view(), name='change_pwd'),
+    url(r'^customer/settings/edit_info/$', personal_controller.UserInfoView.as_view(), name='edit_info'),
+
+    url(r'^customer/complaints/$', personal_controller.PersonalComplaint.as_view(), name='complaint'),
+    url(r'^customer/rewards/$', personal_controller.PersonalReward.as_view(), name='reward'),
+    url(r'^customer/auctions/$', personal_controller.PersonalAuction.as_view(), name='auction'),
+    url(r'^customer/comments/$', personal_controller.PersonalComment.as_view(), name='comment'),
+
+    url(r'^artist/settings/$', personal_controller.ArtistSetting.as_view(), name='artist_setting'),
+    url(r'^artist/artworks/$', personal_controller.ArtistArtwork.as_view(), name='artist_artwork'),
+
+    # Login
     url('^accounts/', include('django.contrib.auth.urls')),
-    url('^accounts/signup/$', views.signup),
+    url('^accounts/signup/$', account_controller.signup),
+
+    # Home Page and Information Page
+    url('^index/', home_controller.home_page, name='index'),
+    url(r'^(?P<art_id>[0-9]+)/$', home_controller.detail, name='detail'),
+    url(r'^art_list/$', home_controller.art_list, name='art_list'),
+
+    # Artwork Detail
     url('^accounts/activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
-        views.activate, name='activate'),
-    url(r'^artwork/(?P<aw_id>[0-9]+)/detail/$', views.artwork_detail, name='aw'),
-    url(r'^artist/(?P<user_id>[0-9]+)/detail/$', views.artist_detail, name='user'),
-    url(r'^auction/(?P<auction_id>[0-9]+)/detail/$', views.auction_detail, name='auction'),
-    url(r'^artwork/(?P<aw_id>[0-9]+)/reward/$', views.reward_pay, name='reward'),
+        account_controller.activate, name='activate'),
+
+    url(r'^artwork/(?P<aw_id>[0-9]+)/detail/$', artwork_controller.artwork_detail, name='aw'),
+    url(r'^artwork/(?P<aw_id>[0-9]+)/detail/comment/$', artwork_controller.ajax_comment, name='comment'),
+    url(r'^artwork/(?P<aw_id>[0-9]+)/detail/bid/$', artwork_controller.ajax_bid, name='bid'),
+    url(r'^artwork/(?P<aw_id>[0-9]+)/reward/$', artwork_controller.ajax_reward, name='reward'),
+
+    url(r'^artist/(?P<user_id>[0-9]+)/detail/$', artwork_controller.artist_detail, name='user'),
+
+    url(r'^auction/(?P<auction_id>[0-9]+)/detail/$', artwork_controller.auction_detail, name='auction'),
 ]
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     urlpatterns += static(settings.ARTWORK_URL, document_root=settings.ARTWORK_ROOT)
+    # urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
