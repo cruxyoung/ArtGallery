@@ -51,10 +51,12 @@ def art_list(request):
             artworks = ArtWork.objects.filter(aw_name__contains=filt)
             if request.POST.getlist("genre-form"):
                 genre = request.POST.getlist("genre-form")[0]
-                artworks = artworks.filter(aw_genre=genre)
+                if genre != "All":
+                    artworks = artworks.filter(aw_genre=genre)
             if request.POST.getlist('period-form'):
                 period = request.POST.getlist('period-form')[0]
-                artworks = artworks.filter(aw_time__year=period)
+                if period != "All":
+                    artworks = artworks.filter(aw_time__year=period)
 
             artworks = list(artworks.values('aw_name','aw_genre'))
 
