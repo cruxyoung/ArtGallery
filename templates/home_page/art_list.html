@@ -1,8 +1,7 @@
 {% extends '../master.html' %}
 {% block css %}
     {% load staticfiles %}
-    <script type="text/javascript" src="{% static "ArtGallery/js/search-results.js" %}"></script>
-
+    <link href="{% static "ArtGallery/css/search_results.css" %}" rel="stylesheet">
 {% endblock %}
 
 {% block body %}
@@ -21,7 +20,7 @@
     {##}
     {#    </div>#}
 
-    <br><br><br>
+{#    <br><br><br>#}
 
     <div class="container-fluid">
         <div class="row-fluid">
@@ -32,7 +31,7 @@
                     <button id="search_button" type="submit" class="btn">Search</button>
                     {% csrf_token %}
                 </form>
-                <div class="pagination pagination-centered pagination-large">
+                <div class="pagination pagination-centered">
                     <ul>
                         <li>
                             <a href="#">上一页</a>
@@ -57,9 +56,12 @@
                         </li>
                     </ul>
                 </div>
+
             </div>
+
         </div>
         <div class="row-fluid">
+
             <div class="span2">
                 <ul class="table table-bordered text-center">
                     <li class="nav-header">
@@ -69,8 +71,9 @@
 
 
                         <div class="custom-controls-stacked">
-                            <label class="custom-control custom-radio">
-                                <input id="radioStacked3" name="genre-form" type="radio" value="All" class="custom-control-input"　checked="checked">
+                            <label class="custom-control custom-radio　active">
+                                <input id="radioStacked3" name="genre-form" type="radio" value="All"
+                                       class="custom-control-input" 　checked="">
                                 <span class="custom-control-indicator"></span>
                                 <span class="custom-control-description">All</span>
                             </label>
@@ -96,12 +99,14 @@
 
                         <div class="custom-controls-stacked">
                             <label class="custom-control custom-radio">
-                                <input id="radioStacked3" name="period-form" type="radio" value="All" class="custom-control-input"　checked="checked">
+                                <input id="radioStacked3" name="period-form" type="radio" value="All"
+                                       class="custom-control-input" 　checked="checked">
                                 <span class="custom-control-indicator"></span>
                                 <span class="custom-control-description">All</span>
                             </label>
                             <label class="custom-control custom-radio">
-                                <input id="radioStacked3" name="period-form" type="radio" value="2017" class="custom-control-input"　checked="checked">
+                                <input id="radioStacked3" name="period-form" type="radio" value="2017"
+                                       class="custom-control-input" 　checked="checked">
                                 <span class="custom-control-indicator"></span>
                                 <span class="custom-control-description">2017</span>
                             </label>
@@ -122,22 +127,29 @@
             <div class="span10 text-center">
 
 
-                <div class="container">
-                    <ul id="list"></ul>
-                </div>
+{#                <div class="container">#}
+{#                    <ul id="list"></ul>#}
+{#                </div>#}
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="searchlist">
 
-                <div class="well search-result">
-                    <div class="row">
-                        <a href="#">
-                            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2">
-                                <img class="img-responsive" src="https://lorempixel.com/400/200/sports/2/" alt="">
-                            </div>
-                            <div class="col-xs-6 col-sm-9 col-md-9 col-lg-10 title">
-                                <h3>Result name one</h3>
-                                <p>Ut quis libero id orci semper porta ac vel ante. In nec laoreet sapien. Nunc
-                                    hendrerit ligula at massa sodales, ullamcorper rutrum orci semper.</p>
-                            </div>
-                        </a>
+{#                        <div class="well search-result" id="searchlist">#}
+{#                            <div class="row">#}
+{#                                <a href="#">#}
+{#                                    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2">#}
+{#                                        <img class="img-responsive" src="https://lorempixel.com/400/200/sports/2/"#}
+{#                                             alt="">#}
+{#                                    </div>#}
+{#                                    <div class="col-xs-6 col-sm-9 col-md-9 col-lg-10 title">#}
+{#                                        <h3>Result name one</h3>#}
+{#                                        <p>Ut quis libero id orci semper porta ac vel ante. In nec laoreet sapien. Nunc#}
+{#                                            hendrerit ligula at massa sodales, ullamcorper rutrum orci semper.</p>#}
+{#                                    </div>#}
+{#                                </a>#}
+{#                            </div>#}
+{#                        </div>#}
+
+
                     </div>
                 </div>
 
@@ -170,7 +182,19 @@
                         $.each(data, function (k, v) {
                             /// do stuff
                             {#                            alert(k+":"+v.aw_name);#}
-                            $("#list").append('<li>' + v.aw_name + ':' + v.aw_genre + '</li>')
+{#                            $("#list").append('<li>' + v.aw_name + ':' + v.aw_genre + '</li>')#}
+                            $("#searchlist").append('<div class="well search-result"> <div class="row"> <a href="#">'
+                                +'<div class="col-xs-6 col-sm-3 col-md-3 col-lg-2">'
+                                +'<img class="img-responsive" src="/artwork/'+v.aw_img+'" alt="">'
+                                +'</div>'
+                                    +'<div class="col-xs-6 col-sm-9 col-md-9 col-lg-10 title">'
+                                    +'<h3>'+ v.aw_name+'</h3>'
+                                    +'<p>'+ v.aw_description+'</p>'
+                                    +'</div>'
+                                +'</a>'
+                                +'</div>'
+                                +'</div>')
+
 
                         });
                     }

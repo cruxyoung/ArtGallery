@@ -58,8 +58,8 @@ def art_list(request):
                 if period != "All":
                     artworks = artworks.filter(aw_time__year=period)
 
-            artworks = list(artworks.values('aw_name','aw_genre'))
-
+            artworks = list(artworks.values('aw_name','aw_genre','aw_img','aw_description'))
+            print(artworks)
             return HttpResponse(json.dumps(artworks), content_type='application/json')
 
 
