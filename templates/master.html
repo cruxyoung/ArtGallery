@@ -95,9 +95,11 @@
                                             </a>
                                             <ul class="text-center dropdown-menu pull-right"
                                                 aria-labelledby="dropdownMenuLink">
-                                                <li><a class="dropdown-item" href="{% url 'artist_artwork' %}">Manage Artworks</a>
+                                                <li><a class="dropdown-item" href="{% url 'artist_artwork' %}">Manage
+                                                    Artworks</a>
                                                 </li>
-                                                <li><a class="dropdown-item" href="{% url 'artist_setting' %}">Settings</a>
+                                                <li><a class="dropdown-item"
+                                                       href="{% url 'artist_setting' %}">Settings</a>
                                                 <li class="divider"></li>
                                                 <li><a class="dropdown-item" href="{% url 'logout' %}">Log Out</a></li>
                                             </ul>
@@ -231,7 +233,6 @@
         })();
         Page.init();
     });
-
     $("#dropdownMenuLink").on("mouseover", function () {
         if ($(this).parent().is(".open")) {
             return

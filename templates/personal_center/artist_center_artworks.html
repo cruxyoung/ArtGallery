@@ -27,8 +27,8 @@
                 <tbody>
                 {% for artwork in artworks %}
                     <tr>
-                        <td><img src="{{ artwork.aw_img.url }}" style="width: 50px;"></td>
-                        <td>{{ artwork.aw_name }}</td>
+                        <td><img href="{% url 'aw' artwork.id %}" src="{{ artwork.aw_img.url }}" style="width: 50px;"></td>
+                        <td><a href="{% url 'aw' artwork.id %}">{{ artwork.aw_name }}</a></td>
                         <td style="font-size: xx-small;">{{ artwork.aw_time }}</td>
                         <td>{{ artwork.aw_type }}</td>
                         <td>{{ artwork.aw_genre }}</td>

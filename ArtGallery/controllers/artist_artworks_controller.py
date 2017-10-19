@@ -63,7 +63,7 @@ class EditAction(View):
                     aw_location=request.POST.get('aw_location'),
                     aw_type=request.POST.get('aw_type'),
                     aw_genre=request.POST.get('aw_genre'),
-                    # aw_auctionStat=request.POST.get('aw_auction'),
+                    aw_auctionStat=0,
                     aw_description=request.POST.get('aw_description'),
                     aw_img=add_form.cleaned_data['aw_img'],
                     artist_id=request.user,

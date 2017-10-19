@@ -1,4 +1,8 @@
 {% extends '../master.html' %}
+{% block css %}
+    {% load staticfiles %}
+    <link href="{% static "ArtGallery/css/search_results.css" %}" rel="stylesheet">
+{% endblock %}
 
 {% block body %}
 
@@ -16,107 +20,188 @@
     {##}
     {#    </div>#}
 
-    <br><br><br>
+{#    <br><br><br>#}
 
     <div class="container-fluid">
         <div class="row-fluid">
             <div class="span12">
-                <form class="form-search text-center">
-                    <input class="input-large search-query" type="text"/>
-                    <button type="submit" class="btn">查找</button>
+                <form id="search_content" class="form-search text-center">
+
+                    <input name='filter' class="input-large search-query" id="filter" type="text"/>
+                    <button id="search_button" type="submit" class="btn">Search</button>
+                    {% csrf_token %}
                 </form>
-                <div class="pagination pagination-centered pagination-large">
-				<ul>
-					<li>
-						<a href="#">上一页</a>
-					</li>
-					<li>
-						<a href="#">1</a>
-					</li>
-					<li>
-						<a href="#">2</a>
-					</li>
-					<li>
-						<a href="#">3</a>
-					</li>
-					<li>
-						<a href="#">4</a>
-					</li>
-					<li>
-						<a href="#">5</a>
-					</li>
-					<li>
-						<a href="#">下一页</a>
-					</li>
-				</ul>
-			</div>
+                <div class="pagination pagination-centered">
+                    <ul>
+                        <li>
+                            <a href="#">上一页</a>
+                        </li>
+                        <li>
+                            <a href="#">1</a>
+                        </li>
+                        <li>
+                            <a href="#">2</a>
+                        </li>
+                        <li>
+                            <a href="#">3</a>
+                        </li>
+                        <li>
+                            <a href="#">4</a>
+                        </li>
+                        <li>
+                            <a href="#">5</a>
+                        </li>
+                        <li>
+                            <a href="#">下一页</a>
+                        </li>
+                    </ul>
+                </div>
+
             </div>
+
         </div>
         <div class="row-fluid">
+
             <div class="span2">
                 <ul class="table table-bordered text-center">
                     <li class="nav-header">
                         Genre
                     </li>
-                    <li class="active">
-                        <a href="#">首页</a>
-                    </li>
-                    <li>
-                        <a href="#">库</a>
-                    </li>
-                    <li>
-                        <a href="#">应用</a>
-                    </li>
-                    <li>
-                        <a href="#">资料</a>
-                    </li>
-                    <li>
-                        <a href="#">设置</a>
-                    </li>
-                    <li class="divider">
-                    </li>
-                    <li>
-                        <a href="#">帮助</a>
-                    </li>
+                    <form id="genre">
+
+
+                        <div class="custom-controls-stacked">
+                            <label class="custom-control custom-radio　active">
+                                <input id="radioStacked3" name="genre-form" type="radio" value="All"
+                                       class="custom-control-input" 　checked="">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">All</span>
+                            </label>
+                            <label class="custom-control custom-radio">
+                                <input id="radioStacked4" name="genre-form" type="radio"
+                                       value="f"
+                                       class="custom-control-input">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">f</span>
+                            </label>
+                        </div>
+
+                        {% csrf_token %}
+                    </form>
                 </ul>
 
                 <ul class="table table-bordered text-center">
                     <li class="nav-header">
                         Period
                     </li>
-                    <li class="active">
-                        <a href="#">首页</a>
-                    </li>
-                    <li>
-                        <a href="#">库</a>
-                    </li>
-                    <li>
-                        <a href="#">应用</a>
-                    </li>
-                    <li>
-                        <a href="#">资料</a>
-                    </li>
-                    <li>
-                        <a href="#">设置</a>
-                    </li>
-                    <li class="divider">
-                    </li>
-                    <li>
-                        <a href="#">帮助</a>
-                    </li>
+                    <form id="period">
+
+
+                        <div class="custom-controls-stacked">
+                            <label class="custom-control custom-radio">
+                                <input id="radioStacked3" name="period-form" type="radio" value="All"
+                                       class="custom-control-input" 　checked="checked">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">All</span>
+                            </label>
+                            <label class="custom-control custom-radio">
+                                <input id="radioStacked3" name="period-form" type="radio" value="2017"
+                                       class="custom-control-input" 　checked="checked">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">2017</span>
+                            </label>
+                            <label class="custom-control custom-radio">
+                                <input id="radioStacked4" name="period-form" type="radio"
+                                       value="2016"
+                                       class="custom-control-input">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">2016</span>
+                            </label>
+                        </div>
+
+                        {% csrf_token %}
+                    </form>
                 </ul>
 
             </div>
             <div class="span10 text-center">
-                <button type="button" class="btn btn-default btn-large">Style1</button>
-                <button type="button" class="btn btn-default btn-large">Style2</button>
-                <button type="button" class="btn btn-default btn-large">Style3</button>
-                <button type="button" class="btn btn-default btn-large">Style4</button>
-                <button type="button" class="btn btn-default btn-large">Style5</button>
-                <button type="button" class="btn btn-default btn-large">Style6</button>
+
+
+{#                <div class="container">#}
+{#                    <ul id="list"></ul>#}
+{#                </div>#}
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="searchlist">
+
+{#                        <div class="well search-result" id="searchlist">#}
+{#                            <div class="row">#}
+{#                                <a href="#">#}
+{#                                    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2">#}
+{#                                        <img class="img-responsive" src="https://lorempixel.com/400/200/sports/2/"#}
+{#                                             alt="">#}
+{#                                    </div>#}
+{#                                    <div class="col-xs-6 col-sm-9 col-md-9 col-lg-10 title">#}
+{#                                        <h3>Result name one</h3>#}
+{#                                        <p>Ut quis libero id orci semper porta ac vel ante. In nec laoreet sapien. Nunc#}
+{#                                            hendrerit ligula at massa sodales, ullamcorper rutrum orci semper.</p>#}
+{#                                    </div>#}
+{#                                </a>#}
+{#                            </div>#}
+{#                        </div>#}
+
+
+                    </div>
+                </div>
 
             </div>
         </div>
     </div>
 
+
+
+
+{% endblock %}
+{% block js %}
+
+    <script>
+        $(document).ready(function () {
+            $('#search_button').click(function (e) {
+
+                e.preventDefault();
+                {#                clean the list#}
+                $("#list").empty();
+                $.ajax({
+                    cache: false,
+                    type: "POST",
+                    dataType: 'json',
+                    url: "{% url 'art_list' %}",
+                    data: $('#search_content, #genre,#period').serialize(),
+                    async: true,
+                    success: function (data) {
+
+                        $.each(data, function (k, v) {
+                            /// do stuff
+                            {#                            alert(k+":"+v.aw_name);#}
+{#                            $("#list").append('<li>' + v.aw_name + ':' + v.aw_genre + '</li>')#}
+                            $("#searchlist").append('<div class="well search-result"> <div class="row"> <a href="#">'
+                                +'<div class="col-xs-6 col-sm-3 col-md-3 col-lg-2">'
+                                +'<img class="img-responsive" src="/artwork/'+v.aw_img+'" alt="">'
+                                +'</div>'
+                                    +'<div class="col-xs-6 col-sm-9 col-md-9 col-lg-10 title">'
+                                    +'<h3>'+ v.aw_name+'</h3>'
+                                    +'<p>'+ v.aw_description+'</p>'
+                                    +'</div>'
+                                +'</a>'
+                                +'</div>'
+                                +'</div>')
+
+
+                        });
+                    }
+
+                })
+            });
+        });
+
+    </script>
 {% endblock %}

@@ -13,23 +13,25 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
+
 from django.conf import settings
 from django.conf.urls import url, include
 from django.conf.urls.static import static
-
-from ArtGallery.controllers import account_controller
-from ArtGallery.controllers import artist_artworks_controller
-from ArtGallery.controllers import artwork_controller
-from ArtGallery.controllers import home_controller, views_complaints
-from ArtGallery.controllers import personal_controller
 from .extra_apps import xadmin
 from .extra_apps.xadmin.plugins import xversion
+
+from ArtGallery.controllers import home_controller
+from ArtGallery.controllers import views_complaints
+from ArtGallery.controllers import account_controller
+from ArtGallery.controllers import artwork_controller
+from ArtGallery.controllers import personal_controller
+from ArtGallery.controllers import artist_artworks_controller
+
 
 xadmin.autodiscover()
 xversion.register_models()
 
 urlpatterns = [
-    url(r'^xadmin/', xadmin.site.urls),
 
     # Personal page url, including customers' and artists'
     url(r'^customer/favorites/$', personal_controller.PersonalFavorite.as_view(), name='favorite'),
@@ -80,13 +82,16 @@ urlpatterns = [
     url(r'^art_list/$', home_controller.art_list, name='art_list'),
 
     # Artwork Detail
-
     url(r'^artworks/(?P<aw_id>[0-9]+)/detail/$', artwork_controller.artwork_detail, name='aw'),
-    url(r'^artworks/(?P<aw_id>[0-9]+)/detail/comment/$', artwork_controller.ajax_comment, name='comment'),
-    url(r'^artist/(?P<user_id>[0-9]+)/detail/$', artwork_controller.artist_detail, name='user'),
-    url(r'^auction/(?P<auction_id>[0-9]+)/detail/$', artwork_controller.auction_detail, name='auction'),
-    url(r'^artworks/(?P<aw_id>[0-9]+)/reward/$', artwork_controller.reward_pay, name='reward'),
+    url(r'^artwork/(?P<aw_id>[0-9]+)/detail/comment/$', artwork_controller.ajax_comment, name='comment'),
+    url(r'^artwork/(?P<aw_id>[0-9]+)/detail/bid/$', artwork_controller.ajax_bid, name='bid'),
+    url(r'^artwork/(?P<aw_id>[0-9]+)/reward/$', artwork_controller.ajax_reward, name='reward'),
 
+    url(r'^artist/(?P<user_id>[0-9]+)/detail/$', artwork_controller.artist_detail, name='user'),
+
+    url(r'^auction/(?P<auction_id>[0-9]+)/detail/$', artwork_controller.auction_detail, name='auction'),
+
+    url(r'^xadmin/', xadmin.site.urls),
 ]
 
 if settings.DEBUG:

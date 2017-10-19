@@ -3,13 +3,10 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from .. import models
 from django.core.paginator import Paginator
-from django.core.paginator import EmptyPage
-from django.core.paginator import PageNotAnInteger
-from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
+from pure_pagination import Paginator, PageNotAnInteger
 from django.views.generic.base import View
 from .. import forms
 from django.contrib.auth.hashers import make_password
-from django.core import serializers
 
 
 class PersonalFavorite(View):
@@ -199,5 +196,3 @@ class PersonalComplaint(View):
                        'complaints': comments_pag,
                        'complaints_nums': complaints_nums,
                        })
-
-
