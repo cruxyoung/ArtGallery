@@ -47,8 +47,16 @@ urlpatterns = [
     url(r'^artist/artworks/$', artist_artworks_controller.ArtistArtwork.as_view(), name='artist_artwork'),
     url(r'^artist/artworks/edit/(?P<artwork_id>[0-9]+)/$', artist_artworks_controller.ArtworkEdit.as_view(),
         name='edit_artwork'),
+    # auction history, existed when the artwork has auction record, which means the artwork open auction already
     url(r'^artist/artworks/edit/action/$', artist_artworks_controller.EditAction.as_view(), name='edit_action'),
-    # url(r'^artist/artworks/$', artist_artworks_controller.UploadImage.as_view(), name='artwork_img'),
+    url(r'^artist/artworks/edit/auction/(?P<artwork_id>[0-9]+)/$', artist_artworks_controller.ArtworkAuction.as_view(),
+        name='auctionSwitch'),
+    url(r'^artist/artworks/auction_history/(?P<artwork_id>[0-9]+)/$',
+        artist_artworks_controller.ArtworkAuction.as_view(), name='auctionHistory'),
+
+    url(r'^artist/artworks/reward_history/(?P<artwork_id>[0-9]+)/$', artist_artworks_controller.ArtworkReward.as_view(),
+        name='reward_history'),
+
     url(r'^artist/artworks/delete/(?P<artwork_id>[0-9]+)/$', artist_artworks_controller.delete_artwork,
         name='delete_artwork'),
 

@@ -51,7 +51,8 @@ class AuctionRecord(models.Model):
     ar_time = models.DateTimeField(verbose_name='Auction Time')
     ar_finalPrice = models.FloatField(null=True, verbose_name='Final Price')
 
-    ar_period = models.FloatField(null=True, verbose_name='Period')
+    # ar_period = models.FloatField(null=True, verbose_name='Period')
+    ar_end_time = models.DateTimeField(null=True, verbose_name='Auction End Time')
 
     def __str__(self):
         return str(self._get_pk_val())

@@ -62,16 +62,10 @@ class ArtworkForm(forms.ModelForm):
     aw_location = forms.CharField(required=True)
     aw_type = forms.CharField()
     aw_genre = forms.CharField()
-    aw_img = forms.ImageField(required=True)
     aw_description = forms.CharField(max_length=256)
+    aw_img = forms.ImageField(required=True)
 
     class Meta:
         model = ArtWork
         fields = ("aw_name", "aw_location", "aw_type", "aw_genre", "aw_description", "aw_img")
 
-
-# Form for uploading image
-class UploadImageForm(forms.ModelForm):
-    class Meta:
-        model = ArtWork
-        fields = ['aw_img']

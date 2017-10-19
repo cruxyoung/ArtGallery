@@ -1,0 +1,97 @@
+{% extends 'personal_center/artist_master.html' %}
+
+{% block menu %}
+    <ul>
+        <li><a id="all" href="{% url 'artist_artwork' %}">All</a></li>
+        <li><a class="active">BID DETAIL</a></li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+    <div class="span12 portfolio-item website html5 css3 responsive">
+        <div class="row-fluid span3">
+            <form id="auctionForm" enctype="multipart/form-data" method="POST"
+                  action="{% url 'auctionSwitch'  auction_record.aw_id.id %}">
+                {% csrf_token %}
+                <div class="panel-body">
+                    <h3>{{ auction_record.aw_id.aw_name }}</h3>
+                    <img src="{{ auction_record.aw_id.aw_img.url }}" style="width: 300px;">
+                    <hr/>
+                    <label>Auction Operation</label>
+                    <input id="close" type="radio" name="aw_auction" value="0" checked="checked"/>
+                    <span>Close</span>
+                    <input id="open" type="radio" name="aw_auction" value="1"
+                           {% if auction_record.aw_id.aw_auctionStat %}checked="checked"{% endif %}/> Open
+                    <div class="row-fluid">
+
+                        <label>Auction Start Time</label>
+                        <input id="period1" class="input-block-level" type="datetime-local"
+                               name="auctionStart" value="{{ auction_record.ar_time }}"/>
+
+
+                        <label>Auction End</label>
+                        <input id="period2" class="input-block-level" type="datetime-local"
+                               name="auctionEnd" value="{{ auction_record.ar_end_time }}"/>
+
+                    </div>
+                    <hr/>
+                    <label>The initial auction price</label>
+                    <input id="initialPrice" name="ar_originalPrice" type="number" class="input-block-level"
+                           step="0.1" value="{{ auction_record.ar_originalPrice }}"/>
+                </div>
+                <div class="modal-footer">
+                    <a href="{% url 'artist_artwork' %}" type="button" class="btn btn-default">Return</a>
+                    <input id="confirm" type="submit" class="btn btn-primary"
+                           value="Confirm" ／>
+                </div>
+            </form>
+        </div>
+        <div class="row-fluid span9">
+            <h3>Auction History</h3>
+            <table id="all_info" class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Bid Time</th>
+                    <th>Customer Name</th>
+                    <th>Amount</th>
+                </tr>
+                <tbody>
+
+                {% for auction_history in auction_histories %}
+
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ auction_history.ah_aucTime }}</td>
+                        <td>{{ auction_history.customer_id.username }}</td>
+                        <td><span class="label label-success">$ {{ auction_history.ah_amount }}</span></td>
+                    </tr>
+
+                {% endfor %}
+                </tbody>
+                </thead>
+            </table>
+            {% if auction_record.ar_finalPrice != 'none' %}
+                <h3>
+                    FINAL PRICE
+                </h3>
+                <span class="label label-important">$ {{ auction_record.ar_finalPrice }}</span>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block js %}
+    <script>
+
+        $('#close').click(function () {
+            $('#period1').prop("readonly", true);
+            $('#period2').prop("readonly", true);
+        });
+        $('#open').click(function () {
+            $('#period1').prop("readonly", false);
+            $('#period2').prop("readonly", false);
+        });
+    </script>
+{% endblock %}

@@ -1,12 +1,12 @@
 import json
 from .. import forms
 from .. import models
-from _datetime import datetime
+from datetime import datetime
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.generic.base import View
 from django.contrib.auth.hashers import make_password
-from django.shortcuts import HttpResponseRedirect, reverse
+from django.shortcuts import HttpResponseRedirect
 from django.db.models import Q
 
 
@@ -14,10 +14,12 @@ class ArtistArtwork(View):
     # get all artworks related information created by current artist user
     def get(self, request):
         artworks = models.ArtWork.objects.filter(Q(artist_id=request.user.id))
+
         return render(request,
                       'personal_center/artist_center_artworks.html',
                       {'customer': request.user,
-                       'artworks': artworks})
+                       'artworks': artworks,
+                       })
 
 
 class ArtworkEdit(View):
@@ -28,10 +30,25 @@ class ArtworkEdit(View):
                           {'customer': request.user})
         else:
             artwork = models.ArtWork.objects.get(pk=artwork_id)
-            return render(request,
-                          'personal_center/artist_center_edit.html',
-                          {'customer': request.user,
-                           'artwork': artwork})
+            if artwork.aw_auctionStat:
+
+                return render(request,
+                              'personal_center/artist_center_edit.html',
+                              {'customer': request.user,
+                               'artwork': artwork,
+                               })
+            else:
+                return render(request,
+                              'personal_center/artist_center_edit.html',
+                              {'customer': request.user,
+                               'artwork': artwork,
+                               })
+
+
+def delete_artwork(request, artwork_id):
+    models.ArtWork.objects.get(Q(pk=artwork_id)).delete()
+
+    return HttpResponseRedirect('/artist/artworks')
 
 
 class EditAction(View):
@@ -46,22 +63,13 @@ class EditAction(View):
                     aw_location=request.POST.get('aw_location'),
                     aw_type=request.POST.get('aw_type'),
                     aw_genre=request.POST.get('aw_genre'),
-                    aw_auctionStat=request.POST.get('aw_auction'),
+                    # aw_auctionStat=request.POST.get('aw_auction'),
                     aw_description=request.POST.get('aw_description'),
                     aw_img=add_form.cleaned_data['aw_img'],
                     artist_id=request.user,
                     aw_time=datetime.now(),
-                    aw_totalAward=0.0,
+                    aw_totalAward=0.0
                 )
-
-                # Create new information in auction history if auctionStat == 1
-                # if request.POST.get('aw_auction'):
-                #     start_time = request.POST.get('auctionStart')
-                #     end_time = request.POST.get('auctionEnd')
-                #     time_period = datetime(end_time) - datetime(start_time)
-
-                # return HttpResponse('{"status": "success", "id":' + str(new_artwork.id) + '}',
-                #                     content_type='application/json')
 
                 return render(request,
                               'personal_center/artist_center_artworks.html',
@@ -82,9 +90,9 @@ class EditAction(View):
                 artwork.aw_location = request.POST.get('aw_location')
                 artwork.aw_type = request.POST.get('aw_type')
                 artwork.aw_genre = request.POST.get('aw_genre')
-                artwork.aw_auctionStat = request.POST.get('aw_auction')
                 artwork.aw_description = request.POST.get('aw_description')
                 artwork.aw_img = edit_form.cleaned_data['aw_img']
+
                 artwork.save()
 
                 return render(request,
@@ -100,21 +108,63 @@ class EditAction(View):
                                'result': 'Editing Failed'})
 
 
-class UploadImage(View):
+# Auction Operation
+class ArtworkAuction(View):
+    def get(self, request, artwork_id):
+        # artwork = models.ArtWork.objects.get(Q(pk=artwork_id))
+        auction_record = models.AuctionRecord.objects.get(Q(aw_id=artwork_id))
+        # Convert datetime to string in order to put it at input widget
+        auction_record.ar_time = auction_record.ar_time.strftime("%Y-%m-%dT%H:%M")
+        auction_record.ar_end_time = auction_record.ar_end_time.strftime("%Y-%m-%dT%H:%M")
+        auction_histories = models.AuctionHistory.objects.filter(Q(ar_id=auction_record.id))
+        return render(request,
+                      'personal_center/artist_center_auctions.html',
+                      {'customer': request.user,
+                       # 'artwork': artwork,
+                       'auction_record': auction_record,
+                       'auction_histories': auction_histories
+                       })
+
     def post(self, request, artwork_id):
-        image_form = forms.UploadImageForm(request.POST, request.FILES)
-        if image_form.is_valid():
+        # Create new information in auction history if auctionStat == 1
+        if request.POST.get('aw_auction') == '1':
             artwork = models.ArtWork.objects.get(Q(pk=artwork_id))
-            image = image_form.cleaned_data['aw_img']
-            artwork.aw_img = image
+            start_time = datetime.strptime(request.POST.get('auctionStart'), "%Y-%m-%dT%H:%M")
+            end_time = datetime.strptime(request.POST.get('auctionEnd'), "%Y-%m-%dT%H:%M")
+
+            original_price = float(request.POST.get('ar_originalPrice'))
+
+            artwork.aw_auctionStat = 1
+            models.AuctionRecord.objects.create(
+                ar_originalPrice=original_price,
+                ar_time=start_time,
+                ar_end_time=end_time,
+                aw_id=artwork
+            )
             artwork.save()
 
+            artworks = models.ArtWork.objects.filter(Q(artist_id=request.user.id))
+            return render(request,
+                          'personal_center/artist_center_artworks.html',
+                          {'customer': request.user,
+                           'artworks': artworks,
+                           'result': 'Open Auction Successfully'})
+        else:
+            return HttpResponseRedirect('/artist/artworks')
 
-# class DeleteArtwork(View):
-def delete_artwork(request, artwork_id):
-    models.ArtWork.objects.get(Q(pk=artwork_id)).delete()
+    def delete(self, request, artwork_id):
+        pass
 
-    return HttpResponseRedirect('/artist/artworks')
+
+class ArtworkReward(View):
+    def get(self, request, artwork_id):
+        reward_histories = models.Reward.objects.filter(Q(aw_id=artwork_id))
+        artwork = models.ArtWork.objects.get(Q(pk=artwork_id))
+        return render(request,
+                      'personal_center/artist_center_rewards.html',
+                      {'customer': request.user,
+                       'artwork': artwork,
+                       'reward_histories': reward_histories})
 
 
 class ArtistSetting(View):

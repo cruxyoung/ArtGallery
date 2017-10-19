@@ -2,7 +2,7 @@
 
 {% block menu %}
     <ul>
-        <li><a id="all" class="active">All</a></li>
+        <li><a id="all" class="active" href="{% url 'artist_artwork' %}">All</a></li>
         <li><a id="new" href="{% url 'edit_artwork' 0 %}">ADD NEW</a></li>
     </ul>
 {% endblock %}
@@ -29,27 +29,97 @@
                     <tr>
                         <td><img src="{{ artwork.aw_img.url }}" style="width: 50px;"></td>
                         <td>{{ artwork.aw_name }}</td>
-                        <td>{{ artwork.aw_time }}</td>
+                        <td style="font-size: xx-small;">{{ artwork.aw_time }}</td>
                         <td>{{ artwork.aw_type }}</td>
                         <td>{{ artwork.aw_genre }}</td>
                         {% if not artwork.aw_auctionStat %}
-                            <td><a class="fa-icon-hand-up">Open Auction</a></td>
+                            <td><a class="fa-icon-hand-up" data-toggle="modal" data-target="#myModal{{ artwork.id }}">Open
+                                Auction</a>
+                            </td>
                         {% else %}
-                            <td><a>Time Limited:</a></td>
+                            <td><a class="fa-icon-info-sign" href="{% url 'auctionHistory' artwork.id %}">Detail</a>
+                            </td>
                         {% endif %}
-                        <td>{{ artwork.aw_totalAward }}</td>
+                        <td><span class="label label-warning"><a
+                                href="{% url 'reward_history' artwork.id %}">${{ artwork.aw_totalAward }}</a></span>
+                        </td>
                         <td>
-                            <a class="fa-icon-edit" href="{% url 'edit_artwork' artwork.id %}">Edit</a>
+                            <a class="fa-icon-edit" href="{% url 'edit_artwork' artwork.id %}">Edit</a><br/>
                             <a class="fa-icon-remove" href="{% url 'delete_artwork' artwork.id %}"
                                onclick="return confirm('Really Delete?')">Remove</a>
                         </td>
                         {% csrf_token %}
                     </tr>
+
+
+                    <div class="modal fade" id="myModal{{ artwork.id }}" tabindex="-1" role="dialog"
+                         aria-labelledby="myModalLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialo">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                        &times;
+                                    </button>
+                                    <h4 class="modal-title" id="myModalLabel">Artist Auction</h4>
+                                </div>
+                                <form id="auctionForm" enctype="multipart/form-data" method="POST"
+                                      action="{% url 'auctionSwitch'  artwork.id %}">
+                                    {% csrf_token %}
+                                    <div class="modal-body">
+                                        <label>{{ artwork.aw_name }}</label>
+                                        <img src="{{ artwork.aw_img.url }}" style="width: 300px;">
+                                        <hr/>
+                                        <label>Auction Operation</label>
+                                        <input id="close" type="radio" name="aw_auction" value="0" checked="checked"/>
+                                        <span>Close</span>
+                                        <input id="open" type="radio" name="aw_auction" value="1"
+                                               {% if artwork.aw_auctionStat %}checked="checked"{% endif %}/> Open
+                                        <div class="row-fluid">
+                                            <div class="span6">
+                                                <label>Auction Start Time</label>
+                                                <input id="period1" class="input-block-level" type="datetime-local"
+                                                       name="auctionStart" readonly="readonly"/>
+                                            </div>
+                                            <div class="span6">
+                                                <label>Auction End</label>
+                                                <input id="period2" class="input-block-level" type="datetime-local"
+                                                       name="auctionEnd"
+                                                       readonly="readonly"/>
+                                            </div>
+                                        </div>
+                                        <hr/>
+                                        <label>The initial auction price</label>
+                                        <input id="initialPrice" name="ar_originalPrice" type="number"
+                                               class="input-block-level"
+                                               step="0.1" value="0.0"/>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel
+                                        </button>
+                                        <input id="confirm" type="submit" class="btn btn-primary"
+                                               value="Confirm" ／>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 {% endfor %}
                 </tbody>
             </table>
-
         </div>
-
     </div>
+{% endblock %}
+
+{% block js %}
+    <script>
+        $('#close').click(function () {
+            $('#period1').prop("readonly", true);
+            $('#period2').prop("readonly", true);
+        });
+        $('#open').click(function () {
+            $('#period1').prop("readonly", false);
+            $('#period2').prop("readonly", false);
+        });
+    </script>
 {% endblock %}

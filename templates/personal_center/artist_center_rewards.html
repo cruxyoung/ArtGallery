@@ -1,0 +1,38 @@
+{% extends 'personal_center/artist_master.html' %}
+{% block menu %}
+    <ul>
+        <li><a id="all" href="{% url 'artist_artwork' %}">All</a></li>
+        <li><a class="active">REWARD DETAIL</a></li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+    <div class="row-fluid">
+        <div class="span3 portfolio-item website html5 css3 responsive">
+            <h2>{{ artwork.aw_name }}</h2>
+            <img src="{{ artwork.aw_img.url }}" class="img-responsive"/>
+        </div>
+        <div class="span9 portfolio-item website html5 css3 responsive">
+            <table id="all_info" class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Amount</th>
+                    <th>Customers</th>
+                    <th>Time</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for reward_history in reward_histories %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                    <td><span class="label label-success">${{ reward_history.reward_amount }}</span></td>
+                    <td>{{ reward_history.customer_id.username }}</td>
+                    <td>{{ reward_history.reward_time }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
