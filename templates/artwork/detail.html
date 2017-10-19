@@ -16,8 +16,8 @@
         Total award: {{ aw.aw_totalAward }} <br />
         Auction status: {{ aw.aw_auctionStat }} <br />
 
-
         <!-- bid -->
+        {% if identity %}
         <h2> Bid </h2>
         <p id ="id_bidStatus">
             You can bid {{ auction_record.ah_remaining }} times for this artwork. <br />
@@ -29,6 +29,7 @@
             {{ bid.as_p }}
             <input type="submit" id = "id_bidButton" name = "bidButton" value="Bid" />
         </form>
+        {%  endif %}
         <!-- Comment list and post comment-->
         <h2> Comments for this artwork </h2>
 
@@ -55,10 +56,17 @@
         </form>
 
         <!-- Reward link and reward record -->
+        {% if identity %}
         <h2>Reward</h2>
-        <a href = "{{CONSTANT_NAME}}/artwork/{{aw.id}}/reward/"> Click here to reward </a>
+        <p id="id_rewardError"></p>
+        <form id="id_rewardForm" name="rewardForm" action="" method="POST">
+         {% csrf_token %}
+            {{ reward_form.as_p }}
+            <input type="submit" value="Pay" id ='id_rewardButton' name = "rewardButton" />
+        </form>
+        {% endif %}
 
-        <table id="rewardTable">
+        <table id="id_rewardTable">
         <tr>
             <th>Contributor</th>
             <th>Reward time</th>
@@ -93,8 +101,6 @@
                 async: true,
                 success: function (data) {
                     var json = jQuery.parseJSON(data);
-
-
                     if (data.status == "fail") {
                         $('#id_commentError').text("For security reasons, we do not allow you to submit any text with special characteristics /, < and $.");
                     }
@@ -102,8 +108,9 @@
                         var content = "<div id = \"id_comment_display\">"; // Div head
                         // Read data and append to content
                         for (i = 0; i < json.length; i++) {
-                        content += "<p>" + "Author: " + json[i].fields.commenter_id + "<br />" +
-                                "Time: " + json[i].fields.comment_time + "<br />" +
+                            var date = new Date( json[i].fields.comment_time);
+                            content += "<p>" + "Author: " + json[i].fields.commenter_id + "<br />" +
+                                "Time: " + date.format("YYYY-MM-DD") + "<br />" +
                                 "Rating: " + json[i].fields.rating + "<br />" +
                                 "Comment content: " + "<br />" + json[i].fields.comment_content + "<br />" + "<br />" + "</p>"
                         }
@@ -122,7 +129,7 @@
                 cache:false,
                 type:"POST",
                 dataType:"json",
-                url: "{%  url 'bid' aw.id %}",
+                url: "{% url 'bid' aw.id %}",
                 data: $('#id_bidForm').serialize(),
                 async:true,
                 success: function(data){
@@ -139,6 +146,47 @@
             })
             return false;
         })
+
+        $('#id_rewardButton').click(function(){
+            $.ajax({
+                cache: false,
+                type: "POST",
+                dataType: "json",
+                url:"{% url 'reward' aw.id %}",
+                data: $('#id_rewardForm').serialize(),
+                async: true,
+                success: function (data) {
+                    if (data.status == "fail") {
+                        $('#id_rewardError').text("Minimum award amount is $1");
+                    }
+                    else if (data.status == "balance") {
+                        $('#id_rewardError').text("Insufficient balance");
+                    }
+                    else {
+                        var json = jQuery.parseJSON(data);
+                        var content = "<table id=\"rewardTable\">\n" +
+                            "        <tr>\n" +
+                            "            <th>Contributor</th>\n" +
+                            "            <th>Reward time</th>\n" +
+                            "            <th>amount</th>\n" +
+                            "\n" +
+                            "        </tr>";  //Table head
+                        for (i = 0; i < json.length; i++) {
+                            content += "<tr>\n" +
+                                "            <td>"+ json[i].fields.customer_id + "</td>\n" +
+                                "            <td>"+ json[i].fields.reward_time +"</td>\n" +
+                                "            <td>"+ json[i].fields.reward_amount + "</td>\n" +
+                                "        </tr>"
+                            content += "</tr>"
+                        }
+                        content += "</table>"
+                        $('#id_rewardError').text("success");
+                        $('#id_rewardTable').html(content);
+                    }
+                }
+            })
+            return false;
+        });
     </script>
 </html>
 {% endblock %}

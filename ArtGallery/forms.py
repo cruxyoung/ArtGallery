@@ -3,7 +3,6 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from ArtGallery.models import Comment, Reward, UserProfile, AuctionHistory
 from django.db import models
-from django.forms import extras
 
 
 # Form for register (sign up page)
@@ -79,11 +78,11 @@ class CommentForm(forms.ModelForm):
 
 # Form for reward an artwork (reward page)
 class RewardForm(forms.ModelForm):
-    reward_amount = models.FloatField(default=0.0)
+    reward_amount = models.FloatField
 
     class Meta:
         model = Reward
-        fields = ('reward_amount',)
+        fields = ("reward_amount", )
 
 
 # Form to bid (artwork page)

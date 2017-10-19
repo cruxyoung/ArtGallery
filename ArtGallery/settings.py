@@ -144,7 +144,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "uploaded_arts")
 # EMAIL_USE_TLS = False
 # EMAIL_FROM = "nikelazy@gmail.com"
 
-ARTWORK_ROOT =  os.path.join(BASE_DIR, "artwork")
+ARTWORK_ROOT = os.path.join(BASE_DIR, "artwork")
 ARTWORK_URL = "/artwork/"
 
 # Email configuration

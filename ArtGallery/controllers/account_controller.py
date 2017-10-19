@@ -10,9 +10,11 @@ from django.utils.encoding import force_bytes, force_text
 from ArtGallery.tokens import account_activation_token
 from django.core.mail import EmailMessage
 from django.contrib.auth.models import User
+from django.db import transaction
 
 
 # Sign up page
+@transaction.atomic
 def signup(request):
     # Request to post a new data entry to database
     if request.method == 'POST':
@@ -32,7 +34,7 @@ def signup(request):
             profile.save()
 
             current_site = get_current_site(request)
-            message = render_to_string('registration/activation.html', {
+            message = render_to_string('registration/activation.html.html', {
                 'user': user,
                 'domain': current_site.domain,
                 'uid': urlsafe_base64_encode(force_bytes(user.pk)),
@@ -42,7 +44,7 @@ def signup(request):
             to_email = form_user.cleaned_data.get('email')
             email = EmailMessage(mail_subject, message, to=[to_email])
             email.send()
-            return HttpResponse('Please confirm your email address to complete the registration')
+            return HttpResponse('Please confirm your email address to complete the registration.')
     else:
         form_user = UserCreateForm()
         form_profile = UserProfileCreationForm()
@@ -50,6 +52,7 @@ def signup(request):
 
 
 # Activation page logic
+@transaction.atomic
 def activate(request, uidb64, token):
     try:
         uid = force_text(urlsafe_base64_decode(uidb64))

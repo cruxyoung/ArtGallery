@@ -7,16 +7,19 @@ from django.shortcuts import render, get_object_or_404, HttpResponseRedirect, re
 from ArtGallery.models import ArtWork, UserProfile, AuctionHistory, AuctionRecord, Comment, Reward, FavoriteRecord
 from django.views.decorators.csrf import csrf_exempt
 from django.db import transaction
+from django.contrib.auth.models import User
 
 
 # Detail page (artwork) logic:
 # Include Comment logic
 @csrf_exempt
+@transaction.atomic
 def artwork_detail(request, aw_id):
     aw = get_object_or_404(ArtWork, pk=aw_id)
     comment = Comment.objects.filter(aw_id_id=aw_id)
     reward = Reward.objects.filter(aw_id_id=aw_id)
     favourite = FavoriteRecord.objects.filter(aw_id_id=aw_id, customer_id_id=request.user.id)
+    profile = get_object_or_404(UserProfile, pk=request.user.id)
 
     # get auction status for current user
     auction_list = AuctionHistory.objects.filter(customer_id_id=request.user.id)
@@ -26,6 +29,7 @@ def artwork_detail(request, aw_id):
         auction_record = AuctionHistory (ah_remaining=3, ah_amount=0.01)
     form = CommentForm()
     bid_form = BidForm()
+    reward_form = RewardForm()
     if request.method == 'POST':
         # Favourite record post
         if 'favouriteButton' in request.POST:
@@ -41,15 +45,29 @@ def artwork_detail(request, aw_id):
             else:
                 favourite.delete()
             return HttpResponseRedirect(reverse('aw', args=(aw.id,)))
-    return render(request, "artwork/detail.html", {'form': form,
-                                                   'aw': aw,
-                                                   'comment': comment,
-                                                   'reward': reward,
-                                                   'bid': bid_form,
-                                                   'auction_record': auction_record})
+    if profile.identity == True:  # customer
+        return render(request, "artwork/detail.html", {'form': form,
+                                                       'aw': aw,
+                                                       'comment': comment,
+                                                       'reward': reward,
+                                                       'bid': bid_form,
+                                                       'auction_record': auction_record,
+                                                       'identity': True,
+                                                       'reward_form': reward_form
+                                                   })
+    else:  # artist
+        return render(request, "artwork/detail.html", {'form': form,
+                                                       'aw': aw,
+                                                       'comment': comment,
+                                                       'auction_record': auction_record,
+                                                       'reward': reward,
+                                                       'identity': False,
+                                                       })
 
 
 # Detail page (user) logic:
+@transaction.atomic
+@csrf_exempt
 def artist_detail(request, user_id):
     user = get_object_or_404(UserProfile, user_id_id=user_id)
     aw = ArtWork.objects.filter(artist_id=user_id)
@@ -57,6 +75,8 @@ def artist_detail(request, user_id):
 
 
 # Detail page (auction) logic:
+@transaction.atomic
+@csrf_exempt
 def auction_detail(request, auction_id):
     auction_record = get_object_or_404(AuctionRecord, pk=auction_id)
     auction_history = AuctionHistory.objects.filter(ar_id_id=auction_id)
@@ -65,29 +85,38 @@ def auction_detail(request, auction_id):
 
 # Payment page (reward)
 @transaction.atomic  # Ensure data integrity
-def reward_pay(request, aw_id):
-    aw = get_object_or_404(ArtWork, pk=aw_id)
-
-    # Reward post
-    if request.method == 'POST':
-        form = RewardForm(request.POST)
-        if form.is_valid():
+@csrf_exempt
+def ajax_reward(request, aw_id):
+    form = RewardForm(request.POST)
+    if form.is_valid():
+        content = float(request.POST.get('reward_amount'))
+        profile = get_object_or_404(UserProfile, user_id_id=request.user.id)
+        balance = profile.amount
+        if content < 1:
+            return HttpResponse('{"status": "fail"}',
+                                    content_type='application/json')
+        elif balance < content:
+            return HttpResponse('{"status": "balance"}',
+                                content_type='application/json')
+        else:
             new_reward = Reward(
-                reward_time=datetime.now(),
-                reward_amount=form.cleaned_data.get("reward_amount"),
-                customer_id_id=request.user.id,
-                aw_id_id=aw_id
-            )
+                        reward_time=datetime.now(),
+                        reward_amount=form.cleaned_data.get("reward_amount"),
+                        customer_id_id=request.user.id,
+                        aw_id_id=aw_id
+                        )
             new_reward.save()
-
-            # PUT SUCCESS PAGE HERE LATER
-            return HttpResponseRedirect(reverse('aw', args=(aw.id,)))
-    else:
-        form = RewardForm()
-    return render(request, "artwork/reward.html", {'aw': aw, 'form': form})
+            # deduce the balance
+            profile.amount = balance - content
+            profile.save()
+            reward = Reward.objects.filter(aw_id_id=aw_id)
+            data = serializers.serialize('json', reward)
+            return HttpResponse(json.dumps(data), content_type="application/json")
 
 
 # get comment list
+@transaction.atomic
+@csrf_exempt
 def ajax_comment(request, aw_id):
     form = CommentForm(request.POST)
     if form.is_valid():
@@ -97,20 +126,22 @@ def ajax_comment(request, aw_id):
                                 'we does not allowed comments with special characteristics / and $."}',
                                 content_type='application/json')
         else:
-                new_comment = Comment(
-                    comment_time=datetime.now(),
-                    comment_content=request.POST.get('comment_content'),
-                    rating=request.POST.get('rating'),
-                    aw_id_id=aw_id,
-                    commenter_id_id=request.user.id,
-                )
-                new_comment.save()
-                comment = Comment.objects.filter(aw_id_id=aw_id)
-                data = serializers.serialize('json', comment)
-                return HttpResponse(json.dumps(data), content_type="application/json")
+            new_comment = Comment(
+                comment_time=datetime.now(),
+                comment_content=request.POST.get('comment_content'),
+                rating=request.POST.get('rating'),
+                aw_id_id=aw_id,
+                commenter_id_id=request.user.id,
+            )
+            new_comment.save()
+            comment = Comment.objects.filter(aw_id_id=aw_id)
+            data = serializers.serialize('json', comment)
+            return HttpResponse(json.dumps(data), content_type="application/json")
 
 
 # send bid request
+@transaction.atomic
+@csrf_exempt
 def ajax_bid(request, aw_id):
     form = BidForm(request.POST)
     record = AuctionHistory.objects.filter(customer_id_id=request.user.id)  # get all request list
