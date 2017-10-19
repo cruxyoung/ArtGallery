@@ -72,8 +72,6 @@
 
                                 <li><a href="{% url 'index' %}"><b>ART GALLERY</b></a></li>
 
-{#                                <li><a href="{% url 'home' %}"><b>ART GALLERY</b></a></li>#}
-
                                 <li><a href="#">Artists</a></li>
                                 <li><a href="#">Artworks</a></li>
                                 <li><a href="#">Auction</a></li>
@@ -90,23 +88,45 @@
                                 </li>
                                 <!-- Judge the status whether logged or not -->
                                 {% if request.user.is_authenticated %}
-                                    <li>
-                                        <a class="dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown">
-                                            {{ request.user.username|upper }}
-                                        </a>
-                                        <ul class="text-center dropdown-menu pull-right"
-                                            aria-labelledby="dropdownMenuLink">
-                                            <li><a class="dropdown-item" href="{% url 'favorite' %}">Favorites</a></li>
-                                            <li><a class="dropdown-item" href="{% url 'auction' %}">Auctions</a></li>
-                                            <li><a class="dropdown-item" href="{% url 'reward' %}">Rewards</a></li>
-                                            <li><a class="dropdown-item" href="{% url 'comment' %}">Comments</a></li>
-                                            <li class="divider"></li>
-                                            <li><a class="dropdown-item" href="{% url 'artist_setting' %}">Settings</a>
-                                            </li>
-                                            <li><a class="dropdown-item" href="{% url 'complaint' %}">Complaints</a>
-                                            </li>
-                                        </ul>
-                                    </li>
+                                    {% if request.user.is_staff %}
+                                        <li>
+                                            <a class="dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown">
+                                                {{ request.user.username|upper }}
+                                            </a>
+                                            <ul class="text-center dropdown-menu pull-right"
+                                                aria-labelledby="dropdownMenuLink">
+                                                <li><a class="dropdown-item" href="{% url 'artist_artwork' %}">Manage Artworks</a>
+                                                </li>
+                                                <li><a class="dropdown-item" href="{% url 'artist_setting' %}">Settings</a>
+                                                <li class="divider"></li>
+                                                <li><a class="dropdown-item" href="{% url 'logout' %}">Log Out</a></li>
+                                            </ul>
+                                        </li>
+                                    {% else %}
+                                        <li>
+                                            <a class="dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown">
+                                                {{ request.user.username|upper }}
+                                            </a>
+                                            <ul class="text-center dropdown-menu pull-right"
+                                                aria-labelledby="dropdownMenuLink">
+                                                <li><a class="dropdown-item" href="{% url 'favorite' %}">Favorites</a>
+                                                </li>
+                                                <li><a class="dropdown-item" href="{% url 'auction' %}">Auctions</a>
+                                                </li>
+                                                <li><a class="dropdown-item" href="{% url 'reward' %}">Rewards</a></li>
+                                                <li><a class="dropdown-item" href="{% url 'comment' %}">Comments</a>
+                                                </li>
+                                                <li class="divider"></li>
+                                                <li><a class="dropdown-item" href="{% url 'setting' %}">Settings</a>
+                                                </li>
+                                                <li><a class="dropdown-item" href="{% url 'complaint' %}">Complaints</a>
+                                                </li>
+                                                <li class="divider"></li>
+                                                <li><a class="dropdown-item" href="{% url 'logout' %}">Log Out</a></li>
+                                            </ul>
+                                        </li>
+                                    {% endif %}
+
 
                                 {% else %}
                                     <li><a href="{% url 'login' %}">LOG IN</a></li>

@@ -1,0 +1,16 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h1>Reward</h1>
+        You would like to reward:
+        Artwork: {{ aw.aw_name }} <br />
+        Artist to be rewarded: {{ aw.artist_id.first_name}} {{ aw.artist_id.last_name}} <br />
+        <form id="rewardForm" name="rewardForm" action="" method="POST">
+         {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Pay" />
+        </form>
+    </body>
+</html>

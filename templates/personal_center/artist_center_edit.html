@@ -1,0 +1,123 @@
+{% extends "personal_center/artist_master.html" %}
+
+{% block menu %}
+    <ul>
+        <li><a id="all" href="{% url 'artist_artwork' %}">All</a></li>
+        <li><a id="new" class="active">{% if artwork.id %}EDIT{% else %}ADD NEW{% endif %}</a></li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+    <div class="row-fluid">
+
+        <form id="artworkForm" enctype="multipart/form-data" method="POST" action="{% url 'edit_action' %}">
+            {% csrf_token %}
+            <input type="hidden" name="artwork_id" value="{{ artwork.id | default:'0' }}"/>
+            <div id="addDiv" class="container-fluid">
+                <div class="row-fluid span8">
+                    <div class="row-fluid">
+                        <div class="span6">
+                            <label>Artwork Name</label>
+                            <input name="aw_name" type="text" class="row-fluid input input-block-level"
+                                   value="{{ artwork.aw_name }}">
+                        </div>
+
+                        <div id="imgUpload" class="span6">
+                            <label>Image Upload</label>
+                            <input name="aw_img" id="uploadImgInput" type="file" class="file-upload"/>
+                        </div>
+
+                    </div>
+
+                    <label>Location</label>
+                    <input name="aw_location" type="text" class="row-fluid span6 input input-block-level"
+                           value="{{ artwork.aw_location }}">
+
+                    <div class="row-fluid">
+                        <label>Types</label>
+                        <select class="select2-choices row-fluid span6" id="typeSelect">
+                            <option>{{ artwork.aw_type }}</option>
+                            <option>Abstract</option>
+                            <option>Figurative</option>
+                            <option>Still Life</option>
+                            <option>Landscape</option>
+                            <option>Animals</option>
+                            <option>Geometric</option>
+                            <option>Technology</option>
+                            <option>Pop</option>
+                            <option>Portraiture</option>
+                            <option>Gender</option>
+                        </select>
+                        <input name="aw_type" id="type" type="hidden" class="hide"/>
+                        <label>Genres</label>
+                        <select class="select2-choices row-fluid span6" id="genreSelect">
+                            <option>{{ artwork.aw_genre }}</option>
+                            <option>Normal Painting</option>
+                            <option>History Painting</option>
+                            <option>Animal Painting</option>
+                            <option>Christian Art</option>
+                            <option>Kinetic Art</option>
+                            <option>Portrait</option>
+                        </select>
+                        <input name="aw_genre" id="genre" type="hidden"/>
+                    </div>
+
+                    <label>Description</label>
+                    {#                    <input class="input-block-level" type="text"  name="description"/>#}
+                    <textarea name="aw_description" class="input-block-level">{{ artwork.aw_description }}</textarea>
+                    <br/>
+                    <input type="submit" id="Edit_Artwork" name="submitAwButton"
+                           value="{% if artwork.id %}Modify Artwork{% else %}Create Artwork{% endif %}"
+                           class="btn btn-default"/>
+                    <p id="result" style="color: red;"></p>
+                </div>
+                <div class="row-fluid span4">
+                    <label>Image Preview</label>
+                    {% load staticfiles %}
+                    <img id="uploadImgPreview" src="{% if artwork %}{{ artwork.aw_img.url }}{% else %}{% static 'img-default.png' %}{% endif %}">
+                    <a id="test"></a>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+    </div>
+{% endblock %}
+
+{% block js %}
+
+    <script>
+        // Preventing Double Click when user submit the form
+        $('#artworkForm').submit(function () {
+            $(this).find(':submit').attr('disabled', 'disabled');
+        });
+
+        $('#Edit_Artwork').click(function () {
+            $('#type').val($('#typeSelect option:selected').text());
+            $('#genre').val($('#genreSelect option:selected').text());
+        });
+    </script>
+    <script>
+        // It will show preview when user upload new image file
+        $(function () {
+            $("#uploadImgInput").change(function () {
+                var $file = $(this);
+                var fileObj = $file[0];
+                var windowURL = window.URL || window.webkitURL;
+                var dataURL;
+                var $img = $("#uploadImgPreview");
+                if (fileObj && fileObj.files && fileObj.files[0]) {
+                    dataURL = windowURL.createObjectURL(fileObj.files[0]);
+                    $img.attr('src', dataURL);
+                } else {
+                    dataURL = $file.val();
+                    var imgObj = document.getElementById("uploadImgPreview");
+
+                    imgObj.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
+                    imgObj.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = dataURL;
+                }
+            });
+        });
+    </script>
+{% endblock %}

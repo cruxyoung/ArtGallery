@@ -1,11 +1,10 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from ArtGallery.models import Comment, Reward, UserProfile, AuctionHistory
+from ArtGallery.models import Comment, Reward, ArtWork
 from django.db import models
 
 
-# Form for register (sign up page)
 class UserCreateForm(UserCreationForm):
     email = forms.CharField(required=True)
     first_name = forms.CharField
@@ -13,7 +12,7 @@ class UserCreateForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ("username", "email", "first_name","last_name","password1", "password2")
+        fields = ("username", "email", "first_name", "last_name", "password1", "password2")
 
     def save(self, commit=True):
         user = super(UserCreateForm, self).save(commit=False)
@@ -23,34 +22,6 @@ class UserCreateForm(UserCreationForm):
         if commit:
             user.save()
         return user
-
-
-class UserProfileCreationForm(forms.ModelForm):
-    GENDER_CHOICES = (
-        (True, "Male"),
-        (False, "Female"),
-    )
-    IDENTITY_CHOICE = (
-        (True, "Customer"),
-        (False, "Artist"),
-    )
-    sex = forms.ChoiceField(choices=GENDER_CHOICES, widget=forms.RadioSelect(attrs={'display': 'inline-block'}))
-    birthday = forms.CharField(required=True, )
-    identity = forms.ChoiceField(choices=IDENTITY_CHOICE, widget=forms.RadioSelect(attrs={'display': 'inline-block'}))
-
-    class Meta:
-        model = UserProfile
-        fields = ("sex", "birthday", "identity")
-        exclude = ['id']
-
-    def save(self, commit=True):
-        user_profile = super(UserProfileCreationForm, self).save(commit=False)
-        user_profile.sex = self.cleaned_data["sex"]
-        user_profile.birthday = self.cleaned_data["birthday"]
-        user_profile.identity = self.cleaned_data["identity"]
-        if commit:
-            user_profile.save()
-        return user_profile
 
 
 class ModifyPwdForm(forms.Form):
@@ -78,18 +49,23 @@ class CommentForm(forms.ModelForm):
 
 # Form for reward an artwork (reward page)
 class RewardForm(forms.ModelForm):
-    reward_amount = models.FloatField
+    reward_amount = models.FloatField(default=0.0)
 
     class Meta:
         model = Reward
-        fields = ("reward_amount", )
+        fields = ('reward_amount',)
 
 
-# Form to bid (artwork page)
-class BidForm(forms.ModelForm):
-    ah_amount = models.FloatField
+# Form for Submit new artworks by artist
+class ArtworkForm(forms.ModelForm):
+    aw_name = forms.CharField(required=True)
+    aw_location = forms.CharField(required=True)
+    aw_type = forms.CharField()
+    aw_genre = forms.CharField()
+    aw_description = forms.CharField(max_length=256)
+    aw_img = forms.ImageField(required=True)
 
     class Meta:
-        model = AuctionHistory
-        fields = ("ah_amount", )
+        model = ArtWork
+        fields = ("aw_name", "aw_location", "aw_type", "aw_genre", "aw_description", "aw_img")
 
