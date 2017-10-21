@@ -1,74 +1,85 @@
-{% block content %}
+{% extends 'master.html' %}
 
-    <html>
-    <head>
-        10
-        <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet"
-              id="bootstrap-css">
-        <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $("#id_username").attr('placeholder', '{{form.username.label}}');
-                $("#id_email").attr('placeholder', '{{form.password.label}}');
-            });
-        </script>
-    </head>
-    {% load staticfiles %}
-    <body style="background: url('{% static "ArtGallery/images/bg_login.jpg" %}') fixed">
-
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-
-                <div class="wrap">
-                    <p class="form-title">
-                        Sign In</p>
-                    <form class="login" method="post" action="{% url 'login' %}">
-                        {% csrf_token %}
-
-                        {{ form.username }}
-                        {{ form.password }}
-                        <div class="row" style="color: #ff0000">
-                            {% if form.errors %}
-                                <p>Your username and password didn't match. Please try again.</p>
-                            {% endif %}
-                            {% if next %}
-                                {% if user.is_authenticated %}
-                                    <p>Your account doesn't have access to this page. To proceed,
-                                        please login with an account that has access.</p>
-                                {% else %}
-                                    <p>Please login to see this page.</p>
-                                {% endif %}
-                            {% endif %}
-                        </div>
-
-                        <input type="submit" value="Sign In" class="btn btn-success btn-sm"/>
-                        <a href="{% url 'signup' %}">Sign Up</a>
-                        <input type="hidden" name="next" value="{{ next }}">
-                        <div class="remember-forgot">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox"/>
-                                            Remember Me
-
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 forgot-pass-content">
-                                    <a href="{% url 'password_reset' %}">Lost password?</a>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
+{% block body %}
+    <div id="portfolio" class="color white">
+        <div class="container">
+            <div class="wrapper span12">
+                <!-- start: Page Title -->
+                <div id="page-title">
+                    <div id="page-title-inner">
+                        <h2><span class="fa-icon-paper-clip"> Log In</span></h2>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <div id="portfolio-wrapper" class="row-fluid">
+        <div class="span2 offset5">
+            <div class="text-center">
+                <form class="login" method="post" action="{% url 'login' %}">
+                    {% csrf_token %}
+                    <div class="row-fluid">
+                        <br/>
+                        <input class="input-block-level" id="{{ form.username.id_for_label }}" maxlength="30"
+                               name="{{ form.username.html_name }}" type="text"/>
+                    </div>
+                    <div class="row-fluid">
 
-    </body>
-    </html>
+                        <input class="input-block-level" id="{{ form.password.id_for_label }}"
+                               maxlength="30"
+                               name="{{ form.password.html_name }}" type="password"/>
+                    </div>
+                    <div class="row-fluid">
+                        {% if form.errors %}
+                            <p>Your username and password didn't match. Please try again.</p>
+                        {% endif %}
+                        {% if next %}
+                            {% if user.is_authenticated %}
+                                <p>Your account doesn't have access to this page. To proceed,
+                                    please login with an account that has access.</p>
+                            {% else %}
+                                <p>Please login to see this page.</p>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+                    <hr/>
 
+                    <input type="submit" value="Sign In" class="btn btn-success btn-large"/>
+                    <a class="btn btn-info btn-large" href="{% url 'signup' %}">Sign Up</a>
+                    <input type="hidden" name="next" value="{{ next }}">
+                    <br/>
+                    <br/><br/>
+
+                    <div class="remember-forgot">
+                        <div class="row-fluid">
+                            <div class="span1 offset5">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox"/>
+                                        Remember Me
+
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="span1 forgot-pass-content">
+                                <a class="label label-danger" href="{% url 'password_reset' %}">Lost
+                                    password?</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block js %}
+    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#id_username").attr('placeholder', '{{form.username.label}}');
+            $("#id_email").attr('placeholder', '{{form.password.label}}');
+        });
+    </script>
 {% endblock %}

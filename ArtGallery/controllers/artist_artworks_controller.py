@@ -8,6 +8,8 @@ from django.views.generic.base import View
 from django.contrib.auth.hashers import make_password
 from django.shortcuts import HttpResponseRedirect
 from django.db.models import Q
+from django.core.paginator import Paginator
+from pure_pagination import Paginator, PageNotAnInteger
 
 
 class ArtistArtwork(View):
@@ -193,3 +195,70 @@ class ArtistSetting(View):
 
         else:
             return HttpResponse(json.dumps(modify_form.errors), content_type='application/json')
+
+
+# Artist favorite
+class PersonalFavorite(View):
+    # get favorites of current user
+    def get(self, request):
+
+        favs = models.FavoriteRecord.objects.filter(artist_id=request.user.id)
+        favs_nums = favs.count()
+
+        # get sort info
+        sort = request.GET.get('sort', "")
+        if sort:
+            if sort == "time":
+                favs = favs.order_by('fav_time')
+
+        # Paginator for favorite
+        try:
+            page = request.GET.get('page', 1)
+        except PageNotAnInteger:
+            page = 1
+
+        p = Paginator(favs, 6, request=request)
+        favs_pag = p.page(page)
+
+        return render(request,
+                      'personal_center/artist_center_favorites.html',
+                      {'customer': request.user,
+                       'favs': favs_pag,
+                       'favs_nums': favs_nums,
+                       'sort': sort,
+                       })
+
+
+# Artist Comment
+class PersonalComment(View):
+    # get comments history of current user
+    def get(self, request):
+        comments = models.Comment.objects.filter(commenter_id=request.user.id)
+        comments_nums = comments.count()
+
+        # get sort info
+        sort = request.GET.get('sort', "")
+        if sort:
+            if sort == 'time':
+                comments = comments.order_by('-comment_time')
+            if sort == 'comment':
+                comments = comments.filter(reply_commentId=None)
+            if sort == 'reply':
+                comments = comments.filter(rating=-1)
+
+        # Paginator for rewards
+        try:
+            page = request.GET.get('page', 1)
+        except PageNotAnInteger:
+            page = 1
+
+        p = Paginator(comments, 3, request=request)
+        comments_pag = p.page(page)
+
+        return render(request,
+                      'personal_center/artist_center_comments.html',
+                      {'customer': request.user,
+                       'comments': comments_pag,
+                       'comments_nums': comments_nums,
+                       'sort': sort,
+                       })

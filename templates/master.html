@@ -69,35 +69,29 @@
                         </a>
                         <div class="nav-collapse collapse">
                             <ul class="nav" style="text-align: left">
-
                                 <li><a href="{% url 'index' %}"><b>ART GALLERY</b></a></li>
-
-                                <li><a href="#">Artists</a></li>
-                                <li><a href="#">Artworks</a></li>
-                                <li><a href="#">Auction</a></li>
+                                <li><a href="{% url 'art_list' %}">Artworks</a></li>
+                                <li><a href="{% url 'art_list' %}">Search</a></li>
                             </ul>
 
                             <ul class="nav" style="text-align: right; padding-left:300px;">
-                                <li>
-                                    <a>
-                                        <input type="text" class="form-control" placeholder="Search for..."
-                                               aria-label="Search for...">
-                                        <button class="btn-default" type="button"><span
-                                                class="fa fa-icon-search"></span></button>
-                                    </a>
-                                </li>
+                            <li><a></a></li>
                                 <!-- Judge the status whether logged or not -->
                                 {% if request.user.is_authenticated %}
                                     {% if request.user.is_staff %}
                                         <li>
                                             <a class="dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown">
-                                                {{ request.user.username|upper }}
+                                                <span class="fa-icon-user"></span>{{ request.user.username|upper }}
                                             </a>
                                             <ul class="text-center dropdown-menu pull-right"
                                                 aria-labelledby="dropdownMenuLink">
                                                 <li><a class="dropdown-item" href="{% url 'artist_artwork' %}">Manage
                                                     Artworks</a>
                                                 </li>
+                                                <li><a class="dropdown-item" href="{% url 'artist_favorite' %}">Favorites</a>
+                                                </li>
+                                                <li><a class="dropdown-item"
+                                                       href="{% url 'artist_comment' %}">Comments</a>
                                                 <li><a class="dropdown-item"
                                                        href="{% url 'artist_setting' %}">Settings</a>
                                                 <li class="divider"></li>
@@ -107,21 +101,22 @@
                                     {% else %}
                                         <li>
                                             <a class="dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown">
-                                                {{ request.user.username|upper }}
+                                                <span class="fa-icon-user"></span>{{ request.user.username|upper }}
                                             </a>
                                             <ul class="text-center dropdown-menu pull-right"
                                                 aria-labelledby="dropdownMenuLink">
                                                 <li><a class="dropdown-item" href="{% url 'favorite' %}">Favorites</a>
                                                 </li>
-                                                <li><a class="dropdown-item" href="{% url 'auction' %}">Auctions</a>
+                                                <li><a class="dropdown-item" href="{% url 'customer_auction' %}">Auctions</a>
                                                 </li>
-                                                <li><a class="dropdown-item" href="{% url 'reward' %}">Rewards</a></li>
-                                                <li><a class="dropdown-item" href="{% url 'comment' %}">Comments</a>
+                                                <li><a class="dropdown-item"
+                                                       href="{% url 'customer_reward' %}">Rewards</a></li>
+                                                <li><a class="dropdown-item" href="{% url 'customer_comment' %}">Comments</a>
                                                 </li>
                                                 <li class="divider"></li>
                                                 <li><a class="dropdown-item" href="{% url 'setting' %}">Settings</a>
                                                 </li>
-                                                <li><a class="dropdown-item" href="{% url 'complaint' %}">Complaints</a>
+                                                <li><a class="dropdown-item" href="{% url 'customer_complaint' %}">Complaints</a>
                                                 </li>
                                                 <li class="divider"></li>
                                                 <li><a class="dropdown-item" href="{% url 'logout' %}">Log Out</a></li>
@@ -132,7 +127,7 @@
 
                                 {% else %}
                                     <li><a href="{% url 'login' %}">LOG IN</a></li>
-                                    <li><a href="">SIGN UP</a></li>
+                                    <li><a href="{% url 'signup' %}">SIGN UP</a></li>
                                 {% endif %}
                             </ul>
                         </div>

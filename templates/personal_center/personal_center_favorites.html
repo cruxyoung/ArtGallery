@@ -20,12 +20,12 @@
         {% for fav in favs.object_list %}
             <div class="span4 portfolio-item website html5 css3 responsive">
                 <div class="picture">
-                    <a href="" title="fav_aw"><img src="{{ fav.aw_id.aw_img }}" alt="" style="height: 250px;"/>
+                    <a href="{% url 'aw' fav.aw_id.id %}" title="fav_aw"><img src="{{ fav.aw_id.aw_img.url }}" alt="" style="height: 250px;"/>
                         <div class="image-overlay-link"></div>
                     </a>
 
                     <div class="item-description alt">
-                        <h5><a>{{ fav.aw_id.aw_name }}</a></h5>
+                        <h5><a href="{% url 'aw' fav.aw_id.id %}">{{ fav.aw_id.aw_name }}</a></h5>
                         <h4><span>{{ fav.aw_id.artist_id.first_name }} {{ fav.aw_id.artist_id.last_name }}</span></h4>
                         <p id="description_paragraph{{ fav.id }}" class="compress" style="height: 200px;">
                             {{ fav.aw_id.aw_description }}

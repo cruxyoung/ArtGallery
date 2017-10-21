@@ -27,25 +27,28 @@ from ArtGallery.controllers import artwork_controller
 from ArtGallery.controllers import personal_controller
 from ArtGallery.controllers import artist_artworks_controller
 
-
 xadmin.autodiscover()
 xversion.register_models()
 
 urlpatterns = [
 
     # Personal page url, including customers' and artists'
+    # Url configuration for customer users
     url(r'^customer/favorites/$', personal_controller.PersonalFavorite.as_view(), name='favorite'),
 
     url(r'^customer/settings/$', personal_controller.PersonalSetting.as_view(), name='setting'),
     url(r'^customer/settings/change_pwd/$', personal_controller.PersonalSetting.as_view(), name='change_pwd'),
     url(r'^customer/settings/edit_info/$', personal_controller.UserInfoView.as_view(), name='edit_info'),
 
-    url(r'^customer/complaints/$', personal_controller.PersonalComplaint.as_view(), name='complaint'),
-    url(r'^customer/rewards/$', personal_controller.PersonalReward.as_view(), name='reward'),
-    url(r'^customer/auctions/$', personal_controller.PersonalAuction.as_view(), name='auction'),
-    url(r'^customer/comments/$', personal_controller.PersonalComment.as_view(), name='comment'),
+    url(r'^customer/complaints/$', personal_controller.PersonalComplaint.as_view(), name='customer_complaint'),
+    url(r'^customer/rewards/$', personal_controller.PersonalReward.as_view(), name='customer_reward'),
+    url(r'^customer/auctions/$', personal_controller.PersonalAuction.as_view(), name='customer_auction'),
+    url(r'^customer/comments/$', personal_controller.PersonalComment.as_view(), name='customer_comment'),
 
+    # Url configuration for artist users
     url(r'^artist/settings/$', artist_artworks_controller.ArtistSetting.as_view(), name='artist_setting'),
+    url(r'^artist/favorites/$', artist_artworks_controller.PersonalFavorite.as_view(), name='artist_favorite'),
+    url(r'^artist/comments/$', artist_artworks_controller.PersonalComment.as_view(), name='artist_comment'),
     url(r'^artist/artworks/$', artist_artworks_controller.ArtistArtwork.as_view(), name='artist_artwork'),
     url(r'^artist/artworks/edit/(?P<artwork_id>[0-9]+)/$', artist_artworks_controller.ArtworkEdit.as_view(),
         name='edit_artwork'),

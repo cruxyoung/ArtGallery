@@ -26,7 +26,7 @@ def artwork_detail(request, aw_id):
     if auction_list.count() > 0:
         auction_record = auction_list.latest('ah_aucTime')
     else:
-        auction_record = AuctionHistory (ah_remaining=3, ah_amount=0.01)
+        auction_record = AuctionHistory(ah_remaining=3, ah_amount=0.01)
     form = CommentForm()
     bid_form = BidForm()
     reward_form = RewardForm()
@@ -54,7 +54,7 @@ def artwork_detail(request, aw_id):
                                                        'auction_record': auction_record,
                                                        'identity': True,
                                                        'reward_form': reward_form
-                                                   })
+                                                       })
     else:  # artist
         return render(request, "artwork/detail.html", {'form': form,
                                                        'aw': aw,
@@ -94,17 +94,17 @@ def ajax_reward(request, aw_id):
         balance = profile.amount
         if content < 1:
             return HttpResponse('{"status": "fail"}',
-                                    content_type='application/json')
+                                content_type='application/json')
         elif balance < content:
             return HttpResponse('{"status": "balance"}',
                                 content_type='application/json')
         else:
             new_reward = Reward(
-                        reward_time=datetime.now(),
-                        reward_amount=form.cleaned_data.get("reward_amount"),
-                        customer_id_id=request.user.id,
-                        aw_id_id=aw_id
-                        )
+                reward_time=datetime.now(),
+                reward_amount=form.cleaned_data.get("reward_amount"),
+                customer_id_id=request.user.id,
+                aw_id_id=aw_id
+            )
             new_reward.save()
             # deduce the balance
             profile.amount = balance - content

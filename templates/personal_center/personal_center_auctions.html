@@ -20,14 +20,14 @@
             <div class="span3 portfolio-item website html5 css3 responsive">
                 <div class="picture">
                     <a href="">
-                        <img src="{{ auction.ar_id.aw_id.aw_img }}" alt="" style="height: 200px;"/>
+                        <a href="{% url 'aw' auction.ar_id.aw_id.id %}"><img src="{{ auction.ar_id.aw_id.aw_img.url }}" alt="" style="height: 200px;"/></a>
                         <div class="image-overlay-link"></div>
                     </a>
                 </div>
             </div>
             <div class="span9 portfolio-item">
                 <div class="item-description alt">
-                    <h3><a href="">{{ auction.ar_id.aw_id.aw_name }}</a></h3>
+                    <h3><a href="{% url 'aw' auction.ar_id.aw_id.id %}">{{ auction.ar_id.aw_id.aw_name }}</a></h3>
                     <h4>Live bidding begins {{ auction.ar_id.ar_time }}</h4>
                     <h4>Your bid at {{ auction.ah_aucTime }}</h4>
                     <h4>Set-price <b>${{ auction.ar_id.ar_originalPrice }}</b></h4>

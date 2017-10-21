@@ -30,8 +30,8 @@ class UserProfileCreationForm(forms.ModelForm):
         (False, "Female"),
     )
     IDENTITY_CHOICE = (
-        (False, "Customer"),
-        (True, "Artist"),
+        (True, "Customer"),
+        (False, "Artist"),
     )
     sex = forms.ChoiceField(choices=GENDER_CHOICES, widget=forms.RadioSelect(attrs={'display': 'inline-block'}))
     birthday = forms.CharField(required=True, )

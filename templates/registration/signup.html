@@ -1,77 +1,85 @@
-{% block content %}
+{% extends 'master.html' %}
 
-    <html>
-    <head>
-        {% load static %}
-        <link rel="stylesheet" href="{% static "ArtGallery/css/account.css" %}">
-        <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet"
-              id="bootstrap-css">
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <link rel="stylesheet" href="/resources/demos/style.css">
-        <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $("#id_username").attr('placeholder', '{{form.username.label}}');
-                $("#id_email").attr('placeholder', '{{form.password.label}}');
-            });
-            $(function () {
-                $("#id_birthday").datepicker({
-                    dateFormat: 'yy-mm-dd',
-                    changeMonth: true,
-                    changeYear: true,
-                    yearRange: "1950:1999"
-                });
-            });
-        </script>
-    </head>
-    <body style="background: url('{% static "ArtGallery/images/bg_login.jpg" %}') fixed">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-
-                <div class="wrap">
-                    <p class="form-title">
-                        Sign Up</p>
-                    <form class="login" method="post">
-                        {% csrf_token %}
-                        {% for field in form %}
-                            <p>
-                                {{ field.label_tag }}<br>
-                                {{ field }}
-                                {% if field.help_text %}
-                                    <small style="display: none">{{ field.help_text }}</small>
-                                {% endif %}
-                                {% for error in field.errors %}
-                                    <p style="color: red">{{ error }}</p>
-                                {% endfor %}
-                            </p>
-                        {% endfor %}
-                        {% for field in profile %}
-                            <p>
-                                {{ field.label_tag }}<br>
-                                {{ field }}
-                                {% if field.help_text %}
-                                    <small style="display: none">{{ field.help_text }}</small>
-                                {% endif %}
-                                {% for error in field.errors %}
-                                    <p style="color: red">{{ error }}</p>
-                                {% endfor %}
-                            </p>
-                        {% endfor %}
-
-                        <input type="submit" value="Sign Up" class="btn btn-success btn-sm"
-                               onclick="this.disabled=true,this.form.submit();"/>
-                        <input type="hidden" name="next" value="{{ next }}">
-
-                    </form>
+{% block body %}
+    <div id="portfolio" class="color white">
+        <div class="container">
+            <div class="wrapper span12">
+                <!-- start: Page Title -->
+                <div id="page-title">
+                    <div id="page-title-inner">
+                        <h2><span class="fa-icon-book"> Sign Up</span></h2>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    {# Assumes you setup the password_reset view in your URLconf #}
+    <div id="portfolio-wrapper" class="row-fluid">
+        <div class="span12">
+            <form class="login" method="post">
+                {% csrf_token %}
+                <div class="span3 offset3">
+                    {% for field in form %}
+                        <div>
+                            <label class="label label-important"
+                                   for="{{ field.id_for_label }}">{{ field.label_tag }}</label>
+                            <br/>
+                            {{ field }}
+                            {% if field.help_text %}
+                                <small style="display: none">{{ field.help_text }}</small>
+                            {% endif %}
+                            {% for error in field.errors %}
+                                <p style="color: red">{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="span5">
+                    {% for field in profile %}
+                        <div>
+                            <label class="label label-success"
+                                   for="{{ field.id_for_label }}">{{ field.label_tag }}</label>
+                            <br/>
+                            {{ field }}
+                            {% if field.help_text %}
+                                <small style="display: none">{{ field.help_text }}</small>
+                            {% endif %}
+                            {% for error in field.errors %}
+                                <p style="color: red">{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                    <br/>
+                    <div class="row-fluid">
+                        <input type="submit" value="Sign Up" class="btn btn-primary btn-large"
+                               onclick="this.disabled=true,this.form.submit();"/>
+                        <input type="hidden" name="next" value="{{ next }}">
+                    </div>
+                </div>
 
-    </body>
-    </html>
 
+            </form>
+        </div>
+
+
+    </div>
+
+{% endblock %}
+
+{% block js %}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#id_username").attr('placeholder', '{{form.username.label}}');
+            $("#id_email").attr('placeholder', '{{form.password.label}}');
+        });
+        $(function () {
+            $("#id_birthday").datepicker({
+                dateFormat: 'yy-mm-dd',
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "1950:1999"
+            });
+        });
+    </script>
+    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 {% endblock %}
