@@ -21,7 +21,6 @@ from .extra_apps import xadmin
 from .extra_apps.xadmin.plugins import xversion
 
 from ArtGallery.controllers import home_controller
-from ArtGallery.controllers import complaint_controller
 from ArtGallery.controllers import account_controller
 from ArtGallery.controllers import artwork_controller
 from ArtGallery.controllers import personal_controller
