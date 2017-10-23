@@ -21,11 +21,11 @@ from .extra_apps import xadmin
 from .extra_apps.xadmin.plugins import xversion
 
 from ArtGallery.controllers import home_controller
-from ArtGallery.controllers import views_complaints
+from ArtGallery.controllers import complaint_controller
 from ArtGallery.controllers import account_controller
 from ArtGallery.controllers import artwork_controller
 from ArtGallery.controllers import personal_controller
-from ArtGallery.controllers import artist_artworks_controller
+from ArtGallery.controllers import personal_artist_controller
 
 xadmin.autodiscover()
 xversion.register_models()
@@ -46,23 +46,24 @@ urlpatterns = [
     url(r'^customer/comments/$', personal_controller.PersonalComment.as_view(), name='customer_comment'),
 
     # Url configuration for artist users
-    url(r'^artist/settings/$', artist_artworks_controller.ArtistSetting.as_view(), name='artist_setting'),
-    url(r'^artist/favorites/$', artist_artworks_controller.PersonalFavorite.as_view(), name='artist_favorite'),
-    url(r'^artist/comments/$', artist_artworks_controller.PersonalComment.as_view(), name='artist_comment'),
-    url(r'^artist/artworks/$', artist_artworks_controller.ArtistArtwork.as_view(), name='artist_artwork'),
-    url(r'^artist/artworks/edit/(?P<artwork_id>[0-9]+)/$', artist_artworks_controller.ArtworkEdit.as_view(),
+    url(r'^artist/settings/$', personal_artist_controller.ArtistSetting.as_view(), name='artist_setting'),
+    url(r'^artist/favorites/$', personal_artist_controller.PersonalFavorite.as_view(), name='artist_favorite'),
+    url(r'^artist/comments/$', personal_artist_controller.PersonalComment.as_view(), name='artist_comment'),
+    url(r'^artist/artworks/$', personal_artist_controller.ArtistArtwork.as_view(), name='artist_artwork'),
+    url(r'^artist/artworks/edit/(?P<artwork_id>[0-9]+)/$', personal_artist_controller.ArtworkEdit.as_view(),
         name='edit_artwork'),
+
     # auction history, existed when the artwork has auction record, which means the artwork open auction already
-    url(r'^artist/artworks/edit/action/$', artist_artworks_controller.EditAction.as_view(), name='edit_action'),
-    url(r'^artist/artworks/edit/auction/(?P<artwork_id>[0-9]+)/$', artist_artworks_controller.ArtworkAuction.as_view(),
+    url(r'^artist/artworks/edit/action/$', personal_artist_controller.EditAction.as_view(), name='edit_action'),
+    url(r'^artist/artworks/edit/auction/(?P<artwork_id>[0-9]+)/$', personal_artist_controller.ArtworkAuction.as_view(),
         name='auctionSwitch'),
     url(r'^artist/artworks/auction_history/(?P<artwork_id>[0-9]+)/$',
-        artist_artworks_controller.ArtworkAuction.as_view(), name='auctionHistory'),
+        personal_artist_controller.ArtworkAuction.as_view(), name='auctionHistory'),
 
-    url(r'^artist/artworks/reward_history/(?P<artwork_id>[0-9]+)/$', artist_artworks_controller.ArtworkReward.as_view(),
+    url(r'^artist/artworks/reward_history/(?P<artwork_id>[0-9]+)/$', personal_artist_controller.ArtworkReward.as_view(),
         name='reward_history'),
 
-    url(r'^artist/artworks/delete/(?P<artwork_id>[0-9]+)/$', artist_artworks_controller.delete_artwork,
+    url(r'^artist/artworks/delete/(?P<artwork_id>[0-9]+)/$', personal_artist_controller.delete_artwork,
         name='delete_artwork'),
 
     # Login and Logout
@@ -71,29 +72,26 @@ urlpatterns = [
     url('^accounts/activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
         account_controller.activate, name='activate'),
 
-    # complaints need 4 urls, the art_info is fake one
-    url('^art_info/complaints/(?P<artwork_id>[0-9]+)$', views_complaints.edit_complaints, name='edit_complaints'),
-    url('^art_info/complaints_withdraw/(?P<artwork_id>[0-9]+)$', views_complaints.withdraw_complaints,
-        name='withdraw_complaints'),
-
-    url('^art_info/$', views_complaints.art_info),
-    url('^art_info/complaints/action/$', views_complaints.complaints_action, name='complaints_action'),
-
     # Home Page and Information Page
     url('^index/', home_controller.home_page, name='index'),
     url(r'^(?P<art_id>[0-9]+)/$', home_controller.detail, name='detail'),
     url(r'^art_list/$', home_controller.art_list, name='art_list'),
 
+    # complaints need 4 urls, the art_info is fake one
+    url('^artworks/complaints_withdraw/(?P<artwork_id>[0-9]+)/$', artwork_controller.withdraw_complaints,
+        name='withdraw_complaints'),
+    url('^artworks/complaints/action/(?P<artwork_id>[0-9]+)/$', artwork_controller.complaints_action,
+        name='complaints_action'),
+
     # Artwork Detail
     url(r'^artworks/(?P<aw_id>[0-9]+)/detail/$', artwork_controller.artwork_detail, name='aw'),
-    url(r'^artwork/(?P<aw_id>[0-9]+)/detail/comment/$', artwork_controller.ajax_comment, name='comment'),
-    url(r'^artwork/(?P<aw_id>[0-9]+)/detail/bid/$', artwork_controller.ajax_bid, name='bid'),
-    url(r'^artwork/(?P<aw_id>[0-9]+)/reward/$', artwork_controller.ajax_reward, name='reward'),
-
-    url(r'^artist/(?P<user_id>[0-9]+)/detail/$', artwork_controller.artist_detail, name='user'),
-
+    url(r'^artworks/(?P<aw_id>[0-9]+)/detail/comment/$', artwork_controller.ajax_comment, name='comment'),
+    url(r'^artworks/(?P<aw_id>[0-9]+)/detail/bid/$', artwork_controller.ajax_bid, name='bid'),
+    url(r'^artworks/(?P<aw_id>[0-9]+)/reward/$', artwork_controller.ajax_reward, name='reward'),
+    url(r'^artists/(?P<user_id>[0-9]+)/detail/$', artwork_controller.artist_detail, name='user'),
     url(r'^auction/(?P<auction_id>[0-9]+)/detail/$', artwork_controller.auction_detail, name='auction'),
 
+    # Administrator
     url(r'^xadmin/', xadmin.site.urls),
 ]
 

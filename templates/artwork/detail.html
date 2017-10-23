@@ -1,97 +1,281 @@
+{% extends 'master.html' %}
 
-{% block content %}
-    <html>
-    <head>
-        {% load static %}
-        <link rel="stylesheet" href="{% static "ArtGallery/css/artwork.css" %}">
-    </head>
-    <body>
-    <!-- Detail of artwork -->
-    <h1>Artwork</h1>
-    Picture: <img src="{{ aw.aw_img.url }}" height="420px"/> <br/>
-    Artwork title: {{ aw.aw_name }} <br/>
-    Artist: <a
-            href="{{ CONSTANT_NAME }}/artist/{{ aw.artist_id.id }}/detail">{{ aw.artist_id.first_name }} {{ aw.artist_id.last_name }}</a>
-    <br/>
-    Description: {{ aw.aw_description }} <br/>
-    Publish time: {{ aw.aw_time }} <br/>
-    Genre: {{ aw.aw_genre }} <br/>
-    Total award: {{ aw.aw_totalAward }} <br/>
-    Auction status: {{ aw.aw_auctionStat }} <br/>
+<!-- Detail of artwork -->
+{% block body %}
+    <div class="container">
+        <div class="wrapper span12">
 
-    <!-- bid -->
-    {% if identity %}
-        <h2> Bid </h2>
-        <p id="id_bidStatus">
-            You can bid {{ auction_record.ah_remaining }} times for this artwork. <br/>
-            Your bid price should be higher than $ {{ auction_record.ah_amount }}
-        </p>
-        <p id="id_bidError"/>
-        <form id="id_bidForm" name="bidForm" action="" method="POST">
-            {% csrf_token %}
-            {{ bid.as_p }}
-            <input type="submit" id="id_bidButton" name="bidButton" value="Bid"/>
-        </form>
-    {% endif %}
-    <!-- Comment list and post comment-->
-    <h2> Comments for this artwork </h2>
-
-    <div id="id_comment_display">
-        {% for item in comment %}
-            <p>
-                Author: {{ item.commenter_id.username }}<br/>
-                Time: {{ item.comment_time }}<br/>
-                Rating: {{ item.rating }}<br/>
-                Comment content: <br/>{{ item.comment_content }}<br/>
+            <div class="span8">
+                <div style="border-style: solid">
+                    <h3 class="text-center">{{ aw.aw_name }}</h3>
+                </div>
                 <br/>
-            </p>
-        {% endfor %}
+                <!-- Time, Location, and Complaint jump url -->
+                <div class="span2 text-right">
+                    <h2>Artist</h2>
+                    <a href="{% url 'user' aw.artist_id.id %}">{{ aw.artist_id.first_name }} {{ aw.artist_id.last_name }}</a>
+                    <hr/>
+                    <h3>Publish Time</h3>
+                    <p>{{ aw.aw_time }}</p>
+                    <h3>Location</h3>
+                    <p>{{ aw.aw_location }}</p>
+                </div>
+                <!-- Img Display, Comment, Favorite, Reward and Auction -->
+                <div class="span5">
+                    <div class="row-fluid">
+                        <img class="img-rounded img-responsive" src="{{ aw.aw_img.url }}"/>
+                    </div>
+                    <br/>
+                </div>
+                <div class="row-fluid text-center">
+                    <div class="span3">
+                        <span onclick="" class="row-fluid fa-icon-info-sign" style="font-size: 50px;"></span>
+
+                        {% if complaint_stat %}
+                            <a class="btn btn-warning" href="{% url 'withdraw_complaints' aw.id %}">
+                                Withdraw Complaint
+                            </a>
+                        {% else %}
+                            <button class="btn btn-warning" data-toggle="modal" data-target="#myComplaintModal"
+                                    {% if not identity %}disabled{% endif %}>
+                                Complaints
+                            </button>
+                        {% endif %}
+                    </div>
+                    <div class="span2">
+                        <!-- Button for favourite artwork -->
+                        <form id="favouriteForm" name="favouriteForm" action="" method="POST">
+                            {% csrf_token %}
+                            {% if favorite_stat %}
+                                <span onclick="" class="row-fluid fa-icon-heart" style="font-size: 50px;"></span>
+                            {% else %}
+                                <span class="row-fluid fa-icon-heart-empty" style="font-size: 50px;"></span>
+                            {% endif %}
+                            <input class="btn" type="submit" name="favouriteButton" value="Favorite">
+                        </form>
+
+                    </div>
+                    <div class="span2">
+                        <span class="row-fluid fa-icon-comment-alt" style="font-size: 50px;"></span>
+                        <button class="btn" data-toggle="modal" data-target="#myCommentModal">Comment</button>
+                    </div>
+                    <div class="span2">
+                        <span class="row-fluid fa-icon-thumbs-up" style="font-size: 50px;"></span>
+                        <button class="btn" data-toggle="modal" data-target="#myRewardModal"
+                                {% if not identity %}disabled{% endif %}>Reward
+                        </button>
+                    </div>
+                    <div class="span2">
+                        <span class="row-fluid fa-icon-money" style="font-size: 50px;"></span>
+                        <button class="btn" data-toggle="modal" data-target="#myBidModal"
+                                {% if not identity %}disabled{% endif %}>Bid
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Description, Info, Rewards Histories and Auction Record -->
+            <div class="span3">
+                <div style="border-style: solid">
+                    <h4 class="label-important">DESCRIPTION</h4>
+                    <p>{{ aw.aw_description }}</p>
+
+                    <label class="label-info">GENRE</label>
+                    <a>{{ aw.aw_genre }}</a>
+                    <label class="label-info">TYPE</label>
+                    <a>{{ aw.aw_type }}</a>
+                </div>
+                <br/>
+                <div style="border-style: solid">
+                    <h4 class="label-default">TOTAL REWARDS</h4>
+                    $<label class="label label-warning">{{ aw.aw_totalAward }}</label>
+                    <table id="id_rewardTable">
+                        <tr>
+                            <th>Contributor</th>
+                            <th>Time</th>
+                            <th>Amount</th>
+
+                        </tr>
+                        {% for item in reward %}
+                            <tr>
+                                <td>{{ item.customer_id.username }}</td>
+                                <td>{{ item.reward_time }}</td>
+                                <td class="label label-warning">{{ item.reward_amount }}</td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+                <br/>
+                <div style="border-style: solid">
+                    <h4 class="label-important">AUCTION STATUS</h4>
+                    {% if aw_auctionStat %}
+                        <span class="fa-icon-unlock"> OPEN</span>
+                    {% else %}
+                        <span class="fa-icon-lock"> CLOSE</span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
     </div>
 
-    <h2> Post comment </h2>
-    <p id="id_commentError">
-        For security reasons, we do not allow you to submit any text with special characteristics /, < and $.
-    </p>
-    <form id="id_commentForm" name="commentForm" action="" method="POST">
-        {% csrf_token %}
-        {{ form.as_p | escape }}
-        <input type="submit" id="id_commentButton" name="commentButton" value="Post Comment"/>
-    </form>
+    <div class="wrapper span12">
+        <hr/>
+    </div>
+    <div class="wrapper span12">
+        <!-- Comment list and post comment-->
+        <h1>Comments</h1>
+        <div>
+            <table id="id_comment_display" class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>Author</th>
+                    <th>Content</th>
+                    <th>Rating</th>
+                    <th>Time</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for item in comment %}
+                    <tr>
+                        <td>{{ item.commenter_id.username }}</td>
+                        <td>{{ item.comment_content }}</td>
+                        <td>{{ item.rating }}</td>
+                        <td>{{ item.comment_time }}</td>
+                    </tr>
+                {% endfor %}
 
-    <!-- Reward link and reward record -->
-    {% if identity %}
-        <h2>Reward</h2>
-        <p id="id_rewardError"></p>
-        <form id="id_rewardForm" name="rewardForm" action="" method="POST">
-            {% csrf_token %}
-            {{ reward_form.as_p }}
-            <input type="submit" value="Pay" id='id_rewardButton' name="rewardButton"/>
-        </form>
-    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 
-    <table id="id_rewardTable">
-        <tr>
-            <th>Contributor</th>
-            <th>Reward time</th>
-            <th>amount</th>
+    <!-- Comment, Reward, Bid and Complaint Modal Information -->
+    <div class="modal fade" id="myCommentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h3 class="modal-title" id="myModalLabel">Post Comment</h3>
+                </div>
+                <form id="id_commentForm" name="commentForm" action="" method="POST">
+                    <div class="modal-body">
+                        <label class="label-important" id="id_commentError"></label>
+                        {% csrf_token %}
+                        {{ form.as_p | escape }}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <input class="btn btn-success" type="submit" id="id_commentButton" name="commentButton"
+                               value="Post Comment"/>
+                    </div>
+                </form>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
 
-        </tr>
-        {% for item in reward %}
-            <tr>
-                <td>{{ item.customer_id.username }}</td>
-                <td>{{ item.reward_time }}</td>
-                <td>{{ item.reward_amount }}</td>
-            </tr>
-        {% endfor %}
-    </table>
+    <div class="modal fade" id="myRewardModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h3 class="modal-title" id="myModalLabel">Reward</h3>
+                </div>
+                <form id="id_rewardForm" name="rewardForm" action="" method="POST">
+                    <div class="modal-body">
+                        <label class="label label-important" id="id_rewardError"></label>
+                        {% csrf_token %}
+                        {{ reward_form.as_p }}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <input class="btn btn-success" type="submit" id="id_rewardButton" name="rewardButton"
+                               value="Pay"/>
+                    </div>
+                </form>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
 
-    <!-- Button for favourite artwork -->
-    <h2> Add to or Remove from favourite list</h2>
-    <form id="favouriteForm" name="favouriteForm" action="" method="POST">
-        {% csrf_token %}
-        <input type="submit" name="favouriteButton" value="Add to/ Remove from favourite list"/>
-    </form>
-    </body>
+    <div class="modal fade" id="myBidModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h3 class="modal-title" id="myModalLabel">Auction (Bid)</h3>
+                </div>
+                <form id="id_bidForm" name="bidForm" action="" method="POST">
+                    <div class="modal-body">
+                        <p id="id_bidStatus">
+                            You can bid {{ auction_record.ah_remaining }} times for this artwork. <br/>
+                            Your bid price should be higher than $ {{ auction_record.ah_amount }}
+                        </p>
+                        <p id="id_bidError"/>
+
+                        {% csrf_token %}
+                        {{ bid.as_p }}
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <input class="btn btn-success" type="submit" id="id_bidButton" name="bidButton" value="Bid"/>
+                    </div>
+                </form>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+
+    <div class="modal fade" id="myComplaintModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h3 class="modal-title" id="myModalLabel">Complaint</h3>
+                </div>
+                <form action="{% url 'complaints_action' aw.id %}" method="post" id="form1" name="form1">
+                    <div class="modal-body">
+                        {% csrf_token %}
+                        <!-- fetch the artwork.id -->
+                        <input type="hidden" name="artwork_id" value="{{ aw.id }}"/>
+                        <label class="label label-important">Artwork Name:</label>
+                        <label>{{ aw.aw_name }}</label>
+                        <br/>
+                        <label class="label label-important">Artist:</label>
+                        <label>{{ request.user.first_name }}&nbsp{{ request.user.last_name }}</label>
+                        <br/>
+                        <label class="label label-important">Choose Complaint type</label><br/>
+                        <select name="complaint_type" id="select_k1" class="xla_k select2-choices">
+                            <option value="Illegal"></option>
+                            <option value="Illegal">Illegal</option>
+                            <option value="Plagiarism">Plagiarism</option>
+                            <option value="Advertisement">Advertisement</option>
+                            <option value="Counterfeit">Counterfeit</option>
+                            <option value="Others">Others</option>
+                        </select>
+                        <br/>
+                        <label class="label label-important">Complaint content:</label>
+                        <br/>
+                        <textarea class="textarea-field input-block-level" name="complaint_content" cols=40
+                                  rows=4></textarea>
+                        <br/>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <input class="btn btn-warning" type="submit" name="submit" value="Complaint"
+                               onclick="formSubmit()" id="Btn"/>
+                    </div>
+                </form>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+
+{% endblock %}
+
+{% block js %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
         $('#id_commentButton').click(function () {
@@ -115,18 +299,31 @@
 
                     else {
                         var json = jQuery.parseJSON(data);
-                        var content = "<div id = \"id_comment_display\">"; // Div head
-                        // Read data and append to content
+                        var content = "<table id=\"id_comment_display\">\n" +
+                            "        <thead>\n" +
+                            "        <tr>\n" +
+                            "            <th>Author</th>\n" +
+                            "            <th>Content</th>\n" +
+                            "            <th>Rating</th>\n" +
+                            "            <th>Time</th>\n" +
+                            "\n" +
+                            "        </tr>\n" +
+                            "        </thead>" +
+                            "<tbody>\n";  //Table head
                         for (i = 0; i < json.length; i++) {
-
-                            content += "<p>" + "Author: " + json[i].fields.commenter_id + "<br />" +
-                                "Time: " + json[i].fields.comment_time + "<br />" +
-                                "Rating: " + json[i].fields.rating + "<br />" +
-                                "Comment content: " + "<br />" + json[i].fields.comment_content + "<br />" + "<br />" + "</p>"
+                            content +=
+                                "<tr>\n" +
+                                "            <td>" + json[i].fields.commenter_id + "</td>\n" +
+                                "            <td>" + json[i].fields.comment_content + "</td>\n" +
+                                "            <td>" + parseFloat(json[i].fields.rating) + "</td>\n" +
+                                "            <td>" + json[i].fields.comment_time + "</td>\n" +
+                                "        </tr>"
+                            content += "</tbody>"
                         }
-                        content += "</div>";
-                        $('#id_commentError').text("success");
+                        content += "</table>";
                         $('#id_comment_display').html(content);
+                        $('#id_commentError').text("success");
+                        $("#myCommentModal .close").click()
                     }
                 }
             });
@@ -155,7 +352,7 @@
                 }
             })
             return false;
-        })
+        });
 
         $('#id_rewardButton').click(function () {
             $.ajax({
@@ -185,18 +382,28 @@
                             content += "<tr>\n" +
                                 "            <td>" + json[i].fields.customer_id + "</td>\n" +
                                 "            <td>" + json[i].fields.reward_time + "</td>\n" +
-                                "            <td>" + json[i].fields.reward_amount + "</td>\n" +
+                                "            <td class='label label-warning'>" + json[i].fields.reward_amount + "</td>\n" +
                                 "        </tr>"
                             content += "</tr>"
                         }
                         content += "</table>"
-                        $('#id_rewardError').text("success");
                         $('#id_rewardTable').html(content);
+                        location.reload();
                     }
                 }
             })
             return false;
         });
     </script>
-    </html>
+    <script type="text/javascript">
+        function formSubmit() {
+            var msg = "Are you sure to complain this artwork?";
+            if (confirm(msg) == true) {
+                return true;
+            }
+            else {
+                document.form1.action = "{% url 'aw' aw.id %}";
+            }
+        }
+    </script>
 {% endblock %}

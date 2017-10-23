@@ -4,7 +4,8 @@ from django.core import serializers
 from _datetime import datetime
 from ArtGallery.forms import CommentForm, RewardForm, BidForm
 from django.shortcuts import render, get_object_or_404, HttpResponseRedirect, reverse
-from ArtGallery.models import ArtWork, UserProfile, AuctionHistory, AuctionRecord, Comment, Reward, FavoriteRecord
+from ArtGallery.models import ArtWork, UserProfile, AuctionHistory, AuctionRecord, Comment, Reward, FavoriteRecord, \
+    Complaint
 from django.views.decorators.csrf import csrf_exempt
 from django.db import transaction
 from django.contrib.auth.models import User
@@ -19,7 +20,14 @@ def artwork_detail(request, aw_id):
     comment = Comment.objects.filter(aw_id_id=aw_id)
     reward = Reward.objects.filter(aw_id_id=aw_id)
     favourite = FavoriteRecord.objects.filter(aw_id_id=aw_id, artist_id_id=request.user.id)
+    favorite_stat = False if favourite.count() == 0 else True
     profile = get_object_or_404(UserProfile, pk=request.user.id)
+    complaint = Complaint.objects.filter(aw_id=aw_id, customer_id=request.user.id)
+
+    if complaint.count() > 0:
+        complaint_stat = True
+    else:
+        complaint_stat = False
 
     # get auction status for current user
     auction_list = AuctionHistory.objects.filter(customer_id_id=request.user.id)
@@ -45,7 +53,7 @@ def artwork_detail(request, aw_id):
             else:
                 favourite.delete()
             return HttpResponseRedirect(reverse('aw', args=(aw.id,)))
-    if profile.identity == True:  # customer
+    if profile.identity:  # customer
         return render(request, "artwork/detail.html", {'form': form,
                                                        'aw': aw,
                                                        'comment': comment,
@@ -53,7 +61,9 @@ def artwork_detail(request, aw_id):
                                                        'bid': bid_form,
                                                        'auction_record': auction_record,
                                                        'identity': True,
-                                                       'reward_form': reward_form
+                                                       'reward_form': reward_form,
+                                                       'favorite_stat': favorite_stat,
+                                                       'complaint_stat': complaint_stat,
                                                        })
     else:  # artist
         return render(request, "artwork/detail.html", {'form': form,
@@ -62,6 +72,8 @@ def artwork_detail(request, aw_id):
                                                        'auction_record': auction_record,
                                                        'reward': reward,
                                                        'identity': False,
+                                                       'favorite_stat': favorite_stat,
+                                                       'complaint_stat': complaint_stat,
                                                        })
 
 
@@ -105,9 +117,14 @@ def ajax_reward(request, aw_id):
                 customer_id_id=request.user.id,
                 aw_id_id=aw_id
             )
+            # Modify artwork information
+            profile.amount = balance - content
+            aw = ArtWork.objects.get(pk=aw_id)
+            aw.aw_totalAward += new_reward.reward_amount
+            aw.save()
+
             new_reward.save()
             # deduce the balance
-            profile.amount = balance - content
             profile.save()
             reward = Reward.objects.filter(aw_id_id=aw_id)
             data = serializers.serialize('json', reward)
@@ -179,3 +196,31 @@ def ajax_bid(request, aw_id):
             new_history.save()
             return HttpResponse('{"status": "success"}',
                                 content_type='application/json')
+
+
+def complaints_action(request, artwork_id):
+    complaint = Complaint.objects.filter(aw_id=artwork_id, customer_id=request.user.id)
+    if complaint:
+        return HttpResponseRedirect(reverse('customer_complaint'))
+    else:
+        # not write: fetch session customer_id
+        complaint_type = request.POST.get('complaint_type', 'ILLEGAL')
+        complaint_content = request.POST.get('complaint_content', 'COMPLAINTS')
+        complaint_time = datetime.now()
+        Complaint.objects.create(complaint_type=complaint_type, complaint_content=complaint_content,
+                                 complaint_time=complaint_time, aw_id_id=artwork_id, customer_id=request.user)
+
+        # return render(request, 'complaint/art_info.html', {'warning': 'Complained Successfully!'})
+
+        return HttpResponseRedirect(reverse('customer_complaint'))
+
+
+def withdraw_complaints(request, artwork_id):
+    for complaint in Complaint.objects.all():
+        if complaint.aw_id_id == int(artwork_id):
+            if complaint.customer_id_id == request.user.id:
+                Complaint.objects.filter(id=complaint.id).delete()
+                return HttpResponseRedirect(reverse('customer_complaint'))
+
+                # return render(request, 'complaint/art_info.html', {'warning': 'Withdraw successfully!'})
+                # return render(request, 'complaint/art_info.html', {'warning': 'You did not complained this artwork before!'})

@@ -82,11 +82,11 @@
             <br/>
             <a class="span3"></a>
             <label class="span2"><b>ACCOUNT</b></label>
-            <input class="input--kohana" id="username" type="text" value="0.0"
-                   class="span4 input-block-level"/>
+
+            <label class="label label-important">${{ user_profile.amount }}</label>
             <br/>
             <div class="row-fluid offset4">
-                <input id="jsDepositForm" type="button" value="DEPOSIT MONEY"/>
+                <input id="jsDepositBtn" type="button" value="DEPOSIT MONEY"/>
             </div>
             <br/>
             {% csrf_token %}
@@ -162,6 +162,9 @@
                     $('#jsEditInfoBtn').disabled = false;
                 }
             })
+        });
+        $('#jsDepositBtn').click(function () {
+
         })
     </script>
 {% endblock %}

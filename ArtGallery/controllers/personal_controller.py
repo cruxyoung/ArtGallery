@@ -140,9 +140,11 @@ class PersonalComment(View):
 
 class PersonalSetting(View):
     def get(self, request):
+        user_profile = models.UserProfile.objects.get(user_id=request.user.id)
         return render(request,
                       'personal_center/personal_center_settings.html',
-                      {'customer': request.user})
+                      {'customer': request.user,
+                       'user_profile': user_profile})
 
     def post(self, request):
         modify_form = forms.ModifyPwdForm(request.POST)
