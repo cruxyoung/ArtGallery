@@ -77,24 +77,21 @@
             {% csrf_token %}
         </form>
         <br/>
-        <form id="jsDepositForm" autocomplete="off">
+{#         <form id="jsDepositForm" autocomplete="off">#}
             <br/>
             <br/>
             <a class="span3"></a>
             <label class="span2"><b>ACCOUNT</b></label>
-            <input class="input--kohana" id="username" type="text" value="0.0"
-                   class="span4 input-block-level"/>
+
+            <label class="label label-important">${{ user_profile.amount }}</label>
             <br/>
-            <div class="row-fluid offset4">
-                <input id="jsDepositForm" type="button" value="DEPOSIT MONEY"/>
-            </div>
+{#            <div class="row-fluid offset4">#}
+{#                <input id="jsDepositBtn" type="button" value="DEPOSIT MONEY"/>#}
+{#            </div>#}
             <br/>
-        </form>
+{#            {% csrf_token %}#}
+{#        </form>#}
     </div>
-    <!-- Display Area -->
-{#    <div id="guess_what">#}
-{#        <button id="haha">123</button>#}
-{#    </div>#}
 
 {% endblock %}
 

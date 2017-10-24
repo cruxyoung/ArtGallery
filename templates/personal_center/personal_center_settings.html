@@ -77,22 +77,43 @@
             {% csrf_token %}
         </form>
         <br/>
-        <form id="jsDepositForm" autocomplete="off">
-            <br/>
-            <br/>
-            <a class="span3"></a>
-            <label class="span2"><b>ACCOUNT</b></label>
+        <br/>
+        <br/>
+        <a class="span3"></a>
+        <label class="span2"><b>ACCOUNT</b></label>
 
-            <label class="label label-important">${{ user_profile.amount }}</label>
-            <br/>
-            <div class="row-fluid offset4">
-                <input id="jsDepositBtn" type="button" value="DEPOSIT MONEY"/>
-            </div>
-            <br/>
-            {% csrf_token %}
-        </form>
+        <label id="my_money" class="label label-important">${{ user_profile.amount }}</label>
+        <br/>
+        <div class="row-fluid offset4">
+            <button class="button" data-toggle="modal" data-target="#myAccountModal">DEPOSIT MONEY
+            </button>
+        </div>
+        <br/>
+
     </div>
-    <!-- Display Area -->
+
+    <div class="modal fade" id="myAccountModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h3 class="modal-title" id="myModalLabel">DEPOSIT MONEY</h3>
+                </div>
+                <form id="jsDepositForm" autocomplete="off">
+                    <div class="modal-body">
+                        {% csrf_token %}
+                        <span class="fa-icon-money"></span><br/>
+                        <input type="number" id="money" name="money" step="1" value="0.0"/>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <input class="button" type="button" id="jsDepositBtn" value="Deposit"/>
+                    </div>
+                </form>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
 
 {% endblock %}
 
@@ -101,6 +122,7 @@
         function scrollToInformation() {
             window.scrollTo(0, 50);
         }
+
         function scrollToSecurity() {
             window.scrollTo(0, 300);
         }
@@ -142,6 +164,7 @@
                 }
             })
         });
+
         $('#jsEditInfoBtn').on('click', function () {
             $(this).disabled = true;
             $.ajax({
@@ -163,8 +186,21 @@
                 }
             })
         });
-        $('#jsDepositBtn').click(function () {
 
+        $('#jsDepositBtn').click(function () {
+            $(this).disabled = true;
+            $.ajax({
+                cache: false,
+                type: "POST",
+                dataType: 'json',
+                url: "{% url 'deposit_money' %}",
+                data: $('#jsDepositForm').serialize(),
+                async: true,
+                success: function (data) {
+                    $('#my_money').text('$' + data.amount);
+                    $('#jsDepositBtn').disabled = false;
+                }
+            })
         })
     </script>
 {% endblock %}

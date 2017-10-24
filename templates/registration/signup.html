@@ -20,9 +20,9 @@
                 <div class="span3 offset3">
                     {% for field in form %}
                         <div>
-                            <label class="label label-important"
+
+                            <label
                                    for="{{ field.id_for_label }}">{{ field.label_tag }}</label>
-                            <br/>
                             {{ field }}
                             {% if field.help_text %}
                                 <small style="display: none">{{ field.help_text }}</small>
@@ -33,12 +33,13 @@
                         </div>
                     {% endfor %}
                 </div>
-                <div class="span5">
+                <div class="span3">
                     {% for field in profile %}
                         <div>
-                            <label class="label label-success"
+
+                            <label
                                    for="{{ field.id_for_label }}">{{ field.label_tag }}</label>
-                            <br/>
+
                             {{ field }}
                             {% if field.help_text %}
                                 <small style="display: none">{{ field.help_text }}</small>

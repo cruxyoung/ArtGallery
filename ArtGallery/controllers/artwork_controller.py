@@ -210,8 +210,6 @@ def complaints_action(request, artwork_id):
         Complaint.objects.create(complaint_type=complaint_type, complaint_content=complaint_content,
                                  complaint_time=complaint_time, aw_id_id=artwork_id, customer_id=request.user)
 
-        # return render(request, 'complaint/art_info.html', {'warning': 'Complained Successfully!'})
-
         return HttpResponseRedirect(reverse('customer_complaint'))
 
 
@@ -220,7 +218,4 @@ def withdraw_complaints(request, artwork_id):
         if complaint.aw_id_id == int(artwork_id):
             if complaint.customer_id_id == request.user.id:
                 Complaint.objects.filter(id=complaint.id).delete()
-                return HttpResponseRedirect(reverse('customer_complaint'))
-
-                # return render(request, 'complaint/art_info.html', {'warning': 'Withdraw successfully!'})
-                # return render(request, 'complaint/art_info.html', {'warning': 'You did not complained this artwork before!'})
+                return HttpResponseRedirect(reverse('aw', args=(artwork_id,)))

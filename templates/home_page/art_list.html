@@ -181,17 +181,14 @@
 
                         $.each(data, function (k, v) {
                             /// do stuff
-                            {#                            alert(k+":"+v.aw_name);#}
-{#                            $("#list").append('<li>' + v.aw_name + ':' + v.aw_genre + '</li>')#}
                             $("#searchlist").append('<div class="well search-result"> <div class="row"> <a href="#">'
                                 +'<div class="col-xs-6 col-sm-3 col-md-3 col-lg-2">'
                                 +'<img class="img-responsive" src="/artwork/'+v.aw_img+'" alt="">'
                                 +'</div>'
                                     +'<div class="col-xs-6 col-sm-9 col-md-9 col-lg-10 title">'
-                                    +'<h3>'+ v.aw_name+'</h3>'
-                                    +'<p>'+ v.aw_description+'</p>'
+                                    +'<h3>'+'<a href="../artworks/'+v.id+'/detail/">'+ v.aw_name+'</a>'+'</h3>'
+                                +'<p>'+ v.aw_description+'</p>'
                                     +'</div>'
-                                +'</a>'
                                 +'</div>'
                                 +'</div>')
 

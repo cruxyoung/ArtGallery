@@ -37,7 +37,8 @@ urlpatterns = [
 
     url(r'^customer/settings/$', personal_controller.PersonalSetting.as_view(), name='setting'),
     url(r'^customer/settings/change_pwd/$', personal_controller.PersonalSetting.as_view(), name='change_pwd'),
-    url(r'^customer/settings/edit_info/$', personal_controller.UserInfoView.as_view(), name='edit_info'),
+    url(r'^user/settings/edit_info/$', personal_controller.UserInfoView.as_view(), name='edit_info'),
+    url(r'^user/settings/deposit_money/$', personal_controller.DepositMoney.as_view(), name='deposit_money'),
 
     url(r'^customer/complaints/$', personal_controller.PersonalComplaint.as_view(), name='customer_complaint'),
     url(r'^customer/rewards/$', personal_controller.PersonalReward.as_view(), name='customer_reward'),

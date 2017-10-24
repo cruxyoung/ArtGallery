@@ -198,3 +198,14 @@ class PersonalComplaint(View):
                        'complaints': comments_pag,
                        'complaints_nums': complaints_nums,
                        })
+
+
+class DepositMoney(View):
+    def post(self, request):
+        user_profile = models.UserProfile.objects.get(user_id=request.user.id)
+        deposit_money = float(request.POST.get('money', '0.0'))
+
+        user_profile.amount += deposit_money
+        user_profile.save()
+
+        return HttpResponse('{"amount": ' + str(user_profile.amount) + '}', content_type='application/json')

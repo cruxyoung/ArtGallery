@@ -6,7 +6,7 @@
         <div class="wrapper span12">
 
             <div class="span8">
-                <div style="border-style: solid">
+                <div style="border-style: solid; border-width: 1px;">
                     <h3 class="text-center">{{ aw.aw_name }}</h3>
                 </div>
                 <br/>
@@ -77,7 +77,7 @@
 
             <!-- Description, Info, Rewards Histories and Auction Record -->
             <div class="span3">
-                <div style="border-style: solid">
+                <div style="border-style: solid;border-width: 1px;">
                     <h4 class="label-important">DESCRIPTION</h4>
                     <p>{{ aw.aw_description }}</p>
 
@@ -87,7 +87,7 @@
                     <a>{{ aw.aw_type }}</a>
                 </div>
                 <br/>
-                <div style="border-style: solid">
+                <div style="border-style: solid;border-width: 1px;">
                     <h4 class="label-default">TOTAL REWARDS</h4>
                     $<label class="label label-warning">{{ aw.aw_totalAward }}</label>
                     <table id="id_rewardTable">
@@ -107,7 +107,7 @@
                     </table>
                 </div>
                 <br/>
-                <div style="border-style: solid">
+                <div style="border-style: solid;border-width: 1px;">
                     <h4 class="label-important">AUCTION STATUS</h4>
                     {% if aw_auctionStat %}
                         <span class="fa-icon-unlock"> OPEN</span>
@@ -159,7 +159,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     <h3 class="modal-title" id="myModalLabel">Post Comment</h3>
                 </div>
-                <form id="id_commentForm" name="commentForm" action="" method="POST">
+                <form id="id_commentForm" name="commentForm" method="POST">
                     <div class="modal-body">
                         <label class="label-important" id="id_commentError"></label>
                         {% csrf_token %}
@@ -183,7 +183,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     <h3 class="modal-title" id="myModalLabel">Reward</h3>
                 </div>
-                <form id="id_rewardForm" name="rewardForm" action="" method="POST">
+                <form id="id_rewardForm" name="rewardForm" method="POST">
                     <div class="modal-body">
                         <label class="label label-important" id="id_rewardError"></label>
                         {% csrf_token %}
@@ -228,6 +228,7 @@
         </div><!-- /.modal -->
     </div>
 
+
     <div class="modal fade" id="myComplaintModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
          aria-hidden="true">
         <div class="modal-dialog">
@@ -236,11 +237,9 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     <h3 class="modal-title" id="myModalLabel">Complaint</h3>
                 </div>
-                <form action="{% url 'complaints_action' aw.id %}" method="post" id="form1" name="form1">
+                <form id="id_complaintForm" name="complaintForm" action="{% url 'complaints_action' aw.id %}" method="POST">
                     <div class="modal-body">
                         {% csrf_token %}
-                        <!-- fetch the artwork.id -->
-                        <input type="hidden" name="artwork_id" value="{{ aw.id }}"/>
                         <label class="label label-important">Artwork Name:</label>
                         <label>{{ aw.aw_name }}</label>
                         <br/>
@@ -248,7 +247,7 @@
                         <label>{{ request.user.first_name }}&nbsp{{ request.user.last_name }}</label>
                         <br/>
                         <label class="label label-important">Choose Complaint type</label><br/>
-                        <select name="complaint_type" id="select_k1" class="xla_k select2-choices">
+                        <select name="complaint_type" id="select_k1" class="select2-choices">
                             <option value="Illegal"></option>
                             <option value="Illegal">Illegal</option>
                             <option value="Plagiarism">Plagiarism</option>
@@ -266,7 +265,7 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                         <input class="btn btn-warning" type="submit" name="submit" value="Complaint"
-                               onclick="formSubmit()" id="Btn"/>
+                           id="id_complaintBtn"/>
                     </div>
                 </form>
             </div><!-- /.modal-content -->
@@ -394,16 +393,7 @@
             })
             return false;
         });
+
     </script>
-    <script type="text/javascript">
-        function formSubmit() {
-            var msg = "Are you sure to complain this artwork?";
-            if (confirm(msg) == true) {
-                return true;
-            }
-            else {
-                document.form1.action = "{% url 'aw' aw.id %}";
-            }
-        }
-    </script>
+
 {% endblock %}
