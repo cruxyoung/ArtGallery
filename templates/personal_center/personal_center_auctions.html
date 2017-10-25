@@ -20,7 +20,8 @@
             <div class="span3 portfolio-item website html5 css3 responsive">
                 <div class="picture">
                     <a href="">
-                        <a href="{% url 'aw' auction.ar_id.aw_id.id %}"><img src="{{ auction.ar_id.aw_id.aw_img.url }}" alt="" style="height: 200px;"/></a>
+                        <a href="{% url 'aw' auction.ar_id.aw_id.id %}"><img src="{{ auction.ar_id.aw_id.aw_img.url }}"
+                                                                             alt="" style="height: 200px;"/></a>
                         <div class="image-overlay-link"></div>
                     </a>
                 </div>
@@ -32,8 +33,7 @@
                     <h4>Your bid at {{ auction.ah_aucTime }}</h4>
                     <h4>Set-price <b>${{ auction.ar_id.ar_originalPrice }}</b></h4>
                     <h4>Your-Price <b>${{ auction.ah_amount }}</b></h4>
-                    <button class="btn">Bid Again</button>
-                    <a style="color: red">2 times left</a>
+                    <a href="{% url 'aw' auction.ar_id.aw_id.id %}" class="btn btn-success">Bid Again</a>
                 </div>
             </div>
         </div>

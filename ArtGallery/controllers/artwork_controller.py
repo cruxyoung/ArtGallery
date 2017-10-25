@@ -8,7 +8,7 @@ from ArtGallery.models import ArtWork, UserProfile, AuctionHistory, AuctionRecor
     Complaint
 from django.views.decorators.csrf import csrf_exempt
 from django.db import transaction
-from django.contrib.auth.models import User
+from django.db.models import Q
 
 
 # Detail page (artwork) logic:
@@ -23,18 +23,21 @@ def artwork_detail(request, aw_id):
     favorite_stat = False if favourite.count() == 0 else True
     profile = get_object_or_404(UserProfile, pk=request.user.id)
     complaint = Complaint.objects.filter(aw_id=aw_id, customer_id=request.user.id)
-
-    if complaint.count() > 0:
-        complaint_stat = True
+    complaint_stat = True if complaint.count() > 0 else False
+    bid = AuctionRecord.objects.filter(aw_id=aw_id)
+    if bid.count() > 0:
+        bid_stat = True
+        num_bid = AuctionHistory.objects.filter(ar_id=bid[0].id).count()
     else:
-        complaint_stat = False
+        bid_stat = False
+        num_bid = -1
 
     # get auction status for current user
     auction_list = AuctionHistory.objects.filter(customer_id_id=request.user.id)
     if auction_list.count() > 0:
         auction_record = auction_list.latest('ah_aucTime')
     else:
-        auction_record = AuctionHistory(ah_remaining=3, ah_amount=0.01)
+        auction_record = AuctionHistory(ah_remaining=3, ah_amount=bid[0].ar_originalPrice)
     form = CommentForm()
     bid_form = BidForm()
     reward_form = RewardForm()
@@ -64,6 +67,8 @@ def artwork_detail(request, aw_id):
                                                        'reward_form': reward_form,
                                                        'favorite_stat': favorite_stat,
                                                        'complaint_stat': complaint_stat,
+                                                       'bid_stat': bid_stat,
+                                                       'num_bid': num_bid,
                                                        })
     else:  # artist
         return render(request, "artwork/detail.html", {'form': form,
@@ -74,6 +79,8 @@ def artwork_detail(request, aw_id):
                                                        'identity': False,
                                                        'favorite_stat': favorite_stat,
                                                        'complaint_stat': complaint_stat,
+                                                       'bid_stat': bid_stat,
+                                                       'num_bid': num_bid,
                                                        })
 
 
@@ -86,13 +93,14 @@ def artist_detail(request, user_id):
     return render(request, "artist/detail.html", {'user': user, 'aw': aw})
 
 
-# Detail page (auction) logic:
-@transaction.atomic
-@csrf_exempt
-def auction_detail(request, auction_id):
-    auction_record = get_object_or_404(AuctionRecord, pk=auction_id)
-    auction_history = AuctionHistory.objects.filter(ar_id_id=auction_id)
-    return render(request, "auction/detail.html", {'record': auction_record, 'history': auction_history})
+#
+# # Detail page (auction) logic:
+# @transaction.atomic
+# @csrf_exempt
+# def auction_detail(request, auction_id):
+#     auction_record = get_object_or_404(AuctionRecord, pk=auction_id)
+#     auction_history = AuctionHistory.objects.filter(ar_id_id=auction_id)
+#     return render(request, "auction/detail.html", {'record': auction_record, 'history': auction_history})
 
 
 # Payment page (reward)
@@ -167,11 +175,12 @@ def ajax_comment(request, aw_id):
 @csrf_exempt
 def ajax_bid(request, aw_id):
     form = BidForm(request.POST)
+    bid = AuctionRecord.objects.get(aw_id=aw_id)
     record = AuctionHistory.objects.filter(customer_id_id=request.user.id)  # get all request list
     # If no record in the history, set the lowest price to 0, set the remaining times to 3
     if record.count() == 0:
         remaining = 3
-        lowest_price = 0.0
+        lowest_price = bid.ar_originalPrice
     else:
         # find the remaining times and lowest price in record
         remaining = record.latest('ah_aucTime').ah_remaining
@@ -191,13 +200,24 @@ def ajax_bid(request, aw_id):
             )
             if float(new_history.ah_amount) <= lowest_price:
                 return HttpResponse('{"status": "fail", '
-                                    '"msg": "The bid price should be higher than the price that your bid before"}',
+                                    '"msg": "The bid price should be higher than your last bid and original price!"}',
                                     content_type='application/json')
             new_history.save()
             return HttpResponse('{"status": "success"}',
                                 content_type='application/json')
 
 
+def complaints_edit(request, artwork_id):
+    aw = ArtWork.objects.get(pk=artwork_id)
+    complaint = Complaint.objects.filter(Q(aw_id=artwork_id, customer_id=request.user.id))
+    complaint_stat = True if complaint.count() > 0 else False
+    return render(request,
+                  'artwork/aw_complaint.html',
+                  {'aw': aw,
+                   'complaint_stat': complaint_stat})
+
+
+# create complaint action
 def complaints_action(request, artwork_id):
     complaint = Complaint.objects.filter(aw_id=artwork_id, customer_id=request.user.id)
     if complaint:
@@ -213,6 +233,7 @@ def complaints_action(request, artwork_id):
         return HttpResponseRedirect(reverse('customer_complaint'))
 
 
+# cancel the created complaint record
 def withdraw_complaints(request, artwork_id):
     for complaint in Complaint.objects.all():
         if complaint.aw_id_id == int(artwork_id):

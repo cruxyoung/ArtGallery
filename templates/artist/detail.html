@@ -1,23 +1,40 @@
-<h1>Artist</h1>
-
-Artist Name: {{ user.user_id.first_name }} {{ user.user_id.last_name }} <br />
-Birthday: {{ user.birthday }} <br />
-His artworks:
-<table>
-    <tr>
-        <th>Title</th>
-        <th>Time</th>
-        <th>Type</th>
-        <th>Genre</th>
-        <th>Link</th>
-    </tr>
-    {% for item in aw %}
-    <tr>
-        <td>{{ item.aw_name }}</td>
-        <td>{{ item.aw_description }}</td>
-        <td>{{ item.aw_type }}</td>
-        <td>{{ item.aw_genre }}</td>
-        <td><a href = "{{CONSTANT_NAME}}/artwork/{{ item.id }}/detail/">view</a></td>
-    </tr>
-    {% endfor %}
-</table>
+{% extends 'master.html' %}
+{% block body %}
+    <div id="portfolio" class="color white">
+        <div class="container">
+            <div class="wrapper span12">
+                <!-- start: Page Title -->
+                <div id="page-title">
+                    <div id="page-title-inner">
+                        <h2><span class="fa-icon-user"> Artist Information</span></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper span10">
+        <label class="label label-default">ARTIST NAME</label>
+        <p>{{ user.user_id.first_name }} {{ user.user_id.last_name }}</p>
+        <label class="label label-default">BIRTHDAY</label>
+        <p> {{ user.birthday }}</p>
+        <label class="label label-default">ARTWORKS LIST</label>
+        <table class="table">
+            <tr>
+                <th>Preview</th>
+                <th>Title</th>
+                <th>Time</th>
+                <th>Type</th>
+                <th>Genre</th>
+            </tr>
+            {% for item in aw %}
+                <tr>
+                    <td><img src="{{ item.aw_img.url }}" style="height: 40px;"></td>
+                    <td><a href="{% url 'aw' item.id %}">{{ item.aw_name }}</a></td>
+                    <td>{{ item.aw_description }}</td>
+                    <td>{{ item.aw_type }}</td>
+                    <td>{{ item.aw_genre }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

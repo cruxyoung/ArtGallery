@@ -77,19 +77,19 @@ urlpatterns = [
     url(r'^(?P<art_id>[0-9]+)/$', home_controller.detail, name='detail'),
     url(r'^art_list/$', home_controller.art_list, name='art_list'),
 
-    # complaints need 4 urls, the art_info is fake one
-    url('^artworks/complaints_withdraw/(?P<artwork_id>[0-9]+)/$', artwork_controller.withdraw_complaints,
-        name='withdraw_complaints'),
-    url('^artworks/complaints/action/(?P<artwork_id>[0-9]+)/$', artwork_controller.complaints_action,
-        name='complaints_action'),
-
     # Artwork Detail
     url(r'^artworks/(?P<aw_id>[0-9]+)/detail/$', artwork_controller.artwork_detail, name='aw'),
     url(r'^artworks/(?P<aw_id>[0-9]+)/detail/comment/$', artwork_controller.ajax_comment, name='comment'),
     url(r'^artworks/(?P<aw_id>[0-9]+)/detail/bid/$', artwork_controller.ajax_bid, name='bid'),
     url(r'^artworks/(?P<aw_id>[0-9]+)/reward/$', artwork_controller.ajax_reward, name='reward'),
     url(r'^artists/(?P<user_id>[0-9]+)/detail/$', artwork_controller.artist_detail, name='user'),
-    url(r'^auction/(?P<auction_id>[0-9]+)/detail/$', artwork_controller.auction_detail, name='auction'),
+
+    url(r'^artworks/complaints/edit/(?P<artwork_id>[0-9]+)/$', artwork_controller.complaints_edit,
+        name='complaints_edit'),
+    url(r'^artworks/complaints/action/(?P<artwork_id>[0-9]+)/$', artwork_controller.complaints_action,
+        name='complaints_action'),
+    url(r'^artworks/complaints_withdraw/(?P<artwork_id>[0-9]+)/$', artwork_controller.withdraw_complaints,
+        name='withdraw_complaints'),
 
     # Administrator
     url(r'^xadmin/', xadmin.site.urls),

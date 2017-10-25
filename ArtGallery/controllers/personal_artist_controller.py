@@ -204,7 +204,7 @@ class PersonalFavorite(View):
     # get favorites of current user
     def get(self, request):
 
-        favs = models.FavoriteRecord.objects.filter(artist_id=request.user.id)
+        favs = models.FavoriteRecord.objects.filter(Q(artist_id=request.user.id))
         favs_nums = favs.count()
 
         # get sort info
@@ -235,7 +235,7 @@ class PersonalFavorite(View):
 class PersonalComment(View):
     # get comments history of current user
     def get(self, request):
-        comments = models.Comment.objects.filter(commenter_id=request.user.id)
+        comments = models.Comment.objects.filter(Q(commenter_id=request.user.id))
         comments_nums = comments.count()
 
         # get sort info

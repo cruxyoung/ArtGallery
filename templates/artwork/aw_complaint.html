@@ -1,0 +1,45 @@
+{% extends 'master.html' %}
+
+{% block body %}
+    <div class="container">
+        <div class="wrapper span7">
+            <form id="id_complaintForm" name="complaintForm" action="{% url 'complaints_action' aw.id %}"
+                  method="POST">
+                <div class="content">
+                    {% csrf_token %}
+                    <img src="{{ aw.aw_img.url }}" class="img" style="height: 300px;"/>
+                    <br/>
+                    <label class="label label-important">Artwork Name:</label>
+                    <label>{{ aw.aw_name }}</label>
+                    <br/>
+                    <label class="label label-important">Artist:</label>
+                    <label>{{ request.user.first_name }}&nbsp{{ request.user.last_name }}</label>
+                    <br/>
+                    <label class="label label-important">Choose Complaint type</label><br/>
+                    <select name="complaint_type" id="select_k1" class="select2-choices">
+                        <option value="Illegal"></option>
+                        <option value="Illegal">Illegal</option>
+                        <option value="Plagiarism">Plagiarism</option>
+                        <option value="Advertisement">Advertisement</option>
+                        <option value="Counterfeit">Counterfeit</option>
+                        <option value="Others">Others</option>
+                    </select>
+                    <br/>
+                    <label class="label label-important">Complaint content:</label>
+                    <br/>
+                    <textarea class="textarea-field input-block-level" name="complaint_content" cols=40
+                              rows=4></textarea>
+                    <br/>
+                </div>
+                <div class="text-center">
+                    <a href="{% url 'aw' aw.id %}" type="button" class="btn btn-default">Return</a>
+                    <input class="btn btn-warning" type="submit" name="submit" value="Complaint"
+                           id="id_complaintBtn" {% if complaint_stat %}disabled{% endif %}/>
+                    {% if complaint_stat %}
+                        <label class="label label-important">You have complaint this artwork already.</label>
+                    {% endif %}
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
