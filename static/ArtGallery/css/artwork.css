@@ -17,3 +17,12 @@
     top: 0;
     z-index:99;
 }
+
+.slice_artwork{
+    height: 500px;
+    border-image: stretch;
+}
+
+.slice_description{
+    color: #0e0e0e;
+}

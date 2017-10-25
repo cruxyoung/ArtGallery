@@ -1,29 +1,34 @@
 from django.http import HttpResponse
-from django.contrib.auth import login, authenticate
-from ArtGallery.forms import UserCreateForm
-from django.shortcuts import render, redirect
-from ArtGallery.models import ArtWork
-from django import forms
+from django.shortcuts import render
+from ArtGallery.models import ArtWork, User, AuctionRecord
 from ..forms import SearchForm
 import json
 
 
 def home_page(request):
+    # Newest artworks
     artworks = ArtWork.objects.all()
-    if len(artworks) >= 6:
-        latest_artworks = artworks.order_by('aw_time')[len(artworks) - 6:]
+    if len(artworks) >= 5:
+        latest_artworks = artworks.order_by('aw_time')[len(artworks) - 5:]
+        artworks_list_by_awards = artworks.order_by('aw_totalAward')[len(artworks) - 5:]
     else:
-        latest_artworks = None
-    # print(artworks[2].aw_img)
+        latest_artworks = artworks.order_by('aw_time')
+        artworks_list_by_awards = artworks.order_by('-aw_totalAward')
+
+    # Get artwork with auction open
+    try:
+        auction_artwork = AuctionRecord.objects.order_by('ar_end_time')[0]
+    except IndexError:
+        auction_artwork = None
+
+    artists = User.objects.filter(is_staff=True, is_superuser=False)
     return render(request,
                   'home_page/index.html',
                   {'artworks': artworks,
                    'latest_artworks': latest_artworks,
-                   'example0': artworks[0],
-                   # 'example1': artworks[1],
-                   # 'example2': artworks[2],
-                   # 'example3': artworks[3],
-                   # 'example4': artworks[4],
+                   'aw_by_awards': artworks_list_by_awards,
+                   'artists': artists,
+                   'auction_aw': auction_artwork,
                    })
 
 
@@ -33,14 +38,10 @@ def detail(request, art_id):
 
 # art_list page
 def art_list(request):
-    # print(request.is_ajax())
     if request.method == "POST" and request.is_ajax():
-        # print('success')
         form = SearchForm(request.POST)
-        # print(form)
         if form.is_valid():
             filt = request.POST.get('filter', '')
-            # print(request.POST.getlist('f'))
             print(request.POST.getlist('genre-form'))
             print(request.POST.getlist('period-form'))
 

@@ -11,6 +11,7 @@ from ArtGallery.tokens import account_activation_token
 from django.core.mail import EmailMessage
 from django.contrib.auth.models import User
 from django.db import transaction
+from ArtGallery.models import UserProfile
 
 
 # Sign up page
@@ -18,7 +19,6 @@ from django.db import transaction
 def signup(request):
     # Request to post a new data entry to database
     if request.method == 'POST':
-
         # Use embedded authentication system
         form_user = UserCreateForm(request.POST)
         form_profile = UserProfileCreationForm(request.POST)
@@ -26,12 +26,18 @@ def signup(request):
             user = form_user.save()
             user.is_active = False
             user.save()
+            user_change_identity = User.objects.get(pk=user.id)
 
             profile = form_profile.save(commit=False)
+
             profile.is_active = False
             profile.user_id = user
             profile.id = user.id
             profile.save()
+            profile_identity = UserProfile.objects.get(pk=user.id)
+            if not profile_identity.identity:
+                user_change_identity.is_staff = True
+                user_change_identity.save()
 
             current_site = get_current_site(request)
             message = render_to_string('registration/activation.html', {
@@ -44,7 +50,8 @@ def signup(request):
             to_email = form_user.cleaned_data.get('email')
             email = EmailMessage(mail_subject, message, to=[to_email])
             email.send()
-            return HttpResponse('Please confirm your email address to complete the registration.')
+            msg = 'Please confirm your email address to complete the registration.'
+            return render(request, 'registration/login.html', {'msg': msg})
     else:
         form_user = UserCreateForm()
         form_profile = UserProfileCreationForm()

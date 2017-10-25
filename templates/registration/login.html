@@ -13,9 +13,11 @@
             </div>
         </div>
     </div>
-    <div id="portfolio-wrapper" class="row-fluid">
-        <div class="span2 offset5">
+    <div id="portfolio-wrapper">
+        <div class="row-fluid text-center"><label class="label label-important">{{ msg }}</label></div>
+        <div class="wrapper span4 text-center">
             <div class="text-center">
+
                 <form class="login" method="post" action="{% url 'login' %}">
                     {% csrf_token %}
                     <div class="row-fluid">

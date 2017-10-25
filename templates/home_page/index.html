@@ -1,179 +1,178 @@
-<!DOCTYPE html>
-{% extends '../master.html' %}
-
+{% extends 'master.html' %}
 {% block css %}
     {% load staticfiles %}
     <link href="{% static "ArtGallery/css/album.css" %}" rel="stylesheet">
     <link href="{% static "ArtGallery/css/carousel.css" %}" rel="stylesheet">
-
+    <link href="{% static "ArtGallery/css/artwork.css" %}" rel="stylesheet">
 {% endblock %}
-
 
 {% block body %}
-    {#    {% for art in artworks %}#}
-    {#        <h4>{{ art.aw_img }}</h4>#}
-    {#        <h4>{{ art.id }}</h4>#}
-    {#        <li><a href="{% url 'detail' art.id %}">{{ art.aw_img }}</a></li>#}
-    {##}
-    {#    must add .url#}
-    {#        <img src="{{ art.aw_img.url }}"/>#}
-    {##}
-    {#    {% endfor %}#}
-    <div class="container-fluid">
-    <div class="row-fluid">
-    <div class="span12">
-        <br><br><br>
+    <!-- What's New Area -->
+    <div id="portfolio" class="color white">
+        <div class="container">
 
-        <div class="demo-1">
+            <!--start: Wrapper -->
+            <div class="wrapper span12">
 
-            <div id="slider" class="sl-slider-wrapper">
+                <!-- start: Page Title -->
+                <div id="page-title">
 
-                <div class="sl-slider">
+                    <div id="page-title-inner">
 
-                    <div class="sl-slide bg-1" data-orientation="horizontal" data-slice1-rotation="-25"
-                         data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
-                        <div class="sl-slide-inner">
-                            <img src="{{ example0.aw_img.url }}" alt="Card image cap" width="1245" height="600">
-                            <h2>{{ example0.aw_img }}</h2>
-                            <blockquote>
-                                <p>You have just dined, and however scrupulously the slaughterhouse is concealed
-                                    in the graceful distance of miles, there is complicity.</p><cite>Ralph Waldo
-                                Emerson</cite></blockquote>
-                        </div>
-
+                        <h2><span>What's New</span></h2>
 
                     </div>
 
-                    <div class="sl-slide bg-2" data-orientation="vertical" data-slice1-rotation="10"
-                         data-slice2-rotation="-15" data-slice1-scale="1.5" data-slice2-scale="1.5">
-                        <div class="sl-slide-inner">
-                            <img src="{{ example1.aw_img.url }}" alt="Card image cap" width="1245" height="600">
-
-                            <h2>A bene placito</h2>
-                            <blockquote>
-                                <p>You have just dined, and however scrupulously the slaughterhouse is concealed
-                                    in the graceful distance of miles, there is complicity.</p><cite>Ralph Waldo
-                                Emerson</cite></blockquote>
-                        </div>
-                    </div>
-
-                    <div class="sl-slide bg-3" data-orientation="horizontal" data-slice1-rotation="3"
-                         data-slice2-rotation="3" data-slice1-scale="2" data-slice2-scale="1">
-                        <div class="sl-slide-inner">
-                            <img src="{{ example2.aw_img.url }}" alt="Card image cap" width="1245" height="600">
-                            <h2>{{ examp1.aw_img }}</h2>
-                            <blockquote>
-                                <p>Thousands of people who say they 'love' animals sit down once or twice a day
-                                    to enjoy the flesh of creatures who have been utterly deprived of everything
-                                    that could make their lives worth living and who endured the awful suffering
-                                    and the terror of the abattoirs.</p><cite>Dame Jane Morris Goodall</cite>
-                            </blockquote>
-                        </div>
-                    </div>
-
-                    <div class="sl-slide bg-4" data-orientation="vertical" data-slice1-rotation="-5"
-                         data-slice2-rotation="25" data-slice1-scale="2" data-slice2-scale="1">
-                        <div class="sl-slide-inner">
-                            <img src="{{ example3.aw_img.url }}" alt="Card image cap" width="1245" height="600">
-                            <h2>{{ examp1.aw_img }}</h2>
-                            <blockquote>
-                                <p>The human body has no more need for cows' milk than it does for dogs' milk,
-                                    horses' milk, or giraffes' milk.</p><cite>Michael Klaper M.D.</cite>
-                            </blockquote>
-                        </div>
-                    </div>
-
-                    <div class="sl-slide bg-5" data-orientation="horizontal" data-slice1-rotation="-5"
-                         data-slice2-rotation="10" data-slice1-scale="2" data-slice2-scale="1">
-                        <div class="sl-slide-inner">
-                            <img src="{{ example4.aw_img.url }}" alt="Card image cap" width="1245" height="600">
-                            <h2>{{ examp1.aw_img }}</h2>
-                            <blockquote>
-                                <p>I think if you want to eat more meat you should kill it yourself and eat it
-                                    raw so that you are not blinded by the hypocrisy of having it processed for
-                                    you.</p><cite>Margi Clarke</cite></blockquote>
-                        </div>
-                    </div>
                 </div>
-                <!-- /sl-slider -->
-
-                <nav id="nav-arrows" class="nav-arrows">
-                    <span class="nav-arrow-prev">Previous</span>
-                    <span class="nav-arrow-next">Next</span>
-                </nav>
-
-                <nav id="nav-dots" class="nav-dots">
-                    <span class="nav-dot-current"></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </nav>
-
             </div>
-            <!-- /slider-wrapper -->
-
-        </div>
-
-        <div id="portfolio" class="color white">
-
-            <!--start: Container -->
-            <div class="container">
-
-                <!--start: Wrapper -->
+            <div class="container-fluid">
                 <div class="wrapper span12">
+                    <div class="demo-1">
+                        <div id="slider" class="sl-slider-wrapper">
+                            <div class="sl-slider">
+                                {% for latest_artwork in latest_artworks %}
+                                    <div class="sl-slide bg-1" data-orientation="horizontal" data-slice1-rotation="-25"
+                                         data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
+                                        <div class="sl-slide-inner wrapper">
+                                            <div class="span7 text-right">
+                                                <img src="{{ latest_artwork.aw_img.url }}" alt="Card image cap"
+                                                     class="slice_artwork">
+                                            </div>
+                                            <div class="span3 text-left">
+                                                <h1>{{ latest_artwork.aw_name }}</h1>
+                                                <hr/>
+                                                <h3>{{ latest_artwork.aw_description }}</h3>
+                                                <hr/>
+                                                <b>By </b>
+                                                <a href="{% url 'user' latest_artwork.artist_id.id %}">
+                                                    {{ latest_artwork.artist_id.first_name }}
+                                                </a>
+                                            </div>
 
-                    <!-- start: Page Title -->
-                    <div id="page-title">
-
-                        <div id="page-title-inner">
-
-                            <h2><span>What's New</span></h2>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- start: Portfolio -->
-                    <div id="portfolio-wrapper" class="album text-muted">
-                        <div class="container">
-                            <div class="row">
-                                {% for art in latest_artworks %}
-
-
-                                    <div class="card">
-                                    {% load static %}
-                                        <img style="height: 280px; width: auto; display: block; margin: 0 auto;" src="{{ art.aw_img.url }}" alt="Card image cap">
-                                        <p class="card-text">This is a wider card with supporting text below as a
-                                            natural lead-in to additional content. This content is a little bit
-                                            longer.</p>
+                                        </div>
                                     </div>
-
                                 {% endfor %}
-
                             </div>
-                            <!-- end: Portfolio -->
+
+                            <nav id="nav-arrows" class="nav-arrows">
+                                <span class="nav-arrow-prev">Previous</span>
+                                <span class="nav-arrow-next">Next</span>
+                            </nav>
+
+                            <nav id="nav-dots" class="nav-dots">
+                                {% for a in latest_artworks %}
+                                    <span></span>
+                                {% endfor %}
+                            </nav>
+
                         </div>
-                        <!-- end: Wrapper -->
-
-                    </div>
-                    <!--end: Container -->
-
-                </div>
-                <div class="row-fluid">
-                    <div class="span8">
-                    </div>
-                    <div class="span4">
+                        <!-- /slider-wrapper -->
                     </div>
                 </div>
 
             </div>
         </div>
     </div>
-    </div>
+
+    <!-- List 4 most rewarded artworks  -->
+    <div class="container-fluid">
+        <div id="portfolio" class="color white">
+            <div class="container">
+                <div class="wrapper span12">
+                    <div id="page-title">
+                        <div id="page-title-inner">
+                            <h2><span>Most Rewarded</span></h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wrapper span11">
+            <div id="" class="row-fluid">
+                {% for aw_award in aw_by_awards %}
+                    <div class="span3 portfolio-item">
+                        <div class="picture">
+                            <a href="{% url 'aw' aw_award.id %}"><img src="{{ aw_award.aw_img.url }}"/>
+                                <div class="image-overlay-link"></div>
+                            </a>
+
+                            <div class="item-description alt">
+                                <h5><a href="{% url 'aw' aw_award.id %}"></a></h5>
+                                <label>{{ aw_award.aw_name }}</label>
+                                <p>
+                                    {{ aw_award.aw_description }}
+                                </p>
+
+                                <label><a href="{% url 'user' aw_award.artist_id.id %}">
+                                    {{ aw_award.artist_id.first_name }}
+                                </a></label>
+                                <p>Total Awards <label
+                                        class="label label-important">${{ aw_award.aw_totalAward }}</label></p>
+                            </div>
+                        </div>
+                        {% if forloop.last %}
+                            <div class="text-right">
+                                <label><a>More >></a></label>
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
     </div>
 
+    <!-- Auction and Artists -->
+    <div class="container-fluid">
+        <div class="wrapper span12">
+            <div class="span8">
+                <hr/>
+                <div class="color white">
+                    <div id="page-title">
+                        <div id="page-title-inner">
+                            <h2><span>Auction</span></h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row-fluid wrapper">
+                    <div class="span6"><img src="{{ auction_aw.aw_id.aw_img.url }}" style="width: 300px;"></div>
+                    <div class="span5 text-center">
+                        <h2>{{ auction_aw.aw_id.aw_name }}</h2>
+                        <b>By </b>
+                        <a href="{% url 'user' auction_aw.aw_id.artist_id.id %}">
+                            {{ auction_aw.aw_id.artist_id.first_name }}
+                        </a>
+                        <hr/>
+                        <h3>{{ auction_aw.ar_time }}</h3>
+                        <h3>{{ auction_aw.ar_end_time }}</h3>
+                        <hr/>
+                        <label class="label label-important">Initial Price</label><br/>
+                        <label class="fa-icon-money">${{ auction_aw.ar_originalPrice }}</label>
+                        <a href="{% url 'aw' auction_aw.aw_id.id %}" type="button" class="btn btn-success">Bid Now</a>
+                        <div class="text-right">
+                            <label><a>More >></a></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="span3">
+                <hr/>
+                <div id="" class="color white">
+                    <div id="page-title">
+                        <div id="page-title-inner">
+                            <h2><span>Artist</span></h2>
+                        </div>
+                    </div>
+                    <div class="wrapper">
+                        {% for artist in artists %}
+                            <label class="label label-info">{{ forloop.counter }}</label>
+                            <a href="{% url 'user' artist.id %}">{{ artist.first_name|upper }}</a>
+                            <br/>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}
-</html>

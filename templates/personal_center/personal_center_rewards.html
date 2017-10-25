@@ -28,11 +28,10 @@
                         <h5><a href="{% url 'aw' reward.aw_id.id %}">{{ reward.aw_id.aw_name }}</a></h5>
                         <p>
                             {{ reward.reward_time }}
-                        </p
-                                {% load staticfiles %}>
                         <p>
-                            <img src="{% static "ArtGallery/images/coin.png" %}" style="height: 30px; width: 30px;">
-                            <b>${{ reward.reward_amount }}</b>
+                            <label class="label label-warning">
+                                ${{ reward.reward_amount }}
+                            </label>
                         </p>
                     </div>
                 </div>
