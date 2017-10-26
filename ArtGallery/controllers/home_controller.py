@@ -13,15 +13,15 @@ def home_page(request):
     # Newest artworks
     artworks = ArtWork.objects.all()
     if len(artworks) >= 5:
-        latest_artworks = artworks.order_by('aw_time')[len(artworks) - 5:]
-        artworks_list_by_awards = artworks.order_by('aw_totalAward')[len(artworks) - 5:]
+        latest_artworks = artworks.order_by('-aw_time')[len(artworks) - 5:]
+        artworks_list_by_awards = artworks.order_by('-aw_totalAward')[len(artworks) - 5:]
     else:
-        latest_artworks = artworks.order_by('aw_time')
+        latest_artworks = artworks.order_by('-aw_time')
         artworks_list_by_awards = artworks.order_by('-aw_totalAward')
 
     # Get artwork with auction open
     try:
-        auction_artwork = AuctionRecord.objects.order_by('ar_end_time')[0]
+        auction_artwork = AuctionRecord.objects.order_by('-ar_end_time')[0]
     except IndexError:
         auction_artwork = None
 
