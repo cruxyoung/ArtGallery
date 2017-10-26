@@ -2,10 +2,22 @@ import json
 from django.http import HttpResponse
 from django.core import serializers
 from _datetime import datetime
-from ArtGallery.forms import CommentForm, RewardForm, BidForm
-from django.shortcuts import render, get_object_or_404, HttpResponseRedirect, reverse
-from ArtGallery.models import ArtWork, UserProfile, AuctionHistory, AuctionRecord, Comment, Reward, FavoriteRecord, \
-    Complaint
+from ArtGallery.forms import CommentForm
+from ArtGallery.forms import RewardForm
+from ArtGallery.forms import BidForm
+from django.shortcuts import get_object_or_404
+from django.shortcuts import render
+from django.shortcuts import HttpResponseRedirect
+from django.shortcuts import reverse
+from ArtGallery.models import ArtWork
+from ArtGallery.models import UserProfile
+from ArtGallery.models import AuctionRecord
+from ArtGallery.models import AuctionHistory
+from ArtGallery.models import Comment
+from ArtGallery.models import Complaint
+from ArtGallery.models import Reward
+from ArtGallery.models import FavoriteRecord
+
 from django.views.decorators.csrf import csrf_exempt
 from django.db import transaction
 from django.db.models import Q
@@ -40,7 +52,7 @@ def artwork_detail(request, aw_id):
     else:
         if auction_list.count() > 0:
             auction_record = auction_list.latest('ah_aucTime')
-        else :
+        else:
             auction_record = AuctionHistory(ah_remaining=3, ah_amount=bid[0].ar_originalPrice)
     form = CommentForm()
     bid_form = BidForm()
@@ -95,16 +107,6 @@ def artist_detail(request, user_id):
     user = get_object_or_404(UserProfile, user_id_id=user_id)
     aw = ArtWork.objects.filter(artist_id=user_id)
     return render(request, "artist/detail.html", {'user': user, 'aw': aw})
-
-
-#
-# # Detail page (auction) logic:
-# @transaction.atomic
-# @csrf_exempt
-# def auction_detail(request, auction_id):
-#     auction_record = get_object_or_404(AuctionRecord, pk=auction_id)
-#     auction_history = AuctionHistory.objects.filter(ar_id_id=auction_id)
-#     return render(request, "auction/detail.html", {'record': auction_record, 'history': auction_history})
 
 
 # Payment page (reward)
@@ -211,6 +213,7 @@ def ajax_bid(request, aw_id):
                                 content_type='application/json')
 
 
+@transaction.atomic
 def complaints_edit(request, artwork_id):
     aw = ArtWork.objects.get(pk=artwork_id)
     complaint = Complaint.objects.filter(Q(aw_id=artwork_id, customer_id=request.user.id))
@@ -221,6 +224,7 @@ def complaints_edit(request, artwork_id):
                    'complaint_stat': complaint_stat})
 
 
+@transaction.atomic
 # create complaint action
 def complaints_action(request, artwork_id):
     complaint = Complaint.objects.filter(aw_id=artwork_id, customer_id=request.user.id)
@@ -237,6 +241,7 @@ def complaints_action(request, artwork_id):
         return HttpResponseRedirect(reverse('customer_complaint'))
 
 
+@transaction.atomic
 # cancel the created complaint record
 def withdraw_complaints(request, artwork_id):
     for complaint in Complaint.objects.all():

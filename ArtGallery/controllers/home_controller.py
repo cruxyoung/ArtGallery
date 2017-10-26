@@ -1,10 +1,14 @@
-from django.http import HttpResponse
-from django.shortcuts import render
-from ArtGallery.models import ArtWork, User, AuctionRecord
-from ..forms import SearchForm
 import json
+from ..forms import SearchForm
+from django.shortcuts import render
+from django.http import HttpResponse
+from ArtGallery.models import ArtWork
+from ArtGallery.models import User
+from ArtGallery.models import AuctionRecord
+from django.db import transaction
 
 
+@transaction.atomic
 def home_page(request):
     # Newest artworks
     artworks = ArtWork.objects.all()
@@ -32,6 +36,7 @@ def home_page(request):
                    })
 
 
+@transaction.atomic
 # art_list page
 def art_list(request):
     if request.method == "POST" and request.is_ajax():

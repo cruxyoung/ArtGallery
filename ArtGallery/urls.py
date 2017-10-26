@@ -19,7 +19,6 @@ from django.conf.urls import url, include
 from django.conf.urls.static import static
 from .extra_apps import xadmin
 from .extra_apps.xadmin.plugins import xversion
-
 from ArtGallery.controllers import home_controller
 from ArtGallery.controllers import account_controller
 from ArtGallery.controllers import artwork_controller
@@ -96,5 +95,4 @@ urlpatterns = [
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-    # urlpatterns += static(settings.ARTWORK_URL, document_root=settings.ARTWORK_ROOT)
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

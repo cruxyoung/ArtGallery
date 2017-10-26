@@ -61,6 +61,10 @@ class ModifyPwdForm(forms.Form):
 
 # should be modified later, cuz include userProfile
 class UserInfoForm(forms.ModelForm):
+    first_name = forms.CharField(required=True)
+    last_name = forms.CharField(required=True)
+    email = forms.EmailField(required=True)
+
     class Meta:
         model = User
         fields = ('username', 'first_name', 'last_name', 'email')

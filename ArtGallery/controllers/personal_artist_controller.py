@@ -9,7 +9,8 @@ from django.contrib.auth.hashers import make_password
 from django.shortcuts import HttpResponseRedirect
 from django.db.models import Q
 from django.core.paginator import Paginator
-from pure_pagination import Paginator, PageNotAnInteger
+from pure_pagination import Paginator
+from pure_pagination import PageNotAnInteger
 
 
 class ArtistArtwork(View):
@@ -185,7 +186,7 @@ class ArtistSetting(View):
             pwd_ori = request.POST.get('password1', "")
             pwd_new = request.POST.get('password2', "")
             pwd_check = request.POST.get('password3', "")
-            if pwd_new != pwd_check:
+            if pwd_new != pwd_check or '/' in pwd_check or '$' in pwd_check or '<' in pwd_check:
                 return HttpResponse('{"status": "fail", "msg": "New Password Not Match."}',
                                     content_type='application/json')
             if user.check_password(pwd_ori):

@@ -1,17 +1,20 @@
-from django.http import HttpResponse
-from django.contrib.auth import login
-from ArtGallery.forms import UserCreateForm, UserProfileCreationForm
 from django.shortcuts import render
+from django.http import HttpResponse
+from django.core.mail import EmailMessage
+from django.contrib.auth import login
+from django.contrib.auth.models import User
 from django.contrib.sites.shortcuts import get_current_site
+
 from django.template.loader import render_to_string
 from django.utils.http import urlsafe_base64_encode
 from django.utils.http import urlsafe_base64_decode
 from django.utils.encoding import force_bytes, force_text
+
+from ArtGallery.forms import UserCreateForm, UserProfileCreationForm
 from ArtGallery.tokens import account_activation_token
-from django.core.mail import EmailMessage
-from django.contrib.auth.models import User
-from django.db import transaction
 from ArtGallery.models import UserProfile
+
+from django.db import transaction
 
 
 # Sign up page

@@ -3,7 +3,8 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from .. import models
 from django.core.paginator import Paginator
-from pure_pagination import Paginator, PageNotAnInteger
+from pure_pagination import Paginator
+from pure_pagination import PageNotAnInteger
 from django.views.generic.base import View
 from .. import forms
 from django.contrib.auth.hashers import make_password
@@ -153,7 +154,7 @@ class PersonalSetting(View):
             pwd_ori = request.POST.get('password1', "")
             pwd_new = request.POST.get('password2', "")
             pwd_check = request.POST.get('password3', "")
-            if pwd_new != pwd_check:
+            if pwd_new != pwd_check or '/' in pwd_check or '$' in pwd_check or '<' in pwd_check:
                 return HttpResponse('{"status": "fail", "msg": "New Password Not Match."}',
                                     content_type='application/json')
             if user.check_password(pwd_ori):
@@ -171,8 +172,15 @@ class UserInfoView(View):
     def post(self, request):
         user_info_form = forms.UserInfoForm(request.POST, instance=request.user)
         if user_info_form.is_valid():
-            user_info_form.save()
-            return HttpResponse('{"status": "success"}', content_type='application/json')
+            username = request.POST.get('username')
+            first_name = request.POST.get('first_name')
+            last_name = request.POST.get('last_name')
+            valid_string = username + first_name + last_name
+            if '/' in valid_string or '$' in valid_string or '<' in valid_string:
+                return HttpResponse('{"status": "fail"}', content_type='application/json')
+            else:
+                user_info_form.save()
+                return HttpResponse('{"status": "success"}', content_type='application/json')
         else:
             return HttpResponse(json.dumps(user_info_form.errors), content_type='application/json')
 

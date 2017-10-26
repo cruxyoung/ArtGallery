@@ -77,20 +77,20 @@
             {% csrf_token %}
         </form>
         <br/>
-{#         <form id="jsDepositForm" autocomplete="off">#}
-            <br/>
-            <br/>
-            <a class="span3"></a>
-            <label class="span2"><b>ACCOUNT</b></label>
+        {#         <form id="jsDepositForm" autocomplete="off">#}
+        <br/>
+        <br/>
+        <a class="span3"></a>
+        <label class="span2"><b>ACCOUNT</b></label>
 
-            <label class="label label-important">${{ user_profile.amount }}</label>
-            <br/>
-{#            <div class="row-fluid offset4">#}
-{#                <input id="jsDepositBtn" type="button" value="DEPOSIT MONEY"/>#}
-{#            </div>#}
-            <br/>
-{#            {% csrf_token %}#}
-{#        </form>#}
+        <label class="label label-important">${{ user_profile.amount }}</label>
+        <br/>
+        {#            <div class="row-fluid offset4">#}
+        {#                <input id="jsDepositBtn" type="button" value="DEPOSIT MONEY"/>#}
+        {#            </div>#}
+        <br/>
+        {#            {% csrf_token %}#}
+        {#        </form>#}
     </div>
 
 {% endblock %}
@@ -100,6 +100,7 @@
         function scrollToInformation() {
             window.scrollTo(0, 50);
         }
+
         function scrollToSecurity() {
             window.scrollTo(0, 300);
         }
@@ -162,8 +163,10 @@
                         $('#username_a').text('Error')
                     } else if (data.status == 'success') {
                         $('#username_a').text(' ');
-                        alert(' success change.');
+                        alert(' Success change.');
                         location.reload();
+                    } else if (data.status == 'fail') {
+                        alert(' Fail change, contain invalid char.');
                     }
                     $('#jsEditInfoBtn').disabled = false;
                 }
