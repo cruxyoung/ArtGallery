@@ -32,10 +32,6 @@ def home_page(request):
                    })
 
 
-def detail(request, art_id):
-    return HttpResponse("You're looking at question %s." % art_id)
-
-
 # art_list page
 def art_list(request):
     if request.method == "POST" and request.is_ajax():
@@ -55,8 +51,8 @@ def art_list(request):
                 if period != "All":
                     artworks = artworks.filter(aw_time__year=period)
 
-            artworks = list(artworks.values('id', 'aw_name', 'aw_genre', 'aw_img', 'aw_description'))
-            # print(artworks)
+            artworks = list(artworks.values('id', 'aw_name', 'aw_genre', 'aw_img', 'aw_description', 'aw_location',
+                                            'aw_totalAward'))
             return HttpResponse(json.dumps(artworks), content_type='application/json')
 
     return render(request, 'home_page/art_list.html')

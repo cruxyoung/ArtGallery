@@ -74,7 +74,6 @@ urlpatterns = [
 
     # Home Page and Information Page
     url('^index/', home_controller.home_page, name='index'),
-    url(r'^(?P<art_id>[0-9]+)/$', home_controller.detail, name='detail'),
     url(r'^art_list/$', home_controller.art_list, name='art_list'),
 
     # Artwork Detail

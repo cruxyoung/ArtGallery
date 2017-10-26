@@ -28,16 +28,20 @@ def artwork_detail(request, aw_id):
     if bid.count() > 0:
         bid_stat = True
         num_bid = AuctionHistory.objects.filter(ar_id=bid[0].id).count()
+        auction_list = AuctionHistory.objects.filter(customer_id_id=request.user.id, ar_id=bid[0].id)
     else:
         bid_stat = False
         num_bid = -1
+        auction_list = None
 
     # get auction status for current user
-    auction_list = AuctionHistory.objects.filter(customer_id_id=request.user.id)
-    if auction_list.count() > 0:
-        auction_record = auction_list.latest('ah_aucTime')
+    if auction_list == None:
+        auction_record = None
     else:
-        auction_record = AuctionHistory(ah_remaining=3, ah_amount=bid[0].ar_originalPrice)
+        if auction_list.count() > 0:
+            auction_record = auction_list.latest('ah_aucTime')
+        else :
+            auction_record = AuctionHistory(ah_remaining=3, ah_amount=bid[0].ar_originalPrice)
     form = CommentForm()
     bid_form = BidForm()
     reward_form = RewardForm()
