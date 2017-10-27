@@ -23,7 +23,7 @@
                 <div class="span3 portfolio-item website html5 css3 responsive">
                     <div class="picture">
                         <a href="">
-                            <img src="{{ comment.aw_id.aw_img }}" alt="" style="height: 200px;"/>
+                            <a href="{% url 'aw' comment.aw_id.id %}"><img src="{{ comment.aw_id.aw_img.url }}" alt="" style="height: 200px;"/></a>
                             <div class="image-overlay-link"></div>
                         </a>
                     </div>

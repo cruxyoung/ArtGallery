@@ -1,27 +1,47 @@
-from django.http import HttpResponse
-from django.contrib.auth import login
-from ArtGallery.forms import UserCreateForm
 from django.shortcuts import render
+from django.http import HttpResponse
+from django.core.mail import EmailMessage
+from django.contrib.auth import login
+from django.contrib.auth.models import User
 from django.contrib.sites.shortcuts import get_current_site
+
 from django.template.loader import render_to_string
 from django.utils.http import urlsafe_base64_encode
 from django.utils.http import urlsafe_base64_decode
 from django.utils.encoding import force_bytes, force_text
+
+from ArtGallery.forms import UserCreateForm, UserProfileCreationForm
 from ArtGallery.tokens import account_activation_token
-from django.core.mail import EmailMessage
-from django.contrib.auth.models import User
+from ArtGallery.models import UserProfile
+
+from django.db import transaction
 
 
 # Sign up page
+@transaction.atomic
 def signup(request):
     # Request to post a new data entry to database
     if request.method == 'POST':
         # Use embedded authentication system
-        form = UserCreateForm(request.POST)
-        if form.is_valid():
-            user = form.save(commit=False)
+        form_user = UserCreateForm(request.POST)
+        form_profile = UserProfileCreationForm(request.POST)
+        if form_user.is_valid() and form_profile.is_valid():
+            user = form_user.save()
             user.is_active = False
             user.save()
+            user_change_identity = User.objects.get(pk=user.id)
+
+            profile = form_profile.save(commit=False)
+
+            profile.is_active = False
+            profile.user_id = user
+            profile.id = user.id
+            profile.save()
+            profile_identity = UserProfile.objects.get(pk=user.id)
+            if not profile_identity.identity:
+                user_change_identity.is_staff = True
+                user_change_identity.save()
+
             current_site = get_current_site(request)
             message = render_to_string('registration/activation.html', {
                 'user': user,
@@ -30,16 +50,19 @@ def signup(request):
                 'token': account_activation_token.make_token(user),
             })
             mail_subject = 'Activate your ArtGallery account.'
-            to_email = form.cleaned_data.get('email')
+            to_email = form_user.cleaned_data.get('email')
             email = EmailMessage(mail_subject, message, to=[to_email])
             email.send()
-            return HttpResponse('Please confirm your email address to complete the registration')
+            msg = 'Please confirm your email address to complete the registration.'
+            return render(request, 'registration/login.html', {'msg': msg})
     else:
-        form = UserCreateForm()
-    return render(request, 'registration/signup.html', {'form': form})
+        form_user = UserCreateForm()
+        form_profile = UserProfileCreationForm()
+    return render(request, 'registration/signup.html', {'form': form_user, 'profile': form_profile})
 
 
 # Activation page logic
+@transaction.atomic
 def activate(request, uidb64, token):
     try:
         uid = force_text(urlsafe_base64_decode(uidb64))

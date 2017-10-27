@@ -26,7 +26,6 @@ class ArtWork(models.Model):
     aw_img = models.ImageField(default="/static/images/profile-default.png",
                                upload_to='./artwork/' + time.time().__str__(),
                                verbose_name='Image')
-    # aw_img = models.ImageField(default="/static/images/profile-default.png", verbose_name='Image')
     aw_description = models.CharField(null=True, max_length=256, verbose_name='Description')
     aw_location = models.CharField(null=True, max_length=32, verbose_name='Location')
     aw_time = models.DateTimeField(verbose_name='Add Time')
@@ -38,7 +37,6 @@ class ArtWork(models.Model):
     # class Meta:
     #     verbose_name = 'Artwork'
     #     verbose_name_plural = verbose_name
-
     def __str__(self):
         return self.aw_name
 
@@ -63,9 +61,10 @@ class AuctionHistory(models.Model):
     # Foreign Key
     ar_id = models.ForeignKey(AuctionRecord, verbose_name='Auction Record ID')
     customer_id = models.ForeignKey(User, verbose_name='Customer')
-
     ah_amount = models.FloatField(default=0.0, verbose_name='Auction Amount')
     ah_aucTime = models.DateTimeField(verbose_name='Auction Time')
+
+    ah_remaining = models.IntegerField(default=3)
 
 
 # Reward

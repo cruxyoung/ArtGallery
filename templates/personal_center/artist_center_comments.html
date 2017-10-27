@@ -1,0 +1,72 @@
+{% extends 'personal_center/artist_master.html' %}
+
+{% block title %}Comments History{% endblock %}
+
+{% block menu %}
+    <ul>
+        <li><a href="?sort=time" class="{% ifequal sort "time" %}active{% endifequal %}">TIME</a></li>
+        <li><a href="?sort=comment" class="{% ifequal sort "comment" %}active{% endifequal %}">COMMENT</a></li>
+        <li><a href="?sort=reply" class="{% ifequal sort "reply" %}active{% endifequal %}">REPLY</a></li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+    <div class="row-fluid">
+        <div class="offset10">
+            TOTAL: <b>{{ comments_nums }}</b> COMMENTS
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        {% for comment in comments.object_list %}
+            <div class="row-fluid">
+                <div class="span3 portfolio-item website html5 css3 responsive">
+                    <div class="picture">
+                        <a href="">
+                            <a href="{% url 'aw' comment.aw_id.id %}"><img  src="{{ comment.aw_id.aw_img.url }}" alt="" style="height: 200px;"/></a>
+                            <div class="image-overlay-link"></div>
+                        </a>
+                    </div>
+                </div>
+                <div class="span9 portfolio-item">
+                    <div class="item-description alt">
+                        <h3>Comment Artwork: <a href="{% url 'aw' comment.aw_id.id %}">{{ comment.aw_id.aw_name }}</a></h3>
+                        <h4>Comment Time: {{ comment.comment_time }}</h4>
+                        {% if comment.rating != -1.0 %}
+                            <h4>Comment Type: Comment</h4>
+                            <h4>Rating: {{ comment.rating }}</h4>
+                        {% else %}
+                            <h4>Comment Type: Reply</h4>
+                        {% endif %}
+                    </div>
+                    <textarea class="uneditable-textarea input-block-level" readonly="readonly">{{ comment.comment_content }}</textarea>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="row-fluid text-center">
+        {% load i18n %}
+        <div class="pagination">
+            {% if comments.has_previous %}
+                <a href="?{{ comments.previous_page_number.querystring }}"
+                   class="prev">&lsaquo;&lsaquo; {% trans "previous" %}</a>
+            {% endif %}
+            {% for page in comments.pages %}
+                {% if page %}
+                    {% ifequal page comments.number %}
+                        <span class="current page"><b>{{ page }}</b></span>
+                    {% else %}
+                        <a href="?{{ page.querystring }}" class="page">{{ page }}</a>
+                    {% endifequal %}
+                {% else %}
+                    ...
+                {% endif %}
+            {% endfor %}
+            {% if comments.has_next %}
+                <a href="?{{ comments.next_page_number.querystring }}" class="next">{% trans "next" %}
+                    &rsaquo;&rsaquo;</a>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

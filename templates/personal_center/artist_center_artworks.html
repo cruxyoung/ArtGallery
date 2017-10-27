@@ -27,8 +27,9 @@
                 <tbody>
                 {% for artwork in artworks %}
                     <tr>
-                        <td><img src="{{ artwork.aw_img.url }}" style="width: 50px;"></td>
-                        <td>{{ artwork.aw_name }}</td>
+                        <td><img href="{% url 'aw' artwork.id %}" src="{{ artwork.aw_img.url }}" style="width: 50px;">
+                        </td>
+                        <td><a href="{% url 'aw' artwork.id %}">{{ artwork.aw_name }}</a></td>
                         <td style="font-size: xx-small;">{{ artwork.aw_time }}</td>
                         <td>{{ artwork.aw_type }}</td>
                         <td>{{ artwork.aw_genre }}</td>
@@ -54,18 +55,19 @@
 
                     <div class="modal fade" id="myModal{{ artwork.id }}" tabindex="-1" role="dialog"
                          aria-labelledby="myModalLabel"
-                         aria-hidden="true">
+                         aria-hidden="true" style="display:none">
                         <div class="modal-dialo">
                             <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                                        &times;
-                                    </button>
-                                    <h4 class="modal-title" id="myModalLabel">Artist Auction</h4>
-                                </div>
                                 <form id="auctionForm" enctype="multipart/form-data" method="POST"
                                       action="{% url 'auctionSwitch'  artwork.id %}">
                                     {% csrf_token %}
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                            &times;
+                                        </button>
+                                        <h4 class="modal-title" id="myModalLabel">Artist Auction</h4>
+                                    </div>
+
                                     <div class="modal-body">
                                         <label>{{ artwork.aw_name }}</label>
                                         <img src="{{ artwork.aw_img.url }}" style="width: 300px;">

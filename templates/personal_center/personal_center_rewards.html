@@ -21,18 +21,17 @@
             <div class="span4 portfolio-item website html5 css3 responsive">
                 <div class="picture">
                     <a href="">
-                        <img src="{{ reward.aw_id.aw_img }}" alt="" style="height: 250px;"/>
+                        <img src="{{ reward.aw_id.aw_img.url }}" alt="{{ reward.aw_id }}" style="height: 250px;"/>
                         <div class="image-overlay-link"></div>
                     </a>
                     <div class="item-description alt">
-                        <h5><a href="">{{ reward.aw_id.aw_name }}</a></h5>
+                        <h5><a href="{% url 'aw' reward.aw_id.id %}">{{ reward.aw_id.aw_name }}</a></h5>
                         <p>
                             {{ reward.reward_time }}
-                        </p
-                                {% load staticfiles %}>
                         <p>
-                            <img src="{% static "ArtGallery/images/coin.png" %}" style="height: 30px; width: 30px;">
-                            <b>${{ reward.reward_amount }}</b>
+                            <label class="label label-warning">
+                                ${{ reward.reward_amount }}
+                            </label>
                         </p>
                     </div>
                 </div>

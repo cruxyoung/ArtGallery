@@ -1,0 +1,67 @@
+{% extends 'personal_center/artist_master.html' %}
+
+{% block title %}Favorite{% endblock %}
+
+{% block menu %}
+    <ul>
+        <li><a href="?" class="{% if not sort %}active{% endif %}">FAVORITES</a></li>
+        <li><a href="?sort=time" class="{% if sort %}active{% endif %}">TIME ORDER</a></li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+    <div class="row-fluid">
+        <div class="offset10">
+            TOTAL: <b>{{ favs_nums }}</b> LIKES
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        {% for fav in favs.object_list %}
+            <div class="span4 portfolio-item website html5 css3 responsive">
+                <div class="picture">
+                    <a href="{% url 'aw' fav.aw_id.id %}" title="fav_aw"><img src="{{ fav.aw_id.aw_img.url }}" alt="" style="height: 250px;"/>
+                        <div class="image-overlay-link"></div>
+                    </a>
+
+                    <div class="item-description alt">
+                        <h5><a href="{% url 'aw' fav.aw_id.id %}">{{ fav.aw_id.aw_name }}</a></h5>
+                        <h4><span>{{ fav.aw_id.artist_id.first_name }} {{ fav.aw_id.artist_id.last_name }}</span></h4>
+                        <p id="description_paragraph{{ fav.id }}" class="compress" style="height: 200px;">
+                            {{ fav.aw_id.aw_description }}
+                        </p>
+                        <p id="aw_name{{ fav.id }}"
+                           style="display: none"> {{ fav.aw_id.artist_id.first_name }} {{ fav.aw_id.artist_id.last_name }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="row-fluid text-center">
+        {% load i18n %}
+        <div class="pagination">
+            {% if favs.has_previous %}
+                <a href="?{{ favs.previous_page_number.querystring }}"
+                   class="prev">&lsaquo;&lsaquo; {% trans "previous" %}</a>
+                {#            {% else %}#}
+                {#                <span class="disabled prev">&lsaquo;&lsaquo; {% trans "previous" %}</span>#}
+            {% endif %}
+            {% for page in favs.pages %}
+                {% if page %}
+                    {% ifequal page favs.number %}
+                        <span class="current page"><b>{{ page }}</b></span>
+                    {% else %}
+                        <a href="?{{ page.querystring }}" class="page">{{ page }}</a>
+                    {% endifequal %}
+                {% else %}
+                    ...
+                {% endif %}
+            {% endfor %}
+            {% if favs.has_next %}
+                <a href="?{{ favs.next_page_number.querystring }}" class="next">{% trans "next" %}
+                    &rsaquo;&rsaquo;</a>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
