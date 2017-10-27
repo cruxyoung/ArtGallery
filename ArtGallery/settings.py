@@ -44,6 +44,15 @@ INSTALLED_APPS = [
     'xadmin',
     'crispy_forms',
     'reversion',
+    'django_nose',
+]
+
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+NOSE_ARGS = [
+    '--with-coverage',
+    # '--cover-erase',
+    '--cover-html',
+    '--cover-package=ArtGallery',
 ]
 
 COMMENTS_APP = 'threadedcomments'
@@ -93,15 +102,24 @@ SITE_ID = 1
 #         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': "ArtGallery",
-        'USER': "root",
-        'PASSWORD': "123233",
-        'HOST': "localhost"
+
+if 'test' in sys.argv:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': "ArtGallery",
+            'USER': "root",
+            'PASSWORD': "123233",
+            'HOST': "localhost"
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
