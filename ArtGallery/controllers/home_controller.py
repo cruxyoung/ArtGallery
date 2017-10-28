@@ -42,17 +42,15 @@ def art_list(request):
     if request.method == "POST" and request.is_ajax():
         form = SearchForm(request.POST)
         if form.is_valid():
-            filt = request.POST.get('filter', '')
-            print(request.POST.getlist('genre-form'))
-            print(request.POST.getlist('period-form'))
+            keyword = request.POST.get('filter', '')
 
-            artworks = ArtWork.objects.filter(aw_name__contains=filt)
-            if request.POST.getlist("genre-form"):
-                genre = request.POST.getlist("genre-form")[0]
+            artworks = ArtWork.objects.filter(aw_name__contains=keyword)
+            if request.POST.get("genre-form"):
+                genre = request.POST.get("genre-form")
                 if genre != "All":
                     artworks = artworks.filter(aw_genre=genre)
-            if request.POST.getlist('period-form'):
-                period = request.POST.getlist('period-form')[0]
+            if request.POST.get('period-form'):
+                period = request.POST.get('period-form')
                 if period != "All":
                     artworks = artworks.filter(aw_time__year=period)
 
