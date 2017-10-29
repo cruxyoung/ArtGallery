@@ -28,76 +28,104 @@ from django.db.models import Q
 @csrf_exempt
 @transaction.atomic
 def artwork_detail(request, aw_id):
-    aw = get_object_or_404(ArtWork, pk=aw_id)
-    comment = Comment.objects.filter(aw_id_id=aw_id)
-    reward = Reward.objects.filter(aw_id_id=aw_id)
-    favourite = FavoriteRecord.objects.filter(aw_id_id=aw_id, artist_id_id=request.user.id)
-    favorite_stat = False if favourite.count() == 0 else True
-    profile = get_object_or_404(UserProfile, pk=request.user.id)
-    complaint = Complaint.objects.filter(aw_id=aw_id, customer_id=request.user.id)
-    complaint_stat = True if complaint.count() > 0 else False
-    bid = AuctionRecord.objects.filter(aw_id=aw_id)
-    if bid.count() > 0:
-        bid_stat = True
-        num_bid = AuctionHistory.objects.filter(ar_id=bid[0].id).count()
-        auction_list = AuctionHistory.objects.filter(customer_id_id=request.user.id, ar_id=bid[0].id)
-    else:
-        bid_stat = False
-        num_bid = -1
-        auction_list = None
+    if not request.user.is_active:
+        aw = get_object_or_404(ArtWork, pk=aw_id)
+        comment = Comment.objects.filter(aw_id_id=aw_id)
+        reward = Reward.objects.filter(aw_id_id=aw_id)
 
-    # get auction status for current user
-    if auction_list == None:
-        auction_record = None
-    else:
-        if auction_list.count() > 0:
-            auction_record = auction_list.latest('ah_aucTime')
+        bid = AuctionRecord.objects.filter(aw_id=aw_id)
+        if bid.count() > 0:
+            bid_stat = True
+            num_bid = AuctionHistory.objects.filter(ar_id=bid[0].id).count()
         else:
-            auction_record = AuctionHistory(ah_remaining=3, ah_amount=bid[0].ar_originalPrice)
-    form = CommentForm()
-    bid_form = BidForm()
-    reward_form = RewardForm()
-    if request.method == 'POST':
-        # Favourite record post
-        if 'favouriteButton' in request.POST:
-            # if not exists, add it to favourite list
-            if favourite.count() == 0:
-                new_favourite = FavoriteRecord(
-                    fav_time=datetime.now(),
-                    artist_id_id=request.user.id,
-                    aw_id_id=aw_id
-                )
-                new_favourite.save()
-            # if exists, delete the favourite record
+            bid_stat = False
+            num_bid = -1
+
+        # get auction status for current user
+
+        return render(request, "artwork/detail.html",
+                      {
+                          'aw': aw,
+                          'comment': comment,
+                          'reward': reward,
+                          'identity': True,
+                          'favorite_stat': False,
+                          'complaint_stat': False,
+                          'bid_stat': bid_stat,
+                          'num_bid': num_bid,
+                      })
+    else:
+        aw = get_object_or_404(ArtWork, pk=aw_id)
+        comment = Comment.objects.filter(aw_id_id=aw_id)
+        reward = Reward.objects.filter(aw_id_id=aw_id)
+        favourite = FavoriteRecord.objects.filter(aw_id_id=aw_id, artist_id_id=request.user.id)
+        favorite_stat = False if favourite.count() == 0 else True
+        profile = get_object_or_404(UserProfile, pk=request.user.id)
+        complaint = Complaint.objects.filter(aw_id=aw_id, customer_id=request.user.id)
+        complaint_stat = True if complaint.count() > 0 else False
+        bid = AuctionRecord.objects.filter(aw_id=aw_id)
+        if bid.count() > 0:
+            bid_stat = True
+            num_bid = AuctionHistory.objects.filter(ar_id=bid[0].id).count()
+            auction_list = AuctionHistory.objects.filter(customer_id_id=request.user.id, ar_id=bid[0].id)
+        else:
+            bid_stat = False
+            num_bid = -1
+            auction_list = None
+
+        # get auction status for current user
+        if auction_list == None:
+            auction_record = None
+        else:
+            if auction_list.count() > 0:
+                auction_record = auction_list.latest('ah_aucTime')
             else:
-                favourite.delete()
-            return HttpResponseRedirect(reverse('aw', args=(aw.id,)))
-    if profile.identity:  # customer
-        return render(request, "artwork/detail.html", {'form': form,
-                                                       'aw': aw,
-                                                       'comment': comment,
-                                                       'reward': reward,
-                                                       'bid': bid_form,
-                                                       'auction_record': auction_record,
-                                                       'identity': True,
-                                                       'reward_form': reward_form,
-                                                       'favorite_stat': favorite_stat,
-                                                       'complaint_stat': complaint_stat,
-                                                       'bid_stat': bid_stat,
-                                                       'num_bid': num_bid,
-                                                       })
-    else:  # artist
-        return render(request, "artwork/detail.html", {'form': form,
-                                                       'aw': aw,
-                                                       'comment': comment,
-                                                       'auction_record': auction_record,
-                                                       'reward': reward,
-                                                       'identity': False,
-                                                       'favorite_stat': favorite_stat,
-                                                       'complaint_stat': complaint_stat,
-                                                       'bid_stat': bid_stat,
-                                                       'num_bid': num_bid,
-                                                       })
+                auction_record = AuctionHistory(ah_remaining=3, ah_amount=bid[0].ar_originalPrice)
+        form = CommentForm()
+        bid_form = BidForm()
+        reward_form = RewardForm()
+        if request.method == 'POST':
+            # Favourite record post
+            if 'favouriteButton' in request.POST:
+                # if not exists, add it to favourite list
+                if favourite.count() == 0:
+                    new_favourite = FavoriteRecord(
+                        fav_time=datetime.now(),
+                        artist_id_id=request.user.id,
+                        aw_id_id=aw_id
+                    )
+                    new_favourite.save()
+                # if exists, delete the favourite record
+                else:
+                    favourite.delete()
+                return HttpResponseRedirect(reverse('aw', args=(aw.id,)))
+
+        if profile.identity:  # customer
+            return render(request, "artwork/detail.html", {'form': form,
+                                                           'aw': aw,
+                                                           'comment': comment,
+                                                           'reward': reward,
+                                                           'bid': bid_form,
+                                                           'auction_record': auction_record,
+                                                           'identity': True,
+                                                           'reward_form': reward_form,
+                                                           'favorite_stat': favorite_stat,
+                                                           'complaint_stat': complaint_stat,
+                                                           'bid_stat': bid_stat,
+                                                           'num_bid': num_bid,
+                                                           })
+        else:  # artist
+            return render(request, "artwork/detail.html", {'form': form,
+                                                           'aw': aw,
+                                                           'comment': comment,
+                                                           'auction_record': auction_record,
+                                                           'reward': reward,
+                                                           'identity': False,
+                                                           'favorite_stat': favorite_stat,
+                                                           'complaint_stat': complaint_stat,
+                                                           'bid_stat': bid_stat,
+                                                           'num_bid': num_bid,
+                                                           })
 
 
 # Detail page (user) logic:

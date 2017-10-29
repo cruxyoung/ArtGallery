@@ -28,16 +28,15 @@
                 <div class="row-fluid text-center">
                     <div class="span3">
                         <span onclick="" class="row-fluid fa-icon-info-sign" style="font-size: 30px;"></span>
-
                         {% if complaint_stat %}
                             <a class="btn btn-warning" href="{% url 'withdraw_complaints' aw.id %}">
                                 Withdraw Complaint
                             </a>
                         {% else %}
-                            <a href="{% url 'complaints_edit' aw.id %}" class="btn btn-warning"
-                               {% if not identity %}disabled{% endif %}>
+                            <button href="{% url 'complaints_edit' aw.id %}" class="btn btn-warning"
+                                    {% if not request.user.is_authenticated or not identity %}disabled{% endif %}>
                                 Complaints
-                            </a>
+                            </button>
                         {% endif %}
                     </div>
                     <div class="span2">
@@ -49,24 +48,28 @@
                             {% else %}
                                 <span class="row-fluid fa-icon-heart-empty" style="font-size: 30px;"></span>
                             {% endif %}
-                            <input class="btn" type="submit" name="favouriteButton" value="Favorite">
+                            <input class="btn" type="submit" name="favouriteButton" value="Favorite"
+                                   {% if not request.user.is_authenticated %}disabled{% endif %}>
                         </form>
 
                     </div>
                     <div class="span2">
                         <span class="row-fluid fa-icon-comment-alt" style="font-size: 30px;"></span>
-                        <button class="btn" data-toggle="modal" data-target="#myCommentModal">Comment</button>
+                        <button class="btn" data-toggle="modal" data-target="#myCommentModal"
+                                {% if not request.user.is_authenticated %}disabled{% endif %}>Comment
+                        </button>
                     </div>
                     <div class="span2">
                         <span class="row-fluid fa-icon-thumbs-up" style="font-size: 30px;"></span>
                         <button class="btn" data-toggle="modal" data-target="#myRewardModal"
-                                {% if not identity %}disabled{% endif %}>Reward
+                                {% if not identity or not request.user.is_authenticated %}disabled{% endif %}>Reward
                         </button>
                     </div>
                     <div class="span2">
                         <span class="row-fluid fa-icon-money" style="font-size: 30px;"></span>
                         <button class="btn" data-toggle="modal" data-target="#myBidModal"
-                                {% if not identity or not bid_stat %}disabled{% endif %}>Bid
+                                {% if not identity or not bid_stat or not request.user.is_authenticated %}disabled{% endif %}>
+                            Bid
                         </button>
                     </div>
 

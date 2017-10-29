@@ -114,14 +114,15 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'NAME': "elec9609db",
-            # 'USER': "root",
-            # 'PASSWORD': "123233",
-            # 'HOST': "localhost",
-            'USER': "xili9459",
-            'PASSWORD': "CongLin3",
-            'HOST': "elec9609db.ckouu0yszzyy.us-east-2.rds.amazonaws.com",
-            'PORT': '8080',
+            # 'NAME': "elec9609db",
+            'NAME': "ArtGallery",
+            'USER': "root",
+            'PASSWORD': "123233",
+            'HOST': "localhost",
+            # 'USER': "xili9459",
+            # 'PASSWORD': "CongLin3",
+            # 'HOST': "elec9609db.ckouu0yszzyy.us-east-2.rds.amazonaws.com",
+            # 'PORT': '8080',
         }
     }
 

@@ -93,7 +93,7 @@
                     </div>
                 </div>
             </div>
-            <div class="wrapper span11">
+            <div class="wrapper span12">
                 <div id="" class="row-fluid">
                     {% for aw_award in aw_by_awards %}
                         <div class="span3 portfolio-item">
@@ -116,9 +116,10 @@
                                             class="label label-important">${{ aw_award.aw_totalAward }}</label></p>
                                 </div>
                             </div>
+
                             {% if forloop.last %}
                                 <div class="text-right">
-                                    <label><a>More >></a></label>
+                                    <label><a href="{% url 'art_list' %}">More >></a></label>
                                 </div>
                             {% endif %}
                         </div>
@@ -157,7 +158,7 @@
                             <a href="{% url 'aw' auction_aw.aw_id.id %}" type="button" class="btn btn-success">Bid
                                 Now</a>
                             <div class="text-right">
-                                <label><a>More >></a></label>
+                                <label><a href="{% url 'art_list' %}">More >></a></label>
                             </div>
                         </div>
                     {% endif %}
