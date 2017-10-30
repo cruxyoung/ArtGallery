@@ -29,3 +29,9 @@ Hostname: elec9609db.ckouu0yszzyy.us-east-2.rds.amazonaws.com
 Port: 8080
 Username: xili9459
 Password: CongLin3
+
+## Project Management
+
+We also use Git Projects to manage our project, see the detail:
+
+<a href='https://github.com/maxchenzlw/ELEC9609/projects/1'>https://github.com/maxchenzlw/ELEC9609/projects/1</a>
