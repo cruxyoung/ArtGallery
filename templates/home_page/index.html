@@ -103,8 +103,7 @@
                                 </a>
 
                                 <div class="item-description alt">
-                                    <h5><a href="{% url 'aw' aw_award.id %}"></a></h5>
-                                    <label>{{ aw_award.aw_name }}</label>
+                                    <h5><a href="{% url 'aw' aw_award.id %}">{{ aw_award.aw_name }}</a></h5>
                                     <p>
                                         {{ aw_award.aw_description }}
                                     </p>
@@ -144,7 +143,7 @@
                     {% if auction_aw %}
                         <div class="span6"><img src="{{ auction_aw.aw_id.aw_img.url }}" style="width: 300px;"></div>
                         <div class="span5 text-center">
-                            <h2>{{ auction_aw.aw_id.aw_name }}</h2>
+                            <h2><a href="{% url 'aw' auction_aw.aw_id.id %}">{{ auction_aw.aw_id.aw_name }}</a></h2>
                             <b>By </b>
                             <a href="{% url 'user' auction_aw.aw_id.artist_id.id %}">
                                 {{ auction_aw.aw_id.artist_id.first_name }}

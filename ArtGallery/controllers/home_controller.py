@@ -12,9 +12,9 @@ from django.db import transaction
 def home_page(request):
     # Newest artworks
     artworks = ArtWork.objects.all()
-    if len(artworks) >= 5:
-        latest_artworks = artworks.order_by('-aw_time')[len(artworks) - 5:]
-        artworks_list_by_awards = artworks.order_by('-aw_totalAward')[len(artworks) - 5:]
+    if len(artworks) >= 4:
+        latest_artworks = artworks.order_by('-aw_time')[len(artworks) - 4:]
+        artworks_list_by_awards = artworks.order_by('-aw_totalAward')[len(artworks) - 4:]
     else:
         latest_artworks = artworks.order_by('-aw_time')
         artworks_list_by_awards = artworks.order_by('-aw_totalAward')

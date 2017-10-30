@@ -237,7 +237,8 @@ def ajax_bid(request, aw_id):
                                     '"msg": "The bid price should be higher than your last bid and original price!"}',
                                     content_type='application/json')
             new_history.save()
-            return HttpResponse('{"status": "success"}',
+            return HttpResponse('{"status": "success", '
+                                '"msg": ' + str(remaining-1) + '}',
                                 content_type='application/json')
 
 

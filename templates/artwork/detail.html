@@ -5,7 +5,6 @@
     <div class="container">
         <div class="wrapper span12">
             <div class="span8">
-
                 <!-- Time, Location, and Complaint jump url -->
                 <div class="span2 text-right">
                     <h3 class="text-right">{{ aw.aw_name }}</h3>
@@ -33,10 +32,15 @@
                                 Withdraw Complaint
                             </a>
                         {% else %}
-                            <button href="{% url 'complaints_edit' aw.id %}" class="btn btn-warning"
-                                    {% if not request.user.is_authenticated or not identity %}disabled{% endif %}>
-                                Complaints
-                            </button>
+                            {% if not request.user.is_authenticated or not identity %}
+                                <button class="btn btn-warning" disabled>
+                                    Complaints
+                                </button>
+                            {% else %}
+                                <a href="{% url 'complaints_edit' aw.id %}" class="btn btn-warning">
+                                    Complaints
+                                </a>
+                            {% endif %}
                         {% endif %}
                     </div>
                     <div class="span2">
@@ -91,7 +95,6 @@
                 <div>
                     <h4 class="label-default">TOTAL REWARDS</h4>
                     <div>$<label class="label label-warning">{{ aw.aw_totalAward }}</label></div>
-
                     {% if reward %}
                         <table id="id_rewardTable" class="table-condensed">
                             <tr>
@@ -209,35 +212,38 @@
         </div><!-- /.modal -->
     </div>
 
-    <div class="modal fade" id="myBidModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h3 class="modal-title" id="myModalLabel">Auction (Bid)</h3>
-                </div>
-                <form id="id_bidForm" name="bidForm" action="" method="POST">
-                    <div class="modal-body">
-                        <p id="id_bidStatus">
-                            You can bid {{ auction_record.ah_remaining }} times for this artwork. <br/>
-                            Your bid price should be higher than
-                            <label class="label label-warning">$ {{ auction_record.ah_amount }}</label>
-                        </p>
-                        <p id="id_bidError" class="label label-important"></p>
-
-                        {% csrf_token %}
-                        {{ bid.as_p }}
-
+    {% if bid_stat %}
+        <div class="modal fade" id="myBidModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h3 class="modal-title" id="myModalLabel">Auction (Bid)</h3>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                        <input class="btn btn-success" type="submit" id="id_bidButton" name="bidButton" value="Bid"/>
-                    </div>
-                </form>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal -->
-    </div>
+                    <form id="id_bidForm" name="bidForm" action="" method="POST">
+                        <div class="modal-body">
+                            <p id="id_bidStatus">
+                                You can bid {{ auction_record.ah_remaining }} times for this artwork. <br/>
+                                Your bid price should be higher than
+                                <label class="label label-warning">$ {{ auction_record.ah_amount }}</label>
+                            </p>
+                            <p id="id_bidError" class="label label-important"></p>
+
+                            {% csrf_token %}
+                            {{ bid.as_p }}
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                            <input class="btn btn-success" type="submit" id="id_bidButton" name="bidButton"
+                                   value="Bid"/>
+                        </div>
+                    </form>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>
+    {% endif %}
 
 
 {% endblock %}
@@ -296,7 +302,6 @@
             });
             return false;
         });
-        var remaining = {{ auction_record.ah_remaining }};
 
         $('#id_bidButton').click(function () {
             $.ajax({
@@ -312,10 +317,9 @@
                         $('#id_bidError').text(data.msg);
                     }
                     else {
-                        remaining--
                         $('#id_bidError').text("success");
                         $('#id_bidError').attr('class', 'label label-success');
-                        $('#id_bidStatus').html("You can bid " + remaining + " times for this artwork. <br />\n" +
+                        $('#id_bidStatus').html("You can bid " + data.msg + " times for this artwork. <br />\n" +
                             "            Your bid price should be higher than $ <label class='label label-warning'>"
                             + $('#id_ah_amount').val() + '</label>')
                     }
@@ -367,4 +371,4 @@
 
     </script>
 
-{% endblock %}
+	{% endblock %}
