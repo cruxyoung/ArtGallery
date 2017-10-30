@@ -15,8 +15,11 @@ including: account.css, album.css and artwork.css
 ## IAM
 
 IAM Users Sign-in Link: https://639509737217.signin.aws.amazon.com/console
+
 Username: marker 
+
 Password: elec9609
+
 Permission: ReadOnlyAccess
 
 ## SSH 
@@ -26,8 +29,11 @@ public key has been added in the Linux instance.
 ## Database
 
 Hostname: elec9609db.ckouu0yszzyy.us-east-2.rds.amazonaws.com
+
 Port: 8080
+
 Username: xili9459
+
 Password: CongLin3
 
 ## Project Management
