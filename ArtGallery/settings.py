@@ -44,6 +44,15 @@ INSTALLED_APPS = [
     'xadmin',
     'crispy_forms',
     'reversion',
+    'django_nose',
+]
+
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+NOSE_ARGS = [
+    '--with-coverage',
+    # '--cover-erase',
+    '--cover-html',
+    '--cover-package=ArtGallery',
 ]
 
 COMMENTS_APP = 'threadedcomments'
@@ -64,7 +73,6 @@ ROOT_URLCONF = 'ArtGallery.urls'
 # Login Path and Logout Path
 LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'login'
-
 
 TEMPLATES = [
     {
@@ -88,12 +96,35 @@ SITE_ID = 1
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
+if 'test' in sys.argv:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            # 'NAME': "elec9609db",
+            'NAME': "ArtGallery",
+            'USER': "root",
+            'PASSWORD': "123233",
+            'HOST': "localhost",
+            # 'USER': "xili9459",
+            # 'PASSWORD': "CongLin3",
+            # 'HOST': "elec9609db.ckouu0yszzyy.us-east-2.rds.amazonaws.com",
+            # 'PORT': '8080',
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators

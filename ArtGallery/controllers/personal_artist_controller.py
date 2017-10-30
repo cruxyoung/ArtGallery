@@ -61,32 +61,18 @@ class EditAction(View):
         if str(artwork_id) == '0':
             add_form = forms.ArtworkForm(request.POST, request.FILES)
             if add_form.is_valid():
-                aw_name = request.POST.get('aw_name')
-                aw_location = request.POST.get('aw_location')
-                aw_type = request.POST.get('aw_type')
-                aw_genre = request.POST.get('aw_genre')
-                aw_description = request.POST.get('aw_description')
-
-                valid_string = aw_name + aw_location + aw_type + aw_genre + aw_description
-                if '/' in valid_string or '$' in valid_string or '<' in valid_string or '>' in valid_string:
-                    return render(request,
-                                  'personal_center/artist_center_artworks.html',
-                                  {'customer': request.user,
-                                   'artworks': artworks,
-                                   'result': 'Adding Failed, invalid characters'})
-                else:
-                    models.ArtWork.objects.create(
-                        aw_name=request.POST.get('aw_name'),
-                        aw_location=request.POST.get('aw_location'),
-                        aw_type=request.POST.get('aw_type'),
-                        aw_genre=request.POST.get('aw_genre'),
-                        aw_auctionStat=0,
-                        aw_description=request.POST.get('aw_description'),
-                        aw_img=add_form.cleaned_data['aw_img'],
-                        artist_id=request.user,
-                        aw_time=datetime.now(),
-                        aw_totalAward=0.0
-                    )
+                models.ArtWork.objects.create(
+                    aw_name=request.POST.get('aw_name'),
+                    aw_location=request.POST.get('aw_location'),
+                    aw_type=request.POST.get('aw_type'),
+                    aw_genre=request.POST.get('aw_genre'),
+                    aw_auctionStat=0,
+                    aw_description=request.POST.get('aw_description'),
+                    aw_img=add_form.cleaned_data['aw_img'],
+                    artist_id=request.user,
+                    aw_time=datetime.now(),
+                    aw_totalAward=0.0
+                )
 
                 return render(request,
                               'personal_center/artist_center_artworks.html',

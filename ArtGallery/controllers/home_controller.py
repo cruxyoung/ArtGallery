@@ -12,9 +12,9 @@ from django.db import transaction
 def home_page(request):
     # Newest artworks
     artworks = ArtWork.objects.all()
-    if len(artworks) >= 5:
-        latest_artworks = artworks.order_by('-aw_time')[len(artworks) - 5:]
-        artworks_list_by_awards = artworks.order_by('-aw_totalAward')[len(artworks) - 5:]
+    if len(artworks) >= 4:
+        latest_artworks = artworks.order_by('-aw_time')[len(artworks) - 4:]
+        artworks_list_by_awards = artworks.order_by('-aw_totalAward')[len(artworks) - 4:]
     else:
         latest_artworks = artworks.order_by('-aw_time')
         artworks_list_by_awards = artworks.order_by('-aw_totalAward')
@@ -42,17 +42,15 @@ def art_list(request):
     if request.method == "POST" and request.is_ajax():
         form = SearchForm(request.POST)
         if form.is_valid():
-            filt = request.POST.get('filter', '')
-            print(request.POST.getlist('genre-form'))
-            print(request.POST.getlist('period-form'))
+            keyword = request.POST.get('filter', '')
 
-            artworks = ArtWork.objects.filter(aw_name__contains=filt)
-            if request.POST.getlist("genre-form"):
-                genre = request.POST.getlist("genre-form")[0]
+            artworks = ArtWork.objects.filter(aw_name__contains=keyword)
+            if request.POST.get("genre-form"):
+                genre = request.POST.get("genre-form")
                 if genre != "All":
                     artworks = artworks.filter(aw_genre=genre)
-            if request.POST.getlist('period-form'):
-                period = request.POST.getlist('period-form')[0]
+            if request.POST.get('period-form'):
+                period = request.POST.get('period-form')
                 if period != "All":
                     artworks = artworks.filter(aw_time__year=period)
 
