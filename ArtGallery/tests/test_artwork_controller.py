@@ -1,13 +1,11 @@
-from django.test import Client
 from django.test import TestCase
 from django.test import RequestFactory
-from django.core.urlresolvers import reverse
 from datetime import datetime
 from ArtGallery import models
 from ArtGallery.controllers import artwork_controller
 
 
-class TestArtworkView(TestCase):
+class TestArtwork(TestCase):
     def setUp(self):
         self.factory = RequestFactory()
         self.user1 = models.User.objects.create(username='ink',
