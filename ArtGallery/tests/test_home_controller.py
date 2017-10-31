@@ -9,7 +9,7 @@ from ArtGallery import models
 class IndexViewTest(TestCase):
     def setUp(self):
         self.factory = RequestFactory()
-        self.user = models.User.objects.create(username="ink",
+        self.user = models.User.objects.create(username="elec",
                                                password="123233",
                                                first_name="Micheal",
                                                last_name="Jordan",
@@ -17,7 +17,7 @@ class IndexViewTest(TestCase):
                                                is_active=1,
                                                date_joined="2017-10-27",
                                                last_login="2017-10-27")
-        user = models.User.objects.get(username="ink")
+        user = models.User.objects.get(username="elec")
         models.UserProfile.objects.create(sex=1, amount=0, identity=1, user_id=user)
         models.ArtWork.objects.create(aw_name="test1",
                                       aw_location="China",
@@ -46,7 +46,7 @@ class IndexViewTest(TestCase):
 class IndexViewTestMoreThan5Artworks(TestCase):
     def setUp(self):
         self.factory = RequestFactory()
-        self.user = models.User.objects.create(username="ink",
+        self.user = models.User.objects.create(username="elec",
                                                password="123233",
                                                first_name="Micheal",
                                                last_name="Jordan",
@@ -54,7 +54,7 @@ class IndexViewTestMoreThan5Artworks(TestCase):
                                                is_active=1,
                                                date_joined="2017-10-27",
                                                last_login="2017-10-27")
-        user = models.User.objects.get(username="ink")
+        user = models.User.objects.get(username="elec")
         models.UserProfile.objects.create(sex=1, amount=0, identity=1, user_id=user)
         count = 0
         while count < 5:

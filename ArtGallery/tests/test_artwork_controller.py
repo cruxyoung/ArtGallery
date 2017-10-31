@@ -8,7 +8,7 @@ from ArtGallery.controllers import artwork_controller
 class TestArtwork(TestCase):
     def setUp(self):
         self.factory = RequestFactory()
-        self.user1 = models.User.objects.create(username='ink',
+        self.user1 = models.User.objects.create(username='elec',
                                                 password='123233',
                                                 first_name='Micheal',
                                                 last_name='Jordan',
@@ -17,7 +17,7 @@ class TestArtwork(TestCase):
                                                 is_active=1,
                                                 date_joined='2017-10-27',
                                                 last_login='2017-10-27')
-        self.user2 = models.User.objects.create(username='ink2',
+        self.user2 = models.User.objects.create(username='elec2',
                                                 password='123233',
                                                 first_name='Micheal',
                                                 last_name='Jordan',
@@ -27,8 +27,8 @@ class TestArtwork(TestCase):
                                                 date_joined='2017-10-27',
                                                 last_login='2017-10-27')
         # user1 is artist, user2 is customer
-        user1 = models.User.objects.get(username='ink')
-        user2 = models.User.objects.get(username='ink2')
+        user1 = models.User.objects.get(username='elec')
+        user2 = models.User.objects.get(username='elec2')
         models.UserProfile.objects.create(sex=1, amount=0, identity=0, user_id=user1)
         models.UserProfile.objects.create(sex=1, amount=100, identity=1, user_id=user2)
         models.ArtWork.objects.create(aw_name='test1',

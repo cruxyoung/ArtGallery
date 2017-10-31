@@ -7,7 +7,7 @@ from datetime import datetime
 
 class TestAccountController(TestCase):
     def setUp(self):
-        models.User.objects.create(username="ink",
+        models.User.objects.create(username="elec",
                                    password="123233",
                                    first_name="Micheal",
                                    last_name="Jordan",
@@ -15,12 +15,12 @@ class TestAccountController(TestCase):
                                    is_active=1,
                                    date_joined="2017-10-27",
                                    last_login="2017-10-27")
-        user = models.User.objects.get(username="ink")
+        user = models.User.objects.get(username="elec")
         models.UserProfile.objects.create(sex=1, amount=0, identity=1, user_id=user)
 
     def test_login(self):
         c = Client()
-        data = {'username': 'ink',
+        data = {'username': 'elec',
                 'password': '123233'}
         response = c.post('/accounts/login', data, follow_redirects=True)
         self.assertEqual(301, response.status_code)
